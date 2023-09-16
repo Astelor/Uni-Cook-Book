@@ -1,4 +1,4 @@
-# Chapter 1, An Overview of Computing System
+# An Overview of Computing System
 Basically this chapter covers the history of ARM processor and it's respective families, the important milestones and changes throughout the history. Since I'm fairly new to ARM ASM, I'm not going to dwell on history for long.
 
 But I might get back to this when I have the time.
