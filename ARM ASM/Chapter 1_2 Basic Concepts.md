@@ -12,7 +12,7 @@ The only thing new is "base"
   - 1010 1110 1000 1111
 - Hexadecimal (base 16)
   - 0xAE8F
-  - 0~9, A~F.
+  - 0 ~ 9, A ~ F.
 
 ## 1.5 Representations of Numbers and CHaracters
 It's the programmer who's responsible for interpreting the results that a processor provides, AND　making it clear in the code.
