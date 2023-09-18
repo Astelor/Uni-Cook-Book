@@ -1,6 +1,6 @@
 # Uni-Cook-Book
 The cook book of my university(years) studies, outta spite.
-And this is also a testament to my eloquence and markdown file organization abilities.
+This is also a testament to my eloquence and markdown file organization abilities.
 
 This repository includes but not limits to:
 1. University classes.
