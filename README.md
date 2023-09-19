@@ -18,3 +18,6 @@ This repository includes but not limits to:
 
 ## Electric Circuits
 - Book: Fundamentals of Electric Circuits, 7/e, Charles Alexander, Matthew Sadiku.
+
+## 民主政治 (通識)
+- Book: Nope. In class materials.

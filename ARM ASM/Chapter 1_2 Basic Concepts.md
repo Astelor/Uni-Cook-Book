@@ -28,3 +28,8 @@ It's the programmer who's responsible for interpreting the results that a proces
 
 ## 1.5.2 Floating-Point Representations
 
+## 1.5.3 Character Representations
+- American Standard Code for Information Exchange (ASCII)
+
+
+## 1.6 Translating Bits to Commands
