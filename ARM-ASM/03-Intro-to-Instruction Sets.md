@@ -17,7 +17,6 @@
     Thumb instruction:  ADD    r0, r2
     ```
 
-
 ## 3.3 Program 1: Shifting Data
 > The following examples are using the ARM7TDMI & Keil directives
 - The general format for most of the instructions:
@@ -67,7 +66,7 @@ stop    B       stop        ; stop program
 ```
 
 - **CMP**
-  - set the [condition code flags](/ARM%20ASM/Chapter%202%20The%20Programmer's%20Model.md/###Registers(ARM7TDMI)) from: r6(destination) - zero(source, #0)
+  - set the [condition code flags](/ARM-ASM/02-Programmer's-Model.md/###Registers(ARM7TDMI)) from: r6(destination) - zero(source, #0)
   - once the flags are set or cleared by CMP, they stay that way until something else modify them.
   - Instructions with "S" suffix update the flags(base on the results).
     - E.g. ADDS
@@ -86,7 +85,7 @@ stop    B       stop        ; stop program
 Additional resources: [Condition Codes 1: Condition Flags and Codes](https://community.arm.com/arm-community-blogs/b/architectures-and-processors-blog/posts/condition-codes-1-condition-flags-and-codes)
 
 ### Similar Code in Cortex-M4 (Thumb-2)
-> NOTE: [Cortex-M](/ARM%20ASM/Chapter%201%20An%20Overview%20of%20Computing%20System.md/###CORTEX-M) series is cheap and small.
+> NOTE: [Cortex-M](/ARM-ASM/01-Overview.md/###CORTEX-M) series is cheap and small.
 ```
       MOV   r6, #10     ; load 10 into r6
       MOV   r7, #1      ; if n=0, at least n!=0
@@ -120,3 +119,6 @@ A = A ⊕ B
 (A ⊕ B) ⊕ A = B
 (A ⊕ B) ⊕ B = A
 ```
+
+## 3.6 Program 4:
+## 3.7 Program 5:

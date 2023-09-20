@@ -23,7 +23,7 @@ You might encounter older versions of processors in your career, it's important 
       4. (done using a single instruction)
       - Convenient for programmers but arduous for processor designers.  
 ## 1.2.1 ARM
-![Architecture](attachments/Architecture%20versions.png)
+![Architecture](attachments/Architecture-versions.png)
 
 ## 1.2.3 ARM Today
 To make it easy for silicon partners to design and entire system-on-chip architecture using ARM technology.
@@ -61,7 +61,7 @@ To make it easy for silicon partners to design and entire system-on-chip archite
     - can be programmed quickly
 
 ## 1.3 The Computing Device
-![Hierarchy of computing](attachments/Hierarchy%20of%20computing.png)
+![Hierarchy of computing](attachments/Hierarchy-of-computing.png)
 - **ISA**: 
   - Instruction Set Architecture
   - you talk to the processor directly
