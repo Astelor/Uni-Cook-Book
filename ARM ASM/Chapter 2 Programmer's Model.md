@@ -6,7 +6,7 @@
     - how the processor is controlled
     - the features available
       - E.g. where data is stored • what happens when an exception occurs • where you registers are stacked during an exception
-- Begin with **ARM7TDMI** & **Cortex-M4**
+> Begin with **ARM7TDMI** & **Cortex-M4**
 
 ## 2.2 Data Types
 Data types ARM7TDMI & Cortex-M4 processors supports:
@@ -82,10 +82,11 @@ Data types ARM7TDMI & Cortex-M4 processors supports:
     - 4~0: **M** Mode bits
       - determine the mode in which the processor operates
       - if any value not listed here is programmed into the mode bits, the result is unpredictable.
-      - "unpredictable" by ARM's definition:
-        - The files do not contain valid data, and a value may very from moment to moment, instruction to instruction, and implementation to implementation.
   - ![CPSR](./attachments/ARM7TDMI-CPSR.png)
 
+> "unpredictable" by ARM's definition:
+> 
+>The files do not contain valid data, and a value may very from moment to moment, instruction to instruction, and implementation to implementation.
 ## 2.4 Cortex-M4
 
 ### Processor modes

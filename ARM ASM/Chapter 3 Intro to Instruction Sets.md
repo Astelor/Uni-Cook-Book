@@ -12,8 +12,10 @@
   - also work on 32-bit data
 
 - Adding two 32-bit numbers together can be done in two ways:
+    ```
     ARM instruction:    ADD    r0, r0, r2
     Thumb instruction:  ADD    r0, r2
+    ```
 
 
 ## 3.3 Program 1: Shifting Data
@@ -81,10 +83,10 @@ stop    B       stop        ; stop program
   - EQ: equal
     - E.g BGT • SUBGT • MULGT
 
-[Condition Codes 1: Condition Flags and Codes](https://community.arm.com/arm-community-blogs/b/architectures-and-processors-blog/posts/condition-codes-1-condition-flags-and-codes)
+Additional resources: [Condition Codes 1: Condition Flags and Codes](https://community.arm.com/arm-community-blogs/b/architectures-and-processors-blog/posts/condition-codes-1-condition-flags-and-codes)
 
 ### Similar Code in Cortex-M4 (Thumb-2)
-NOTE: [Cortex-M](/ARM%20ASM/Chapter%201%20An%20Overview%20of%20Computing%20System.md/###CORTEX-M) series is cheap and small
+> NOTE: [Cortex-M](/ARM%20ASM/Chapter%201%20An%20Overview%20of%20Computing%20System.md/###CORTEX-M) series is cheap and small.
 ```
       MOV   r6, #10     ; load 10 into r6
       MOV   r7, #1      ; if n=0, at least n!=0
@@ -104,10 +106,17 @@ stop  B     stop        ; stop program
 - This section introduces:
   - A fast way to swap two registers without using an intermediate storage location.
     - use the exclusive OR operator.
-- algorithm:
+- algorithm: (storing the result to the LHS of equation)
 ```
 A = A ⊕ B
 B = A ⊕ B
 A = A ⊕ B
 ```
 ![algorithm](attachments/exclusive-or-algorithm.png)
+> This is similar to how a three-drives backup works, two drives for normal files and one for the first two's XOR result.
+> 
+> If one of the drives breaks, the other two can "XOR" the broken one back.
+```
+(A ⊕ B) ⊕ A = B
+(A ⊕ B) ⊕ B = A
+```

@@ -3,7 +3,7 @@ The cook book of my university(years) studies, outta spite.
 This is also a testament to my eloquence and markdown file organization abilities.
 
 This repository includes but not limits to:
-1. University classes.
+1. University subjects.
 2. My own learning and research.
 3. Anything worth cooking.
 
@@ -20,6 +20,7 @@ This repository includes but not limits to:
 - [Chapter 3, Introduction to Instruction Sets](ARM%20ASM/Chapter%203%20Intro%20to%20Instruction%20Sets.md)
 - [Chapter 4, Assembler Rules and Directives](/ARM%20ASM/Chapter%204%20Assembler%20Rules%20and%20Directives.md)
 - [Chapter 5, Load, Stores, and Addressing](/ARM%20ASM/Chapter%205%20Loads,%20Stores,%20Addressing.md)
+- ...
 
 ## Data Structures in C
 - Book: Fundamentals of Data Structures in C, 2/e, Ellis Horowitz, Sartaj Sahni, Susan Anderson-Freed.
