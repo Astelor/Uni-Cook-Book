@@ -63,7 +63,7 @@ Data types ARM7TDMI & Cortex-M4 processors supports:
 - Program Counter: pipeline
 
 - Current Program Status Registers (CPSR)
-![CPSR](attachments/ARM7TDMI-CPSR.png)
+![CPSR](/attachments/ARM7TDMI-CPSR.png)
   -  Condition code flags
     - 31: N
     - 30: Z
