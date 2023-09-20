@@ -14,13 +14,13 @@ This repository includes but not limits to:
   - Reduced Insturction Set Computers, Prof. Vojin G. Oklobdzija, Integration, Berkeley, CA 94708 [^](ARM-ASM/resources/RISC-Chaptr.PDF)
 
 ### Recipe
-- [Chapter 1, Overview](/ARM-ASM/01-Overview.md)
-  - [Chapter 1-2, Basic Concepts](/ARM-ASM/01.2-Basics.md)
-- [Chapter 2, Programmer's Model](/ARM-ASM/02-Programmer's-Model.md)
-- [Chapter 3, Introduction to Instruction Sets](/ARM-ASM/03-Intro-to-Instruction%20Sets.md)
-- [Chapter 4, Assembler Rules and Directives](/ARM-ASM/04-Assembler-Rules-and-Directives.md)
-- [Chapter 5, Load, Stores, and Addressing](/ARM-ASM/05-Loads-Stores-Addressing.md)
-- ...
+written by chapter
+1. [Overview](/ARM-ASM/01-Overview.md) & [Basic Concepts](/ARM-ASM/01.2-Basics.md)
+2. [Programmer's Model](/ARM-ASM/02-Programmer's-Model.md)
+3. [Introduction to Instruction Sets](/ARM-ASM/03-Intro-to-Instruction%20Sets.md)
+4. [Assembler Rules and Directives](/ARM-ASM/04-Assembler-Rules-and-Directives.md)
+5. [Load, Stores, and Addressing](/ARM-ASM/05-Loads-Stores-Addressing.md)
+6. ...
 
 ## Data Structures in C
 - Book: Fundamentals of Data Structures in C, 2/e, Ellis Horowitz, Sartaj Sahni, Susan Anderson-Freed.
@@ -31,8 +31,22 @@ This repository includes but not limits to:
 ## Electric Circuits
 - Book: Fundamentals of Electric Circuits, 7/e, Charles Alexander, Matthew Sadiku.
 
+### Recipe
+written by chapter
+1. [Basic Concepts](/Data-Structure-in-C/01-Basic-Concepts.md)
+2. [Arrays and Structures](/Data-Structure-in-C/02-Arrays-and-Structures.md)
+3. ...
+
 ## 民主政治 (通識)
 - Book: Nope. In class materials.
 
+### Recipe
+1. [民主政治的起源與發展](/民主政治/01-Origins-and-Evolvement.md)
+2. ...
+
 # Note from Astelor
-I'm not quite sure why github mobile doesn't render image correctly, it could probably be a linking issue, but I don't want to risk using an absolute link.
+I solved the image rendering problem POG, it's the blank spaces in the paths BRUH.
+
+I cleansed the file names as well
+
+Might need a readme index in the near future.
