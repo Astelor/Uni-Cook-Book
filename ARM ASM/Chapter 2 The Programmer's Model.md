@@ -28,7 +28,7 @@ Data types ARM7TDMI & Cortex-M4 processors supports:
   - point out features that are common to all ARM processors, but differ by number, use, and limitations.
 
 ### Processor Modes
-![Processor-Modes](attachments/Processor-Modes.png)
+![Processor-Modes](./attachments/Processor-Modes.png)
 - Normally:
   - in User or Supervisor mode.
 - When external event happens: *interrupts*
@@ -58,12 +58,12 @@ Data types ARM7TDMI & Cortex-M4 processors supports:
   - processor suddenly changes mode 
   - save the state of the machine
   - swaps certain registers -> access fresh registers.
-![Register organization](attachments/Register-Organization.png)
+![Register organization](./attachments/Register-Organization.png)
 
 - Program Counter: pipeline
 
 - Current Program Status Registers (CPSR)
-![CPSR](/attachments/ARM7TDMI-CPSR.png)
+![CPSR](./attachments/ARM7TDMI-CPSR.png)
   -  Condition code flags
     - 31: N
     - 30: Z
