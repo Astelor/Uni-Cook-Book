@@ -42,7 +42,7 @@ stop    B       stop         ; stop program
   - NOTE: the addresses cascades depends on the ISA size (16/32 bits)
     - E.g 0x0004 -> 0x0008 -> 0x000C -> 0x0010
 
-## 3.4 Program 2: Factorial Calculation
+## 3.4 Program 2: Factorial Calculation (n!)
 - This section introduces:
   - **Conditional execution**:
     - certain instruction may or may not be performed, depending on the result of another instruction.
@@ -64,12 +64,50 @@ stop    B       stop        ; stop program
         END
 ```
 
-- CPSR: For one signed value to be **greater than** another
-  - the Z flag must be clear
-  - N and V flags must be equal
+- **CMP**
+  - set the [condition code flags](/ARM%20ASM/Chapter%202%20The%20Programmer's%20Model.md/###Registers(ARM7TDMI)) from: r6(destination) - zero(source, #0)
+  - once the flags are set or cleared by CMP, they stay that way until something else modify them.
+  - Instructions with "S" suffix update the flags(base on the results).
+    - E.g. ADDS
+- **CPSR**: For one signed value to be **greater than** another
+  - in this case from the CMP instruction: r6-#0
+  - Z(zero) flag = 0
+  - N(negative/ less than) = V(overflow)
 
 - **Condition suffix**:
-  - GT
-  - 
+  - GT: greater-than
+  - GE: greater-than-or-equal
+  - LT: less-than
+  - EQ: equal
+    - E.g BGT • SUBGT • MULGT
+
+[Condition Codes 1: Condition Flags and Codes](https://community.arm.com/arm-community-blogs/b/architectures-and-processors-blog/posts/condition-codes-1-condition-flags-and-codes)
+
+### Similar Code in Cortex-M4 (Thumb-2)
+NOTE: [Cortex-M](/ARM%20ASM/Chapter%201%20An%20Overview%20of%20Computing%20System.md/###CORTEX-M) series is cheap and small
+```
+      MOV   r6, #10     ; load 10 into r6
+      MOV   r7, #1      ; if n=0, at least n!=0
+loop  CMP   r6, #0
+      ITTT  GT          ; start of our IF-THEN block
+      MULGT r7, r6, r7  
+      SUBGT r6, r6, #1  
+      BGT   loop        ; end of IF-THEN block
+stop  B     stop        ; stop program
+```
+- Why "IF-THEN":
+  - Not have the 4-bit conditional field
+    - It just have too few bits to include one
+  - so Thumb-2 provides an IF-THEN structure to build small loop effectively
 
 ## 3.5 Program 3: Swapping Register Contents
+- This section introduces:
+  - A fast way to swap two registers without using an intermediate storage location.
+    - use the exclusive OR operator.
+- algorithm:
+```
+A = A ⊕ B
+B = A ⊕ B
+A = A ⊕ B
+```
+![algorithm](attachments/exclusive-or-algorithm.png)
