@@ -33,3 +33,25 @@ It's the programmer who's responsible for interpreting the results that a proces
 
 
 ## 1.6 Translating Bits to Commands
+- Machine bit-patterns: (what processor see)
+```
+E0CC31B0
+1AFFFFF1
+E3A0D008
+```
+- Programming: (what programmer reads)
+  - Substituting hex-bit-pattern to mnemonics
+    - easier for human to memorize, read, and debug.
+```
+STRH  sum, [pointer], #16
+BNE   loop_one
+MOV   count, #8 
+```
+- The translating process is done by assembler.
+
+## 1.7 The Tools
+- Compiler:
+  - High-level language -> instructions
+- Assembler:
+  - Instructions -> machine language
+  - Different tools have different preferred syntax(?)
