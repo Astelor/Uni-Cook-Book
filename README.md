@@ -50,3 +50,5 @@ I solved the image rendering problem POG, it's the blank spaces in the paths BRU
 I cleansed the file names as well
 
 Might need a readme index in the near future.
+
+the link to navigate by file and to section doesn't work on mobile.
