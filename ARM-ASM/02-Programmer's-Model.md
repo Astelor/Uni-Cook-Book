@@ -6,7 +6,7 @@
     - how the processor is controlled
     - the features available
       - E.g. where data is stored • what happens when an exception occurs • where you registers are stacked during an exception
-> Begin with **ARM7TDMI** & **Cortex-M4**
+- Begin with **ARM7TDMI** & **Cortex-M4**
 
 ## 2.2 Data Types
 Data types ARM7TDMI & Cortex-M4 processors supports:
