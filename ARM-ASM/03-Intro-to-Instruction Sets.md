@@ -80,6 +80,7 @@ stop    B       stop        ; stop program
   - GE: greater-than-or-equal
   - LT: less-than
   - EQ: equal
+  - NE: not-equal
     - E.g BGT • SUBGT • MULGT
 
 Additional resources: [Condition Codes 1: Condition Flags and Codes](https://community.arm.com/arm-community-blogs/b/architectures-and-processors-blog/posts/condition-codes-1-condition-flags-and-codes)
