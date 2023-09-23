@@ -66,11 +66,11 @@ Data types ARM7TDMI & Cortex-M4 processors supports:
   - In User or System mode(unprivileged mode)
     - If you try to read SPSR, you'll get an unpredictable value.
     - If you try write to SPSR, the data will be ignored.
-- **Current Program Status Registers**: (CPSR)
+- **Current Program Status Registers**: ([CPSR](/ARM-ASM/CPSR.md))
   - **Condition code flags** (Arithmetic Logic Unit)
-    - 31: **N** negative/ less than
+    - 31: **N** negative
     - 30: **Z** zero
-    - 29: **C** carry/ borrow/ extend (unsigned overflow)
+    - 29: **C** carry (unsigned overflow)
     - 28: **V** (signed) overflow
   - **Control bits**
     - 7: **I** IRQ disable

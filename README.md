@@ -11,13 +11,14 @@ This repository includes but not limits to:
 - Book: ARM Assembly Language: Fundamentals and Techniques, 2/e, William Hohl, Christopher Hinds.
 - Additional resources:
   - RealView Compilation Tools Assembler Guide ver.4 [^](ARM-ASM/resources/DUI0204J_rvct_assembler_guide.pdf)
+    - This is literally the official ARM ASM documentation.
   - Reduced Insturction Set Computers, Prof. Vojin G. Oklobdzija, Integration, Berkeley, CA 94708 [^](ARM-ASM/resources/RISC-Chaptr.PDF)
 
 ### Recipe
 written by chapter
 1. [Overview](/ARM-ASM/01-Overview.md) & [Basic Concepts](/ARM-ASM/01.2-Basics.md)
 2. [Programmer's Model](/ARM-ASM/02-Programmer's-Model.md)
-3. [Introduction to Instruction Sets](/ARM-ASM/03-Intro-to-Instruction%20Sets.md)
+3. [Introduction to Instruction Sets](/ARM-ASM/03-Intro-to-Instruction-Sets.md)
 4. [Assembler Rules and Directives](/ARM-ASM/04-Assembler-Rules-and-Directives.md)
 5. [Load, Stores, and Addressing](/ARM-ASM/05-Loads-Stores-Addressing.md)
 6. ...
@@ -47,8 +48,7 @@ written by chapter
 # Note from Astelor
 I solved the image rendering problem POG, it's the blank spaces in the paths BRUH.
 
-I cleansed the file names as well
-
 Might need a readme index in the near future.
 
 the link to navigate by file and to section doesn't work on mobile.
+
