@@ -42,6 +42,8 @@ stop    B       stop         ; stop program
   - copies one value in a register and paste it to another.
   - normally used to shuffle data from one register to another.
   - NOT used to load data from external memory into a register.
+- **LSL**
+  - logical shift left
 - **stop B stop**
   - the last instruction tells the processor to branch to the branch instruction itself -> infinite loop
 - **Instruction address**

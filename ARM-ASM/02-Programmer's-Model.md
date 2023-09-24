@@ -26,6 +26,7 @@ Data types ARM7TDMI & Cortex-M4 processors supports:
 ## 2.3 ARM7TDMI
 - This chapter...
   - points out features that are common to all ARM processors, but differ by number, use, and limitations.
+  - ARM7TDMI is a classic ARM core, released wayyy earlier than the Cortex family.
 
 ### Processor modes
 - Normally:
@@ -49,8 +50,8 @@ Data types ARM7TDMI & Cortex-M4 processors supports:
 
 ### Registers (ARM7TDMI)
 - **37 registers**: (36+1)
-  - 30 general-purpose registers (32 bits)
-  - 6 status registers
+  - 30 general-purpose registers (32 bits) (15+15 banked register)
+  - 6 status registers (1 CPSR+5 SPSR)
   - A Program Counter register (PC or r15)
 - **banked registers**:
   - processor suddenly changes mode 

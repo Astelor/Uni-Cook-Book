@@ -5,13 +5,16 @@
 ![CPSR](./attachments/ARM7TDMI-CPSR.png)
 
 - reference: [Condition Codes 1: Condition Flags and Codes](https://community.arm.com/arm-community-blogs/b/architectures-and-processors-blog/posts/condition-codes-1-condition-flags-and-codes)
-## N
+
+## Conditional code flags [31:28]
+
+### N
 Negative, is set by an instruction if the result is negative. In practice, N is set to the two's complement sign bit of the result(bit 31).
 
-## Z
+### Z
 Zero, is set of the result of the flag-setting instruction is zero.
 
-## C
+### C
 Carry(unsigned overflow), is set if the result of an **unsigned** operation overflows the 32-bit result register. This bit can be used to implement 64-bit unsigned arithmetic.
 
 It operates 4-bits at a time, which means it only counts the "carry" in base 16
@@ -21,7 +24,7 @@ ADDS    r1, r0, #1
 ```
 you get `N: 0, Z: 1, C: 1, V: 0`, now we know the result it evaluate is r1, and r1=0XFFFFFFFF+0x00000001=0
 
-## V
+### V
 Overflow(signed overflow), it works the same as the C flag, but for signed operations.
 
 ```
