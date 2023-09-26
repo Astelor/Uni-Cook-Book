@@ -14,8 +14,7 @@ This repository includes but not limits to:
     - This is literally the official ARM ASM documentation.
   - Reduced Insturction Set Computers, Prof. Vojin G. Oklobdzija, Integration, Berkeley, CA 94708 [^](ARM-ASM/resources/RISC-Chaptr.PDF)
 
-### Recipe
-written by chapter
+(written by chapter)
 1. [Overview](/ARM-ASM/01-Overview.md) & [Basic Concepts](/ARM-ASM/01.2-Basics.md)
 2. [Programmer's Model](/ARM-ASM/02-Programmer's-Model.md)
 3. [Introduction to Instruction Sets](/ARM-ASM/03-Intro-to-Instruction-Sets.md)
@@ -32,8 +31,7 @@ written by chapter
 ## Electric Circuits
 - Book: Fundamentals of Electric Circuits, 7/e, Charles Alexander, Matthew Sadiku.
 
-### Recipe
-written by chapter
+(written by chapter)
 1. [Basic Concepts](/Data-Structure-in-C/01-Basic-Concepts.md)
 2. [Arrays and Structures](/Data-Structure-in-C/02-Arrays-and-Structures.md)
 3. ...
@@ -41,14 +39,11 @@ written by chapter
 ## 民主政治 (通識)
 - Book: Nope. In class materials.
 
-### Recipe
 1. [民主政治的起源與發展](/民主政治/01-Origins-and-Evolvement.md)
 2. ...
 
 # Note from Astelor
 I solved the image rendering problem POG, it's the blank spaces in the paths BRUH.
-
-Might need a readme index in the near future.
 
 the link to navigate by file and to section doesn't work on mobile.
 
