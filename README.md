@@ -25,16 +25,16 @@ This repository includes but not limits to:
 ## Data Structures in C
 - Book: Fundamentals of Data Structures in C, 2/e, Ellis Horowitz, Sartaj Sahni, Susan Anderson-Freed.
 
+(written by chapter)
+1. [Basic Concepts](/Data-Structure-in-C/01-Basic-Concepts.md)
+2. [Arrays and Structures](/Data-Structure-in-C/02-Arrays-and-Structures.md)
+3. ...
+
 ## Microelectronic Circuits
 - Book: Microelectronic Circuits, 8/e, Adel S. Sedra, Kenneth C. Smith, Tony Chan Carusone, Vincent Gaudet.
 
 ## Electric Circuits
 - Book: Fundamentals of Electric Circuits, 7/e, Charles Alexander, Matthew Sadiku.
-
-(written by chapter)
-1. [Basic Concepts](/Data-Structure-in-C/01-Basic-Concepts.md)
-2. [Arrays and Structures](/Data-Structure-in-C/02-Arrays-and-Structures.md)
-3. ...
 
 ## 民主政治 (通識)
 - Book: Nope. In class materials.
