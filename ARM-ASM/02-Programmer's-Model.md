@@ -87,7 +87,7 @@ Data types ARM7TDMI & Cortex-M4 processors supports:
 
 > "unpredictable" by ARM's definition:
 > 
->The files do not contain valid data, and a value may very from moment to moment, instruction to instruction, and implementation to implementation.
+>The files do not contain valid data, and a value may vary from moment to moment, instruction to instruction, and implementation to implementation.
 ## 2.4 Cortex-M4
 
 ### Processor modes
