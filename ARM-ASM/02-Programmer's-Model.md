@@ -44,7 +44,7 @@ Data types ARM7TDMI & Cortex-M4 processors supports:
   - This mode can support virtual memory systems. Often a requirement for Linux systems.
 - **Undefined**: when it sees an instruction in the pipeline it doesn't recognize.
   - "historically" can be used to support valid floating-point instructions on machines without physical floating-point hardware.
-    - modern systems rarely on Undefined mode for such support. 
+    - modern systems rarely rely on Undefined mode for such support. 
 
 ![Processor-Modes](./attachments/Processor-Modes.png)
 
@@ -87,7 +87,7 @@ Data types ARM7TDMI & Cortex-M4 processors supports:
 
 > "unpredictable" by ARM's definition:
 > 
->The files do not contain valid data, and a value may very from moment to moment, instruction to instruction, and implementation to implementation.
+>The files do not contain valid data, and a value may vary from moment to moment, instruction to instruction, and implementation to implementation.
 ## 2.4 Cortex-M4
 
 ### Processor modes

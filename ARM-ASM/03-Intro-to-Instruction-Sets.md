@@ -46,7 +46,7 @@ stop    B       stop         ; stop program
 - **LSL**
   - logical shift left
 - **stop B stop**
-  - the last instruction tells the processor to branch to the branch instruction itself -> infinite loop
+  - tells the processor to branch to the branch instruction itself -> infinite loop
 - **Instruction address**
   - Program Counter (PC) points to the address of the instruction being fetched.
   - NOTE: the addresses cascades depends on the ISA size (16/32 bits)
