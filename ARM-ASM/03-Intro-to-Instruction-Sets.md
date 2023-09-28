@@ -1,5 +1,6 @@
 # Chapter 3 Introduction to Instruction Sets, v4T and v7-M
 > This chapter is meant to provide a gentle introduction concepts behind, and rules for writing.
+> NOTE: ARM, version 4T instruction set -> ARM7TDMI. Thumb-2, v7-M instruction set -> Cortex-M4. Mentioned in chapter 4, make more sense to note it here.
 
 ## 3.2 ARM, Thumb, and Thumb-2 Instructions
 - ARM instructions
