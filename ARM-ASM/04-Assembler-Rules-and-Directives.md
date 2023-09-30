@@ -16,7 +16,7 @@ start   MOV     r0, #10     ; Set up parameters
 stop    B       stop        ; infinite loop
         END                 ; Mark end of file
 ```
-- general form of source lines:
+- **general form of source lines**:
   - `{label} {instruction|directive|pseudo-instruction} {;comment}`
 - **labels**
   - are names you choose to represent an address somewhere in memory.
@@ -28,5 +28,24 @@ stop    B       stop        ; infinite loop
 
 - **Unified Assembler Language** (UAL):
   - the *current* ARM/Thumb assembler language
-  - superseded earlier versions of both the ARM and Thumb assembler languages 
+  - superseded earlier versions of both the ARM and Thumb assembler languages.
+  - can be assembled for ARM, Thumb, or Thumb-2
   - ![old-version-vs-UAL](/ARM-ASM/attachments/UAL-differences.png)
+    - Be mindful of the changes when you review older programs.
+
+- **Guidelines for good comments**
+  - don't comment the obvious
+  - use concise language
+  - comment the sections of code where you think another programmer will have a hard time following your reasoning.
+  - do not abbreviate, if possible.
+
+### Rules about constants
+- **numbers**
+  - decimal: 123
+  - hexadecimal: 0x3F
+  - n_xxx (Keil only) (base n):
+    - *n* is a base between 2 and 9
+    - *xxx* is a number in that base
+`the constant formats are similar to that of C`
+
+*tba, will comeback when I need this chapter*

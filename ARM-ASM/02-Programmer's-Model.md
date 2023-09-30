@@ -1,4 +1,4 @@
-# The Programmer's Model
+# Chapter 2, The Programmer's Model
 ## 2.1 Introduction
 - A programmer...
   - NOT need an understanding of how the processor is constructed.
