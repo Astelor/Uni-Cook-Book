@@ -1,6 +1,6 @@
 # Uni-Cook-Book
 The cook book (notes) of my university (years) studies, outta spite.
-This is also a testament to my eloquence and file organization abilities.
+This is also a testament to my eloquence and file organizing abilities.
 
 This repository includes but not limits to:
 1. University subjects.
@@ -8,8 +8,8 @@ This repository includes but not limits to:
 3. Anything worth cooking.
 
 ## ARM Assembly Language
-- Book: ARM Assembly Language: Fundamentals and Techniques, 2/e, William Hohl, Christopher Hinds.
-- Additional resources: (the copies saved are for studying)
+- **Book**: ARM Assembly Language: Fundamentals and Techniques, 2/e, William Hohl, Christopher Hinds.
+- **Resources**: (the copies saved are for studying)
   - RealView Compilation Tools Assembler Guide ver.4 [^](ARM-ASM/resources/DUI0204J_rvct_assembler_guide.pdf)
     - [!Original link! (download)](https://documentation-service.arm.com/static/5e9739fdc160f81d636ac1a2?token=)
     - This is literally the official ARM ASM documentation.
@@ -17,7 +17,7 @@ This repository includes but not limits to:
     - [!Original link!](https://www.nxp.com/docs/en/user-guide/UM10275.pdf)
     - The data sheet for designated ARM7TDMI microcontrollers in class.
     - Microcontrollers have different specifications, check their corresponding user manuals if applying otherwise.
-  - Reduced Insturction Set Computers, Prof. Vojin G. Oklobdzija, Integration, Berkeley, CA 94708 [^](ARM-ASM/resources/RISC-Chaptr.PDF)
+  - Reduced Instruction Set Computers, Prof. Vojin G. Oklobdzija, Integration, Berkeley, CA 94708 [^](ARM-ASM/resources/RISC-Chaptr.PDF)
     - [!Original link!](https://www.ece.ucdavis.edu/~vojin/CLASSES/EEC180B/Fall99/Writings/RISC-Chaptr.PDF)
 
 (written by chapter)
@@ -29,7 +29,7 @@ This repository includes but not limits to:
 6. ...
 
 ## Data Structures in C
-- Book: Fundamentals of Data Structures in C, 2/e, Ellis Horowitz, Sartaj Sahni, Susan Anderson-Freed.
+- **Book**: Fundamentals of Data Structures in C, 2/e, Ellis Horowitz, Sartaj Sahni, Susan Anderson-Freed.
 
 (written by chapter)
 1. [Basic Concepts](/Data-Structure-in-C/01-Basic-Concepts.md)
@@ -37,13 +37,13 @@ This repository includes but not limits to:
 3. ...
 
 ## Microelectronic Circuits
-- Book: Microelectronic Circuits, 8/e, Adel S. Sedra, Kenneth C. Smith, Tony Chan Carusone, Vincent Gaudet.
+- **Book**: Microelectronic Circuits, 8/e, Adel S. Sedra, Kenneth C. Smith, Tony Chan Carusone, Vincent Gaudet.
 
 ## Electric Circuits
-- Book: Fundamentals of Electric Circuits, 7/e, Charles Alexander, Matthew Sadiku.
+- **Book**: Fundamentals of Electric Circuits, 7/e, Charles Alexander, Matthew Sadiku.
 
 ## 民主政治 (通識)
-- Book: Nope. In class materials.
+- **Book**: Nope. In class materials.
 
 1. [民主政治的起源與發展](/民主政治/01-Origins-and-Evolvement.md)
 2. ...
