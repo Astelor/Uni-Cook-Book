@@ -1,5 +1,6 @@
 # Chapter 5, Loads, Stores, and Addressing
-Astelor: this is one funky chapter, spent a lotta time reading AND absorbing.
+>Astelor: this is one funky chapter, spent a lotta time reading AND absorbing.
+
 > About half of the instrucions deal with data movement; therefore, loading and storing data efficiently is critical to optimizing processor performance.
 >
 > This chapter looks at those basic load and store instructions, their addressing modes, and their uses.
@@ -8,7 +9,9 @@ Astelor: this is one funky chapter, spent a lotta time reading AND absorbing.
 - **8 bits, a byte**
   - the width of each element in the system universally adopted nowadays.
   - E.g. megabytes(MB, 2^20 or 10^6) • gigabytes(GB, 2^30 or 10^9) • terabytes(TB, 2^40 or 10^12)
-- **processor speaks directly to a fixed memory size**: such as 4GB
+- **processor speaks directly to a fixed memory size**: 
+  - such as 4GB(0x0~0xFFFFFFFF)
+  - "most textbooks on computer architecture cover it pretty well"
 - **loss of data**
   - registers are volatile, writing it to a non-volatile memory so no data is lost.
     > Energy management software may decide to power down certain parts of a chip when idle, and a loss of power may mean a loss of data. It may even have to store the contents of other on-chip memories such as a cache or tightly coupled memory (TCM)
@@ -16,11 +19,12 @@ Astelor: this is one funky chapter, spent a lotta time reading AND absorbing.
   - not all memory has to be readable and writable
   - E.g. ROM (Read-Only Memory) • EEPROM (Electrically Erasable Programmable ROM)
 
-- **address bus**: (??)
-  - address bus on ARM7TDMI: 32 bits
+- **address bus**:
+  - address bus on **ARM7TDMI**: 32 bits
     - you can address bytes in memory from address 0~2^32-1(0xFFFFFFFF)
     - which is 4GB of memory space.
-  - memory map on Cortex-M4-based microcontrollers(such as Tiva TM4C123GH6ZRB):
+    - 📝on 64-bit processor, it has 2^64-1 addresses, which is 8 million TeraBytes of memory space.
+  - memory map on **Cortex-M4-based** microcontrollers(such as Tiva TM4C123GH6ZRB):
     - the entire address space is defined, but certain address ranges do not exist. 
       - the address between 0x4400000 and 0xDFFFFFFF
       - different types of memory on the die and an interface to talk to external memory off-chip
@@ -29,9 +33,9 @@ Astelor: this is one funky chapter, spent a lotta time reading AND absorbing.
 > Astelor: I'm so confused by this part, so it has a memory map SOMEWHERE on chip, so when we stick an external memory, the processor can talk to that? but where's that map? a memory outside the processor itself but NOT an external memory?
 
 ## 5.3 Loads and Stores: The Instructions
-> Astelor: word size = the size of data the processor can access in a cycle.
+> Astelor: word size = the size of data the processor can access in a cycle = size of processor's register
 >  
-> so in 32-bit processor, a word is 32 bits, in 64-bit processor, a word is 64 bits.
+> So in 32-bit processor, a word is 32 bits, its general-purpose register(GPR) is 32 bits wide. In 64-bit processor, a word is 64 bits, its GPR is 64 bits wide.
 
 - **Most often used load/store instructions**
   - |Loads|Stores|Size and Type|

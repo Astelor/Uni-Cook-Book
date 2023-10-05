@@ -1,13 +1,13 @@
 #include <stdio.h>
 
-struct stint {
-    int f1,f2,f3,test1,test2; //alignment
-};
-struct stfloat{
-    double f4;
+struct stint{//4*12
+    int f1,f2,f3;
+}stint_test;
+struct stfloat{ //4+(4)+8=16
+    float f4;
     double f5;
-};
-struct sam{
+}stfloat_test;
+struct sam {//[1+(3)+4+4+(4)+8]+16=[24]+16=40
     char utype;
     float f6, f7;
     double f8;
@@ -18,20 +18,17 @@ struct sam{
     }f13;
 };
 struct sam s[100];
-
 int main(){
-    long long base=&s[0];
-    printf("base: %p\n",&s[0]);
-    printf("(1)   %p\n",&s[27].utype);//,&s[27].utype-base);
-    printf("(2)   %p\n",&s[23].f6);//,&s[23].f6-base);
-    printf("(3)   %p\n",&s[18].f8);//,&s[18].f8-base);
-    printf("(4)   %p\n",&s[37].f13.f11.f3);//,&s[37].f13.f11.f3-base);
-    printf("(5)   %p\n\n",&s[37].f13.f12.f5);//,&s[37].f13.f12.f5-base);
-
-    printf("(1) size: %d\n",sizeof(s[27].utype));
-    printf("(2) size: %d\n",sizeof(s[23].f6));
-    printf("(3) size: %d\n",sizeof(s[18].f8));
-    printf("(4) size: %d\n",sizeof(s[37].f13));
-    printf("(5) size: %d\n",sizeof(s[37].f13.f12.f5));
+    //results
+    int sam_size=sizeof(s[0]), 
+        stint_size=sizeof(stint_test), 
+        stfloat_size=sizeof(stfloat_test), 
+        sam_union_size=sizeof(s[0].f13),
+        q1=sizeof(s[27].utype),
+        q2=sizeof(s[23].f6),
+        q3=sizeof(s[18].f8),
+        q4=sizeof(s[37].f13.f11.f3),
+        q5=sizeof(s[37].f13.f12.f5);
+    
     return 0;
 }

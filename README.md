@@ -1,6 +1,6 @@
 # Uni-Cook-Book
-The cook book of my university(years) studies, outta spite.
-This is also a testament to my eloquence and markdown file organization abilities.
+The cook book (notes) of my university (years) studies, outta spite.
+This is also a testament to my eloquence and file organization abilities.
 
 This repository includes but not limits to:
 1. University subjects.
@@ -9,10 +9,16 @@ This repository includes but not limits to:
 
 ## ARM Assembly Language
 - Book: ARM Assembly Language: Fundamentals and Techniques, 2/e, William Hohl, Christopher Hinds.
-- Additional resources:
+- Additional resources: (the copies saved are for studying)
   - RealView Compilation Tools Assembler Guide ver.4 [^](ARM-ASM/resources/DUI0204J_rvct_assembler_guide.pdf)
+    - [!Original link! (download)](https://documentation-service.arm.com/static/5e9739fdc160f81d636ac1a2?token=)
     - This is literally the official ARM ASM documentation.
+  - UM10275 LPC2104/2105/2106 User manual [^](/ARM-ASM/resources/LPC2104_2105_2106.pdf)
+    - [!Original link!](https://www.nxp.com/docs/en/user-guide/UM10275.pdf)
+    - The data sheet for designated ARM7TDMI microcontrollers in class.
+    - Microcontrollers have different specifications, check their corresponding user manuals if applying otherwise.
   - Reduced Insturction Set Computers, Prof. Vojin G. Oklobdzija, Integration, Berkeley, CA 94708 [^](ARM-ASM/resources/RISC-Chaptr.PDF)
+    - [!Original link!](https://www.ece.ucdavis.edu/~vojin/CLASSES/EEC180B/Fall99/Writings/RISC-Chaptr.PDF)
 
 (written by chapter)
 1. [Overview](/ARM-ASM/01-Overview.md) & [Basic Concepts](/ARM-ASM/01.2-Basics.md)
