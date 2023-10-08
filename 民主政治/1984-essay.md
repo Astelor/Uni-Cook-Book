@@ -10,7 +10,7 @@ Please write mainly in Chinese to make it easier for future Astelor :>
 4. Comparison to modern country (especially China)
 5. China's sanction to "thought criminals"
 6. What can Winston do if he were living contemporarily.
-
+---
 1. 1984中的政治結構
 2. 1984中的人民生活狀況
 3. 其中的思想控制手段
