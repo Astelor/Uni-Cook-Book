@@ -4,9 +4,9 @@ one thing at a time, baby steps are fine.
 _due
 - 電路實驗第五周預報 (10/10 Tue.)
 - 電路焊接 (10/10 Tue.)
+- 民主政治報告 (10/17 Tue.)
 
 _homework
-- 民主政治報告 (10/17 Tue.)
 - data structure HW2 (10/22 Sun.)
 - 工程數學 HW1 (10/26 Thu.)
 
@@ -16,7 +16,7 @@ ARM ASM & Microelectronic Circuits have regular tests
 _study
 The perpetual studying(struggling) is real :')
 - Data Structure
-  - Chapter 1, 2, 3
+  - textbook. Chapter 1, 2, 3
 - Engineering Math
   - Review
   - if you can, preview
@@ -36,3 +36,4 @@ review and preview, what difference does it make if you gotta view the textbooks
 - Cybersecurity
   - CEH reads
   - HTB CTF
+- make the markdowns more comprehensive :>
