@@ -6,16 +6,16 @@
 > This chapter looks at those basic load and store instructions, their addressing modes, and their uses.
 
 ## 5.2 Memory
-- **8 bits, a byte**
+- **8 bits, a byte**:
   - the width of each element in the system universally adopted nowadays.
   - E.g. megabytes(MB, 2^20 or 10^6) • gigabytes(GB, 2^30 or 10^9) • terabytes(TB, 2^40 or 10^12)
 - **processor speaks directly to a fixed memory size**: 
   - such as 4GB(0x0~0xFFFFFFFF)
   - "most textbooks on computer architecture cover it pretty well"
-- **loss of data**
+- **loss of data**:
   - registers are volatile, writing it to a non-volatile memory so no data is lost.
     > Energy management software may decide to power down certain parts of a chip when idle, and a loss of power may mean a loss of data. It may even have to store the contents of other on-chip memories such as a cache or tightly coupled memory (TCM)
-- **hardware types**
+- **hardware types**:
   - not all memory has to be readable and writable
   - E.g. ROM (Read-Only Memory) • EEPROM (Electrically Erasable Programmable ROM)
 
@@ -58,15 +58,37 @@ LDR|STR{<size>}{<cond>} <Rd>,<addressing_mode>
 <cond>: optional condition (discussed in chapter 8)
 <Rd>: source or destination register
 ``` 
-- **addressing mode**:
+- **addressing mode**: (see 5.4 operand addressing)
   - `LDR r9, [r12, r8, LSL #2]`
     - Have a base register r12, an offset value created shifting r8 left by two bits.
     - The offset is added to the base register to created the effective address for the load in this case.
-  - **effective address**: 
-    - the final address created from values in the various registers. 
-    - the address to access memory.
-## 5.4 Operand Addressing
+- **effective address**: 
+  - the final address created from values in the various registers. 
+  - the address to access memory.
+- **limitations**:
+  - loading to r15 (PC) must be used with caution
 
+
+## 5.4 Operand Addressing
+- pre-indexed addressing and post-indexed addressing are just variations on a theme.
+- they have two things in common, a base register and an optional offset.
 ### Pre-Indexed Addressing
+
+syntax:
+```
+LDR|STR{<size>}{<cond>} <Rd>, [<Rd>,<offset>]{!}
+```
+example:
+```
+STR r0, [r1, #12]
+```
+- **base register**:
+  - Rn
+- **effective address**:
+  - base register(Rn) + offset = effective address
+  - in pre-indexed addressing the offset is added before the data is stored to memory.
+- **!** (the optional escalation mark)
+  - writing the effective address back into base register(Rn) at the end of the instruction.
+
 
 ### Post-Indexed Addressing
