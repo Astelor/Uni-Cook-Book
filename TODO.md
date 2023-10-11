@@ -2,9 +2,9 @@
 one thing at a time, baby steps are fine.
 
 _due
-- 電路實驗第五周預報 (10/10 Tue.)
-- 電路焊接 (10/10 Tue.)
-- 民主政治報告 (10/17 Tue.)
+- 電路實驗第六周預報 (10/17 Tue.)
+- 電路實驗第五週結報 (10/17 Tue.)
+- 民主政治報告 (10/24 Tue.)
 
 _homework
 - data structure HW2 (10/22 Sun.)
@@ -15,6 +15,9 @@ ARM ASM & Microelectronic Circuits have regular tests
 
 _study
 The perpetual studying(struggling) is real :')
+- 1984 thesis (primarily on philosophical aspect, cuz topic)
+  - On Nineteen Eighty-Four (the one edited by philosophers)
+
 - Data Structure
   - textbook. Chapter 1, 2, 3
 - Engineering Math
@@ -37,3 +40,5 @@ review and preview, what difference does it make if you gotta view the textbooks
   - CEH reads
   - HTB CTF
 - make the markdowns more comprehensive :>
+- The Books Q, one book at a time bruh
+  - Red Roulette
