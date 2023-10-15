@@ -1,0 +1,11 @@
+r1 temp
+r2 result
+r3 x
+r4 2
+r5 1
+r6 0
+r7 (-1)
+
+0x00000001
+0xFFFFFFFF ; what's two's complement -1 again? lol
+surely it doesn't cause problem heh
