@@ -1,16 +1,13 @@
-04:17 PM 10/11/2023 (Wed.)
+03:26 PM 10/17/2023 (Wed.)
 one thing at a time, baby steps are fine.
 
 _due
 - 民主政治報告 (10/24 Tue.)
   - will take (lotta) time to finish, this goes first.
-- 電路實驗第五週結報 (10/17 Tue.)
-- 電路實驗第六周預報 (10/17 Tue.)
 
 _homework
 - data structure HW2 (10/22 Sun.)
 - 工程數學 HW1 (10/26 Thu.)
-- ARM-ASM HW2 (11/1 Wed.)
 
 _test
 ARM ASM & Microelectronic Circuits have regular tests
