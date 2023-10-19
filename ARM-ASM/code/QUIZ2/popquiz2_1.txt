@@ -1,0 +1,13 @@
+popquiz2_1
+j=(2^n + 4^m + 8^p) -17
+
+r0 
+r1 temp
+r2 n = 25
+r3 m = 11
+r4 p = 6
+r5 j
+r6 2^n
+r7 4^m
+r8 8^p
+r9 17

@@ -1,0 +1,12 @@
+4xy-7x+19
+
+r0 -1
+r1 temp
+r2 result
+r3 x = -66
+r4 y = 44
+r5 4xy
+r6 7x
+r7 19
+r8 
+r9 
