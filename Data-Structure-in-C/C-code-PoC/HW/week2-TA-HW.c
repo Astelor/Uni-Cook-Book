@@ -5,7 +5,7 @@
 int main(void){
     int arr[maxlen]={},n=0;
     char c;
-    while((c = getchar()) !=EOF && c!='\n'){
+    while((c = getchar())&& c!=EOF && c!='\n'){
         if(c>='0'&&c<='9'){
             arr[n++]=c-'0';
         }
