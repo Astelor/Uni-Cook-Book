@@ -3,20 +3,19 @@ one thing at a time, baby steps are fine.
 
 _due
 - 民主政治報告 (10/24 Tue.)
-  - will take (lotta) time to finish, this goes first.
+  - clean up and submit already.
+- 第六週結報 (10/24 Tue.)
+- 第七週預報 (10/24 Tue.)
 
 _homework
-- data structure HW2 (10/22 Sun.)
 - 工程數學 HW1 (10/26 Thu.)
 
 _test
 ARM ASM & Microelectronic Circuits have regular tests
+- Microelectronic Circuits popquiz, semiconductor (10/24 Tue.)
 
 _study
 The perpetual studying(struggling) is real :')
-- 1984 thesis (primarily on philosophical aspect, cuz topic)
-  - On Nineteen Eighty-Four (the one edited by philosophers)
-
 - Data Structure
   - textbook. Chapter 1, 2, 3
 - Engineering Math
