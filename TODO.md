@@ -1,18 +1,24 @@
-12:06 PM 10/23/23 
+7:38 AM 10/24/2023
 one thing at a time, baby steps are fine.
 
 _due
-- 民主政治報告 (10/24 Tue.)
-  - clean up and submit already.
 - 第六週結報 (10/24 Tue.)
 - 第七週預報 (10/24 Tue.)
+- 工程數學 HW1 (10/26 Thu.)
 
 _homework
-- 工程數學 HW1 (10/26 Thu.)
+- 第七周結報
+- 第八周預報
 
 _test
 ARM ASM & Microelectronic Circuits have regular tests
-- Microelectronic Circuits popquiz, semiconductor (10/24 Tue.)
+- Microelectronic Circuits popquiz(4) (10/24 Tue.)
+- Microelectronic Circuits popquiz(1) (10/30 Mon.)
+
+_midterm
+- Microelectronic Circuits (11/7 Tue.)
+- Democracy and Politics (11/7 Tue.)
+
 
 _study
 The perpetual studying(struggling) is real :')
