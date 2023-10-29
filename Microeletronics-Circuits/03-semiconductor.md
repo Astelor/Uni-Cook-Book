@@ -44,7 +44,7 @@ A silicon atom has 4 valence electrons, it requires another 4 to complete its ou
   -  concentration of free electrons: *n*
   -  concentration of holes: *p*
 
-$$n=p=n_i\\pn=n_i^2$$
+$$n=p=n_i \\ pn=n_i^2$$
 
 - $n_i$ : number of free electrons and holes in a unit volume ($cm^3$)
 
@@ -93,7 +93,7 @@ $$n_i=BT^{3/2}e^{-E_g/2kT}$$
 - Each phosphorus atom "donates" an electron
   - the phosphorus impurity is called a **donor**
 
-$$n_n\simeq N_D\\p_nn_n=n_i^2 \space,\space N_D\gg n_i\\p_n\simeq\frac{n_i^2}{N_D}$$
+$$n_n\simeq N_D \\ p_nn_n=n_i^2 \space,\space N_D\gg n_i \\ p_n\simeq\frac{n_i^2}{N_D}$$
 
 - $n_n$ : the concentration of free electrons in the n-type silicon
   - **majority** charge carrier
@@ -113,7 +113,7 @@ $$n_n\simeq N_D\\p_nn_n=n_i^2 \space,\space N_D\gg n_i\\p_n\simeq\frac{n_i^2}{N_
 - Each born atom "accepts" an electron
   - the boron atom is called an **acceptor**
 
-$$p_p\simeq N_A\\p_pn_p=n_i^2\space,\space N_A\gg n_i\\n_p\simeq\frac{n_i^2}{N_A}$$
+$$p_p\simeq N_A \\ p_pn_p=n_i^2\space,\space N_A\gg n_i \\ n_p\simeq\frac{n_i^2}{N_A}$$
 
 - $n_p$ : the concentration of free electrons in p-type silicon
   - **minority** charge carriers
@@ -132,7 +132,7 @@ Two distinctly different mechanisms for the movements of charge carriers, drift 
 `Electric field`, holes are accelerated in the direction of *E*.
 
 #### Velocity
-$$v_{p-drift}=\mu_pE\\v_{n-drift}=-\mu_nE$$
+$$v_{p-drift}=\mu_pE \\ v_{n-drift}=-\mu_nE$$
 
 - $\mu_p$ : a constant, **hole mobility**
   - represents the ease by which the holes move through the silicon crystal in response to the electrical field *E*.
@@ -145,9 +145,9 @@ $$v_{p-drift}=\mu_pE\\v_{n-drift}=-\mu_nE$$
 #### Current
 let *p* = *n* (an intrinsic silicon bar)
 
-$$I_{S,p}=Aqpv_{p-drift}\\=Aqp\mu_pE$$
+$$I_{S,p}=Aqpv_{p-drift} \\ =Aqp\mu_pE$$
 
-$$I_{S,n}=-Aqv_{n-drift}\\=Aqn\mu_nE$$
+$$I_{S,n}=-Aqv_{n-drift} \\ =Aqn\mu_nE$$
 
 - $A$ : the cross-sectional area of the silicon bar
 - $q=1.6\times10^{-19}$ : the magnitude of electron charge
@@ -166,7 +166,7 @@ total drift density:
 $$J_S=J_{S,p}+J_{S,n}=q(p\mu_p+n\mu_n)E$$
 
 can express this alternatively, where resistivity *ρ*
-$$J=E/\rho\space,\space\rho=\frac{E}{J}\\\rho=\frac{1}{q(p\mu_p+n\mu_n)}$$
+$$J=E/\rho\space,\space\rho=\frac{E}{J} \\ \rho=\frac{1}{q(p\mu_p+n\mu_n)}$$
 
 and the resistance R is
 $$R=\frac{\rho L}{A}$$
