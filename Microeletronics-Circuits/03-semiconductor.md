@@ -129,7 +129,7 @@ $$p_p\simeq N_A \\ p_pn_p=n_i^2\space,\space N_A\gg n_i \\ n_p\simeq\frac{n_i^2}
 ## 3.3 Current Flow in Semiconductors
 Two distinctly different mechanisms for the movements of charge carriers, drift and diffusion.
 ### 3.3.1 Drift Current
-`Electric field`, holes are accelerated in the direction of *E*.
+`Electric field`E is established in a semiconductor crystal, holes are accelerated in the direction of *E*.
 
 #### Velocity
 $$v_{p-drift}=\mu_pE \\ v_{n-drift}=-\mu_nE$$
@@ -171,7 +171,8 @@ $$J=E/\rho\space,\space\rho=\frac{E}{J} \\ \rho=\frac{1}{q(p\mu_p+n\mu_n)}$$
 and the resistance R is
 $$R=\frac{\rho L}{A}$$
 
-- $\rho$ : resistivity
+- $\rho$ : resistivity $(\frac{V/cm}{A/cm^2}=\Omega\cdot cm)$
+- $J_S$ : current density of the drift current (A/cm²)
 
 ### 3.3.2 Diffusion Current
-`Concentration difference`
+`Concentration difference` → density of charge carriers not uniform → carrier diffusion, carriers will diffuse from high to low concentration region.
