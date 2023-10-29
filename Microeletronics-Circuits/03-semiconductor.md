@@ -36,7 +36,5 @@ A silicon atom has 4 valence electrons, it requires another 4 to complete its ou
   
 ### Thermal Generation
 Generates EQUAL numbers of free electrons and holes.
-
 $n=p=n_i$
-
 $n_i=BT^{3/2}e^{-E_g/2kT}$
