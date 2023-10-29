@@ -1,29 +1,25 @@
-7:38 AM 10/24/2023
+05:00 PM 10/28/2023
 one thing at a time, baby steps are fine.
+work smart, not work hard.
 
 _due
-- 第六週結報 (10/24 Tue.)
-- 第七週預報 (10/24 Tue.)
-- 工程數學 HW1 (10/26 Thu.)
+- 第七週結報 (10/31 Tue.)
+- 第八週預報 (10/31 Tue.)
 
 _homework
-- 第七周結報
-- 第八周預報
+- Data Structure HW2 (11/19 Sun.)
+- Probability (problem set)
 
 _test
 ARM ASM & Microelectronic Circuits have regular tests
-- Microelectronic Circuits popquiz(4) (10/24 Tue.)
-- Microelectronic Circuits popquiz(1) (10/30 Mon.)
+- Microelectronic Circuits ch1. popquiz(1) (10/30 Mon.)
 
 _midterm
 - Microelectronic Circuits (11/7 Tue.)
 - Democracy and Politics (11/7 Tue.)
 
-
 _study
 The perpetual studying(struggling) is real :')
-- Data Structure
-  - textbook. Chapter 1, 2, 3
 - Engineering Math
   - Review
   - if you can, preview
@@ -33,16 +29,24 @@ The perpetual studying(struggling) is real :')
 - Microelectronic Circuits
   - note chapter 1 down.
   - preview further
+- Data Structure
+  - textbook. Chapter 1, 2, 3
 - ARM ASM
   - note chapter 5 down.
   - pre: chapter 6
 
 ____
 (side quest)
-review and preview, what difference does it make if you gotta view the textbooks anyway
+review and preview, what difference does it make if you gotta view the textbooks anyway.
+Academic is not everything, but everything is based on academic. How are you gonna do side quests if you know nothing?
+
 - Cybersecurity
   - CEH reads
   - HTB CTF
 - make the markdowns more comprehensive :>
 - The Books Q, one book at a time bruh
   - Red Roulette
+
+render test...
+$\pi x+y$ omg it works
+aight time to memorize LaTeX syntax
