@@ -47,6 +47,14 @@ Academic is not everything, but everything is based on academic. How are you gon
 - The Books Q, one book at a time bruh
   - Red Roulette
 
-render test...
-$\pi x+y$ omg it works
-aight time to memorize LaTeX syntax
+____
+(plans for future)
+- find lectures/ programs(some are in comp sci)
+  - cybersecurity
+  - operating system
+  - computer network
+  - microprocessor(arm asm)
+- studying abroad?
+  - UK or USA
+  - FULL scholarship(the econ smh)
+  - what track? the plans to root and thrive?
