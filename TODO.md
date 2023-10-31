@@ -1,4 +1,4 @@
-05:00 PM 10/28/2023
+10:0p AM 10/31/2023
 one thing at a time, baby steps are fine.
 work smart, not work hard.
 
@@ -7,12 +7,12 @@ _due
 - 第八週預報 (10/31 Tue.)
 
 _homework
-- Data Structure HW2 (11/19 Sun.)
+- Data Structure HW3 (11/19 Sun.)
 - Probability (problem set)
+- Engineering Math HW2 ()
 
 _test
 ARM ASM & Microelectronic Circuits have regular tests
-- Microelectronic Circuits ch1. popquiz(1) (10/30 Mon.)
 
 _midterm
 - Microelectronic Circuits (11/7 Tue.)
