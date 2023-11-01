@@ -1,4 +1,4 @@
-10:0p AM 10/31/2023
+05:05 PM 10/31/2023
 one thing at a time, baby steps are fine.
 work smart, not work hard.
 
@@ -15,8 +15,13 @@ _test
 ARM ASM & Microelectronic Circuits have regular tests
 
 _midterm
-- Microelectronic Circuits (11/7 Tue.)
+- Microelectronic Circuits (8 AM, 11/7 Tue.)
 - Democracy and Politics (11/7 Tue.)
+- ARM ASM (11/7 Tue.)
+- Data Structure (11/9 Thu.)
+- Electric Circuits (11/10 Fri.)
+- Probability (11/13 Mon.)
+- Experiment. Electric Circuit (11/22 Wed.)
 
 _study
 The perpetual studying(struggling) is real :')
@@ -28,7 +33,7 @@ The perpetual studying(struggling) is real :')
   - if you can, preview
 - Microelectronic Circuits
   - note chapter 1 down.
-  - preview further
+  - read chapter 2, 3
 - Data Structure
   - textbook. Chapter 1, 2, 3
 - ARM ASM
@@ -37,7 +42,7 @@ The perpetual studying(struggling) is real :')
 
 ____
 (side quest)
-review and preview, what difference does it make if you gotta view the textbooks anyway.
+review and preview, what difference does it make if you gotta view the textbooks anyway. 
 Academic is not everything, but everything is based on academic. How are you gonna do side quests if you know nothing?
 
 - Cybersecurity

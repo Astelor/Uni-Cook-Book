@@ -1,34 +1,36 @@
 # Chapter 5, Loads, Stores, and Addressing
->Astelor: this is one funky chapter, spent a lotta time reading AND absorbing.
+About half of the instrucions deal with data movement; therefore, loading and storing data efficiently is critical to optimizing processor performance.
 
-> About half of the instrucions deal with data movement; therefore, loading and storing data efficiently is critical to optimizing processor performance.
->
-> This chapter looks at those basic load and store instructions, their addressing modes, and their uses.
+This chapter looks at those basic load and store instructions, their addressing modes, and their uses.
 
 ## 5.2 Memory
-- **8 bits, a byte**:
-  - the width of each element in the system universally adopted nowadays.
-  - E.g. megabytes(MB, 2^20 or 10^6) • gigabytes(GB, 2^30 or 10^9) • terabytes(TB, 2^40 or 10^12)
-- **processor speaks directly to a fixed memory size**: 
-  - such as 4GB(0x0~0xFFFFFFFF)
-  - "most textbooks on computer architecture cover it pretty well"
-- **loss of data**:
+
+### 8 bits, a byte
+- the width of each element in the system universally adopted nowadays.
+- E.g. megabytes(MB, 2^20 or 10^6) • gigabytes(GB, 2^30 or 10^9) • terabytes(TB, 2^40 or 10^12)
+
+### processor speaks directly to a fixed memory size 
+- such as 4GB(0x0~0xFFFFFFFF)
+- "most textbooks on computer architecture cover it pretty well"
+
+### loss of data
   - registers are volatile, writing it to a non-volatile memory so no data is lost.
     > Energy management software may decide to power down certain parts of a chip when idle, and a loss of power may mean a loss of data. It may even have to store the contents of other on-chip memories such as a cache or tightly coupled memory (TCM)
-- **hardware types**:
-  - not all memory has to be readable and writable
-  - E.g. ROM (Read-Only Memory) • EEPROM (Electrically Erasable Programmable ROM)
 
-- **address bus**:
-  - address bus on **ARM7TDMI**: 32 bits
-    - you can address bytes in memory from address 0~2^32-1(0xFFFFFFFF)
-    - which is 4GB of memory space.
-    - 📝on 64-bit processor, it has 2^64-1 addresses, which is 8 million TeraBytes of memory space.
-  - memory map on **Cortex-M4-based** microcontrollers(such as Tiva TM4C123GH6ZRB):
-    - the entire address space is defined, but certain address ranges do not exist. 
-      - the address between 0x4400000 and 0xDFFFFFFF
-      - different types of memory on the die and an interface to talk to external memory off-chip
-    - "not all addresses are used, and much of teh memory map contains areas dedicated to specific functions......While the memory layout is defined by an SoC's implementation, it is not part of the processor core" 
+### hardware types
+- not all memory has to be readable and writable
+- E.g. ROM (Read-Only Memory) • EEPROM (Electrically Erasable Programmable ROM)
+
+### address bus
+- address bus on **ARM7TDMI**: 32 bits
+  - you can address bytes in memory from address 0~2^32-1(0xFFFFFFFF)
+  - which is 4GB of memory space.
+  - 📝on **64-bit processor**, it has 2^64-1 addresses, which is **8 million TeraBytes of memory space**, it's infinite by today's standard.
+- memory map on **Cortex-M4-based** microcontrollers(such as Tiva TM4C123GH6ZRB):
+  - the entire address space is defined, but certain address ranges do not exist. 
+    - the address between 0x4400000 and 0xDFFFFFFF
+    - different types of memory on the die and an interface to talk to external memory off-chip
+  - "not all addresses are used, and much of teh memory map contains areas dedicated to specific functions......While the memory layout is defined by an SoC's implementation, it is not part of the processor core" 
 
 > Astelor: I'm so confused by this part, so it has a memory map SOMEWHERE on chip, so when we stick an external memory, the processor can talk to that? but where's that map? a memory outside the processor itself but NOT an external memory?
 
@@ -37,20 +39,23 @@
 >  
 > So in 32-bit processor, a word is 32 bits, its general-purpose register(GPR) is 32 bits wide. In 64-bit processor, a word is 64 bits, its GPR is 64 bits wide.
 
-- **Most often used load/store instructions**
-  - |Loads|Stores|Size and Type|
-    |---|---|---|
-    |LDR|STR|Word (32 bits)|
-    |LDRB|STRB|Byte (8 bits)|
-    |LDRH|STRH|Halfword (16 bits)|
-    |LDRSB||Signed byte|
-    |LDRSH||Signed halfword|
-    |LDM|STM|Multiple words|
+### Most often used load/store instructions
+|Loads|Stores|Size and Type|
+|---|---|---|
+|LDR|STR|Word (32 bits)|
+|LDRB|STRB|Byte (8 bits)|
+|LDRH|STRH|Halfword (16 bits)|
+|LDRSB||Signed byte|
+|LDRSH||Signed halfword|
+|LDM|STM|Multiple words|
 
 - **Load** instructions take a single value from memory and write it to a general-purpose register.
   - for v4T, loads to register PC must be used with caution.
 - **Store** instructions read a value from a general-purpose register and store it to memory.
-- **Instruction format**:
+
+- **Signed byte/ halfword**: it reads an entire word -> determine if the word is negatively or positively signed -> reads the byte/ halfword and change it to the corresponding signing -> load into the register.
+
+### Instruction format
 ```
 LDR|STR{<size>}{<cond>} <Rd>,<addressing_mode>
 
@@ -90,5 +95,16 @@ STR r0, [r1, #12]
 - **!** (the optional escalation mark)
   - writing the effective address back into base register(Rn) at the end of the instruction.
 
+> Pre-indexed addressing doesn't change its base register's value(by default), it access the effective address by incrementing using offset.
+>
+> The effective address(base register + offset) indicates the first byte of the data, accessing bytes of data using LDRB(byte), LDR(word) etc to tell the processor how much data we wish to fetch.
 
 ### Post-Indexed Addressing
+syntax:
+```
+LDR|STR{<size>}{<cond>} <Rd>, [<Rd>], <offset>
+```
+example
+```
+
+```

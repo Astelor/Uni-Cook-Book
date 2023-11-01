@@ -1,7 +1,6 @@
 [TODO](TODO.md)
 # Uni-Cook-Book
-The cook book (notes) of my university (years) studies, outta spite.
-This is also a testament to my eloquence and file organizing abilities.
+The cook book (notes) of my university (years) studies, outta spite. (This is also a testament to my eloquence and file organizing abilities.)
 
 This repository includes but not limits to:
 1. University subjects.
@@ -9,18 +8,22 @@ This repository includes but not limits to:
 3. Anything worth cooking.
 
 ## ARM Assembly Language
-- **Book**: ARM Assembly Language: Fundamentals and Techniques, 2/e, William Hohl, Christopher Hinds.
-- **Resources**: (the copies saved are for studying)
-  - RealView Compilation Tools Assembler Guide ver.4 [^](ARM-ASM/resources/DUI0204J_rvct_assembler_guide.pdf)
-    - [!Original link! (download)](https://documentation-service.arm.com/static/5e9739fdc160f81d636ac1a2?token=)
-    - This is literally the official ARM ASM documentation.
-  - UM10275 LPC2104/2105/2106 User manual [^](/ARM-ASM/resources/LPC2104_2105_2106.pdf)
-    - [!Original link!](https://www.nxp.com/docs/en/user-guide/UM10275.pdf)
-    - The data sheet for designated ARM7TDMI microcontrollers in class.
-    - Microcontrollers have different specifications, check their corresponding user manuals if applying otherwise.
-  - Reduced Instruction Set Computers, Prof. Vojin G. Oklobdzija, Integration, Berkeley, CA 94708 [^](ARM-ASM/resources/RISC-Chaptr.PDF)
-    - [!Original link!](https://www.ece.ucdavis.edu/~vojin/CLASSES/EEC180B/Fall99/Writings/RISC-Chaptr.PDF)
+### Book
+- ARM Assembly Language: Fundamentals and Techniques, 2/e, William Hohl, Christopher Hinds.
 
+### Resources
+(the copies saved are for studying)
+- RealView Compilation Tools Assembler Guide ver.4 [^](ARM-ASM/resources/DUI0204J_rvct_assembler_guide.pdf)
+  - [!Original link! (download)](https://documentation-service.arm.com/static/5e9739fdc160f81d636ac1a2?token=)
+  - This is literally the official ARM ASM documentation.
+- UM10275 LPC2104/2105/2106 User manual [^](/ARM-ASM/resources/LPC2104_2105_2106.pdf)
+  - [!Original link!](https://www.nxp.com/docs/en/user-guide/UM10275.pdf)
+  - The data sheet for designated ARM7TDMI microcontrollers in class.
+  - Microcontrollers have different specifications, check their corresponding user manuals if applying otherwise.
+- Reduced Instruction Set Computers, Prof. Vojin G. Oklobdzija, Integration, Berkeley, CA 94708 [^](ARM-ASM/resources/RISC-Chaptr.PDF)
+  - [!Original link!](https://www.ece.ucdavis.edu/~vojin/CLASSES/EEC180B/Fall99/Writings/RISC-Chaptr.PDF)
+
+### NOTES
 (written by chapter)
 1. [Overview](/ARM-ASM/01-Overview.md) & [Basic Concepts](/ARM-ASM/01.2-Basics.md)
 2. [Programmer's Model](/ARM-ASM/02-Programmer's-Model.md)
@@ -30,22 +33,36 @@ This repository includes but not limits to:
 6. ...
 
 ## Data Structures in C
-- **Book**: Fundamentals of Data Structures in C, 2/e, Ellis Horowitz, Sartaj Sahni, Susan Anderson-Freed.
+### Book
+- Fundamentals of Data Structures in C, 2/e, Ellis Horowitz, Sartaj Sahni, Susan Anderson-Freed.
 
+### NOTES
 (written by chapter)
+nothing much to see here, still under construction.
 1. [Basic Concepts](/Data-Structure-in-C/01-Basic-Concepts.md)
 2. [Arrays and Structures](/Data-Structure-in-C/02-Arrays-and-Structures.md)
 3. ...
 
 ## Microelectronic Circuits
-- **Book**: Microelectronic Circuits, 8/e, Adel S. Sedra, Kenneth C. Smith, Tony Chan Carusone, Vincent Gaudet.
+### Books
+- Microelectronic Circuits, 8/e, Adel S. Sedra, Kenneth C. Smith, Tony Chan Carusone, Vincent Gaudet.
+
+### NOTES
+(written by chapter)
+1. [Signal and Amplifier](/Microeletronics-Circuits/01-signal-amp.md)
+2. ...
+3. [Semiconductors](/Microeletronics-Circuits/03-semiconductor.md)
+4. ...
 
 ## Electric Circuits
-- **Book**: Fundamentals of Electric Circuits, 7/e, Charles Alexander, Matthew Sadiku.
+### Book
+- Fundamentals of Electric Circuits, 7/e, Charles Alexander, Matthew Sadiku.
 
 ## 民主政治 (通識)
-- **Book**: Nope. In class materials.
+### Book
+nope
 
+### NOTES
 1. [民主政治的起源與發展](/民主政治/01-Origins-and-Evolvement.md)
 2. ...
 

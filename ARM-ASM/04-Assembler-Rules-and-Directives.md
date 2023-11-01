@@ -1,10 +1,12 @@
 # Chapter 4, Assembler Rules and Directives
-> Rules of the assembler, the structure of a program, and directives, which are instructions to the assembler for creating areas of code, aligning data, marking the end of your code, and so forth.
-> Other assemblers have slightly different rules, be aware, but we will be focusing on Keil Tools in this chapter.
+Rules of the assembler, the structure of a program, and directives, which are instructions to the assembler for creating areas of code, aligning data, marking the end of your code, and so forth.
+
+Other assemblers have slightly different rules, be aware, but we will be focusing on Keil Tools in this chapter.
 
 :>
 
 ## 4.2 Structure of Assembly Language Modules
+
 ### example module
 ```
         AREA ARMex, CODE, READONLY
