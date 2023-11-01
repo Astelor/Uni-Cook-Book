@@ -23,7 +23,9 @@ A silicon atom has 4 valence electrons, it requires another 4 to complete its ou
 - at 300K (room temperature)
   - **conductor**
   - **thermal generation**:
-    - thermal energy breaking covalent bonds → electron freed → free electron go zoooooom.
+    1. thermal energy breaking covalent bonds
+    2. electron freed
+    3. free electron go zoooooom.
   - **free electron**:
     - a negative charged carrier
     - Available to conduct electric current IF an electric field is applied to the crystal.
@@ -134,7 +136,7 @@ Two distinctly different mechanisms for the movements of charge carriers, drift 
 #### Velocity
 $$v_{p-drift}=\mu_pE \\ v_{n-drift}=-\mu_nE$$
 
-- $\mu_p$ : a constant, **hole mobility**
+- **$\mu_p$** : a constant, **hole mobility**
   - represents the ease by which the holes move through the silicon crystal in response to the electrical field *E*.
   - for intrinsic silicon: $\mu_p=480\space cm^2/V\cdot s$
 - $\mu_n$ : a constant, **electron mobility**
@@ -175,4 +177,77 @@ $$R=\frac{\rho L}{A}$$
 - $J_S$ : current density of the drift current (A/cm²)
 
 ### 3.3.2 Diffusion Current
-`Concentration difference` → density of charge carriers not uniform → carrier diffusion, carriers will diffuse from high to low concentration region.
+`Concentration difference`
+1. density of charge carriers not uniform
+2. carrier diffusion, carriers will diffuse from high to low concentration region. 
+3. net flow of charge
+4. diffusion current.
+
+#### Density, Concentration Profile
+The hole injection → hole concentration profile. 
+
+The magnitude of the current at any point is proportional to the **slope of the concentration profile** aka **concentration gradient** = $\frac{dp(x)}{dx}$
+
+$$J_{D,p}=-qD_p\frac{dp(x)}{dx}$$
+
+$$J_{D,n}=qD_n\frac{dn(x)}{dx}$$
+
+- $J_{D,p}$ : hole-current density (A/cm²)
+- $J_{D,n}$ : electron-current density (A/cm²)
+- $q$ : magnitude of electron charge
+- **$D_p$** : **diffusion constant**, diffusivity of holes
+  - typical value in intrinsic silicon: 12 cm²/s
+- $D_n$ : diffusion constant, diffusivity of electrons
+  - typical value in intrinsic silicon: 35 cm²/s
+- $p(x)$ : the hole concentration at point x
+- $n(x)$ : the electron concentration at point x
+
+### 3.3.3 Relationship between D and μ
+
+$$\frac{D_n}{\mu_n}=\frac{D_p}{\mu_p}=V_{T}$$
+
+- $V_T$ : thermal voltage (kT/q), 25.9mV at 300K
+- the relationship is also called Einstein relationship
+
+## 3.4 The pn Junction
+
+### Operation with Open-Circuit Terminals
+
+#### Diffusion Current
+- $I_D$ : p → n
+  - majority-carriers diffusion, p(holes) ⇄ n(free electrons)
+
+#### Depletion Region 
+(aka. carrier depletion region, space-charge region)
+
+- the diffused holes(from p side) **uncover**(neutralize the free electrons, n-region majority carrier) the **bound charges**(net positive charge associated with the atom) at the n region → creates a positive depletion region at the n side (*depleted of free electrons*)
+- the diffused electrons(from n side) uncover the bound charges (net negative charge) at the p region → negative depletion region at p side.
+
+#### Drift Current
+- $I_S$ : p ← n
+  - minority-carriers drift, p(free electrons) ⇄ n (holes)
+
+#### Equilibrium
+
+$$I_D=I_S$$
+
+#### Junction Built-in Voltage
+(aka barrier voltage)
+
+$$V_0=V_T\space ln(\frac{N_AN_D}{n_i^2})$$
+
+#### Width and Charge Stored in the Depletion Region
+
+## 3.5 The pn Junction with an Applied Voltage
+
+### 3.5.1 Qualitative Description of Junction Operation
+
+### 3.5.2 The Current-Voltage Relationship of the Junction
+
+### 3.5.3 Reverse Breakdown
+
+## 3.6 Capacitive Effects in the pn Junction
+
+### 3.6.1 Depletion or Junction Capacitance
+
+### 3.6.2 Diffusion Capacitance

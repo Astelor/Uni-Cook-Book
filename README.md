@@ -50,7 +50,7 @@ nothing much to see here, still under construction.
 ### NOTES
 (written by chapter)
 1. [Signal and Amplifier](/Microeletronics-Circuits/01-signal-amp.md)
-2. ...
+2. [Operational Amplifier](/Microeletronics-Circuits/02-op-amp.md)
 3. [Semiconductors](/Microeletronics-Circuits/03-semiconductor.md)
 4. ...
 
