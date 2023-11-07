@@ -11,7 +11,6 @@ when in doubt, check the [document](/ARM-ASM/resources/DUI0204J_rvct_assembler_g
         END
 stop    B   stop
 ```
-
 ## Directive
 
 ### Shifting (4.3.12)
