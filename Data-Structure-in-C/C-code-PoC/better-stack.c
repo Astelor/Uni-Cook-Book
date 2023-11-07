@@ -54,7 +54,7 @@ int main(){
         else if(symb==')' || symb==']'){
             if(!empty()){
                 struct element *k=pop();
-                if()   
+                //if()   
             }
         }
 

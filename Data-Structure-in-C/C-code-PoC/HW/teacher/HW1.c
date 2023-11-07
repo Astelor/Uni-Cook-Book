@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-struct stint{//4*12
+struct stint{//4*3=12
     int f1,f2,f3;
 }stint_test;
 struct stfloat{ //4+(4)+8=16

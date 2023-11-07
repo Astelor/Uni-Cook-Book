@@ -43,6 +43,8 @@ nothing much to see here, still under construction.
 2. [Arrays and Structures](/Data-Structure-in-C/02-Arrays-and-Structures.md)
 3. ...
 
+[cheat sheet :>](/Data-Structure-in-C/cheat-sheet.md)
+
 ## Microelectronic Circuits
 ### Books
 - Microelectronic Circuits, 8/e, Adel S. Sedra, Kenneth C. Smith, Tony Chan Carusone, Vincent Gaudet.
