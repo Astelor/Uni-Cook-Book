@@ -80,7 +80,7 @@ union{
   - if you write 2, 3 will disappear. vise versa
 
 ## Stack
-fuck you Madge
+fuck you :Madge:
 
 ### The Fundamentals
 I'm a lazy mf, everything should apply under this condition(fundamentals), so that you don't have to check the base code every time you make a modification.
