@@ -140,9 +140,9 @@ int top(struct stack *ps){
 ```
 
 ### Access the middle with 2 stacks
-bruh altering "top" is an index accessing, idc, I don't deserve a zero for doing index accessing. SOOO here it is, the orthodox way to do this.
+> bruh altering "top" is an index accessing, idc, I don't deserve a zero for doing index accessing. SOOO here it is, the orthodox way to do this.
 
-The functions added should be placed in the code accordingly.
+The functions added should be placed in the fundamentals accordingly.
 
 ```c
 int access(struct stack *ps, struct stack *temps, int index);
@@ -167,9 +167,9 @@ int access(struct stack *ps, struct stack *temps, int index){
 ```
 
 ### Parenthesis Checker
-This only checks 2 types of parenthesis. Just add more conditions and checks if there are more than 2 types.
+> In C++, you can just slap vector and pair in and call it a day. But in C, and writing it from scratch using only array. An independent stack is your best bet.
 
-In C++, you can just slap vector and pair in and call it a day. But in C, and writing it from scratch using only array. An independent stack is your best bet.
+This only checks 2 types of parenthesis. Just add more conditions and checks if there are more than 2 types.
 
 element and parent should be popped or pushed simultaneously.
 ```c
