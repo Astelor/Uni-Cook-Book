@@ -1,5 +1,5 @@
 # Data Structure cheat sheet
-It's a "cheat sheet", not a complete code. :>
+ehh
 
 - [Data Structure cheat sheet](#data-structure-cheat-sheet)
 	- [Structure](#structure)
@@ -23,6 +23,8 @@ It's a "cheat sheet", not a complete code. :>
 		- [Generate a sequence of random numbers](#generate-a-sequence-of-random-numbers)
 		- [rand](#rand)
 		- [time](#time)
+	- [HWCODE](#hwcode)
+		- [part 1 \& part 3](#part-1--part-3)
 	- [NOTE](#note)
 
 
@@ -450,6 +452,20 @@ int randomNumber=rand()%(max - min +1) + min; //max~min
 #include <time.h>
 int t=time(NULL);
 ```
+## HWCODE
+
+- [HW3 part1](/Data-Structure-in-C/C-code-PoC/HW/teacher/HW3/PART1/HW3_1.c)
+- [HW3 part2](/Data-Structure-in-C/C-code-PoC/HW/teacher/HW3/PART2/HW3-2.c)
+- [HW3 part3](/Data-Structure-in-C/C-code-PoC/HW/teacher/HW3/PART3/HW3-3.c)
+
+### part 1 & part 3
+- it asks to access 1 index, leaving the stack altered & unaltered
+- can be achieved by writing another function(accessS2) to get the unaltered stack.
+  - or adding a new parameter in the original accessS function, but it can be tricky to debug.
+-  ADDED
+   -  accessS2, clearstack
+-  CHANGED
+   -  prints
 
 ## NOTE
 - If the IDE gives you some makefile error when compiling, just make a new project. (when you're in the exam ofc)
