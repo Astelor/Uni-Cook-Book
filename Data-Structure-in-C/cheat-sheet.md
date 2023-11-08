@@ -107,6 +107,7 @@ fuck you :Madge:
 I'm a lazy mf, everything should apply under this condition(fundamentals), so that you don't have to check the base code every time you make a modification.
 
 tldr; don't change the stack itself.
+[stackEHHH.c](/Data-Structure-in-C/C-code-PoC/playground/stackEHHH.c)
 ```c
 #include <stdio.h>
 #define SIZE 100
@@ -115,48 +116,53 @@ struct stack{
 	int A[SIZE];
   	int top;
 };
-int empty(struct stack *ps); //return 1 is the stack is empty; return 0 otherwise
-int full(struct stack *ps); // return 1 if the stack is full; return 0 otherwise
-void push(struct stack *ps, int data); //push data onto the stack
-int pop(struct stack *ps); //pop the stack and return the popped element
-int top(struct stack *ps); //return the top element in the stack
 
+int emptys(struct stack *ps); //return 1 is the stack is empty; return 0 otherwise
+int fulls(struct stack *ps); // return 1 if the stack is full; return 0 otherwise
+void pushs(struct stack *ps, int data); //push data onto the stack
+int pops(struct stack *ps); //pop the stack and return the popped element
+int tops(struct stack *ps); //return the top element in the stack
+int prints(struct stack *ps); // print the stack
 
 int main(){
-	struct stack element = {.A=0, .top=-1}; //initialize stack
-	// your code here
-	// you wanna do push(&element,data); the pointer eats address
-	return 0;
+    struct stack element={.A=0, .top=-1};
+    struct stack temp={.A=0, .top=-1};
+    // your code here
 }
-
-int empty(struct stack *ps){
+int emptys(struct stack *ps){
 	return ( ps->top==-1 );
 }
-int full(struct stack *ps){
+int fulls(struct stack *ps){
 	return ( ps->top==SIZE-1 );
 }
-void push(struct stack *ps, int data){
-	if(full(ps)){
-		printf("the stack is full! no space to push\n");
-		//exit(1);
+void pushs(struct stack *ps, int data){
+	if(fulls(ps)){
+		printf("Stack is full!\n");
 	}
-	ps->A[++(ps->top)]=data;
+	else ps->A[++(ps->top)]=data;
 }
-int pop(struct stack *ps){
-	if(empty(ps)){
-		printf("the stack is empty! nothing to pop\n");
-		//exit(2);
+int pops(struct stack *ps){
+	if(emptys(ps)){
+		printf("the stack is empty\n");
+		return -1;
 	}
 	int temp=ps->A[ps->top];
 	ps->A[(ps->top)--]=0;
-	return temp; // return the popped element
+	return temp;
 }
-int top(struct stack *ps){
-	if(empty(ps)){
-        printf("the stack is empty!\n");
-        //exit(3);
-    }
+int tops(struct stack *ps){
 	return (ps->A[ps->top]);
+}
+int prints(struct stack *ps){
+    int i;
+    if(emptys(ps))
+        printf("Empty Stack\n");
+    else{
+        printf("Top -> %d ", ps->A[ps->top]);
+        for(i=ps->top-1;i>=0;i--)
+            printf("%d ",ps->A[i]);
+		printf("\n");
+    }
 }
 ```
 
@@ -164,7 +170,7 @@ int top(struct stack *ps){
 > bruh altering "top" is an index accessing, idc, I don't deserve a zero for doing index accessing. SOOO here it is, the orthodox way to do this.
 
 The functions added should be placed in the fundamentals accordingly.
-
+[stackEHHH.c](/Data-Structure-in-C/C-code-PoC/playground/stackEHHH.c)
 ```c
 int access(struct stack *ps, struct stack *temps, int index);
 
@@ -178,11 +184,11 @@ int main(){
 
 int access(struct stack *ps, struct stack *temps, int index){
 	int i,output;
-	for(i=0;i<index;i++) //pop the original one
-		push(temps,pop(ps));
-	output=top(ps);
-    for(i=0;i<index;i++) //push back the original one
-        push(ps,pop(temps));
+	for(i=0;i<index;i++)//pop the original one
+		pushs(temps,pops(ps));
+	output=tops(ps);
+    for(i=0;i<index;i++)
+        pushs(ps,pops(temps));
     return output;
 }
 ```
@@ -193,6 +199,7 @@ int access(struct stack *ps, struct stack *temps, int index){
 This only checks 2 types of parenthesis. Just add more conditions and checks if there are more than 2 types.
 
 element and parent should be popped or pushed simultaneously.
+[parenthsis-check.c](/Data-Structure-in-C/C-code-PoC/playground/parenthsis-check.c)
 ```c
 int main(){
 	struct stack element = {.A=0, .top=-1}; //initialize stack
@@ -202,39 +209,39 @@ int main(){
     while( (c=getchar())!=EOF && c!='\n'){
         index+=1;
         if(c=='(' || c=='['){ //different parenthesis parser
-            push(&element, index);
+            pushs(&element, index);
             if(c=='(')
-                push(&parent, 1);
+                pushs(&parent, 1);
             else 
-                push(&parent, 2);
+                pushs(&parent, 2);
         }
         else if(c==')' || c==']'){	
             if(c==')'){
-                if(empty(&element) || top(&parent)!=1)
+                if(emptys(&element) || tops(&parent)!=1)
                     printf("位置編號 %d 的右括弧)沒有可配對的左括弧(\n",index);
                 else{
-                    printf("(%d,%d)\n",pop(&element),index);
-                    pop(&parent);
+                    printf("(%d,%d)\n",pops(&element),index);
+                    pops(&parent);
                 }
             }
             else{
-                if(empty(&element) || top(&parent)!=2)
+                if(emptys(&element) || tops(&parent)!=2)
                     printf("位置編號 %d 的右括弧]沒有可配對的左括弧[\n",index);
                 else{
-                    printf("[%d,%d]\n",pop(&element),index);
-                    pop(&parent);
+                    printf("[%d,%d]\n",pops(&element),index);
+                    pops(&parent);
                 }
             }
 			//just add more conditions if there are more than 2 types of parenthesis
         }
         else continue;
     }
-    while(!empty(&element)){
-        if(top(&parent)==1)
-            printf("位置編號 %d 的右括弧)沒有可配對的左括弧(\n",pop(&element));
+    while(!emptys(&element)){
+        if(tops(&parent)==1)
+            printf("位置編號 %d 的右括弧)沒有可配對的左括弧(\n",pops(&element));
         else
-            printf("位置編號 %d 的右括弧]沒有可配對的左括弧[\n",pop(&element));
-        pop(&parent);
+            printf("位置編號 %d 的右括弧]沒有可配對的左括弧[\n",pops(&element));
+        pops(&parent);
     }
 	return 0;
 }
@@ -244,6 +251,7 @@ int main(){
 
 ### The Fundamentals
 Circular Queue
+[](/Data-Structure-in-C/C-code-PoC/HW/teacher/)
 ```c
 #include <stdio.h>
 #include <stdlib.h>
