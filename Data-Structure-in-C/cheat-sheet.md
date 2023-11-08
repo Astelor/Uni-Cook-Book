@@ -18,8 +18,10 @@ It's a "cheat sheet", not a complete code. :>
 			- [TotalInQueue](#totalinqueue)
 			- [Sacrificing an element space](#sacrificing-an-element-space)
 	- [Misc](#misc)
+		- [Generate a sequence of random numbers](#generate-a-sequence-of-random-numbers)
 		- [rand](#rand)
 		- [time](#time)
+	- [NOTE](#note)
 
 
 ## Structure
@@ -128,6 +130,7 @@ int main(){
     struct stack element={.A=0, .top=-1};
     struct stack temp={.A=0, .top=-1};
     // your code here
+	// you wanna do push(&element,data); the pointer eats address
 }
 int emptys(struct stack *ps){
 	return ( ps->top==-1 );
@@ -200,6 +203,7 @@ This only checks 2 types of parenthesis. Just add more conditions and checks if 
 
 element and parent should be popped or pushed simultaneously.
 [parenthsis-check.c](/Data-Structure-in-C/C-code-PoC/playground/parenthsis-check.c)
+(verified)
 ```c
 int main(){
 	struct stack element = {.A=0, .top=-1}; //initialize stack
@@ -359,6 +363,17 @@ while(1){
 ---
 ## Misc
 
+### Generate a sequence of random numbers
+```c
+#include <stdlib.h>
+#include <time.h>
+
+srand(time(NULL));
+int i,len=30;
+for(i=0;i<len;i++)
+    pushs(&element,rand()%9+1);//or addq if it's a queue
+```
+
 ### rand
 ```c
 #include <stdlib.h>
@@ -372,4 +387,7 @@ int randomNumber=rand()%(max - min +1) + min; //max~min
 int t=time(NULL);
 ```
 
-I love simplifying my code and make it look easy, and lose points because it looks easy.
+## NOTE
+- If the IDE gives you some makefile error when compiling, just make a new project. (when you're in the exam ofc)
+- If the debug window is weird, go to `Project Options` -> `Compiler` -> `Linker` -> `Generate debugging information` -> check it to `yes`  
+
