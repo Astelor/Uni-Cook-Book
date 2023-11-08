@@ -453,5 +453,6 @@ int t=time(NULL);
 
 ## NOTE
 - If the IDE gives you some makefile error when compiling, just make a new project. (when you're in the exam ofc)
-- If the debug window is weird, go to `Project Options` -> `Compiler` -> `Linker` -> `Generate debugging information` -> check it to `yes`  
-
+- create a new project for each parts.
+- If the debug window is weird, go to `Project Options` -> `Compiler` -> `Linker` -> `Generate debugging information` -> check it to `yes`
+- not a programming class my ass
