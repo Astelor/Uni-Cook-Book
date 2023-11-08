@@ -9,9 +9,11 @@ It's a "cheat sheet", not a complete code. :>
 	- [Stack](#stack)
 		- [The Fundamentals](#the-fundamentals)
 		- [Access the middle with 2 stacks](#access-the-middle-with-2-stacks)
+		- [Inserting the middle with 2 Stacks](#inserting-the-middle-with-2-stacks)
 		- [Parenthesis Checker](#parenthesis-checker)
 	- [Queue](#queue)
 		- [The Fundamentals](#the-fundamentals-1)
+		- [Accessing the middle with 2 queues](#accessing-the-middle-with-2-queues)
 		- [user input code checker](#user-input-code-checker)
 		- [Jargons](#jargons)
 			- [lastOperationIs...](#lastoperationis)
@@ -110,6 +112,7 @@ I'm a lazy mf, everything should apply under this condition(fundamentals), so th
 
 tldr; don't change the stack itself.
 [stackEHHH.c](/Data-Structure-in-C/C-code-PoC/playground/stackEHHH.c)
+(verified)
 ```c
 #include <stdio.h>
 #define SIZE 100
@@ -174,18 +177,27 @@ int prints(struct stack *ps){
 
 The functions added should be placed in the fundamentals accordingly.
 [stackEHHH.c](/Data-Structure-in-C/C-code-PoC/playground/stackEHHH.c)
+(verified)
 ```c
-int access(struct stack *ps, struct stack *temps, int index);
+int accessS(struct stack *ps, struct stack *temps, int index);
 
 int main(){
 	struct stack element={.A=0, .top=-1};
 	struct stack temp={.A=0, .top=-1};
-	// let's say if we want to access the third element from the top
-	// the index will be 2 (counting from 0)
-	int middle=access(&element, &temp, 2);
+	int i,lent=30;
+	for(i=0;i<lent;i++){
+	    pushs(&element,rand()%9+1);
+	}
+	while(1){ //a checker
+		int ind;
+		scanf("%d",&ind);
+		int middle=accessS(&element, &temp, ind);
+		printf("%d\n",middle);
+		prints(&element);
+	}
 }
 
-int access(struct stack *ps, struct stack *temps, int index){
+int accessS(struct stack *ps, struct stack *temps, int index){
 	int i,output;
 	for(i=0;i<index;i++)//pop the original one
 		pushs(temps,pops(ps));
@@ -195,7 +207,21 @@ int access(struct stack *ps, struct stack *temps, int index){
     return output;
 }
 ```
+### Inserting the middle with 2 Stacks
 
+```c
+int inserts(struct stack *ps, int data, int index);
+int main(){
+
+}
+int inserts(struct stack *ps, struct stack *temps, int data, int index){
+	int i;
+	for(i=0;i<index;i++) //pop the original one
+		pushs(temps,pops(ps));
+	
+		
+}
+```
 ### Parenthesis Checker
 > In C++, you can just slap vector and pair in and call it a day. But in C, and writing it from scratch using only array. An independent stack is your best bet.
 
@@ -255,7 +281,7 @@ int main(){
 
 ### The Fundamentals
 Circular Queue
-[](/Data-Structure-in-C/C-code-PoC/HW/teacher/)
+[queueEHHH.c](/Data-Structure-in-C/C-code-PoC/playground/queueEHHH.c)
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -270,10 +296,11 @@ int fullq(struct queue *ps); // check if the queue is full
 void addq(struct queue *ps, int data); // adding an element
 int deleteq(struct queue *ps); //deleting an element
 int printq(struct queue *ps); //printing the element in queue
+int frontq(struct queue *ps); //return the front element
 
 int main(){
     struct queue element= {.A=0, .front=-1, .rear=-1};
-    int text,data;
+    //int text,data;
     // your code here
     return 0;
 }
@@ -319,8 +346,45 @@ int printq(struct queue *ps){
             printf("%d ",ps->A[i]);
         printf("%d \nRear -> %d\n", ps->A[i], ps->rear);
     }
-} 
+}
+int frontq(struct queue *ps){
+    return ps->A[ps->front];
+}
 ```
+### Accessing the middle with 2 queues
+
+(verified)
+```c
+int accessQ(struct queue *ps, struct queue *temps, int index);
+
+int main(){
+	struct queue element={.A=0, .front=-1, .rear=-1};
+	struct queue temp={.A=0, .front=-1, .rear=-1};
+	int i,lent=30;
+	for(i=0;i<lent;i++){
+	    addq(&element,rand()%99+1);
+	}
+	while(1){ //a checker
+		int ind;
+		scanf("%d",&ind);
+		int middle=accessQ(&element, &temp, ind);
+		printf("%d\n",middle);
+		printq(&element);
+	}
+}
+
+int accessQ(struct queue *ps, struct queue *temps, int index){
+	int i=-1,output;
+	while(!emptyq(ps)){//pop the original one
+        if(++i==index) output=frontq(ps);
+        addq(temps,deleteq(ps));
+    }
+    while(!emptyq(temps))
+        addq(ps,deleteq(temps));
+    return output;
+}
+```
+
 ### user input code checker
 this is a fail safe
 ```c

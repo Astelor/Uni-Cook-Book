@@ -7,12 +7,12 @@ struct stack{
 };
 
 int access(struct stack *ps, struct stack *temps, int index);// counting from 0
-int empty(struct stack *ps); //return 1 is the stack is empty; return 0 otherwise
-int full(struct stack *ps); // return 1 if the stack is full; return 0 otherwise
-void push(struct stack *ps, int data); //push data onto the stack
-int pop(struct stack *ps); //pop the stack and return the popped element
-int top(struct stack *ps); //return the top element in the stack
-
+int emptys(struct stack *ps); //return 1 is the stack is empty; return 0 otherwise
+int fulls(struct stack *ps); // return 1 if the stack is full; return 0 otherwise
+void pushs(struct stack *ps, int data); //push data onto the stack
+int pops(struct stack *ps); //pop the stack and return the popped element
+int tops(struct stack *ps); //return the top element in the stack
+int prints(struct stack *ps); // print the stack
 
 int main(){
     struct stack element={.A=0, .top=-1};
@@ -21,47 +21,56 @@ int main(){
     //the index will be 2 (counting from 0)
     int i;
     for(i=1;i<11;i++)
-        push(&element,i);
+        pushs(&element,i);
     for(i=0;i<10;i++)
         printf("%d ",element.A[i]);
 	int acc=access(&element,&temp,2);
 	printf("\n");
-	for(i=0;i<10;i++)
-        printf("%d ",element.A[i]);
+	prints(&element);
 	return 0;
 }
 
 int access(struct stack *ps, struct stack *temps, int index){
 	int i,output;
 	for(i=0;i<index;i++)//pop the original one
-		push(temps,pop(ps));
-	output=top(ps);
+		pushs(temps,pops(ps));
+	output=tops(ps);
     for(i=0;i<index;i++)
-        push(ps,pop(temps));
+        pushs(ps,pops(temps));
     return output;
 }
-int empty(struct stack *ps){
+int emptys(struct stack *ps){
 	return ( ps->top==-1 );
 }
-int full(struct stack *ps){
+int fulls(struct stack *ps){
 	return ( ps->top==SIZE-1 );
 }
-void push(struct stack *ps, int data){
-	if(full(ps)){
-		printf("the stack is full! no space to push\n");
-		//exit(1);
+void pushs(struct stack *ps, int data){
+	if(fulls(ps)){
+		printf("Stack is full!\n");
 	}
-	ps->A[++(ps->top)]=data;
+	else ps->A[++(ps->top)]=data;
 }
-int pop(struct stack *ps){
-	if(empty(ps)){
-		printf("the stack is empty! nothing to pop\n");
-		//exit(2);
+int pops(struct stack *ps){
+	if(emptys(ps)){
+		printf("the stack is empty\n");
+		return -1;
 	}
 	int temp=ps->A[ps->top];
 	ps->A[(ps->top)--]=0;
 	return temp;
 }
-int top(struct stack *ps){
+int tops(struct stack *ps){
 	return (ps->A[ps->top]);
+}
+int prints(struct stack *ps){
+    int i;
+    if(emptys(ps))
+        printf("Empty Stack\n");
+    else{
+        printf("Top -> %d ", ps->A[ps->top]);
+        for(i=ps->top-1;i>=0;i--)
+            printf("%d ",ps->A[i]);
+		printf("\n");
+    }
 }
