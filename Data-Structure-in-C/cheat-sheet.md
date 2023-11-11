@@ -2,30 +2,30 @@
 ehh
 
 - [Data Structure cheat sheet](#data-structure-cheat-sheet)
-	- [Structure](#structure)
-		- [Where it stores?](#where-it-stores)
-		- [Struct](#struct)
-		- [Union](#union)
-	- [Stack](#stack)
-		- [The Fundamentals](#the-fundamentals)
-		- [Access the middle with 2 stacks](#access-the-middle-with-2-stacks)
-		- [Inserting the middle with 2 Stacks](#inserting-the-middle-with-2-stacks)
-		- [Parenthesis Checker](#parenthesis-checker)
-	- [Queue](#queue)
-		- [The Fundamentals](#the-fundamentals-1)
-		- [Accessing the middle with 2 queues](#accessing-the-middle-with-2-queues)
-		- [user input code checker](#user-input-code-checker)
-		- [Jargons](#jargons)
-			- [lastOperationIs...](#lastoperationis)
-			- [TotalInQueue](#totalinqueue)
-			- [Sacrificing an element space](#sacrificing-an-element-space)
-	- [Misc](#misc)
-		- [Generate a sequence of random numbers](#generate-a-sequence-of-random-numbers)
-		- [rand](#rand)
-		- [time](#time)
-	- [HWCODE](#hwcode)
-		- [part 1 \& part 3](#part-1--part-3)
-	- [NOTE](#note)
+  - [Structure](#structure)
+    - [Where it stores?](#where-it-stores)
+    - [Struct](#struct)
+    - [Union](#union)
+  - [Stack](#stack)
+    - [The Fundamentals](#the-fundamentals)
+    - [Access the middle with 2 stacks](#access-the-middle-with-2-stacks)
+    - [Inserting the middle with 2 Stacks](#inserting-the-middle-with-2-stacks)
+    - [Parenthesis Checker](#parenthesis-checker)
+  - [Queue](#queue)
+    - [The Fundamentals](#the-fundamentals-1)
+    - [Accessing the middle with 2 queues](#accessing-the-middle-with-2-queues)
+    - [user input code checker](#user-input-code-checker)
+    - [Jargons](#jargons)
+      - [lastOperationIs...](#lastoperationis)
+      - [TotalInQueue](#totalinqueue)
+      - [Sacrificing an element space](#sacrificing-an-element-space)
+  - [Misc](#misc)
+    - [Generate a sequence of random numbers](#generate-a-sequence-of-random-numbers)
+    - [rand](#rand)
+    - [time](#time)
+  - [HWCODE](#hwcode)
+    - [part 1 \& part 3](#part-1--part-3)
+  - [NOTE](#note)
 
 
 ## Structure
@@ -35,6 +35,8 @@ Because in C the compiler isn't that smart.
 - The **order of the variables matter**!
 - a variable must be accessible within a cycle
   - you can't store a double in 2 different registers
+
+[structure-test.c](/Data-Structure-in-C/C-code-PoC/playground/stucture-test.c)
 
 |type|size (byte)|
 |---|---|
