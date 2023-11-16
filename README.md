@@ -7,6 +7,29 @@ This repository includes but not limits to:
 2. My own learning and research.
 3. Anything worth cooking.
 
+# TABLE OF CONTENTS
+- [Uni-Cook-Book](#uni-cook-book)
+- [TABLE OF CONTENTS](#table-of-contents)
+  - [ARM Assembly Language](#arm-assembly-language)
+    - [Book](#book)
+    - [Resources](#resources)
+    - [NOTES](#notes)
+  - [Data Structures in C](#data-structures-in-c)
+    - [Book](#book-1)
+    - [NOTES](#notes-1)
+  - [Microelectronic Circuits](#microelectronic-circuits)
+    - [Books](#books)
+    - [NOTES](#notes-2)
+  - [Electric Circuits](#electric-circuits)
+    - [Book](#book-2)
+  - [Certified Ethical Hacker](#certified-ethical-hacker)
+    - [Book](#book-3)
+  - [民主政治 (通識)](#民主政治-通識)
+    - [Book](#book-4)
+    - [NOTES](#notes-3)
+- [Note from Astelor](#note-from-astelor)
+
+
 ## ARM Assembly Language
 ### Book
 - ARM Assembly Language: Fundamentals and Techniques, 2/e, William Hohl, Christopher Hinds.
@@ -60,6 +83,11 @@ nothing much to see here, still under construction.
 ### Book
 - Fundamentals of Electric Circuits, 7/e, Charles Alexander, Matthew Sadiku.
 
+
+## Certified Ethical Hacker
+### Book
+- CEH v11 Certified Ethical Hacker Study Guide (Ric Messier)
+
 ## 民主政治 (通識)
 ### Book
 nope
@@ -69,7 +97,8 @@ nope
 2. ...
 
 # Note from Astelor
-I solved the image rendering problem POG, it's the blank spaces in the paths BRUH.
 
-the link to navigate by file and to section doesn't work on mobile.
-
+- The image link shouldn't have any url-encoded symbol (e.g. a space)
+- The link to navigate by file and to section doesn't work on mobile.
+- The latex formula rendering doesn't work on mobile.
+- I'm not a good noter, but I'm trying.
