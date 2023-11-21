@@ -1,42 +1,17 @@
-5:38 AM 11/7/2023
+12:33 PM 11/18/2023
 one thing at a time, baby steps are fine.
 
 _due
-- 第八週結報 (11/7 Tue.)
-- 第九週預報 (11/7 Tue.)
+- 第十周結報
 
 _homework
-- Data Structure HW3 (11/19 Sun.)
-- Engineering Math HW2 (11/19 Sun.)
-- Probability (problem set)
-
+- Engineering Math HW2 (11/18 Sun.)
 - make cheat sheet for EVERYTHING, idc anymore
 
 _test
 ARM ASM & Microelectronic Circuits have regular tests
 
 _midterm
-- Microelectronic Circuits (8 AM, 11/7 Tue.)
-  - chapter 1, 2, 3
-- Democracy and Politics (11/7 Tue.)
-  - 四題申論題
-    1. 何謂民主政治
-    2. 民主政治的制度要件
-    3. 民主政治的先決條件
-    4. 民主政治的價值
-- ARM ASM (11/7 Tue.)
-  - chapter 1~5
-
-- Data Structure (11/9 Thu.)
-  - array, stack & queue
-- Electric Circuits (11/10 Fri.)
-  - chapter 8, 10, 14
-  - (2nd-order circuits, sinusoidal steady state response, frequency response)
-
-- Probability (11/13 Mon.)
-- Engineering Math (11/16 Thu)
-  - chapter 1, 2
-
 - Experiment. Electric Circuit (11/22 Wed.)
   - soldering test
 

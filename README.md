@@ -24,7 +24,7 @@ This repository includes but not limits to:
     - [Book](#book-2)
   - [Certified Ethical Hacker](#certified-ethical-hacker)
     - [Book](#book-3)
-  - [民主政治 (通識)](#民主政治-通識)
+  - [民主政治 (通識) discontinued](#民主政治-通識-discontinued)
     - [Book](#book-4)
     - [NOTES](#notes-3)
 - [Note from Astelor](#note-from-astelor)
@@ -76,7 +76,7 @@ nothing much to see here, still under construction.
 (written by chapter)
 1. [Signal and Amplifier](/Microeletronics-Circuits/01-signal-amp.md)
 2. [Operational Amplifier](/Microeletronics-Circuits/02-op-amp.md)
-3. [Semiconductors](/Microeletronics-Circuits/03-semiconductor.md)
+3. [Semiconductors](/Microeletronics-Circuits/03-semiconductor.md) `this one's a total mess...`
 4. ...
 
 ## Electric Circuits
@@ -88,7 +88,7 @@ nothing much to see here, still under construction.
 ### Book
 - CEH v11 Certified Ethical Hacker Study Guide (Ric Messier)
 
-## 民主政治 (通識)
+## 民主政治 (通識) discontinued
 ### Book
 nope
 
