@@ -8,9 +8,9 @@
 ; R4 - temp
 ; R5 - counter
 ; R6 - used to hold address of designation
-		MOV		r5, #4
-		LDR		r6, =0x40000000
-		ADR     r1, arraya          ; start of constants
+        MOV	r5, #4
+        LDR	r6, =0x40000000
+        ADR     r1, arraya          ; start of constants
 main	
         MOV     r2, #0              ; clear out transmitting reg
         LDRB	r0, [r1], #1
@@ -65,10 +65,10 @@ main
         BIC r4, r0, #0x0F           ; get upper nibble
         ORR r2, r2, r4, LSL #4      ; r2 now contains 12 bits
                                     ; with checksums
-		STR	r2, [r6], #4
-		SUB	r5, r5, #1
-		CMP	r5, #0
-		BGT	main
+        STR r2, [r6], #4
+        SUB r5, r5, #1
+        CMP r5, #0
+        BGT	main
 done    B   done
         ALIGN
 arraya
