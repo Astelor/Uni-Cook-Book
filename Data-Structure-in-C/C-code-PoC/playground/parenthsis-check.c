@@ -48,9 +48,9 @@ int main(){
     }
     while(!empty(&element)){
         if(top(&parent)==1)
-            printf("位置編號 %d 的右括弧)沒有可配對的左括弧(\n",pop(&element));
+            printf("位置編號 %d 的左括弧(沒有可配對的右括弧)\n",pop(&element));
         else
-            printf("位置編號 %d 的右括弧]沒有可配對的左括弧[\n",pop(&element));
+            printf("位置編號 %d 的左括弧[沒有可配對的右括弧]\n",pop(&element));
         pop(&parent);
     }
 	return 0;

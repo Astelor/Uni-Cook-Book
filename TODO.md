@@ -1,4 +1,4 @@
-12:33 PM 11/18/2023
+4:39 PM 11/28/2023
 one thing at a time, baby steps are fine.
 
 _due
@@ -10,10 +10,6 @@ _homework
 
 _test
 ARM ASM & Microelectronic Circuits have regular tests
-
-_midterm
-- Experiment. Electric Circuit (11/22 Wed.)
-  - soldering test
 
 _study
 The perpetual studying(struggling) is real :')
@@ -32,6 +28,7 @@ The perpetual studying(struggling) is real :')
   - note chapter 5 down.
   - pre: chapter 6
 
+_finals
 ____
 (side quest)
 review and preview, what difference does it make if you gotta view the textbooks anyway. 
@@ -43,7 +40,7 @@ Fatigue is destroying me.
   - HTB CTF
 - make the markdowns more comprehensive :>
 - The Books Q, one book at a time bruh
-  - Red Roulette
+  - (cool I'm out of books now lol)
 
 ____
 (plans for future)
