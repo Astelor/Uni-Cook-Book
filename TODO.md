@@ -2,10 +2,12 @@
 one thing at a time, baby steps are fine.
 
 _due
-- 第十周結報
+- 第十二周結報
+- 第十三周預報
 
 _homework
-- Engineering Math HW2 (11/18 Sun.)
+- Engineering Math HW3
+- 
 - make cheat sheet for EVERYTHING, idc anymore
 
 _test
