@@ -2,18 +2,19 @@
 one thing at a time, baby steps are fine.
 
 _due
-- 第十二周結報
-- 第十三周預報
+- 第十三周結報
+- 第十二周預報
 
 _homework
 - Engineering Math HW3
-- 
+- 組合語言作業
+- 資料結構作業
 - make cheat sheet for EVERYTHING, idc anymore
 
 _test
 ARM ASM & Microelectronic Circuits have regular tests
 
-_study
+_study hey when are you going to update this??
 The perpetual studying(struggling) is real :')
 - Engineering Math
   - Review
