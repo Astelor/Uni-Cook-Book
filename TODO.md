@@ -1,15 +1,14 @@
-4:39 PM 11/28/2023
+10:24 PM 12/8/2023
 one thing at a time, baby steps are fine.
 
 _due
-- 第十三周結報
-- 第十二周預報
+- 第十三周結報 (Sun.)
+- data structure week13 practice (Sun.)
 
 _homework
-- Engineering Math HW3
-- 組合語言作業
-- 資料結構作業
-- make cheat sheet for EVERYTHING, idc anymore
+- 組合語言作業 (12/19)
+- 資料結構作業 (12/21)
+- Engineering Math HW3 (12/22)
 
 _test
 ARM ASM & Microelectronic Circuits have regular tests
@@ -17,20 +16,18 @@ ARM ASM & Microelectronic Circuits have regular tests
 _study hey when are you going to update this??
 The perpetual studying(struggling) is real :')
 - Engineering Math
-  - Review
-  - if you can, preview
+  - note the ODE equations down
+  - read EM_6
 - Electric Circuits
-  - Review (the past chapters + chapter 8)
-  - if you can, preview
+  - chatper 11
 - Microelectronic Circuits
-  - note chapter 1 down.
-  - read chapter 2, 3
+  - diodes (do the practices)
 - Data Structure
   - textbook. Chapter 1, 2, 3
 - ARM ASM
-  - note chapter 5 down.
-  - pre: chapter 6
+  - make some sense of chapter 7 :>
 
+- make cheat sheet for EVERYTHING, idc anymore
 _finals
 ____
 (side quest)

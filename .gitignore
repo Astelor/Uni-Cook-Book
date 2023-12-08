@@ -52,5 +52,6 @@ Mkfile.old
 dkms.conf
 
 .vscode/
+plans/
 NOTETOSELF.md
 Coffee-Map.md
