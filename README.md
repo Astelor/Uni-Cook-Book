@@ -54,6 +54,9 @@ This repository includes but not limits to:
 4. [Assembler Rules and Directives](/ARM-ASM/04-Assembler-Rules-and-Directives.md)
 5. [Load, Stores, and Addressing](/ARM-ASM/05-Loads-Stores-Addressing.md)
 6. ...
+7. 
+
+> btw the notes are a hot mess, don't think they are of any help... 
 
 ## Data Structures in C
 ### Book
