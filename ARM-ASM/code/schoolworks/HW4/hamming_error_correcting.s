@@ -2,22 +2,21 @@
         ENTRY
         ; registers used:
         ; r0 - used to hold the 12-bit data
-        ; r1 - used to hold address of cmasks
+        ; r1 - temp
         ; r2 - used to hold address of data
         ; r3 - used to hold the faulty checksum index
         ; r4 - temp
         ; r5 - hold the index of the faulty bit (12 bit)
         ; r6 - holds the 8-bit data
         ; r7 - temp
-        ; r8 - temp
-
-        ADR     r1, cmask
+        ; r8 - big counter
+		; 411440117 Aster Chen
+        MOV     r8, #7
         ADR     r2, data
 main    
         MOV     r3, #0
-        MOV     r5, #0
         MOV     r6, #0
-        LDR     r0, [r2,#12]
+        LDRH     r0, [r2], #2
         
         MOV     r4, r0              ; makes a copy
         ; check c0 ----------------------------------------------|
@@ -70,7 +69,7 @@ main
         ;(if r4==0|1->build, 2|3->fix, 4->unfixable)
         MOV     r4, #0              ; clear r4
         MOV     r7, #0              ; clear r7
-errcnt    
+errcnt    ; 411440117 Aster Chen
         CMP     r7, #3
         ROR     r5, r3, r7          ; get bit
         AND     r5, r5, #1          ; isolate bit
@@ -100,8 +99,8 @@ findb
         ROR     r4, r0, r5          ; get the faulty bit
         EOR     r4, r4, #1          ; invert the faulty bit
         SUB     r7, r5, #32
-        MVN     r8, r7              ; idk how to do it better
-        ADD     r7, r8, #1
+        MVN     r1, r7              ; idk how to do it better
+        ADD     r7, r1, #1
         ROR     r0, r4, r7
 
         ; build the 8-bit data
@@ -117,12 +116,13 @@ build   ROR     r4, r0, #2          ; (1)get bit 2 from 12 bit data
         AND     r4, r4, #0xF0       ; isolate bit
         ORR     r6, r6, r4          ; emplace the 4~7 bits into 8-bit data
         ; r6 now has the correct 8-bit data
-
+        
+        CMP     r8, #0              ; big counter
+        SUB     r8, #1
+        BNE     main
         ALIGN
-stop 	B		stop
-cmask   DCD     0x555, 0x666, 0x878, 0xF80
-data    DCD     0xBA6 ; 12 bit data for 0xB5
-        DCD     0xB26 ; 0xB5 but with c3 faulty
-		DCD     0xB86 ; 0xB5 but with d5 faulty (2 checksums will be faulty)     
-        DCD     0xBE6 ; 0xB5 but with d6 faulty (bit 3 for 8-bit data, 3 checksums withh be faulty)
+stop 	B		stop; 411440117 Aster Chen
+data    
+		DCW     0xA3E ; 12 bit data for 0xA7
+		DCW     0xA3F, 0xA3C, 0xA36, 0xABE, 0xA2E, 0x83E
         END
