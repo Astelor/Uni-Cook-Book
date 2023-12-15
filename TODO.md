@@ -2,11 +2,10 @@
 one thing at a time, baby steps are fine.
 
 _due
-- 第十三周結報 (Sun.)
-- 組合語言作業 (12/19)
+- 組合語言作業 (12/21)
+- 資料結構作業 (12/19)
 
 _homework
-- 資料結構作業 (12/21)
 - Engineering Math HW3 (12/22)
 
 - data structure week13 practice (Sun.)
