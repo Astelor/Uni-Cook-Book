@@ -167,9 +167,9 @@ int main(){
     printf("\n(3)-2 not_oddlist:\n↓ first\n");
     printList(not_oddlist);
 
-    // (4) concatenate oddlist to the front of the origianl list---------------------------------------|
+    // (4) concatenate oddlist to the front of not_oddlist --------------------------------------------|
     printf("\n(4) List after concatenating oddlist to the front:\n↓ first\n");
-    head=concatenate(oddlist, head);
+    head=concatenate(oddlist, not_oddlist);
     printList(head);
 
     // (5) convert the linear list into a circular list------------------------------------------------|
