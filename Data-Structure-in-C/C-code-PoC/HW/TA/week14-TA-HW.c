@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 //typedef struct Node* listPointer;
 // for the sake of my own studying, let's not use listPointer here
@@ -94,22 +95,35 @@ struct Node* concatenate(struct Node* ptr1, struct Node* ptr2){
 }
 
 struct Node* invertList(struct Node* ptr){
-    if(ptr==NULL){
-        printf("the list is empty!\n");
-        exit(2);
+    struct Node* prev=NULL;
+    struct Node* current=ptr;
+    struct Node* nextNode=NULL;
+    while(current != NULL){             // 1      2      3      4
+        nextNode = current->next;       // [p|0]->[c|3]->[n|4]->[ |0] hold the next node
+        current->next = prev;           // [p|0]<-[c|1]->[n|4]->[ |0] edit the current node, make it link to the previous one
+        prev = current;                 // [ |0]<-[p|1]->[n|4]->[ |0] step "prev" to the next one
+        current = nextNode;             // [ |0]<-[p|1]->[cn|4]->[ |0]step "current" to the next one
     }
-    
+    return prev;
+}
+
+struct Node* Lin2Cir(struct Node* ptr){
+    struct Node* temp= ptr;
+    while(temp->next!=NULL) temp=temp->next;
+    temp->next=ptr;
+    return ptr;
 }
 
 // printing the list :D
 void printList (struct Node* ptr){
-    //struct Node* temp = ptr;
+    struct Node* temp = ptr;
     int count = 0;
-    while(ptr!=NULL){
-        printf("%2d ", ptr->data);
-        ptr=ptr->next;
+    while(temp!=NULL){
+        printf("%2d ", temp->data);
+        temp=temp->next;
         count++;
         if(count%10==0) printf("\n");
+        if(temp==ptr) break;            // if the list is circular, preventing a infinite loop
     }
     printf("\n");
 }
@@ -117,20 +131,68 @@ void printList (struct Node* ptr){
 int main(){
     //initialize an empty linked list
     struct Node* head = NULL;
-    insert(&head, 1234);
-    insert(&head, 123);
-    insert(&head, 12);
-    insert(&head, -1);
-    insertNum(&head,-2);
+    srand(time(NULL));
+    int i,max=99,min=1,size=50;
+    for(i=0;i<size;i++){
+        // inserting 50 random numbers into the list
+        int random_number = rand()%(max-min+1)+min;
+        insert(&head,random_number/*size-i*/);
+    }
+    // (1) inserting random numbers--------------------------------------------------------------------|
+    printf("(1) List after inserting 50 ranom numbers:\n↓ first\n");
     printList(head);
-    int t=deleteNode(&head);
-    struct Node* head2 = NULL;
-    insert(&head2, 8);
-    insert(&head2, 9);
-    insert(&head2, 111);
-    insert(&head2, 100);
-    printList(head2);
-    concatenate(head, head2);
+    head=invertList(head);
+
+    // (2) invert list---------------------------------------------------------------------------------|
+    printf("\n(2) List after inverting:\n↓ first\n");
+    printList(head);
+    
+    // (3) seperate odd numbers from a list------------------------------------------------------------|
+    struct Node* oddlist = NULL;
+    struct Node* not_oddlist = NULL;
+    struct Node* temp;
+    struct Node* head2=NULL;
+    while(head!=NULL){
+        int deleted_item=deleteNode(&head);
+        insert(&head2,deleted_item);
+        if(deleted_item%2==1){
+            insertNum(&oddlist, deleted_item);
+        }else{
+            insertNum(&not_oddlist, deleted_item);
+        }
+    }
+    head=head2;                         // put the original data back to head;
+    printf("\n(3)-1 oddlist:\n↓ first\n");
+    printList(oddlist);
+    printf("\n(3)-2 not_oddlist:\n↓ first\n");
+    printList(not_oddlist);
+
+    // (4) concatenate oddlist to the front of the origianl list---------------------------------------|
+    printf("\n(4) List after concatenating oddlist to the front:\n↓ first\n");
+    head=concatenate(oddlist, head);
+    printList(head);
+
+    // (5) convert the linear list into a circular list------------------------------------------------|
+    printf("\n(5) List after converting to a circular linked list\n↓ first\n");
+    head=Lin2Cir(head);
+    printList(head);   // to prevent infinite loop, the function itself has a precaution
+
+    // (6) delete every 6th node-----------------------------------------------------------------------|
+    printf("\n(6) Deleted node with data every 6th element:\n↓ first\n");
+    int count=0;
+    temp=head;
+    struct Node* prevNode=NULL;
+    do{
+        if((++count)%6==0){
+            struct Node* temp2=temp;
+            prevNode->next=temp->next;
+            temp=temp->next;
+            free(temp2);
+            count++;
+        }
+        prevNode=temp;
+        temp=temp->next;
+    }while(temp!=head);
     printList(head);
     return 0;
 }
