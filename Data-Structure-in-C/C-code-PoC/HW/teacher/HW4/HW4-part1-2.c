@@ -3,6 +3,8 @@
 #include <time.h>
 #define print_spacing 10
 #define stack_size 15
+#define max 99
+#define min 1
 // STACK
 
 struct Node{
@@ -56,7 +58,8 @@ int popStack(struct Stack** ptr){
 int topStack(struct Stack* ptr){
     return ptr->top->data;
 }
-struct Stack* popped_items;
+
+//struct Stack* popped_items;
 
 int peekStack(struct Stack** ptr, int index, int query_reverse, int query_ditch){
     // use only the functions
@@ -64,7 +67,7 @@ int peekStack(struct Stack** ptr, int index, int query_reverse, int query_ditch)
     index--; // counting from 1
     int i,output;
     if(!query_reverse){
-        // for the normal indexing, traverse the stack
+        // for the normal indexing, count down the stack
         for(i=0;i<index;i++){
             pushStack(&temp,popStack(ptr));
         }
@@ -97,8 +100,7 @@ int peekStack(struct Stack** ptr, int index, int query_reverse, int query_ditch)
                 pushStack(ptr,popStack(&temp));
             }
         }/*else{
-        
-        
+
         }*/
     }
     return output;
@@ -110,8 +112,14 @@ void freeStack(struct Stack** ptr){
     }
 }
 
-void emplaceDataStack(){
-
+void newDataStack(struct Stack** ptr){
+    freeStack(ptr);
+    *ptr=createStack();
+    int i;
+    for(i=0;i<stack_size;i++){
+        int random_number=rand()%(max-min+1)+min;
+        pushStack(ptr,/*random_number*/i+1);
+    }
 }
 
 void printStack(struct Stack* ptr){
@@ -126,24 +134,40 @@ void printStack(struct Stack* ptr){
     printf("\n");
 }
 
+char hw_question[6][10000]={
+"第一題：指定m 的數值為頂端算起的第三元素，且不改變堆疊。",
+"第二題：指定m 的數值為頂端算起的第十二元素，且不改變堆疊。", 
+"第三題：指定m 的數值為底端，且不改變堆疊。  ",
+"第四題：指定m 的數值為底端算起的第二元素，且不改變堆疊。 ",
+"第五題：指定m 的數值為底端算起的第三元素，且不改變堆疊。 ",
+"第六題：指定m 的數值為底端算起的第四元素，且不改變堆疊。"
+};
+
+int hw_data[6][3]={
+{3,0,0},
+{10,0,0},
+{1,1,0},
+{2,1,0},
+{3,1,0},
+{4,1,0}
+};
+
 int main(){
     // if the stack is empty, top will point to NULL
     struct Stack* new_heap=createStack();
-    int i,max=99,min=1;
+    int i,m;
     srand(time(NULL));
-
-    for(i=0;i<stack_size;i++){
-        int random_number=rand()%(max-min+1)+min;
-        pushStack(&new_heap,/*random_number*/i+1);
+    printStack(new_heap);
+    for(i=0;i<6;i++){
+        newDataStack(&new_heap);
+        printf("↓ top\n");
+        printStack(new_heap);
+        m=peekStack(&new_heap,hw_data[i][0],hw_data[i][1],hw_data[i][2]);
+        printf("%s\nm = %d\n",hw_question[i],m);
+        printf("↓ top\n");
+        printStack(new_heap);
+        printf("\n\n");
     }
-    popStack(&new_heap);
-
-    //printf("top-> ");
-    printStack(new_heap);
-    int this=peekStack(&new_heap,5,1,1);
-    //printf("top-> ");
-    printStack(new_heap);
-    
     return 0;
 
 }
