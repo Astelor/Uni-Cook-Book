@@ -89,14 +89,24 @@ void printStack(struct Stack* ptr){
     printf("\n");
 }
 
-// micmic queue structure
+// mimic queue structure
 // data processing
-
+/* 
+ * queue: first in first out, the new data is placed behind rear
+ * 1 <- top (rear)
+ * 2
+ * 3
+ * 4
+ * 5 <- front
+ * 
+*/
 int isEmptyQueue_Stack(struct Stack* ptr){
+    // if the stack itself is empty, the queue must be empty
     return isEmptyStack(ptr);
 }
 
 void addQueue_Stack(struct Stack** ptr, int data){
+    // the designated rear is the top of a stack
     pushStack(ptr,data);
 }
 
@@ -105,28 +115,30 @@ int deleteQueue_Stack(struct Stack** ptr){
         printf("Queue underflow\n");
         exit(EXIT_FAILURE);
     }
-    //struct Node* temp = (*ptr)->top;
     struct Stack* temp=createStack();
     int output;
-    // traverse the "stack" until reaching the "front";
     while(!isEmptyStack(*ptr)){
+        // traverse the "stack" until reaching the "front"
         pushStack(&temp,popStack(ptr));
     }
+    // now the top is the front, pop it
     output=popStack(&temp);
     while(!isEmptyStack(temp)){
+        //place the reversed "stack" back
         pushStack(ptr,popStack(&temp));
     }
     return output;
 }
 
 void printQueue_Stack(struct Stack* ptr){
-    // traverse the entire stack
     struct Stack* temp=createStack();
     int count=0;
     while(!isEmptyQueue_Stack(ptr)){
+        // traverse the entire stack untill reaching the front
         pushStack(&temp,popStack(&ptr));
     }
     while(!isEmptyQueue_Stack(temp)){
+        // printing the reversed "stack" and place it back
         int item=popStack(&temp);
         printf("%2d ", item);
         pushStack(&ptr,item);
@@ -138,10 +150,12 @@ int frontQueue_Stack(struct Stack* ptr){
     struct Stack* temp=createStack();
     int output;
     while(!isEmptyStack(ptr)){
+        // traverse the entire stack untill reaching the front
         pushStack(&temp,popStack(&ptr));
     }
     output=topStack(temp);
     while(!isEmptyStack(temp)){
+        // place the stack back
         pushStack(&ptr,popStack(&temp));
     }
     return output;
