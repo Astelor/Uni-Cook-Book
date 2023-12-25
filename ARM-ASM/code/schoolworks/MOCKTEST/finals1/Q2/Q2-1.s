@@ -30,7 +30,7 @@ func1
         BX  lr
 
 func2
-        ROR r2, r0, #12		; get bit 12
+        ROR r2, r0, #12	    ; get bit 12
         AND r2, r2, #0xFF   ; isolate the bits
         BIC r1, r1, #0xFF
         ADD r1, r1, r2      ; now r1=0xFACEABFB
