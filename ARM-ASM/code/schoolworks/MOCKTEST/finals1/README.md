@@ -131,12 +131,6 @@ ADD r2, r1, <N>, LSL <a>
 
 - no `EOR`
   - count the numbers manually
-
-I'm so unfortunately not good enough to dissect functionalities and make them into "lego blockos" to be assembled when taking the exam. Nonetheless there will be funky restrictions and I'll have to rewrite my code completely. And the exam is so frustratingly arduous and lengthy it's impossible to finish within an hour.
-
-We are not lab rats.
-
-anyways
 - reverses the hex numbers (0xABCD1234 -> 0x4321DCBA)
 ```
 func2
