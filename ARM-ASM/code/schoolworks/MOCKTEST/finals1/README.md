@@ -18,8 +18,28 @@ STMIA{cond} Rn!, {Rlist}        ; the ! increments the base Rn
 ### STM / LDM
 - the lowest register will be loaded first no matter the order in the list
   - {r4,r0,r3} = {r0,r3,r4}
+
+### SP
+
 - `PUSH` and `POP` are the same as `STMDB` and `LDMIA`, except it uses SP(stack pointer, register 13) and updates automatically 
   - SP can be set using a `LDR` pseudo-instruction
+- or the other way around I guess
+```
+        AREA example, CODE
+        ENTRY
+        ADR r0, data
+        LDR sp, =0x40000020
+		
+        LDMIA r0, {r2-r5}  ; load the values in
+        STMDA sp!, {r2-r5} ; store the values using stack pointer
+        LDMIB sp, {r6-r9}  ; loads the values stored correctly
+                           ; and not changing sp
+        
+stop 	B stop
+data    DCD 0xABCD1234, 0xBBBBAAAA, 0xFFFFDDDD, 0x87654321
+        END
+```
+- `STMDA` places the first word of data on 0x20-0x23, and SP stops on 0x10, where 0x10-0x13 have nothing
 
 and there are very much a lot of "fuck you" within and frustration :>
 ## Question 2
@@ -35,7 +55,8 @@ func1
         END
 ```
 - just know that it does the job correctly
-
+- the `STMDA` is probably for r0 and r1, so a `STMDA sp!, {r0,r1}` and `LDMIB sp, {r0,r1}` will be needed
+  
 ## Question 3
 the same as that we've done in the homework (parity check), except the checker is repeating by a subroutine
 
@@ -116,3 +137,20 @@ I'm so unfortunately not good enough to dissect functionalities and make them in
 We are not lab rats.
 
 anyways
+- reverses the hex numbers (0xABCD1234 -> 0x4321DCBA)
+```
+func2
+        MOV r3, #0
+        MOV r4, #0
+        LDR r5, [r0]
+loop2	
+        LSR r2, r5, r3
+        AND r2, r2, #0xF
+        LSL r4, r4, #4
+        ADD r4, r4, r2
+        
+        ADD r3, r3, #4
+        CMP r3, #32
+        BNE loop2
+        BX lr
+```
