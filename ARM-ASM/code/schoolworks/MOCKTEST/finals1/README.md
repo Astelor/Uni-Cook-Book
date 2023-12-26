@@ -19,6 +19,19 @@ STMIA{cond} Rn!, {Rlist}        ; the ! increments the base Rn
 - the lowest register will be loaded first no matter the order in the list
   - {r4,r0,r3} = {r0,r3,r4}
 
+```
+(to make it stored/loaded to the desired address)
+
+LDMIA -> address
+LDMIB -> address+4
+LDMDA -> address+ 4*<number of data-1>
+LDMDB -> address+ 4*<number of data>
+
+STMIA -> address
+STMIB -> address+4
+STMDA -> address+ 4*<number of data-1>
+STMDB -> address+ 4*<number of data>
+```
 ### SP
 
 - `PUSH` and `POP` are the same as `STMDB` and `LDMIA`, except it uses SP(stack pointer, register 13) and updates automatically 
