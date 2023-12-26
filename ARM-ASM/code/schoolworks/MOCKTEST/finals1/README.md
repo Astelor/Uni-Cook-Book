@@ -144,6 +144,7 @@ ADD r2, r1, <N>, LSL <a>
 
 - no `EOR`
   - count the numbers manually
+
 - reverses the hex numbers (0xABCD1234 -> 0x4321DCBA)
 ```
 func2
@@ -159,5 +160,22 @@ loop2
         ADD r3, r3, #4
         CMP r3, #32
         BNE loop2
+        BX lr
+```
+
+- reverse the bits entirely
+```
+func3
+        LDR r0, =0xFACEBEEF
+        MOV r2, #0
+        MOV r4, #0
+loop3
+        LSR r3, r0, r2
+        LSL r4, r4, #1
+        AND r3, r3, #1
+        ADD r4, r4, r3
+        ADD r2, r2, #1
+        CMP r2, #32
+        BNE loop3
         BX lr
 ```
