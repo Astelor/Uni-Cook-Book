@@ -15,10 +15,6 @@ ehh
     - [The Fundamentals](#the-fundamentals-1)
     - [Accessing the middle with 2 queues](#accessing-the-middle-with-2-queues)
     - [user input code checker](#user-input-code-checker)
-    - [Jargons](#jargons)
-      - [lastOperationIs...](#lastoperationis)
-      - [TotalInQueue](#totalinqueue)
-      - [Sacrificing an element space](#sacrificing-an-element-space)
   - [Misc](#misc)
     - [Generate a sequence of random numbers](#generate-a-sequence-of-random-numbers)
     - [rand](#rand)
@@ -417,16 +413,6 @@ while(1){
 	}
 }
 ```
-### Jargons
-> The prof just doesn't explain anything in the paper, they are just jargons to me. Thanks for making me go through the recordings.
-> THESE are hardly relevant to data structure itself, these are implementations, these are programming.
-
-#### lastOperationIs...
-
-#### TotalInQueue
-
-#### Sacrificing an element space
-
 
 ---
 ## Misc

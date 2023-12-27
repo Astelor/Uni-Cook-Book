@@ -12,11 +12,11 @@
 /*
 1.	Write a program including the following steps 
 (1) using array implementation of trees
-
 (a) Use rand()%100+1 to get 40 random numbers, output the numbers 
     (one by one, one space in between, and 10 numbers in one line), 
     insert the numbers into a created array one by one (from tree[0]~tree[39]) 
     immediately to form a tree implemented by an array. 
+
 (b) output the data in the tree nodes one by one in preorder.
 (c) output the data in the tree nodes one by one in inorder.
 (d) output the data in the tree nodes one by one in postorder.
@@ -165,7 +165,7 @@ void iterPreorderTraversal(int tree[]){
     while(currentIndex < TREE_SIZE || top!=-1){
         if(currentIndex < TREE_SIZE && tree[currentIndex] != -1){
             printf("%2d ", tree[currentIndex]);
-            if((++count)%print_spacing==0) printf("\n");
+                if((++count)%print_spacing==0) printf("\n");
             // push teh right child onto the stack
             if( (2 * currentIndex + 2) < TREE_SIZE && tree[2*currentIndex+2]!=-1){
                 stack[++top] = 2 * currentIndex + 2;
