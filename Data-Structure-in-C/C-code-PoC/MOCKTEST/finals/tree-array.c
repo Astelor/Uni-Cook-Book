@@ -34,6 +34,7 @@ void createTree(int tree[]){
 }
 
 int count=0;
+
 // 0: as a simple array. 1: preorder. 2: inorder. 3: postorder 4: levelorder
 // recursive method except case 0 and 4
 void printTREE(int tree[], int query_method, int rootIndex){
@@ -92,10 +93,12 @@ void printTREE(int tree[], int query_method, int rootIndex){
 }
 
 // 1: preorder. 2: inorder. 3: postorder
+// iterative method
 void iterPrintTREE(int tree[], int query_method){
     int stack[TREE_SIZE];
     int top = -1;     // stack top pointer
     int currentIndex = 0;
+    int lastVisited = -1; // apparently dev cpp doesn't allow ANY inline declaration
     switch (query_method)
     {
     case 1: // preorder
@@ -130,7 +133,6 @@ void iterPrintTREE(int tree[], int query_method){
         } 
         break;
     case 3: //postorder
-        int lastVisited = -1;
         while(currentIndex < TREE_SIZE || top!=-1){
             if(currentIndex < TREE_SIZE && tree[currentIndex] != -1 ){
                 stack[++top] = currentIndex;
@@ -253,9 +255,9 @@ int main(){
     printf("(e) levelorder\n");
     printTREE(binary_tree, 4, 0); count=0;
 
-    /*// (6) inorder iterative
+    // (6) inorder iterative
     printf("(f) iterative inorder\n");
-    iterInorderTraversal(binary_tree);*/
+    iterInorderTraversal(binary_tree);
    
 
     //iterPostorderTraversal(binary_tree);
