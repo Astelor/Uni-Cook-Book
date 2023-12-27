@@ -62,7 +62,7 @@ struct TreeNode* insertNode(struct TreeNode* root, int data){
 }
 int count=0;
 
-// recursive traversal
+// recursive traversals-----------------------------------------------------------------|
 void preorderTraversal(struct TreeNode* root){
     if(root!=NULL){
         printf("%2d ", root->data);
@@ -90,7 +90,7 @@ void postorderTraversal(struct TreeNode* root){
     }
 }
 
-// iterative traversal
+// iterative traversals-----------------------------------------------------------------|
 struct StackNode{
     struct TreeNode* node;
     struct StackNode* next;
@@ -233,6 +233,7 @@ void iterLevelOrderTraversal(struct TreeNode* root) {
     count=0;
 }
 
+// data adding and deleting functions---------------------------------------------------|
 struct TreeNode* emplaceTree(struct TreeNode* root){
     int i;
     for(i=0;i<TREE_SIZE;i++){
