@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#define max 99
+#define min 1
+#define size 40
+#define print_spacing 10
 // this is a copypase from week14-TA-HW.c (with some modifications)
 struct Node{
     int data;
@@ -120,7 +124,7 @@ void printList (struct Node* ptr){
         printf("%2d ", temp->data);
         temp=temp->next;
         count++;
-        if(count%10==0) printf("\n");
+        if(count%print_spacing==0) printf("\n");
         if(temp==ptr) break;            // if the list is circular, preventing a infinite loop
     }
     printf("\n");
@@ -130,7 +134,7 @@ int main(){
     //initialize an empty linked list
     struct Node* head = NULL;
     srand(time(NULL));
-    int i,max=99,min=1,size=50;
+    int i;
     // (1) inserting random numbers--------------------------------------------------------------------|
     for(i=0;i<size;i++){
         // inserting 50 random numbers into the list
