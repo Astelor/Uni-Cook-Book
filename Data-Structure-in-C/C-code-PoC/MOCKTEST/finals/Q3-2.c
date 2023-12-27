@@ -115,7 +115,7 @@ void printQueue(struct Queue* ptr){
  * 5 rear
 */
 int isEmptyStack_Q(struct Queue* ptr){
-    return isEmptyStack(ptr);
+    return isEmptyQueue(ptr);
 }
 
 void pushStack_Q(struct Queue** ptr, int data){
@@ -123,7 +123,7 @@ void pushStack_Q(struct Queue** ptr, int data){
     // create another queue, place the data in, empty ptr innit, make ptr temp 
     struct Queue* temp=createQueue();
     addQueue(&temp,data);
-    while(!isEmptyQueue(ptr)){
+    while(!isEmptyQueue(*ptr)){
         addQueue(&temp,deleteQueue(ptr));
     }
     *ptr=temp;
@@ -153,7 +153,7 @@ int peekStack_Q(struct Queue** ptr, int index, int query_reverse, int query_ditc
         for(i=0;i<index;i++){
             pushStack_Q(&temp,popStack_Q(ptr));
         }
-        output=topStack(*ptr);
+        output=topStack_Q(*ptr);
         if(!query_ditch){
             // place the popped items back
             while(!isEmptyStack_Q(*ptr)){
@@ -174,7 +174,7 @@ int peekStack_Q(struct Queue** ptr, int index, int query_reverse, int query_ditc
             pushStack_Q(&temp,popStack_Q(ptr));
         }
         for(i=0;i<=index;i++){
-            pushStack_Q(ptr,popen(&temp));
+            pushStack_Q(ptr,popStack_Q(&temp));
         }
         output=topStack_Q(*ptr);
         if(!query_ditch){
@@ -191,35 +191,39 @@ int peekStack_Q(struct Queue** ptr, int index, int query_reverse, int query_ditc
 
 
 char hw_question[6][10000]={
-"第一題：指定m 的數值為排尾算起的第二元素。",
-"第二題：指定m 的數值為排尾算起的第二元素，且不改變佇列。",
-"第三題：指定m 的數值為排尾算起的第三元素。",
-"第四題：指定m 的數值為排尾算起的第三元素，且不改變佇列。",
-"第五題：指定m 的數值為排尾算起的第四元素。",
-"第六題：指定m 的數值為排尾算起的第四元素，且不改變佇列。"
+"第一題：指定m 的數值為頂端算起的第三元素，且不改變堆疊。",
+"第二題：指定m 的數值為頂端算起的第十二元素，且不改變堆疊。", 
+"第三題：指定m 的數值為底端，且不改變堆疊。  ",
+"第四題：指定m 的數值為底端算起的第二元素，且不改變堆疊。 ",
+"第五題：指定m 的數值為底端算起的第三元素，且不改變堆疊。 ",
+"第六題：指定m 的數值為底端算起的第四元素，且不改變堆疊。"
 };
 
 int hw_data[6][3]={
-{2,1,1},
+{3,0,0},
+{10,0,0},
+{1,1,0},
 {2,1,0},
-{3,1,1},
 {3,1,0},
-{4,1,1},
 {4,1,0}
 };
+
 int main(){
+    // if the stack is empty, top will point to NULL
     struct Queue* new_heap=createQueue();
     int i,m;
     srand(time(NULL));
+    printStack_Q(new_heap);
     for(i=0;i<6;i++){
         newDataQueue(&new_heap);
-        printf("↓ front\n");
-        printQueue(new_heap);
-        m=peekQueue(&new_heap,hw_data[i][0],hw_data[i][1],hw_data[i][2]);
+        printf("↓ top\n");
+        printStack_Q(new_heap);
+        m=peekStack_Q(&new_heap,hw_data[i][0],hw_data[i][1],hw_data[i][2]);
         printf("%s\nm = %d\n",hw_question[i],m);
-        printf("↓ front\n");
-        printQueue(new_heap);
-        printf("\n\n");
+        printf("↓ top\n");
+        printStack_Q(new_heap);
+        printf("----------------------------------\n\n");
     }
     return 0;
+
 }
