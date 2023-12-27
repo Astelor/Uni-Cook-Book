@@ -88,7 +88,7 @@ void newDataQueue(struct Queue** ptr){
     int i;
     for(i=0;i<queue_size;i++){
         int random_number=rand()%(max-min+1)+min;
-        addQueue(ptr,random_number);
+        addQueue(ptr, random_number);        // debug here!
     }
 }
 
@@ -201,7 +201,7 @@ char hw_question[6][10000]={
 
 int hw_data[6][3]={
 {3,0,0},
-{10,0,0},
+{12,0,0},
 {1,1,0},
 {2,1,0},
 {3,1,0},
@@ -215,15 +215,19 @@ int main(){
     srand(time(NULL));
     printStack_Q(new_heap);
     for(i=0;i<6;i++){
-        newDataQueue(&new_heap);
-        printf("↓ top\n");
+        newDataQueue(&new_heap); // create a new queue
+        
+        printf("↓ top\n");       // print the created new queue
         printStack_Q(new_heap);
+
         m=peekStack_Q(&new_heap,hw_data[i][0],hw_data[i][1],hw_data[i][2]);
-        printf("%s\nm = %d\n",hw_question[i],m);
+        printf("%s\nm = %d\n",hw_question[i],m); // print the question
+        
         printf("↓ top\n");
         printStack_Q(new_heap);
+        
         printf("----------------------------------\n\n");
     }
     return 0;
-
+    
 }

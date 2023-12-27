@@ -75,7 +75,7 @@ void newDataStack(struct Stack** ptr){
     int i;
     for(i=0;i<stack_size;i++){
         int random_number=rand()%(max-min+1)+min;
-        pushStack(ptr,/*random_number*/i+1);
+        pushStack(ptr,random_number/*i+1*/);    // debug here!
     }
 }
 
@@ -233,12 +233,16 @@ int main(){
     srand(time(NULL));
     for(i=0;i<6;i++){
         newDataStack(&new_heap);
+        
         printf("↓ front\n");
         printQueue_Stack(new_heap);
-        m=peekQueue_Stack(&new_heap,hw_data[i][0],hw_data[i][1],hw_data[i][2]);
+
+        m = peekQueue_Stack(&new_heap,hw_data[i][0],hw_data[i][1],hw_data[i][2]);
         printf("%s\nm = %d\n\n",hw_question[i],m);
+        
         printf("↓ front\n");
         printQueue_Stack(new_heap);
+       
         printf("\n---------------------------------------------\n");
     }
     return 0;

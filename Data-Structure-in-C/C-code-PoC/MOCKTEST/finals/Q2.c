@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -21,7 +20,6 @@
     
     (Note: Be sure to use the two functions void insertnum_s2b(listPointer *p, int x) and void insertnum_b2s(listPointer *p, int x).)
     
-
 (2) output the linear list data from list1 and list2 
     (one by one from the first to the last, one space in between, and 10 numbers in one line). 
     (Note: Be sure to use the function void printL(listPointer p).)
