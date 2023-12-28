@@ -204,17 +204,17 @@ int main(){
         int random_number = rand()%(max-min+1)+min;
         insert(&head,/*random_number*/size-i); //debug here
     }
-    printf("(1) List after inserting 50 ranom numbers:\n↓ first\n");
+    printf("(1) List after inserting 40 ranom numbers:\n↓ first\n");
     printList(head);
 
     // (2) seperate odd numbers from a list------------------------------------------------------------|
     struct Node* oddlist = NULL;
     struct Node* not_oddlist = NULL;
     struct Node* temp;
-    struct Node* head2=NULL;
+    //struct Node* head2=NULL;
     while(head!=NULL){
         int deleted_item=deleteNode(&head);
-        insert(&head2,deleted_item);
+        //insert(&head2,deleted_item);
         if(deleted_item%2==1){
             insertNum(&oddlist, deleted_item, 1);
         }else{

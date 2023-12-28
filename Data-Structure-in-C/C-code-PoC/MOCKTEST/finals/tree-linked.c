@@ -238,7 +238,7 @@ struct TreeNode* emplaceTree(struct TreeNode* root){
     int i;
     for(i=0;i<TREE_SIZE;i++){
         int random_number=rand()%100+1;
-        root=insertNode(root,i+1);
+        root=insertNode(root, random_number/*i+1*/);    // debug here 
     }
     return root;
 }

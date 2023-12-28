@@ -29,14 +29,14 @@ void createTree(int tree[]){
     int i;
     for(i=0;i<TREE_SIZE;i++){
         int random_number=rand()%(max - min +1) + min; //max~min
-        tree[i]=/*random_number*/i; // debug  here
+        tree[i] = random_number/*i*/; // debug  here
     }
 }
 
 int count=0;
 
-// 0: as a simple array. 1: preorder. 2: inorder. 3: postorder 4: levelorder
-// recursive method except case 0 and 4
+// 0: as a simple array. 1: preorder. 2: inorder. 3: postorder **4: levelorder**
+// recursive method except case 0 and 4 ------------------------------------------------|
 void printTREE(int tree[], int query_method, int rootIndex){
     int i;
     switch (query_method)
@@ -93,7 +93,7 @@ void printTREE(int tree[], int query_method, int rootIndex){
 }
 
 // 1: preorder. 2: inorder. 3: postorder
-// iterative method
+// iterative method --------------------------------------------------------------------|
 void iterPrintTREE(int tree[], int query_method){
     int stack[TREE_SIZE];
     int top = -1;     // stack top pointer
@@ -158,7 +158,7 @@ void iterPrintTREE(int tree[], int query_method){
     count=0;
 }
 
-// idividual functions here... -------------------------------------------------------------------|
+// idividual functions here... ---------------------------------------------------------|
 
 void iterPreorderTraversal(int tree[]){
     int stack[TREE_SIZE];
@@ -224,7 +224,6 @@ void iterPostorderTraversal(int tree[]){
     }
     count=0;
 }
-
 
 int main(){
     int i;

@@ -33,6 +33,7 @@ struct Node* createNode(int data){
     return newNode;
 }
 
+// base Queue functions-----------------------------------------------------------------|
 struct Queue* createQueue(){
     struct Queue* newQueue=(struct Queue*)malloc(sizeof(struct Queue));
     if(newQueue==NULL){
@@ -103,7 +104,7 @@ void printQueue(struct Queue* ptr){
     printf("\n");
 }
 
-// mimic stack structure
+// mimic stack structure ---------------------------------------------------------------|
 // data processing
 // okay this is annoying, why make the top front?????
 /* queue: first in first out, the new data is placed at rear
@@ -187,8 +188,6 @@ int peekStack_Q(struct Queue** ptr, int index, int query_reverse, int query_ditc
     }
     return output;
 }
-
-
 
 char hw_question[6][10000]={
 "第一題：指定m 的數值為頂端算起的第三元素，且不改變堆疊。",

@@ -29,6 +29,7 @@ struct Node* createNode(int data){
     return newNode;
 }
 
+// base Stack functions-----------------------------------------------------------------|
 struct Stack* createStack(){
     struct Stack* newStack = (struct Stack*)malloc(sizeof(struct Stack));
     if(newStack==NULL){
@@ -91,7 +92,7 @@ void printStack(struct Stack* ptr){
     printf("\n");
 }
 
-// mimic queue structure
+// mimic queue structure----------------------------------------------------------------|
 // data processing
 /* 
  * queue: first in first out, the new data is placed behind rear
