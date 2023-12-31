@@ -23,12 +23,12 @@ STMIA{cond} Rn!, {Rlist}        ; the ! increments the base Rn
 (to make it stored/loaded to the desired address)
 
 LDMIA -> address
-LDMIB -> address+4
+LDMIB -> address-4
 LDMDA -> address+ 4*<number of data-1>
 LDMDB -> address+ 4*<number of data>
 
 STMIA -> address
-STMIB -> address+4
+STMIB -> address-4
 STMDA -> address+ 4*<number of data-1>
 STMDB -> address+ 4*<number of data>
 ```
