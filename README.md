@@ -99,6 +99,8 @@ nope
 1. [民主政治的起源與發展](/民主政治/01-Origins-and-Evolvement.md)
 2. ...
 
+> I spent too much time writing the essay and ended up discontinuing the course
+
 # Note from Astelor
 
 - The image link shouldn't have any url-encoded symbol (e.g. a space)

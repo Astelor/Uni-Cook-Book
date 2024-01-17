@@ -1,6 +1,8 @@
 1/17/2024
 one thing at a time, baby steps are fine.
 
+- CEH Chapter 1
+
 ____
 (side quest)
 review and preview, what difference does it make if you gotta view the textbooks anyway. 
