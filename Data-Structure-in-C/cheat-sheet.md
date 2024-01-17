@@ -32,7 +32,7 @@ Because in C the compiler isn't that smart.
 - a variable must be accessible within a cycle
   - you can't store a double in 2 different registers
 
-[structure-test.c](/Data-Structure-in-C/C-code-PoC/playground/stucture-test.c)
+[structure-test.c](/Data-Structure-in-C/codes/playground/stucture-test.c)
 
 |type|size (byte)|
 |---|---|
@@ -111,7 +111,7 @@ fuck you :Madge:
 I'm a lazy mf, everything should apply under this condition(fundamentals), so that you don't have to check the base code every time you make a modification.
 
 tldr; don't change the stack itself.
-[stackEHHH.c](/Data-Structure-in-C/C-code-PoC/playground/stackEHHH.c)
+[stackEHHH.c](/Data-Structure-in-C/codes/playground/stackEHHH.c)
 (verified)
 ```c
 #include <stdio.h>
@@ -176,7 +176,7 @@ int prints(struct stack *ps){
 > bruh altering "top" is an index accessing, idc, I don't deserve a zero for doing index accessing. SOOO here it is, the orthodox way to do this.
 
 The functions added should be placed in the fundamentals accordingly.
-[stackEHHH.c](/Data-Structure-in-C/C-code-PoC/playground/stackEHHH.c)
+[stackEHHH.c](/Data-Structure-in-C/codes/playground/stackEHHH.c)
 (verified)
 ```c
 int accessS(struct stack *ps, struct stack *temps, int index);
@@ -228,7 +228,7 @@ int inserts(struct stack *ps, struct stack *temps, int data, int index){
 This only checks 2 types of parenthesis. Just add more conditions and checks if there are more than 2 types.
 
 element and parent should be popped or pushed simultaneously.
-[parenthsis-check.c](/Data-Structure-in-C/C-code-PoC/playground/parenthsis-check.c)
+[parenthsis-check.c](/Data-Structure-in-C/codes/playground/parenthsis-check.c)
 (verified)
 ```c
 int main(){
@@ -281,7 +281,7 @@ int main(){
 
 ### The Fundamentals
 Circular Queue
-[queueEHHH.c](/Data-Structure-in-C/C-code-PoC/playground/queueEHHH.c)
+[queueEHHH.c](/Data-Structure-in-C/codes/playground/queueEHHH.c)
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -442,9 +442,9 @@ int t=time(NULL);
 ```
 ## HWCODE
 
-- [HW3 part1](/Data-Structure-in-C/C-code-PoC/HW/teacher/HW3/PART1/HW3_1.c)
-- [HW3 part2](/Data-Structure-in-C/C-code-PoC/HW/teacher/HW3/PART2/HW3-2.c)
-- [HW3 part3](/Data-Structure-in-C/C-code-PoC/HW/teacher/HW3/PART3/HW3-3.c)
+- [HW3 part1](/Data-Structure-in-C/codes/HW/teacher/HW3/PART1/HW3_1.c)
+- [HW3 part2](/Data-Structure-in-C/codes/HW/teacher/HW3/PART2/HW3-2.c)
+- [HW3 part3](/Data-Structure-in-C/codes/HW/teacher/HW3/PART3/HW3-3.c)
 
 ### part 1 & part 3
 - it asks to access 1 index, leaving the stack altered & unaltered
