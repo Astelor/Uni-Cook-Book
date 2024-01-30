@@ -14,6 +14,8 @@ Usually non-profit.
 website: https://www.ieee.org/
 > "IEEE's core purpose is to foster technological innovation and excellence for the benefit of humanity."
 
+Astelor: typically standards for electronics and simple analog machines
+
 ## Internet Engineering Task Force (IETF)
 website: https://www.ietf.org
 
@@ -22,3 +24,18 @@ website: https://www.ietf.org
 
 - Request For Comment (RFC)
   - https://www.rfc-editor.org/
+
+Astelor: typically everything regarding the networks
+
+# Groups that make documentations
+The archivists
+
+## CVE (Common Vulnerabilities and Exposures)
+website: https://cve.mitre.org/
+documentation of disclosed vulnerabilities known to men
+
+Astelor: excellent case studying ground for beginners
+
+# Groups that make software
+
+## GNU
