@@ -7,11 +7,10 @@ You can find detailed information at https://www.gnu.org/software/ or the develo
 
 # Enumeration
 ## Nmap
-https://nmap.org/
-
+[The official Nmap Project guide to Network Discovery and Security Scanning](https://nmap.org/book/toc.html)
 > "Nmap (“Network Mapper”) is an open source tool for network exploration and security auditing."
 
-```
+```bash
 nmap -sC -sV -oA <directory>/<filename> <target IP address>
 ```
 you can specify ports or addresses to avoid probing unauthorized area.
@@ -60,3 +59,29 @@ vim <filename>
 Write first, organize later, here.
 ## Gcc (GNU project C and C++ compiler)
 
+## WHOIS
+- who's this public address? (linux/unix)
+```
+whois <IP_address>
+```
+https://whois.domaintools.com/
+
+"It's a query response protocol that is used for querying databases that store an internet resource's registered users or assignees. These resources include domain names, IP address blocks and autonomous systems, but it is also used for a wider range of other information."
+[WHOIS Protocol Specification: RFC3912](https://datatracker.ietf.org/doc/html/rfc3912)
+
+## Unix Terminal
+
+### Redirection (`>` or `>>`)
+The `>` operator overwrites the content of the file if it already exists. If you want to append text to an existing file, you can use the `>>` operator.
+```bash
+echo "this is a test message" > test
+```
+The the command creates a file named `test` with the content `this is a test message inside`
+```bash
+echo "appended text" >> test
+```
+now the file `test` will have
+```
+this is a test message
+appended text
+```

@@ -1,4 +1,29 @@
 # Chapter 2, Networking Foundations
+ugly ass table of contents
+- [Chapter 2, Networking Foundations](#chapter-2-networking-foundations)
+- [Funny term bracket](#funny-term-bracket)
+- [Keys](#keys)
+- [IPv4 (Internet Protocol)](#ipv4-internet-protocol)
+- [TCP (Transmission Control Protocol)](#tcp-transmission-control-protocol)
+- [Internet Control Message Protocol](#internet-control-message-protocol)
+  - [Ping (ICMP Echo Request)](#ping-icmp-echo-request)
+- [Network Architectures](#network-architectures)
+  - [Network Types](#network-types)
+    - [Local Area Network (LAN)](#local-area-network-lan)
+    - [Virtual Local Area Network (VLAN)](#virtual-local-area-network-vlan)
+    - [Wide Area Network (WAN)](#wide-area-network-wan)
+    - [Metropolitan Area Network (MAN)](#metropolitan-area-network-man)
+  - [Isolation](#isolation)
+    - [Demilitarized zone (DMZ)](#demilitarized-zone-dmz)
+    - [Enclaves](#enclaves)
+  - [Remote Access](#remote-access)
+- [Cloud Computing](#cloud-computing)
+  - [Advantage for cloud computing](#advantage-for-cloud-computing)
+  - [Storage as a Service (STaaS)](#storage-as-a-service-staas)
+  - [Infrastructure as a Service (IaaS)](#infrastructure-as-a-service-iaas)
+  - [Platform as a Service (PaaS)](#platform-as-a-service-paas)
+  - [Software as a Service (SaaS)](#software-as-a-service-saas)
+  - [Internet of Things](#internet-of-things)
 
 # Funny term bracket
 These are the terms that can be abbreviated.
@@ -30,7 +55,6 @@ In some legacy systems, EBCDIC encoding continues to be used for compatibility r
 - protocol data units (PDUs)
 - content-addressable memory (CAM)
 
-
 - Internet Packet Exchange (IPX)
 - Internet Engineering Task Force (IETF)
 - Classless Interdomain Routing (CIDR) notation
@@ -38,8 +62,35 @@ In some legacy systems, EBCDIC encoding continues to be used for compatibility r
 - Dynamic Host Configuration Protocol (DHCP)
   
 - Internet Message Control Protocol (IMCP)
+- Message Queuing Telemetry Transport (MQTT)
+- Simple Mail Transfer Protocol (SMTP)
 - 
 
+# Keys 
+(table of content, sort of)
+> the things that has yet to be documented
+- OSI model (Open Systems Interconnection)
+- TCP/IP Architecture
+- Topologies
+  - Bus Network
+  - Star Network
+  - Ring Network
+  - Mesh Network
+  - Hybrid
+- Physical Networking
+  - Addressing
+  - Switching
+- IP
+  - Headers
+  - Addressing
+  - Subnets
+- TCP (header)
+- UDP (header)
+- Internet Control Message Protocol (ICMP)
+- Network Architectures
+  - Network Types
+  - Isolation
+  - Remote Access
 
 - Protocol -> a set of rules or conventions that dictate communication.
 
@@ -93,45 +144,6 @@ In some legacy systems, EBCDIC encoding continues to be used for compatibility r
 ```
 
 
-# Useful Commands
-
-## WHOIS
-- who's this public address? (linux/unix)
-```
-whois <IP_address>
-```
-https://whois.domaintools.com/
-
-"It's a query response protocol that is used for querying databases that store an internet resource's registered users or assignees. These resources include domain names, IP address blocks and autonomous systems, but it is also used for a wider range of other information."
-[WHOIS Protocol Specification: RFC3912](https://datatracker.ietf.org/doc/html/rfc3912)
-
-
-# Keys 
-(table of content, sort of)
-
-- OSI model (Open Systems Interconnection)
-- TCP/IP Architecture
-- Topologies
-  - Bus Network
-  - Star Network
-  - Ring Network
-  - Mesh Network
-  - Hybrid
-- Physical Networking
-  - Addressing
-  - Switching
-- IP
-  - Headers
-  - Addressing
-  - Subnets
-
-- TCP (header)
-- UDP (header)
-- Internet Control Message Protocol (ICMP)
-- Network Architectures
-  - Network Types
-  - Isolation
-  - Remote Access
 
 
 # Internet Control Message Protocol
@@ -210,7 +222,7 @@ Separating network elements(services intended to interact with the Internet(web 
 
 ```
       [the Internet]
-	         |
+             |
         [Firewall]
         /    |   \   
        /     |    \
@@ -220,6 +232,7 @@ Separating network elements(services intended to interact with the Internet(web 
 
 ## Remote Access
 - Virtual Private Networks (VPNs)
+  - to connect to VMs, SSH(Secure Shell) for linux, RDP(Remote Desktop Protocol) for windows
 - Multiprotocol Label Switching (MPLS)
 - IP Security (IPSec)
 - Transport Layer Security (TLS)
@@ -269,33 +282,15 @@ Separating network elements(services intended to interact with the Internet(web 
 |                  |  system off corporate network
 +------------------+
 ```
-Advantage for cloud computing
+## Advantage for cloud computing
 - cost effective
-  - hardware, software, maintenance are handled by the host provider (good for small businesses)
-- 
-
-
-from small to large scope(what the client need to/can do):
-
-- Storage as a Service (STaaS)
-  - e.g. google drive, one drive, github, iCloud
-  - pro: access data on any device
-  - con: compromise/ theft of personal data (photos, documents)
-  - server side: prevent unauthorized access
-  - client side: prevent data leakage (authorized user getting unauthorized data)
-- Infrastructure as a Service (IaaS)
-  - e.g. 
-  - 
-  - pro: cost effective (server host do all the maintenance and management)
-
-- Platform as a Service (PaaS)
-
-- Software as a Service (SaaS)
-
+  - servers are handled by the host provider (good for small businesses)
+  - pay-as-you-go
+- security concerns
+  - again, to keep the corporate network off internet facing systems.
 
 ```
-(from microsoft azure)
-
+Overview of "as a Services" (from microsoft azure)
 SaaS-+--[Hosted applications]
      |  
      | PaaS-+--[dev tools, database management, analytics]
@@ -308,3 +303,38 @@ SaaS-+--[Hosted applications]
      |      |       |
      +------+-------+--[data center physical plant]
 ```
+From small to large scope(what the server handles):
+## Storage as a Service (STaaS)
+> a box that holds your things, and portal them to you over the Internet
+- e.g. google drive, one drive, github, iCloud
+- pro: access data on any device
+- con: compromise/ theft of personal data (photos, documents)
+- server side: prevent unauthorized access
+- client side: prevent data leakage (authorized user getting unauthorized data)
+
+## Infrastructure as a Service (IaaS)
+> an empty box for developers
+- uses virtual machines to provide the hardware, like a brand-new set of computer, with nothing inside.
+
+## Platform as a Service (PaaS)
+> a box with toys for less the experienced
+- like IaaS, but the operating system, software necessary to manage the machine are handled by the server host provider.
+- businesses don't have to hire skilled technicians to maintain the system or spend more $ on the dev tools -> cost effective 
+
+## Software as a Service (SaaS)
+> apps but on browsers
+- e.g. google docs, office online
+- application developed to run inside a web browser -> you use the application provided and hosted by the server
+- pro: no need for automatic updates on user's end -> no one will be running out-of-date software
+- con: sensitive data being transported through the internet.
+  - data will be encrypted with SSL/TLS, but data transmitted across the Internet can be captured and analyzed.
+
+## Internet of Things
+> connect devices to network so humans don't need to be on-site
+- network of interconnected physical devices
+  - with network connectivity, allowing them to collect and exchange data.
+- can be reached over the network that doesn't have a built-in screen or the ability to take direct user interactions(input/output devices) is part of the IoT.
+- IS part of IoT:
+  - home automation devices: cable/satellite set-top boxes(your TVs)
+- NOT part of IoT:
+  - Smartphones, laptops -> can take direct user interactions
