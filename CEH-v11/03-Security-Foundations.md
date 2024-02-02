@@ -13,11 +13,15 @@ talbe of contents
   - [Security Policies](#security-policies)
   - [Security Standards](#security-standards)
   - [Procedures](#procedures)
+  - [Guidelines](#guidelines)
+- [Organizing Your Protections](#organizing-your-protections)
 
 # Funny term bracket
 the terms and things I don't know
 there are so many...
 - National Institute of Standards and Technologies (NIST)
+- service level agreement (SLA)
+- 
 
 # Keys
 cuz why not
@@ -132,7 +136,7 @@ These additions can fit into the CIA triad.
 # Policies, Standards, and Procedures
 
 ```
-        [policy]
+        [policy]<--------[guidelines]
          /    \
 [standard A] [standard B]
  |                  |
@@ -170,4 +174,12 @@ These additions can fit into the CIA triad.
 - what to do to achieve the standard at a granular level
   - step-by-step instructions
   - multiple procedures combined
-- 
+- MISC
+  - change to technology my result in an update to standards, and lead to more regular update to procedures
+  - feedback loops built in to revise procedures to be more efficient
+  - more regular updates as we get to the specific steps in implementation and administration.
+
+## Guidelines
+> not required but are suggestion on how policies my be implemented (e.g. best practices)
+
+# Organizing Your Protections
