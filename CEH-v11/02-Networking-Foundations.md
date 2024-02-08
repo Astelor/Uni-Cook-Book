@@ -3,6 +3,18 @@ ugly ass table of contents
 - [Chapter 2, Networking Foundations](#chapter-2-networking-foundations)
 - [Funny term bracket](#funny-term-bracket)
 - [Keys](#keys)
+- [Communication Models](#communication-models)
+  - [Open Systems Interconnection (OSI)](#open-systems-interconnection-osi)
+  - [TCP/IP Architecture](#tcpip-architecture)
+- [Topologies](#topologies)
+  - [Bus Network](#bus-network)
+  - [Star Network](#star-network)
+  - [Ring Network](#ring-network)
+  - [Mesh Network](#mesh-network)
+  - [Hybrid](#hybrid)
+- [Physical Networking](#physical-networking)
+  - [Addressing](#addressing)
+  - [Switching](#switching)
 - [IPv4 (Internet Protocol)](#ipv4-internet-protocol)
 - [TCP (Transmission Control Protocol)](#tcp-transmission-control-protocol)
 - [Internet Control Message Protocol](#internet-control-message-protocol)
@@ -93,6 +105,152 @@ In some legacy systems, EBCDIC encoding continues to be used for compatibility r
   - Remote Access
 
 - Protocol -> a set of rules or conventions that dictate communication.
+# Communication Models
+> modularize functions into layers, making it easier to debug, develop
+
+## Open Systems Interconnection (OSI)
+> the first ever conceptual model for better interoperability between vendors, created by International Organization for Standardization (ISO) in 1970s.
+
+```
+                 PDU name
+7 Application  - data
+6 Presentation - data
+5 Session      - data
+4 Transport    - segments
+3 Network      - packets
+2 Data Link    - frames
+1 Physical     - bits
+```
+
+their usages
+- 7 Application
+  - e.g. Hyper Text Transfer Protocol (HTTP)
+  - communication needs of the application -> e.g. identify and manage interacting with the resources 
+- 6 Presentation
+  - e.g. ASCII, unicode, JPEG
+  - make sure that data is formatted correctly -> e.g. character encoding formats
+- 5 Session 
+  - manage the communication between the end-points and applications -> ensure data is transmitted successfully
+- 4 Transport
+  - e.g. Transmission Control Protocol (TCP), User Datagram Protocol(UDP)
+  - segmenting messages for transmission
+- 3 Network
+  - e.g. Internet Protocol (IP)
+  - get messages from A to B, with addressing and routing
+- 2 Data Link
+  - Media Access Control (MAC)
+  - transmission of data frames between two nodes connected by a physical layer (a local network) 
+- 1 Physical
+  - you
+  - how the pulses on the wire are handled
+
+MISC
+- different layer have different protocols handling a specific task
+- the model separates functionalities and help you better identify the problems
+
+## TCP/IP Architecture
+
+```
+Application 7~5
+Transport   4
+Internet    3
+Link        2~1
+```
+- the functions from teh collapsed layers exist on the TCP/IP model
+- "as-built" design -> describes something spe
+
+# Topologies
+> conceptual models for networks, to help isolate potential issues (like OSI model)
+
+## Bus Network
+```
+     [machine A]   [B]
+             |      |
+[terminator]-+--+---+--[terminator]
+                |
+               [C]
+```
+- no mediating device -> all the computers are connected directly to one another by that singular cable
+- message collision
+
+## Star Network
+```
+    [A]
+     |
+   [hub]
+  /     \
+[B]    [C]
+```
+hub -> every device gets the same data
+- same issue as the bus network
+```
+ [A]
+  |
+[switch]
+ ⁝    ⁝
+[B]  [C]
+```
+switch -> data only goes to the selected port
+- slightly better than the previous two (no collision)
+- layer 2 (Data link) of OSI model -> MAC address
+
+## Ring Network
+```
+       [A]
+        |
+[B]--[ring]--[C]
+     /    \
+   [D]    [E]
+```
+- its logical representation, because they're not physically wired like this
+  - "wired like star but doesn't behave like one"
+- star network with hub medium, uses token to avoid message collision
+- **token**: a talking stick -> multistation access units (MAUs)
+```
+does [A] has message to send? no→ pass token
+↓ yes
+does [A] has token no→ wait for one
+↓ yes
+sends message
+```
+- exceptions
+  - if token is lost -> generates new one
+  - it's possible for the old token to suddenly be found
+
+- (Q: is the Ring Network the best one?) the cons can be fixed with proper protocols, so there's no definite superior topology.
+
+## Mesh Network
+```
+ +-----[C]---+
+ |      |    |
+[A]--+  +-+  |
+ |   |    |  |
+ |   +---[D] |
+ |        |  |
+[B]-------+  |
+ |           |
+ +-----------+
+```
+a full mesh -> every node is connected
+- peer-to-peer (decentralized)
+- redundancy (more than one way to go to a machine)
+- data pass through other systems
+- the systems act like terminators
+- it's increasingly expensive as you add systems `n(n-1)/2`
+
+## Hybrid
+```
+[switch 1]--[switch 2]--[switch 3]
+    |           |           |  
+[64 ports]  [64 ports]  [64 ports]
+```
+because of technical limitations of hardware (a 192 ports? no)
+
+# Physical Networking
+
+## Addressing
+ 
+## Switching
 
 # IPv4 (Internet Protocol)
 ```
@@ -147,21 +305,22 @@ In some legacy systems, EBCDIC encoding continues to be used for compatibility r
 
 
 # Internet Control Message Protocol
-ICMP -> RFC792
-> "ICMP, uses the basic support of IP as if it were a higher
-level protocol, however, ICMP is actually an integral part of IP, and
-must be implemented by every IP module." -RFC792 (page 1)
+> when IP fails you, ICMP got you
+
+`ICMP -> RFC792`
+"ICMP, uses the basic support of IP as if it were a higher level protocol, however, ICMP is actually an integral part of IP, and must be implemented by every IP module." -RFC792 (page 1)
 
 - generate types of ICMP messages when exceptions happen
-> "The Internet Protocol is not designed to be absolutely reliable. The
-purpose of these control messages is to provide feedback about
+
+"The Internet Protocol is not designed to be absolutely reliable. The purpose of these control messages is to provide feedback about
 problems in the communication environment, not to make IP reliable."
+
 - doesn't carry user data.
 - is considered a part of the Internet layer as IP 
   - it sits above the Internet layer, but isn't a Transport layer protocol
 
 ## Ping (ICMP Echo Request)
--> RFC 792 page 14
+`RFC 792 page 14`
 Sends a packet using the Internet Protocol topping an additional ICMP message.
 Because it's an IP packet, you can modify the its header such as its Time To Live. use `man ping` for more options, or `ping -help`.
 ```
