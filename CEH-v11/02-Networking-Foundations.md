@@ -476,7 +476,7 @@ From small to large scope(what the server handles):
 - uses virtual machines to provide the hardware, like a brand-new set of computer, with nothing inside.
 
 ## Platform as a Service (PaaS)
-> a box with toys for less the experienced
+> a box with toys for the less experienced
 - like IaaS, but the operating system, software necessary to manage the machine are handled by the server host provider.
 - businesses don't have to hire skilled technicians to maintain the system or spend more $ on the dev tools -> cost effective 
 
