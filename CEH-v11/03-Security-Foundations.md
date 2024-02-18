@@ -1,4 +1,7 @@
 # Chapter 3, Security Foundations
+> Astelor: imma skip ahead when I'm bored, and come back later when the skipped become relevant.
+> the later parts became a bit too abstract for me to map into real life scenarios
+
 talbe of contents
 - [Chapter 3, Security Foundations](#chapter-3-security-foundations)
 - [Funny term bracket](#funny-term-bracket)
@@ -15,12 +18,30 @@ talbe of contents
   - [Procedures](#procedures)
   - [Guidelines](#guidelines)
 - [Organizing Your Protections](#organizing-your-protections)
+- [Security Technology](#security-technology)
+  - [Firewalls](#firewalls)
+  - [Intrusion Detection Systems](#intrusion-detection-systems)
 
 # Funny term bracket
 the terms and things I don't know
 there are so many...
 - National Institute of Standards and Technologies (NIST)
 - service level agreement (SLA)
+- Lockheed Martin
+- FireEye Mandiant
+- MITRE ATT&CK Framework
+- common tactics, techniques, and procedures (TTPs)
+- advanced persistent threats (APTs)
+- Windows Management Instrumentation (WMI)
+- File Transfer Protocol (FTP)
+- voice over IP (VoIP)
+- session border controller (SBC)
+- H.323
+- Session Initiation Protocol (SIP)
+- Real-time Transport Protocol (RTP)
+- Intrusion detection systems (IDSs)
+- web application firewall (WAF)
+- Snort (IDS software owned by Cisco)
 - 
 
 # Keys
@@ -180,6 +201,44 @@ These additions can fit into the CIA triad.
   - more regular updates as we get to the specific steps in implementation and administration.
 
 ## Guidelines
-> not required but are suggestion on how policies my be implemented (e.g. best practices)
+> not required but they are suggestion on how policies my be implemented (e.g. best practices)
 
 # Organizing Your Protections
+> Know yourself, know your enemies. 
+
+Please refer to chapter 1 for methodologies
+
+The ATT&CK Framework:
+(Adversarial Tactics, Techniques, and Common Knowledge)
+- Reconnaissance
+- Resource Development
+- Initial Access
+- Execution
+- Persistence
+- Privilege Escalation
+- Defense Evasion
+- Credential Access
+- Discovery
+- Lateral Movement
+- Collection
+- Command and Control
+- Exfiltration
+- Impact
+
+# Security Technology
+> 100% prevention is impossible -> detection and multilayered defense+countermeasures
+
+## Firewalls
+> the wall that keeps the fire at bay, word was taken in 1980s to apply to nascent network protection technologies.
+
+- Packet Filters
+- Stateful Filtering
+- Deep Packet Inspection
+- Application Layer Firewalls
+- Unified Threat Management
+
+## Intrusion Detection Systems
+
+- host-based IDS (HIDS)
+- network IDS (NIDS)
+
