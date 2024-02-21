@@ -39,5 +39,6 @@
 > bruh there are so many diagrams impossible to be transcribed to text diagram :'(
 
 # The LPC2104
-> The devil, the (virtual) processor we use in class
+> The devil, the (virtual) microcontroller we use in class
 
+Do keep in mind the LPC2104 is a group of hardware(flash memory, peripherals, SRAM etc), and it has a core(microprocessor) called ARM7TDMI-S.
