@@ -1,4 +1,3 @@
-[TODO](TODO.md)
 # Uni-Cook-Book
 The cook book (notes) of my university (years) studies, outta spite. (This is also a testament to my eloquence and file organizing abilities.)
 
@@ -6,6 +5,8 @@ This repository includes but not limits to:
 1. University subjects.
 2. My own learning and research.
 3. Anything worth cooking.
+
+> The indexes here are ill-kept, go straight to the code section and the contents are kept within the folders named accordingly.
 
 # TABLE OF CONTENTS
 - [Uni-Cook-Book](#uni-cook-book)
@@ -27,7 +28,7 @@ This repository includes but not limits to:
   - [民主政治 (通識) discontinued](#民主政治-通識-discontinued)
     - [Book](#book-4)
     - [NOTES](#notes-3)
-- [Note from Astelor](#note-from-astelor)
+- [Note to self](#note-to-self)
 
 
 ## ARM Assembly Language
@@ -101,9 +102,8 @@ nope
 
 > I spent too much time writing the essay and ended up discontinuing the course
 
-# Note from Astelor
+# Note to self 
 
 - The image link shouldn't have any url-encoded symbol (e.g. a space)
 - The link to navigate by file and to section doesn't work on mobile.
 - The latex formula rendering doesn't work on mobile.
-- I'm not a good noter, but I'm trying.

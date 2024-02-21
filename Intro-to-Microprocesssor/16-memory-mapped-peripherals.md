@@ -31,10 +31,10 @@
 
 # Funny Term bracket
 - system on a chip (SoC)
-- NXP
-- AHB
-- VPB
-- RS-232
+- NXP, a company that makes microcontrollers
+- AHB, advanced high-performance bus
+- VPB, VLSI peripheral bus
+- RS-232, Recommended Standard, a standard fo serial communication transmission of data introduced in 1960
 
 > bruh there are so many diagrams impossible to be transcribed to text diagram :'(
 
@@ -42,3 +42,89 @@
 > The devil, the (virtual) microcontroller we use in class
 
 Do keep in mind the LPC2104 is a group of hardware(flash memory, peripherals, SRAM etc), and it has a core(microprocessor) called ARM7TDMI-S.
+
+what we're dealing with. (the parts that matters for now), in short, CPU, MEMORY, I/O (peripheral)
+```
++----------------+ || +---------------+
+| internal flash |=+| | internal SRAM |
+| controller     | |+=| controller    |
++----------------+ || +---------------+
+ (128KB flash)     ||  (12KB SRAM)
+                   ||
+(16KB on-chip RAM) ||
++-------------+    || ARM7 local bus
+| ARM7TDMI-S  |    ||
+| (processor) |====++
++-------------+
+| AHB bridge  |
++-------------+
+  ||                 
+  || AHB      +-------------+
+  |+==========| AHB decoder |
+  ||          +-------------+
+  ||
++---------------------------------+
+| AHB to VPB bridge | VPB divider |
++---------------------------------+
+  ||
+  || VPB   +-------------+
+  |+=======| UART0/UART1 |
+  ||       +-------------+
+  ||       +-------------------+
+  |+=======| other peripherals |
+  ||       +-------------------+
+```
+
+Engineering is all about purposes btw, so there's a reason something specific is implemented.
+
+- flash memory (128KB)
+  - aka non-volatile memory
+  - for your program
+- on-chip RAM (16KB)
+  - for stacks and holding variables
+- SRAM
+  - aka static RAM
+  - 64KB for LPC2106, 32KB for LPC2105, 16KB for LPC2104
+
+## The UART, LPC2104
+> Universal Asynchronous Receiver/Transmitter, one of the most ubiquitous peripherals, which means it can be used to implement a variety of hardware
+
+- Why asynchronous?
+  - simplicity, flexibility, and compatibility.
+  - synchronous = both sides shares the same clock.
+  - without a shared clock, the UART uses a special bit to indicate start and end of data.
+  - data can be transmitted between devices with different clock rate. (clock rate difference can be a huge issue)
+
+## The Memory Map, LPC2104
+> Peripherals' registers (config, data buffer, etc) are mapped to an address. peripheral <-> memory block <- CPU, as easy as that.
+
+from 0x0~0xFFFFFFFF(4GB space), every address has a dedicated task, hence the name memory map
+```
+         4GB+
+0xFFFF FFFF |
+            | AHB peripherals
+0xF000 0000 |
+      3.75GB+
+            | VPB peripherals
+0xE000 0000 | 
+       3.5GB+
+            | reserved for external memory
+0x8000 0000 |
+         2GB+
+            | boot block (re-mapped from on-chip flash memory)
+0x7FFF E0000|
+            +
+            | reserved for on-chip memory
+0x4000 4000 |
+            +
+            | on-chip SRAM (16KB)
+0x4000 0000 |
+         1GB+
+            | reserved(not specified in the text)
+0x0002 0000 |
+            +
+0x0001 FFFF |
+            | 128KB on-chip flash memory
+0x0000 0000 |
+         0GB+
+```
