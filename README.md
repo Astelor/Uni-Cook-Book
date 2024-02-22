@@ -14,20 +14,17 @@ This repository includes but not limits to:
   - [ARM Assembly Language](#arm-assembly-language)
     - [Book](#book)
     - [Resources](#resources)
-    - [NOTES](#notes)
   - [Data Structures in C](#data-structures-in-c)
     - [Book](#book-1)
-    - [NOTES](#notes-1)
   - [Microelectronic Circuits](#microelectronic-circuits)
     - [Books](#books)
-    - [NOTES](#notes-2)
   - [Electric Circuits](#electric-circuits)
     - [Book](#book-2)
   - [Certified Ethical Hacker](#certified-ethical-hacker)
     - [Book](#book-3)
   - [民主政治 (通識) discontinued](#民主政治-通識-discontinued)
     - [Book](#book-4)
-    - [NOTES](#notes-3)
+    - [NOTES](#notes)
 - [Note to self](#note-to-self)
 
 
@@ -47,28 +44,11 @@ This repository includes but not limits to:
 - Reduced Instruction Set Computers, Prof. Vojin G. Oklobdzija, Integration, Berkeley, CA 94708 [^](ARM-ASM/resources/RISC-Chaptr.PDF)
   - [!Original link!](https://www.ece.ucdavis.edu/~vojin/CLASSES/EEC180B/Fall99/Writings/RISC-Chaptr.PDF)
 
-### NOTES
-(written by chapter)
-1. [Overview](/ARM-ASM/01-Overview.md) & [Basic Concepts](/ARM-ASM/01.2-Basics.md)
-2. [Programmer's Model](/ARM-ASM/02-Programmer's-Model.md)
-3. [Introduction to Instruction Sets](/ARM-ASM/03-Intro-to-Instruction-Sets.md)
-4. [Assembler Rules and Directives](/ARM-ASM/04-Assembler-Rules-and-Directives.md)
-5. [Load, Stores, and Addressing](/ARM-ASM/05-Loads-Stores-Addressing.md)
-6. ...
-7. 
-
 > btw the notes are a hot mess, don't think they are of any help... 
 
 ## Data Structures in C
 ### Book
 - Fundamentals of Data Structures in C, 2/e, Ellis Horowitz, Sartaj Sahni, Susan Anderson-Freed.
-
-### NOTES
-(written by chapter)
-nothing much to see here, still under construction.
-1. [Basic Concepts](/Data-Structure-in-C/01-Basic-Concepts.md)
-2. [Arrays and Structures](/Data-Structure-in-C/02-Arrays-and-Structures.md)
-3. ...
 
 [cheat sheet :>](/Data-Structure-in-C/cheat-sheet.md)
 
@@ -76,17 +56,9 @@ nothing much to see here, still under construction.
 ### Books
 - Microelectronic Circuits, 8/e, Adel S. Sedra, Kenneth C. Smith, Tony Chan Carusone, Vincent Gaudet.
 
-### NOTES
-(written by chapter)
-1. [Signal and Amplifier](/Microeletronics-Circuits/01-signal-amp.md)
-2. [Operational Amplifier](/Microeletronics-Circuits/02-op-amp.md)
-3. [Semiconductors](/Microeletronics-Circuits/03-semiconductor.md) `this one's a total mess...`
-4. ...
-
 ## Electric Circuits
 ### Book
 - Fundamentals of Electric Circuits, 7/e, Charles Alexander, Matthew Sadiku.
-
 
 ## Certified Ethical Hacker
 ### Book
@@ -97,8 +69,6 @@ nothing much to see here, still under construction.
 nope
 
 ### NOTES
-1. [民主政治的起源與發展](/民主政治/01-Origins-and-Evolvement.md)
-2. ...
 
 > I spent too much time writing the essay and ended up discontinuing the course
 

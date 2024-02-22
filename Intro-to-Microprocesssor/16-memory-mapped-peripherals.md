@@ -94,6 +94,15 @@ Engineering is all about purposes btw, so there's a reason something specific is
   - synchronous = both sides shares the same clock.
   - without a shared clock, the UART uses a special bit to indicate start and end of data.
   - data can be transmitted between devices with different clock rate. (clock rate difference can be a huge issue)
+- Asynchronous:
+  - the data fetching and writing doesn't necessarily happen simultaneously
+  - receiver can get data when it wants to(the faster end), transmitter can write data when it needs to, and it happens in the buffer.
+
+```
+            +--------+
+receiver <--| buffer |<--transmitter
+            +--------+
+```
 
 ## The Memory Map, LPC2104
 > Peripherals' registers (config, data buffer, etc) are mapped to an address. peripheral <-> memory block <- CPU, as easy as that.
