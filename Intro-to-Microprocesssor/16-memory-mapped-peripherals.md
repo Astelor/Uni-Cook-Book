@@ -68,10 +68,10 @@ what we're dealing with. (the parts that matters for now), in short, CPU, MEMORY
 +---------------------------------+
   ||
   || VPB   +-------------+
-  |+=======| UART0/UART1 |
+  |+=======| UART0/UART1 | <--[I/O]
   ||       +-------------+
   ||       +-------------------+
-  |+=======| other peripherals |
+  |+=======| other peripherals | <--[I/O]
   ||       +-------------------+
 ```
 
