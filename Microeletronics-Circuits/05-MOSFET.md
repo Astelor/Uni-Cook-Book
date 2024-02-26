@@ -5,6 +5,15 @@
 
 > Astelor: I'm signing as if there is a co-writer, there isn't.
 
+- [Chapter 5, MOSFET](#chapter-5-mosfet)
+- [Keys](#keys)
+- [5.1 Device Structure and Physical Operation](#51-device-structure-and-physical-operation)
+  - [5.1.1 Device Structure](#511-device-structure)
+  - [5.1.2 Operation with Zero Gate Voltage](#512-operation-with-zero-gate-voltage)
+  - [5.1.3 Creating a Channel for Current Flow](#513-creating-a-channel-for-current-flow)
+  - [5.1.4 Applying a Small vDS](#514-applying-a-small-vds)
+  - [5.1.5 Operation as vDS is Increased](#515-operation-as-vds-is-increased)
+
 # Keys
 eh why not
 - 5.1 Device Structure and Physical Operation
