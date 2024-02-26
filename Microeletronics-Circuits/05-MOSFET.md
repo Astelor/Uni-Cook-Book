@@ -151,7 +151,8 @@ iS=iD↑| =============  |↓ iD
             [B] (ground)         
 ```
 
-so how fast does the electrons go? (Ampere = Coulomb/second)
+So how fast does the electrons go? (Ampere = Coulomb/second)
+
 > Texts above the equation is where or how it comes from, below is the definitions to it.
 > since the equations here are rather self explanatory, there isn't much description ok.
 
@@ -171,6 +172,7 @@ $$Electron\ drift\ velocity=μ_n|E|=μ_n\frac{v_{DS}}{L}$$
 - μn: mobility of the electrons (at the surface of the channel)
 
 `(5.7)`
+
 with `(5.4)` `(5.6)` we get (C/m)*(m/s) = (C/s) = (Ampere)
 $$i_D=[ (μ_nC_{ox})(\frac WL) ]v_{OV} v_{DS}$$
 
@@ -178,10 +180,12 @@ $$i_D=[ (μ_nC_{ox})(\frac WL) ]v_{OV} v_{DS}$$
 
 
 `(5.8)`
+
 and we can substitute vOV with vGS - Vt `(5.1)`
 $$i_D=[ (μ_nC_{ox})(\frac WL) ](v_{GS}-V_t) v_{DS}$$
 
 `(5.9)`
+
 dividing the current by its voltage, we get the conductance as well!
 $$g_{DS}=[ (μ_nC_{ox})(\frac WL) ]v_{OV}=\frac{i_D}{v_{DS}}$$
 
@@ -192,12 +196,14 @@ $$g_{DS}=[ (μ_nC_{ox})(\frac WL) ]v_{OV}=\frac{i_D}{v_{DS}}$$
 > Now we have the math to describe how fast the electrons go, let's simplified the equation.
 
 `(5.11)` 
+
 factor 1 from `(5.9)`
 $$k_n'=μ_nC_{ox}$$
 
 the process transconductance (A/V^2), where n denotes n channel.
 
 `(5.12)`
+
 factor 1+2 from `(5.9)`
 $$k_n=k_n'(\frac WL)=(μ_nC_{ox})(\frac WL)$$
 
