@@ -9,7 +9,11 @@
   - [Companies](#companies)
     - [Database: EDGAR](#database-edgar)
     - [Domain Registrars](#domain-registrars)
-  - [People](#people)
+- [Domain Name System](#domain-name-system)
+  - [Name Lookups](#name-lookups)
+    - [Tool: host](#tool-host)
+    - [Tool: nslookup](#tool-nslookup)
+    - [Tool: dig](#tool-dig)
 
 # Key
 - Open Source Intelligence
@@ -55,8 +59,40 @@ https://www.sec.gov/edgar/search-and-access
 
 ### Domain Registrars
 > "god of the Internet" Jon Postel
+
+# Domain Name System
+> Humans are bad at remembering numbers, so we dub names to the numbers, which are domain names. Instead of typing an IPv4 address, all you need to remember is a string of characters.
+
+an example of a "fully qualified domain name" (FQDN)
+```
+ www.ee.tku.edu.tw
++---+--+-------+--+
+
+[hostname].([subdomain name].)[domain name].[top-level domains(TLDs)]
 ```
 
-```
+## Name Lookups
+> translating domain names to numbers, by asking a server what name belongs to what IP/server
 
-## People
+```
+[your PC] (idk where www.ee.tku.edu.tw is)
+|  |
+| [caching DNS]
+|  | | |
+|  | | +->[root server] (where's tku.edu.tw?)
+|  | +->[tku.tw] (where's ee.tku.edu.tw?)
+|  +->[ee.tku.tw] (where's www.ee.tku.edu.tw?)
+| 
++-->[www.ee.tku.tw]
+```
+> Astelor: tbf, a leaked home router public ip cannot do much, you can maybe crowd up its traffic by sending junk, as long as its configured correctly, I don't think much can be done.
+> I'm still looking into if a public ip can be used to pin point the user's precise geographical location.
+> And how bad the internet architecture is in Taiwan.
+
+
+### Tool: host
+
+### Tool: nslookup
+> query Internet name servers interactively
+### Tool: dig
+
