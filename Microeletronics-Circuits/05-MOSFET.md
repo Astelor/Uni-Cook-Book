@@ -182,7 +182,7 @@ $$i_D=[ (μ_nC_{ox})(\frac WL) ]v_{OV} v_{DS}$$
 `(5.8)`
 
 and we can substitute vOV with vGS - Vt `(5.1)`
-$$i_D=[ (μ_nC_{ox})(\frac WL) ](v_{GS}-V_t) v_{DS}$$
+$$i_D=[ (μ_nC_{ox})(\frac WL) ](v_{GS} - V_t) v_{DS}$$
 
 `(5.9)`
 
