@@ -93,9 +93,9 @@ AND this creates an parallel-plate capacitor:
 | n-channel (-)  |
 +----------------+
 ```
-with the oxide acting as the capacitor dielectric, and a electric field that controls the amount of charge in the channel `(5.2)` -> field-effect transistor
+with the oxide acting as the capacitor dielectric, and a electric field that controls the amount of charge in the channel (5.2) -> field-effect transistor
 
-`(5.1)`
+`!(5.1)`
 $$v_{GS}-V_t≡v_{OV}$$
 
 Activating the transistor:
@@ -121,7 +121,7 @@ Magnitude of the electron charge in the channel:
   - can be as WIDE as you want (?)
 - **L**: length of the channel (between the n+ regions)
 
-`(5.3)`
+`!(5.3)`
 $$C_{ox}=\frac{ϵ_{ox}}{t_{ox}}$$
 
 How to get Cox from the specifications:
@@ -166,22 +166,21 @@ $$|E|=\frac{v_{DS}}{L}$$
 
 Electric field established by vDS across the length of the channel (V/m). (tis the basic law ok)
 
-`(5.6)`
+`!(5.6)`
 $$Electron\ drift\ velocity=μ_n|E|=μ_n\frac{v_{DS}}{L}$$
 
 - μn: mobility of the electrons (at the surface of the channel)
 
-`(5.7)`
+`!(5.7)`
 
-with `(5.4)` `(5.6)` we get (C/m)*(m/s) = (C/s) = (Ampere)
+with (5.4) (5.6) we get (C/m)*(m/s) = (C/s) = (Ampere)
 $$i_D=[ (μ_nC_{ox})(\frac WL) ]v_{OV} v_{DS}$$
 
 > Ampere is the rate at which the charges go through a cross-sectional area, you have (5.4) dictates how many charges are in a two dimensional area, and (5.6) dictates how "long" the charges passes for an unit second, creating a three dimensional volume, so you have how exactly many charges that have passed through the said area in a second. Which is, Ampere!
 
-
 `(5.8)`
 
-and we can substitute vOV with vGS - Vt `(5.1)`
+and we can substitute vOV with vGS - Vt (5.1)
 $$i_D=[ (μ_nC_{ox})(\frac WL) ](v_{GS} - V_t) v_{DS}$$
 
 `(5.9)`
@@ -191,20 +190,20 @@ $$g_{DS}=[ (μ_nC_{ox})(\frac WL) ]v_{OV}=\frac{i_D}{v_{DS}}$$
 
 - The conductance is determined by three factors
 
-`(5.10)` or (substitute vOV with vGS - Vt `(5.1)`)
+`(5.10)` or (substitute vOV with vGS - Vt (5.1))
 
 > Now we have the math to describe how fast the electrons go, let's simplified the equation.
 
 `(5.11)` 
 
-factor 1 from `(5.9)`
+factor 1 from (5.9)
 $$k_n'=μ_nC_{ox}$$
 
 the process transconductance (A/V^2), where n denotes n channel.
 
-`(5.12)`
+`!(5.12)`
 
-factor 1+2 from `(5.9)`
+factor 1+2 from (5.9)
 $$k_n=k_n'(\frac WL)=(μ_nC_{ox})(\frac WL)$$
 
 the MOSFET transconductance parameter (A/V^2)
