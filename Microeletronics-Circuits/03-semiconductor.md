@@ -147,7 +147,7 @@ $$v_{p-drift}=\mu_pE \\ v_{n-drift}=-\mu_nE$$
 #### Current
 let *p* = *n* (an intrinsic silicon bar)
 
-$$I_{S,p}=Aqpv_{p-drift} \\ =Aqp\mu_pE$$
+$$I_{S,p}=A qp v_{p-drift} \\ =Aqp\mu_pE$$
 
 $$I_{S,n}=-Aqv_{n-drift} \\ =Aqn\mu_nE$$
 
