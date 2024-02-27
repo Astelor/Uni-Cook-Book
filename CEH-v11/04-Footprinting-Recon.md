@@ -89,7 +89,6 @@ an example of a "fully qualified domain name" (FQDN)
 > I'm still looking into if a public ip can be used to pin point the user's precise geographical location.
 > And how bad the internet architecture is in Taiwan.
 
-
 ### Tool: host
 
 ### Tool: nslookup

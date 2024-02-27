@@ -2,7 +2,7 @@
 > Metal-oxide-semiconductor field-effect transistor.
 
 > Astelor: I'm infinitely annoyed that the professor doesn't elaborate much about "how" it works, just "it works like that and the equations look like this, memorize it and that's it" There's a reason I chose engineering over social science, I cannot and hate memorizing shit. There's a phenomenon first then there's a math description.
-
+> 
 > Astelor: I'm signing as if there is a co-writer, there isn't.
 
 > I made this more "concept oriented" and try to explain how it happens or where it comes from. This maybe a one man note but it is, in fact, notes.
@@ -347,4 +347,4 @@ The voltage vDS at which the saturation occurs is denoted vDSsat
 > look at da graph!
 
 ## 5.1.7 The p-Channel MOSFET
-> 
+

@@ -1,5 +1,7 @@
 # Chapter 2, Networking Foundations
+
 ugly ass table of contents
+
 - [Chapter 2, Networking Foundations](#chapter-2-networking-foundations)
 - [Funny term bracket](#funny-term-bracket)
 - [Keys](#keys)
