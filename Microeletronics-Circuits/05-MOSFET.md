@@ -1,10 +1,6 @@
 # Chapter 5, MOSFET
 > Metal-oxide-semiconductor field-effect transistor.
 
-> Astelor: I'm infinitely annoyed that the professor doesn't elaborate much about "how" it works, just "it works like that and the equations look like this, memorize it and that's it" There's a reason I chose engineering over social science, I cannot and hate memorizing shit. There's a phenomenon first then there's a math description.
-> 
-> Astelor: I'm signing as if there is a co-writer, there isn't.
-
 > I made this more "concept oriented" and try to explain how it happens or where it comes from. This maybe a one man note but it is, in fact, notes.
 
 - [Chapter 5, MOSFET](#chapter-5-mosfet)
@@ -16,7 +12,6 @@
   - [5.1.4 Applying a Small vDS](#514-applying-a-small-vds)
   - [5.1.5 Operation as vDS is Increased](#515-operation-as-vds-is-increased)
   - [5.1.6 Operation for vDS ≥ vOV: Channel Pinch-Off and Current Saturation](#516-operation-for-vds--vov-channel-pinch-off-and-current-saturation)
-  - [5.1.7 The p-Channel MOSFET](#517-the-p-channel-mosfet)
 
 # Keys
 eh why not
@@ -64,7 +59,6 @@ Physical structure of n-channel enhancement-type MOSFET:
 - p-type substrate: single-crystal silicon wafer
 - oxide: electrical insulator
 
-
 aka NMOS transistor, aka n-channel MOSFET.
 MOSFET is symmetrical, interchanging S and D makes no difference.
 
@@ -90,13 +84,15 @@ the path between D and S has a very high resistance (of the order of 10^12 Ω)
 ## 5.1.3 Creating a Channel for Current Flow
 > MOSFET activate! vGS ≥ Vt, specifically NMOS.
 
-- Gate terminal positively charged
+Turning on the transistor:
+- Gate terminal positively charged: (and causes the following effect)
   - push free holes in the substrate down -> uncovers bound negative charge (creates depletion region)
   - attracts electrons from n+ regions to the channel region (underneath the oxide plate, still in the substrate)
-- results in sufficient electrons in the "channel" -> the channel connects S and D terminals.
+- Sufficient electrons in the "channel" -> the channel connects S and D terminals.
 
 in short, Gate positive voltage -> attract electrons -> n-channel.
-AND this creates an parallel-plate capacitor:
+
+The gate voltage(+) and channel(-) create an parallel-plate capacitor:
 ```
 +----------------+
 | Gate plate (+) |
@@ -106,21 +102,23 @@ AND this creates an parallel-plate capacitor:
 | n-channel (-)  |
 +----------------+
 ```
-with the oxide acting as the capacitor dielectric, and a electric field that controls the amount of charge in the channel (5.2) -> field-effect transistor
+with the oxide acting as the capacitor dielectric, and an electric field that controls the amount of charge in the channel (5.2) -> field-effect transistor (hence the name)
 
 `!(5.1)`
 $$v_{GS}-V_t≡v_{OV}$$
 
-Activating the transistor:
+Activation of the transistor:
 - Vt: threshold voltage
   - the minimum voltage required between G and S to turn the transistor on.
-  - is positive for NMOS
   - fixed value -> manufacture
+  - is positive for NMOS
   - typically 0.3V~1.0V
 - **vOV**: effective voltage or overdrive voltage
   - the excess of vGS over Vt
   - also the average voltage across the channel 
 - vGS: voltage applied to the gate
+
+> The gate voltage must exceed the threshold voltage to create an effective voltage between the parallel plate capacitor, so that it holds charges for the channel.
 
 `(5.2)`
 $$|Q|=[C_{ox}(WL)]v_{OV}$$
@@ -142,7 +140,7 @@ How to get Cox from the specifications:
   - 3.9ϵ0 = 3.9 x 8.854 x 10^(-12) = 3.45 x 10^(-11) (F/m)
 - **tox**: the thickness of the oxide
 
-> These describes how conductive the channel is.
+> How many charges the channel can hold is decided by its capacitance, which is a fixed value decided by its physical properties (dielectric material, thickness, plate surface area)
 
 ## 5.1.4 Applying a Small vDS
 > now the channel has electrons, let's make it flow! applying vDS and vDS ≪ vOV. "Triode Region".
@@ -205,6 +203,7 @@ $$g_{DS}=[ (μ_nC_{ox})(\frac WL) ]v_{OV}=\frac{i_D}{v_{DS}}$$
 
 `(5.10)` or (substitute vOV with vGS - Vt (5.1))
 
+---
 > Now we have the math to describe how fast the electrons go, let's simplified the equation.
 
 `(5.11)` 
@@ -221,7 +220,7 @@ $$k_n=k_n'(\frac WL)=(μ_nC_{ox})(\frac WL)$$
 
 the MOSFET transconductance parameter (A/V^2) 
 And we can see this parameter is a constant.
-- (W/L): aspect ratio -> dimensionless
+- **(W/L)**: aspect ratio -> dimensionless
   - The length has a minimum value, and is limited to our manufacture technology.
 
 > vOV, the one value that rules them all. It directly determines the magnitude of electron charge in the channel. And is in fact, determined by vGS, the gate voltage.
@@ -238,6 +237,8 @@ $$r_{DS}=\frac{1}{(μ_nC_{ox})(W/L)(v_{GS}-V_t)}$$
 
 Note:
 $$r_{DS}=∞,\ when\ vGS ≤ Vt$$
+
+> When the gate voltage is lower than the threshold voltage, it doesn't conduct (no charge, no channel, no current). When the gate voltage is larger, more charges will gather, it's a capacitor ok.
 
 Resistance decreases as vGS is increased above Vt, thus enhancing the channel, hence the names enhancement-mode operation and enhancement-type MOSFET.
 
@@ -275,35 +276,32 @@ The applied vDS is a voltage drop from the drain end to the source end (0V).
 
 vOV remains constant -> vGS remains constant, the shallowest end at the drain has the depth proportional to vOV - vDS
 
-> Since the average voltage across the channel has a voltage drop created by vDS, the average voltage became vOV-(1/2)vDS -> thus when vDS ≪ vOV, the "tapering effect" is negligible
-
 `(5.14)`
 
-taking the "tapered channel" into consideration
+taking the "tapered channel" into consideration, while vDS < vOV
 $$i_D=k_n'(\frac WL)(v_{OV}-\frac{1}{2}v_{DS})v_{DS}$$
 
-while vDS < vOV
+> Since the average voltage that gives rise to channel charge (vOV) is affected by a voltage drop created by vDS, the average voltage became vOV-(1/2)vDS -> thus when vDS ≪ vOV, the "tapering effect" is negligible
 
 `(5.15)`
 
 writing (5.14) in an alternate form
 $$i_D=k_n'(\frac WL)(v_{OV}v_{DS}-\frac 12v_{DS}^2)$$
 
-`(5.16)` we can also replace vOV with vGS - Vt and rewrite (5.15)
+`(5.16)` we can also replace vOV with "vGS - Vt" and rewrite (5.15)
 
 current voltage characteristic:
 ![5.1.5-5.7](attachments/5.1.5-5.7.png)
 
-vOV is a constant here, can the graph can be referred to (5.15)
+vOV is a constant here, the graph can be referred to equation (5.15)
 
 ## 5.1.6 Operation for vDS ≥ vOV: Channel Pinch-Off and Current Saturation
 > We know vDS can affect the average voltage(vOV-(1/2)vDS) that gives rise to the channel charge (5.2), what happens when vDS is LARGE? applying vDS, and vDS ≥ vOV. average voltage is (1/2)(vOV^2)
 > "Saturation Region".
 
-
 > Spoiler: the "tapering effect" stops at vDS = vOV, the channel depth at the drain(vOV - vDS = 0) is pinch-off. When vDS > vOV, (ideally) nothing happens, the drain current saturates at vDS = vOV, and iD remains the same. The excess voltage of vDS will be dropped like your internet packets at school.
 
-please refer to the graph at 5.1.5 :)
+please refer to the graph at 5.1.5 for the simplified diagram :)
 
 ```
   Voltage
@@ -321,7 +319,7 @@ vOV| |  / | | vDS = vOV
 
 `(5.17)`
 
-rewriting (5.14), when vDS = vOV
+rewriting equation (5.14), when vDS = vOV
 
 $$i_D=\frac 12k_n'(\frac WL)(v_{OV}^2)$$
 
@@ -348,5 +346,6 @@ The voltage vDS at which the saturation occurs is denoted vDSsat
 
 ---
 
-## 5.1.7 The p-Channel MOSFET
+> Astelor: you might want a cheat sheet for the equations for quick reviewing.
 
+l## 5.1.7 The p-Channel MOSFET

@@ -1,6 +1,13 @@
 # Chapter 1, Waves and Phasors
 > Introduction chapter, all the basic things you should know
 
+- [Chapter 1, Waves and Phasors](#chapter-1-waves-and-phasors)
+- [Keys](#keys)
+- [1-3 The Nature of Electromagnetism](#1-3-the-nature-of-electromagnetism)
+  - [1-3.1 Gravitational Force: A Useful Analogue](#1-31-gravitational-force-a-useful-analogue)
+  - [1-3.2 Electric Fields](#1-32-electric-fields)
+  - [1-3.3 Magnetic Fields](#1-33-magnetic-fields)
+
 # Keys
 - 1-1 Historical Timeline
 - 1-2 Dimensions, Units, and Notation
@@ -43,6 +50,8 @@ Four fundamental forces of nature:
 ```
 I tried
 
+---
+
 ## 1-3.1 Gravitational Force: A Useful Analogue
 > The way gravity works is similar to electric forces, so let's look at this first.
 
@@ -64,6 +73,8 @@ $$F_{g_{21}}=-\hat{R}\frac{Gm_1m_2}{R^2_{12}}\ (N)$$
 [m1]-->R12     [m2]
  |----------R12--|
 ```
+
+---
 
 Phenomenon of action at a distance -> Concept of fields -> mass m1 induces a gravitational field (doesn't physically emanate from the object)
 
@@ -97,11 +108,20 @@ $$Ψ=\frac{F_g}{m}$$
 
 > I don't really wanna note the vector nature into the variables, if its definition has vector, then it's a vector, it pointy.
 
+---
+
 ## 1-3.2 Electric Fields
 
 Differences between gravitational force:
 - source of electrical field in electric charge
 - positive and negative polarity -> attractive or repulsive 
+
+```
+  Fe12           Fe21
+ <--             -->
+[+q1]-->R12     [+q2]
+  |----------R12--|
+```
 
 `(1.6)`
 
@@ -109,7 +129,7 @@ $$e=1.6×10^{-19}\ (C)$$
 
 Magnitude of electron, measured in coulomb.
 
-Coulomb's law:
+**Coulomb's law**: (how charges behave)
 1. two like charges repel one another, whereas two charges of opposite polarity attract
 2. the force acts along the line joining the charges
 3. its strength is proportional to the product of the magnitudes of the two charges (q1*q2) and inversely proportional to the square of the distance between them (1/R^2)
@@ -120,3 +140,39 @@ Coulomb's law expressed mathematically:
 
 $$F_{e_{21}}=\hat R_{12}\frac{q_1q_2}{4πε_0R^2_{12}}$$
 
+The **electric force** Fe21 acting on q2 due to q1.
+
+- ε0: electrical permittivity of free space = 8.854×10^-12 (F/m)
+
+is equal in magnitude but opposite in direction
+$$F_{e_{21}}=-F_{e_{12}}$$
+
+`(1.8)`
+
+extending the analogy in [1-3.1](#1-31-gravitational-force-a-useful-analogue) for existence of an **electric field intensity** E
+
+$$E=\hat R\frac{q}{4πε_0R^2}\ (V/m) $$
+
+- R: radial unit vector pointing away from the charge
+
+---
+
+**Two important properties** of electric charge:
+1. law of conservation of electric charge -> net charge can neither be created nor destroyed (it doesn't be "gone", unless radioactive things is involved)
+2. principle of linear superposition -> 
+
+> The first one makes our physical world (math) correct, the second one makes sense of our physical world (and make our math easier).
+
+`(1.9)`
+
+$$q=n_pe-n_ee=(n_p-n_e)e$$
+
+Net charge q of a volume that contains protons and electrons, even if np=ne, q remains unchanged. Because "the protons inside the atom's nucleus and the electrons outside it do NOT allow them to combine"
+
+> in short, it's about the number of charges, and they do not just "gone".
+
+---
+
+> so wtf is flux?
+
+## 1-3.3 Magnetic Fields
