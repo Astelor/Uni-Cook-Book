@@ -224,7 +224,7 @@ And we can see this parameter is a constant.
 - (W/L): aspect ratio -> dimensionless
   - The length has a minimum value, and is limited to our manufacture technology.
 
-> vOV, the one value that rules them all. It directly determines the magnitude of electron charge in the channel. and is in fact, determined by vGS, the gate voltage.
+> vOV, the one value that rules them all. It directly determines the magnitude of electron charge in the channel. And is in fact, determined by vGS, the gate voltage.
 
 `(5.13a)`
 
@@ -232,14 +232,14 @@ the reciprocal of conductance is resistance
 $$r_{DS}=\frac{1}{g_{DS}}=\frac{v_{DS}}{i_D}$$
 
 
-`(5.13b)` and of course you can replace gDS with its own definition (5.9), and substitute vOV to vDS - Vt (5.1)
+`(5.13b)` you can replace gDS with its own definition (5.9), and substitute vOV to vDS - Vt (5.1)
 
 $$r_{DS}=\frac{1}{(μ_nC_{ox})(W/L)(v_{GS}-V_t)}$$
 
 Note:
 $$r_{DS}=∞,\ when\ vGS ≤ Vt$$
 
-resistance decreases as vGS is increased above Vt, thus enhancing the channel, hence the names enhancement-mode operation and enhancement-type MOSFET.
+Resistance decreases as vGS is increased above Vt, thus enhancing the channel, hence the names enhancement-mode operation and enhancement-type MOSFET.
 
 > Astelor: I still don't understand what figure 5.4 is about
 
@@ -275,18 +275,18 @@ The applied vDS is a voltage drop from the drain end to the source end (0V).
 
 vOV remains constant -> vGS remains constant, the shallowest end at the drain has the depth proportional to vOV - vDS
 
-Since the average voltage across the channel has a voltage drop created by vDS, the average voltage became vOV-(1/2)vDS -> thus when vDS ≪ vOV, the "tapering effect" is negligible
+> Since the average voltage across the channel has a voltage drop created by vDS, the average voltage became vOV-(1/2)vDS -> thus when vDS ≪ vOV, the "tapering effect" is negligible
 
 `(5.14)`
 
-we now take the effect into consideration
+taking the "tapered channel" into consideration
 $$i_D=k_n'(\frac WL)(v_{OV}-\frac{1}{2}v_{DS})v_{DS}$$
 
-and vDS < vOV
+while vDS < vOV
 
 `(5.15)`
 
-we can also write (5.14) in an alternate form
+writing (5.14) in an alternate form
 $$i_D=k_n'(\frac WL)(v_{OV}v_{DS}-\frac 12v_{DS}^2)$$
 
 `(5.16)` we can also replace vOV with vGS - Vt and rewrite (5.15)
@@ -321,7 +321,7 @@ vOV| |  / | | vDS = vOV
 
 `(5.17)`
 
-rewriting (5.14) and this time vDS = vOV
+rewriting (5.14), when vDS = vOV
 
 $$i_D=\frac 12k_n'(\frac WL)(v_{OV}^2)$$
 
@@ -345,6 +345,8 @@ The voltage vDS at which the saturation occurs is denoted vDSsat
 > With the drain voltage we analyzed how different magnitude of vDS affects the iD (vDS versus vOV), the vDS creates a voltage drop across the drain and source terminals, subsequently affects the effective voltage (aka overdrive voltage) that give rise to the channel charge, and affects how we write the iD equation (5.7).
 
 > look at da graph!
+
+---
 
 ## 5.1.7 The p-Channel MOSFET
 

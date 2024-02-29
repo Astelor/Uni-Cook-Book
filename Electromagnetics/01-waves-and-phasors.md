@@ -96,3 +96,27 @@ $$Ψ=\frac{F_g}{m}$$
 
 
 > I don't really wanna note the vector nature into the variables, if its definition has vector, then it's a vector, it pointy.
+
+## 1-3.2 Electric Fields
+
+Differences between gravitational force:
+- source of electrical field in electric charge
+- positive and negative polarity -> attractive or repulsive 
+
+`(1.6)`
+
+$$e=1.6×10^{-19}\ (C)$$
+
+Magnitude of electron, measured in coulomb.
+
+Coulomb's law:
+1. two like charges repel one another, whereas two charges of opposite polarity attract
+2. the force acts along the line joining the charges
+3. its strength is proportional to the product of the magnitudes of the two charges (q1*q2) and inversely proportional to the square of the distance between them (1/R^2)
+
+`(1.7)`
+
+Coulomb's law expressed mathematically:
+
+$$F_{e_{21}}=\hat R_{12}\frac{q_1q_2}{4πε_0R^2_{12}}$$
+
