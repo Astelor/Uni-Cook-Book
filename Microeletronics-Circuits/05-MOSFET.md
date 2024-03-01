@@ -12,6 +12,8 @@
   - [5.1.4 Applying a Small vDS](#514-applying-a-small-vds)
   - [5.1.5 Operation as vDS is Increased](#515-operation-as-vds-is-increased)
   - [5.1.6 Operation for vDS ≥ vOV: Channel Pinch-Off and Current Saturation](#516-operation-for-vds--vov-channel-pinch-off-and-current-saturation)
+  - [5.1.7 The p-Channel MOSFET](#517-the-p-channel-mosfet)
+  - [5.1.8 Complementary MOS or CMOS](#518-complementary-mos-or-cmos)
 
 # Keys
 eh why not
@@ -147,8 +149,8 @@ How to get Cox from the specifications:
 
 The current is carried by free electrons going from S to D, hence the names, the source and drain for electrons.
 ```
-            (vGS)
-(ground)    [G]       (vDS)
+            (vGS>0)
+(ground)    [G]       (vDS>0)
      [S]     |↓iG=0   [D]
 iS=iD↑| =============  |↓ iD
    ==== ============= ====
@@ -251,8 +253,8 @@ Resistance decreases as vGS is increased above Vt, thus enhancing the channel, h
 > Astelor: lmao wtf am I writing
 
 ```
-            (vGS)
-(ground)    [G]       (vDS)
+            (vGS>0)
+(ground)    [G]       (vDS>0)
      [S]     |↓iG=0   [D]
 iS=iD↑| =============  |↓ iD
    ==== ============= ====
@@ -345,7 +347,48 @@ The voltage vDS at which the saturation occurs is denoted vDSsat
 > look at da graph!
 
 ---
-
 > Astelor: you might want a cheat sheet for the equations for quick reviewing.
 
-l## 5.1.7 The p-Channel MOSFET
+## 5.1.7 The p-Channel MOSFET
+> The reverse of NMOS, PMOS and NMOS are complementary devices
+
+```
+        +-----------+
+        |Gate(metal)|
+   +--+ +-----------+ +--+
+   |S | |oxide(SiO2)| |D |
++-+------+---------+------+-+
+| | p+   | Channel | p+   | |
+| +------+ region  +------+ |
+| n-type substrate          |
++---------------------------+
+          | Body |
+```
+
+Instead of npn, PMOS is pnp, gate voltage is negative, drain voltage is negative, the S -> the source of positive carriers, creating a p channel.
+
+```
+            (vGS<0)
+(ground)    [G]       (vDS<0)
+     [S]     |↓iG=0   [D]
+iS=iD↓| =============  |↑ iD
+   ==== ============= ====
++-+------+---------+------+-+
+| |  p+  |    iD→  |  p+  | |
+| +------+ <--L--> +------+ | 
+|  n-type substrate         | 
++---------------------------+
+          ======
+             |
+            [B] (ground)    
+```
+
+$$v_{GS}≤V_{tp}$$
+$$|v_{GS}|≥|V_{tp}|$$
+
+
+
+
+## 5.1.8 Complementary MOS or CMOS
+
+

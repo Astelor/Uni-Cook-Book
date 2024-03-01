@@ -2,9 +2,7 @@
 > Basic Code of conduct if one were to practice cyber security.
 > very important when acquiring a job/ leaving good track record.
 
-# content!
 - [Chapter 1, Ethical Hacking](#chapter-1-ethical-hacking)
-- [content!](#content)
 - [Keys](#keys)
 - [Funny term bracket](#funny-term-bracket)
 - [Overview of Ethics](#overview-of-ethics)

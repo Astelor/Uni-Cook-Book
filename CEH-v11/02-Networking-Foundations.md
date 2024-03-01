@@ -303,9 +303,6 @@ because of technical limitations of hardware (a 192 ports? no)
           Note that one tick mark represents one bit position.
 ```
 
-
-
-
 # Internet Control Message Protocol
 > when IP fails you, ICMP got you
 

@@ -3,7 +3,6 @@
 
 - [Chapter 4, Footprinting and Reconnaissance](#chapter-4-footprinting-and-reconnaissance)
 - [Key](#key)
-- [Tools bracket](#tools-bracket)
 - [Funny term bracket](#funny-term-bracket)
 - [Open Source Intelligence](#open-source-intelligence)
   - [Companies](#companies)
@@ -30,15 +29,13 @@
   - Google Hacking
   - Internet of Things (IoT)
 
-# Tools bracket
-
 # Funny term bracket
 - Securities and Exchange Commission (SEC)
 - Electronic Data Gathering, Analysis, and Retrieval (EDGAR)
 - Internet Corporation for Assigned Names and Numbers (ICANN)
 - Internet Assigned Numbers Authority (IANA)
 - regional Internet registry (RIR)
-- 
+- GTE Internetworking
 
 # Open Source Intelligence
 > The records maintained by a third-party, scavenge the open internet for information. some commonly used tools are mentioned in this chapter too.
@@ -65,33 +62,55 @@ https://www.sec.gov/edgar/search-and-access
 
 an example of a "fully qualified domain name" (FQDN)
 ```
- www.ee.tku.edu.tw
+www.labs.domain.com
 +---+--+-------+--+
 
 [hostname].([subdomain name].)[domain name].[top-level domains(TLDs)]
 ```
+www is a hostname
 
 ## Name Lookups
 > translating domain names to numbers, by asking a server what name belongs to what IP/server
 
 ```
-[your PC] (idk where www.ee.tku.edu.tw is)
+[your PC] (idk where www.labs.domain.com is)
 |  |
 | [caching DNS]
 |  | | |
-|  | | +->[root server] (where's tku.edu.tw?)
-|  | +->[tku.tw] (where's ee.tku.edu.tw?)
-|  +->[ee.tku.tw] (where's www.ee.tku.edu.tw?)
+|  | | +->[root server] (where's domain.com?)
+|  | +->[domain.com] (where's labs.domain.com?)
+|  +->[labs.domain.com] (where's www.labs.domain.com?)
 | 
-+-->[www.ee.tku.tw]
++-->[www.labs.domain.com] (connection request)
 ```
 > Astelor: tbf, a leaked home router public ip cannot do much, you can maybe crowd up its traffic by sending junk, as long as its configured correctly, I don't think much can be done.
 > I'm still looking into if a public ip can be used to pin point the user's precise geographical location.
 > And how bad the internet architecture is in Taiwan.
 
 ### Tool: host
+> DNS lookup utility
+
+> `host` is a simple utility for performing DNS lookups. It is normally used to convert names to IP addresses and vice versa. When no arguments or options are given, `host` prints a short summary of its command-line arguments and options.
+
+```
+host example.com
+host 93.184.216.34 4.2.2.1
+```
+
+`4.2.2.1` is a caching server available for anyone, created by GTE Internetworking. Its role is the caching DNS in the diagram above. We can issue request to it as if it were our own caching server.
 
 ### Tool: nslookup
 > query Internet name servers interactively
-### Tool: dig
 
+```
+nslookup
+set type=ns
+example.com
+```
+
+`set type=ns` -> 
+
+### Tool: dig
+> DNS lookup utility
+
+> surely learning about tools is like learning English, you get the basic meanings of the word you encounter, and not cram your brain with extra infos about that word, so you don't get tired of writing things you might not use.

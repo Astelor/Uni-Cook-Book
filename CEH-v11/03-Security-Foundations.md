@@ -2,7 +2,6 @@
 > Astelor: imma skip ahead when I'm bored, and come back later when the skipped become relevant.
 > the later parts became a bit too abstract for me to map into real life scenarios
 
-talbe of contents
 - [Chapter 3, Security Foundations](#chapter-3-security-foundations)
 - [Funny term bracket](#funny-term-bracket)
 - [Keys](#keys)
