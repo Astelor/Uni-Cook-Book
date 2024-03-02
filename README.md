@@ -1,5 +1,5 @@
 # Uni-Cook-Book
-The cook book (notes) of my university (years) studies, outta spite. (This is also a testament to my eloquence and file organizing abilities.)
+The cook book (notes) of my university (years) studies, outta ~~spite~~ love. (This is also a testament to my eloquence and file organizing abilities.)
 
 This repository includes but not limits to:
 1. University subjects.
