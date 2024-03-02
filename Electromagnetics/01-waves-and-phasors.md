@@ -83,12 +83,12 @@ $$F_{g_{21}}=-\hat{R_{12}}\frac{Gm_1m_2}{R^2_{12}}\ (N)$$
 Phenomenon of action at a distance -> **Concept of fields** -> mass m1 induces a gravitational field (doesn't physically emanate from the object)
 
 ```
-gravitation field Ψ1
-+------------+
-|          R |
-|--->[m1]<---[m2]
-|            |
-+------------+
+          -R  
+ ↘   ↓   ↙
+   ↘ ↓ ↙   Ψ1
+→ → [m1] ← ← [m2]
+   ↗ ↑ ↖
+ ↗   ↑   ↖
 ```
 
 `(1.3)`
@@ -105,7 +105,7 @@ Gravitation field induced by m1.
 
 `(1.5)`
 
-Generalizing the field concept, at any point in space when a test mass m is placed, we can test its gravitational field.
+Generalizing the field concept, at any point in space when a test mass m is placed, we can test its gravitational field (Fg acting on the test mass, Fg may be due to a single mass or a collection of many masses).
 
 $$Ψ=\frac{F_g}{m}$$
 
@@ -234,6 +234,7 @@ One of the two fundamental pairs of electromagnetic fields:
 > so wtf is flux? I'll be a bit upset if it's not elaborated in future chapters
 
 ## 1-3.3 Magnetic Fields
+> Electric charges can be isolated, but magnetic poles always exist in pairs.
 
 Pattern of magnetic field lines around a bar magnet:
 ```
@@ -263,15 +264,13 @@ The magnetic field induced by a steady current flowing in the z direction:
  x  
 ```
 
-Electric charges can be isolated, but magnetic poles always exist in pairs.
-
 `(1.13)`
 
 Biot-Savart Law:
 
 $$B=\hat Φ\frac{μ_0I}{2πr}\ (T)$$
 
-Relating magnetic flux density B at a point in space to the current I in the conductor:
+Relating magnetic flux density B at a point in space to the current I in the conductor.
 - r: radial distance from the current
 - Φ: azimuthal unit vector
   - expressing magnetic-field direction is tangential to the circle surrounding the current.
@@ -280,8 +279,8 @@ Relating magnetic flux density B at a point in space to the current I in the con
   - analogous to the electric permittivity ε0
 
 When an electric charge q is placed in...:
-  - electric field E -> Fe=qE -> electric force.
-  - magnetic field B -> Fm -> **only if the charge is in motion** and its velocity u is in a direction anti-parallel to B -> magnetic force.
+- electric field E -> Fe=qE -> electric force.
+- magnetic field B -> Fm -> **only if the charge is in motion** and its velocity u is in a direction anti-parallel to B -> magnetic force.
 
 `(1.14)`
 $$c=\frac{1}{\sqrt{μ_0ε_0}}=3×10^8\ (m/s)$$
