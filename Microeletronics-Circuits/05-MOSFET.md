@@ -100,7 +100,7 @@ The gate voltage(+) and channel(-) create an parallel-plate capacitor:
 | Gate plate (+) |
 +----------------+
 | the oxide      | ↓ Electric
-+----------------+   field = vOV
++----------------+   field ∝ vOV
 | n-channel (-)  |
 +----------------+
 ```
