@@ -30,9 +30,16 @@ eh why not
   - 5.2.1 Circuit Symbol
   - 5.2.2 the iD-vDS Characteristics
   - 5.2.3 The iD-vGS Characteristics
-  - 
+  - 5.2.4 Finite Output Resistance in Saturation
+  - 5.2.5 Characteristics of the p-Channel MOSFET
 - 5.3 MOSFET Circuits at DC
 - 5.4 Technology Scaling (Moore's Law) and Other Topics
+  - 5.4.1 Technology Scaling
+  - 5.4.2 Subthreshold Conduction and Leakage Currents
+  - 5.4.3 The Role of the Substrate- The Body Effect
+  - 5.4.4 temperature Effects
+  - 5.4.5 Breakdown and Input Protection
+  - 5.4.6 The Depletion-Type MOSFET
 
 # 5.1 Device Structure and Physical Operation
 > enhancement-type MOSFET is the most widely used FET
@@ -92,7 +99,7 @@ Turning on the transistor:
   - attracts electrons from n+ regions to the channel region (underneath the oxide plate, still in the substrate)
 - Sufficient electrons in the "channel" -> the channel connects S and D terminals.
 
-in short, Gate positive voltage -> attract electrons -> n-channel.
+In short, Gate positive voltage -> attract electrons -> n-channel.
 
 The gate voltage(+) and channel(-) create an parallel-plate capacitor:
 ```
@@ -117,7 +124,7 @@ Activation of the transistor:
   - typically 0.3V~1.0V
 - **vOV**: effective voltage or overdrive voltage
   - the excess of vGS over Vt
-  - also the average voltage across the channel 
+  - also the average voltage that gives rise to channel charge
 - vGS: voltage applied to the gate
 
 > The gate voltage must exceed the threshold voltage to create an effective voltage between the parallel plate capacitor, so that it holds charges for the channel.
@@ -126,13 +133,14 @@ Activation of the transistor:
 $$|Q|=[C_{ox}(WL)]v_{OV}$$
 
 Magnitude of the electron charge in the channel:
-(because the channel itself is one side of a capacitor)
 - |Q|: yes
 - Cox: oxide capacitance (F/m^2)
   - capacitance of the parallel-plate capacitor per unit gate area
 - W: width of the channel (in the substrate)
   - can be as WIDE as you want (?)
 - **L**: length of the channel (between the n+ regions)
+
+> because the channel itself is one side of a capacitor
 
 `!(5.3)`
 $$C_{ox}=\frac{ϵ_{ox}}{t_{ox}}$$
@@ -145,7 +153,7 @@ How to get Cox from the specifications:
 > How many charges the channel can hold is decided by its capacitance, which is a fixed value decided by its physical properties (dielectric material, thickness, plate surface area)
 
 ## 5.1.4 Applying a Small vDS
-> now the channel has electrons, let's make it flow! applying vDS and vDS ≪ vOV. "Triode Region".
+> Now the channel has electrons, let's make it flow! Applying vDS and vDS ≪ vOV. "Triode Region".
 
 The current is carried by free electrons going from S to D, hence the names, the source and drain for electrons.
 ```
@@ -227,27 +235,31 @@ And we can see this parameter is a constant.
 
 > vOV, the one value that rules them all. It directly determines the magnitude of electron charge in the channel. And is in fact, determined by vGS, the gate voltage.
 
+---
+
 `(5.13a)`
 
 the reciprocal of conductance is resistance
 $$r_{DS}=\frac{1}{g_{DS}}=\frac{v_{DS}}{i_D}$$
 
 
-`(5.13b)` you can replace gDS with its own definition (5.9), and substitute vOV to vDS - Vt (5.1)
+`(5.13b)` 
+
+you can replace gDS with its own definition (5.9), and substitute vOV to vDS - Vt (5.1)
 
 $$r_{DS}=\frac{1}{(μ_nC_{ox})(W/L)(v_{GS}-V_t)}$$
 
 Note:
 $$r_{DS}=∞,\ when\ vGS ≤ Vt$$
 
-> When the gate voltage is lower than the threshold voltage, it doesn't conduct (no charge, no channel, no current). When the gate voltage is larger, more charges will gather, it's a capacitor ok.
+> When the gate voltage is lower than the threshold voltage, it doesn't conduct (not enough charge, no channel, no current). When the gate voltage is larger, more charges will gather, it's a capacitor ok.
 
 Resistance decreases as vGS is increased above Vt, thus enhancing the channel, hence the names enhancement-mode operation and enhancement-type MOSFET.
 
 > Astelor: I still don't understand what figure 5.4 is about
 
 ## 5.1.5 Operation as vDS is Increased
-> but wait. vOV doesn't rule it all, there's another contender vDS, and the channel is getting askew. Applying vDS, and vDS ≤ vOV, average voltage is vOV - (1/2) vDS.
+> But wait, vOV doesn't rule it all, there's another contender vDS, and the channel is getting askew. Applying vDS, and vDS ≤ vOV, average voltage is vOV - (1/2) vDS.
 > "Triode Region".
 
 > Astelor: lmao wtf am I writing
@@ -342,7 +354,7 @@ The voltage vDS at which the saturation occurs is denoted vDSsat
 >
 > We now know how to activate a transistor (vGS ≥ Vt, vOV=vGS-Vt), how many charges are in the transistor's channel (|Q|=Cox(WL)vOV), and how fast the charges goes when applying voltage at the drain channel (iD=kn vOV vDS). 
 > 
-> With the drain voltage we analyzed how different magnitude of vDS affects the iD (vDS versus vOV), the vDS creates a voltage drop across the drain and source terminals, subsequently affects the effective voltage (aka overdrive voltage) that give rise to the channel charge, and affects how we write the iD equation (5.7).
+> With the drain voltage we analyzed how different magnitude of vDS affects the iD (vDS versus vOV), the vDS creates a voltage drop across the drain and source terminals, subsequently affects the effective voltage (aka overdrive voltage) that give rise to the channel charge, and affects how we write the iD equation (iD=kn (vOV-((1/2)vDS)) vDS) (5.7).
 
 > look at da graph!
 
