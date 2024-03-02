@@ -383,12 +383,17 @@ iS=iD↓| =============  |↑ iD
             [B] (ground)    
 ```
 
-$$v_{GS}≤V_{tp}$$
+$$v_{GS}≤V_{tp}<0$$
 $$|v_{GS}|≥|V_{tp}|$$
 
+- Vtp: threshold voltage for PMOS by convention is negative
+
+$$k_p'=μ_pC_{ox}$$
+$$k_p=k_n'(W/L)$$
+
+- μp: mobility of the holes in the induced p-channel (μp=0.25μn ~ 0.5μn)
+  - is process-technology dependent
 
 
 
 ## 5.1.8 Complementary MOS or CMOS
-
-
