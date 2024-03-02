@@ -279,7 +279,7 @@ Relating magnetic flux density B at a point in space to the current I in the con
 - μ0: magnetic permeability of free space
   - analogous to the electric permittivity ε0
 
-When a electric charge q in placed in:
+When an electric charge q is placed in...:
   - electric field E -> Fe=qE -> electric force.
   - magnetic field B -> Fm -> **only if the charge is in motion** and its velocity u is in a direction anti-parallel to B -> magnetic force.
 
