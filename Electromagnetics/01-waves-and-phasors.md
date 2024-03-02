@@ -10,6 +10,7 @@
     - [1-3.2s Two important properties of electric charge](#1-32s-two-important-properties-of-electric-charge)
     - [1-3.2s Polarization of dielectric material](#1-32s-polarization-of-dielectric-material)
   - [1-3.3 Magnetic Fields](#1-33-magnetic-fields)
+  - [1-3.4 Static and Dynamic Fields](#1-34-static-and-dynamic-fields)
 
 # Keys
 - 1-1 Historical Timeline
@@ -62,7 +63,7 @@ According to **Newton's law of gravity**, the gravitational force Fg21 acting on
 
 `(1.2)`
 
-$$F_{g_{21}}=-\hat{R}\frac{Gm_1m_2}{R^2_{12}}\ (N)$$
+$$F_{g_{21}}=-\hat{R_{12}}\frac{Gm_1m_2}{R^2_{12}}\ (N)$$
 
 - Fg21: m2 experiencing gravitational force because of m1.
 
@@ -234,5 +235,70 @@ One of the two fundamental pairs of electromagnetic fields:
 
 ## 1-3.3 Magnetic Fields
 
+Pattern of magnetic field lines around a bar magnet:
+```
+      ↖  ↑  ↗
+        ↖↑↗
+   ←  ← +-+ → →
+ ↙  ↙   |N|   ↘  ↘
+↓  ↓    | |    ↓   ↓ B
+ ↘  ↘   |S|   ↙  ↙
+   →  → +-+ ← ←
+        ↗↑↖
+      ↗  ↑  ↖
+    ↗    ↑    ↖
+```
 
+The magnetic field induced by a steady current flowing in the z direction:
+```
+    ↑z
+    |↑I
+    |
+ ↙←←|←←↖Φ
+↓   |-r--↑ B
+ ↘→→|→→↗
+    |_____y
+   /|
+  / ↺ B
+ x  
+```
+
+Electric charges can be isolated, but magnetic poles always exist in pairs.
+
+`(1.13)`
+
+Biot-Savart Law:
+
+$$B=\hat Φ\frac{μ_0I}{2πr}\ (T)$$
+
+Relating magnetic flux density B at a point in space to the current I in the conductor:
+- r: radial distance from the current
+- Φ: azimuthal unit vector
+  - expressing magnetic-field direction is tangential to the circle surrounding the current.
+- T: an unit, tesla
+- μ0: magnetic permeability of free space
+  - analogous to the electric permittivity ε0
+
+When a electric charge q in placed in:
+  - electric field E -> Fe=qE -> electric force.
+  - magnetic field B -> Fm -> **only if the charge is in motion** and its velocity u is in a direction anti-parallel to B -> magnetic force.
+
+`(1.14)`
+$$c=\frac{1}{\sqrt{μ_0ε_0}}=3×10^8\ (m/s)$$
+- c: velocity of light in free space
+
+`(1.15)`
+$$μ=μ_rμ_0\ (H/m)$$
+
+Magnetic permeability, accounts for magnetization properties of a material.
+- μr: relative magnetic permeability
+  - relative to vacuum, is dimensionless.
+- nonmagnetic: its permeability = μ0. 
+
+`(1.16)`
+$$B=μH$$
+- H: magnetic field intensity
+- B: magnetic flux density
+
+## 1-3.4 Static and Dynamic Fields
 

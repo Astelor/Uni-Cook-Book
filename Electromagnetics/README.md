@@ -7,3 +7,7 @@ Surely this doesn't end up being a parody to microelectronics circuits.
 - comment below or above title: summary, a reminder.
 - single quote: anchor for equations
 - triple quote: diagram
+
+```
+↙↘↗↖↓↑←→
+```
