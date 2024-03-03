@@ -21,6 +21,7 @@
     - [5.2.2s Saturation Region](#522s-saturation-region)
     - [5.2.2s Graph](#522s-graph)
   - [5.2.3 The iD-vGS Characteristic](#523-the-id-vgs-characteristic)
+  - [5.2.4 Finite Output Resistance in Saturation](#524-finite-output-resistance-in-saturation)
 
 # Keys
 eh why not
@@ -533,3 +534,32 @@ G o--o    +----o D
        o S  vGS≥Vtn
             vDS≥vOV
 ```
+
+## 5.2.4 Finite Output Resistance in Saturation
+
+- Ideally: 
+iD is independent of vDS -> iD remains the same with any change in vDS -> rDS is infinite. And this is base on the premise that vDS has no effect on the channel's shape once vDS≥vOV (pinched-off).
+
+- In practice:
+Pinch-off point moves slightly away from the drain when vDS≥vOV. And the phenomenon is known as channel-length modulation.
+
+**Channel-length modulation**:
+```
+S+-------------+------+D
+ |◤channel     |      |
+ |-        vOV+|-    +| vDS-vOV
+ |<---(L-∆L)-->|<-∆L->|
+ |<-----L------------>|
+```
+
+`(5.23)`
+
+We account for this effect for iD by including a factor 1+λ(vDS-vOV) or (1+λvDS)
+
+$$i_D=\frac 12k_n'(\frac WL)(v_{GS}-V_{tn})^2(1+λvDS)$$
+
+- λ: device parameter 
+  - its unit are reciprocal volts (V^-1)
+  - its value depends on both process technology and channel length L.
+  - new technology -> shorter L -> more greatly impacted by channel-length modulation
+
