@@ -484,7 +484,7 @@ $$v_{DS} < v_{OV}$$
 
 then
 
-$$i_D=k_n' (\frac WL) (v_{OV}-\ frac 12 v_{DS}) v_{DS}$$
+$$i_D=k_n' (\frac WL) (v_{OV}- \frac 12 v_{DS}) v_{DS}$$
 
 or equivalently
 $$i_D=k_n'(\frac WL)[(v_{GS}-V_{tn})v_{DS}-\frac 12v_{DS}^2]$$
