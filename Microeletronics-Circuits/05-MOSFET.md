@@ -14,6 +14,13 @@
   - [5.1.6 Operation for vDS ≥ vOV: Channel Pinch-Off and Current Saturation](#516-operation-for-vds--vov-channel-pinch-off-and-current-saturation)
   - [5.1.7 The p-Channel MOSFET](#517-the-p-channel-mosfet)
   - [5.1.8 Complementary MOS or CMOS](#518-complementary-mos-or-cmos)
+- [5.2 Current-Voltage Characteristics](#52-current-voltage-characteristics)
+  - [5.2.1 Circuit Symbol](#521-circuit-symbol)
+  - [5.2.2 The iD-vDS Characteristics](#522-the-id-vds-characteristics)
+    - [5.2.2s Triode Region](#522s-triode-region)
+    - [5.2.2s Saturation Region](#522s-saturation-region)
+    - [5.2.2s Graph](#522s-graph)
+  - [5.2.3 The iD-vGS Characteristic](#523-the-id-vgs-characteristic)
 
 # Keys
 eh why not
@@ -406,6 +413,123 @@ $$k_p=k_n'(W/L)$$
 - μp: mobility of the holes in the induced p-channel (μp=0.25μn ~ 0.5μn)
   - is process-technology dependent
 
-
-
 ## 5.1.8 Complementary MOS or CMOS
+> NMOS + PMOS = CMOS, most widely used of all the IC technologies in both analog and digital circuits
+
+![5.1.8-5.10](attachments/5.1.8-5.10.png)
+
+- more difficult to fabricate
+- makes many powerful circuit configuration possible
+
+> how and why CMOS though?
+
+# 5.2 Current-Voltage Characteristics
+> Static characteristics -> measured at dc or low frequencies
+
+> The dynamic effects will be discussed in chapter 10.
+
+## 5.2.1 Circuit Symbol
+> SYMBOL
+
+Circuit symbol for the n-channel enhancement-type MOSFET:
+```
+       D
+       |
+    |--+
+G--||<---B
+    |--+
+       |
+       S
+(a)
+```
+Modified circuit symbol with an arrowhead on the source terminal to distinguish it from the drain and to indicate device polarity:
+```
+       D
+       |
+    |--+
+G--||----B
+    |->+
+       |
+       S
+(b)
+```
+Simplified circuit symbol when the source is connected to the body, or when the effect of the body on device operation is unimportant:
+```
+       D
+       |
+    |--+
+G--||
+    |->+
+       |
+       S
+(c)
+```
+
+> In practice, the polarity of the voltage applied across the device that determines the source and drain, the drain is always positive relative to the source in a n-channel MOSFET
+
+## 5.2.2 The iD-vDS Characteristics
+> The graph about iD-vDS characteristics is shown in [5.1.5](#515-operation-as-vds-is-increased)
+
+> Table 5.1 covers NMOS triode region and saturation region.
+
+> We can use the drain voltage to achieve triode and saturation region, we can also use the gate voltage to do the same thing -> it governs total charge in the channel.
+
+### 5.2.2s Triode Region
+Continuous channel (not pinched-off):
+$$v_{GD}>V_{tn}$$
+or equivalently
+$$v_{DS}<v_{OV}$$
+then
+$$i_D=k_n'(\frac WL)(v_{OV}-\frac 12v_{DS})v_{DS}$$
+or equivalently
+$$i_D=k_n'(\frac WL)[(v_{GS}-V_{tn})v_{DS}-\frac 12v_{DS}^2]$$
+
+### 5.2.2s Saturation Region
+Pinched-off channel:
+$$v_{GD}≤V_{tn}$$
+or equivalently
+$$v_{DS}≥v_{OV}$$
+then
+$$i_D=\frac 12k_n'(\frac WL)v_{OV}^2$$
+or equivalently
+$$i_D=\frac 12k_n'(\frac WL)(v_{GS}-V_{tn})^2$$
+
+### 5.2.2s Graph
+
+![5.2.2-5.13](attachments/5.2.2-5.13.png)
+vOV=vGS-Vtn, we use the overdrive voltage as a constant in each iteration of the functions. And the points where vDS=vOV (MOSFET enters saturation region) can be described by:
+
+`(5.20)`
+
+$$i_D=\frac 12k_n'(\frac WL)v_{DS}^2$$
+when vDS=vOV (entering saturation region)
+
+## 5.2.3 The iD-vGS Characteristic
+> Using MOSFET as an amplifier, its operation is in the saturation region (vDS ≥ vOV).
+
+In saturation, the drain current is a constant determined by the gate voltage(vGS or vOV), and is independent of drain voltage (vDS) -> MOSFET operates as a voltage controlled current source.
+
+`(5.21)`
+
+$$i_D=\frac 12k_n'(\frac WL)(v_{GS}-V_{tn})^2$$
+
+`(5.22)` or in terms of vOV
+
+$$i_D=\frac 12k_n'(\frac WL)v_{OV}^2$$
+
+This implies the current-voltage characteristics (iD-vGS) is nonlinear when MOSFET is operating as an amplifier(saturation region, and is controlled by the gate voltage). (MOSFET as amp -> chapter 7)
+
+large-signal equivalent circuit:
+```
+iG=0→       ←iD
+G o--o    +----o D
+     +vGS |    +vDS
+          ▲
+          ↓ (1/2)k'n(W/L)(vGS-Vtn)^2
+          ▼
+     -    |    -
+  o----+--+----o
+       |
+       o S  vGS≥Vtn
+            vDS≥vOV
+```

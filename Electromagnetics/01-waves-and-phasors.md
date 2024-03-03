@@ -193,6 +193,8 @@ Net charge q of a volume that contains protons(+) and electrons(-), even if np=n
 > The forces are linear functions, the fields are an area of forces, they combine.
 
 The field concept satisfy the additivity and homogeneity and is a "linear function".
+
+3 charges pushes 1 charge away:
 ```
 O ↘
 O → O →
@@ -202,10 +204,14 @@ O ↗
 ### 1-3.2s Polarization of dielectric material
 > What happens when the conceptional field is in a material?
 
+Polarization of the atoms of a dielectric material by a positive charge:
 ```
-     [±]
-[+-] (+) [-+]
-     [∓]
+dielectric material
++-------------+
+|     [±]     |
+|[+-] (+) [-+]|
+|     [∓]     |
++-------------+
 ```
 - electric dipole: the polarized atoms [+-]
   - the orientation -> axis connecting its two poles [+-] is directed toward the point charge (+).
