@@ -116,7 +116,7 @@ $$Ψ=\frac{F_g}{m}$$
 ## 1-3.2 Electric Fields
 
 Differences between gravitational force:
-- source of electrical field in electric charge
+- source of electrical field is the electric charge
 - positive and negative polarity -> attractive or repulsive 
 
 ```
