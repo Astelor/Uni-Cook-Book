@@ -15,6 +15,7 @@
     - [1-3.4s parameters mentioned](#1-34s-parameters-mentioned)
 - [1-4 Traveling Waves](#1-4-traveling-waves)
   - [1-4.1 Sinusoidal Waves in a Lossless Medium](#1-41-sinusoidal-waves-in-a-lossless-medium)
+  - [1-4.2 Sinusoidal Waves in a Lossy Medium](#1-42-sinusoidal-waves-in-a-lossy-medium)
 
 # Keys
 - 1-1 Historical Timeline
@@ -475,3 +476,18 @@ $$y(x,t)=A\ cos(ωt+βx)$$
 when the phase reference ϕ0 is not zero, rewriting (1.28)
 $$y(x,t)=A\ cos(ωt-βx+ϕ_0)$$
 
+- phase lead:
+  - wave with ϕ0=π/4 -> lead the wave with ϕ0=0 by a phase lead of π/4 
+- phase lag
+  - wave with ϕ0=-π/4 -> lag the wave with ϕ0=0 by a phase lag of  π/4
+
+When a wave has negative phase reference -> takes longer to reach a given value of y(t).
+
+## 1-4.2 Sinusoidal Waves in a Lossy Medium
+> wave traveling in a lossy medium -> its amplitude decreases as e^-αx
+
+`(1.33)`
+$$y(x,t)=Ae^{-αx}cos(ωt-βx+φ_0)$$
+
+- e^-αx: attenuation factor
+- α: attenuation constant (Np/m) (neper per meter)
