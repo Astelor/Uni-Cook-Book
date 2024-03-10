@@ -143,7 +143,7 @@ $$|Q|=[C_{ox}(WL)]v_{OV}$$
 
 Magnitude of the electron charge in the channel:
 - |Q|: yes
-- Cox: oxide capacitance (F/m^2)
+- Cox: oxide capacitance **(F/m^2)**
   - capacitance of the parallel-plate capacitor per unit gate area
 - W: width of the channel (in the substrate)
   - can be as WIDE as you want (?)
@@ -230,7 +230,7 @@ $$g_{DS}=[ (μ_nC_{ox})(\frac WL) ]v_{OV}=\frac{i_D}{v_{DS}}$$
 factor 1 from (5.9)
 $$k_n'=μ_nC_{ox}$$
 
-the process transconductance (A/V^2), where n denotes n channel.
+the process transconductance **(A/V^2)**, where n denotes n channel.
 
 `!(5.12)`
 
