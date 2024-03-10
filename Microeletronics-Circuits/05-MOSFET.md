@@ -22,6 +22,7 @@
     - [5.2.2s Graph](#522s-graph)
   - [5.2.3 The iD-vGS Characteristic](#523-the-id-vgs-characteristic)
   - [5.2.4 Finite Output Resistance in Saturation](#524-finite-output-resistance-in-saturation)
+  - [5.2.5 Characteristics of the p-channel MOSFET](#525-characteristics-of-the-p-channel-mosfet)
 
 # Keys
 eh why not
@@ -45,7 +46,7 @@ eh why not
   - 5.4.1 Technology Scaling
   - 5.4.2 Subthreshold Conduction and Leakage Currents
   - 5.4.3 The Role of the Substrate- The Body Effect
-  - 5.4.4 temperature Effects
+  - 5.4.4 Temperature Effects
   - 5.4.5 Breakdown and Input Protection
   - 5.4.6 The Depletion-Type MOSFET
 
@@ -404,9 +405,9 @@ iS=iD↓| =============  |↑ iD
 ```
 
 $$v_{GS}≤V_{tp}<0$$
-$$|v_{GS}|≥|V_{tp}|$$
+$$|v_{SG}|≥|V_{tp}|$$
 
-- Vtp: threshold voltage for PMOS by convention is negative
+- Vtp: threshold voltage for PMOS by convention is **negative**
 
 $$k_p'=μ_pC_{ox}$$
 $$k_p=k_n'(W/L)$$
@@ -563,3 +564,4 @@ $$i_D=\frac 12k_n'(\frac WL)(v_{GS}-V_{tn})^2(1+λvDS)$$
   - its value depends on both process technology and channel length L.
   - new technology -> shorter L -> more greatly impacted by channel-length modulation
 
+## 5.2.5 Characteristics of the p-channel MOSFET
