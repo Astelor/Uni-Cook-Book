@@ -78,7 +78,7 @@ The following properties are LTI:
 - differentiation
 - delay (time shift)
 
-## Impulse response
+# Impulse response
 If we have an LTI system, and its y(t) is known, we can find its impulse response by replacing x(t) with δ(t) (impulse function).
 ```
 x(t) -->[]--> y(t)
@@ -93,3 +93,9 @@ x(t)*h(t) = y(t), where * is the convolution operator
 
 > The wikipedia page about convolution has its method of computation graphically animated, it gives a pretty clear idea about how this whole thing is calculated, and makes finding the ranges of calculation (integral) easier.
 
+## BIBO stable
+The integral of the impulse response is "bounded"
+$$\int_{-∞}^{∞} |h(t)|\,dt<∞$$
+
+## Causal
+$$h(t)=0,\ ∀t<0$$
