@@ -401,7 +401,7 @@ $$y(x,t)=Acos(\frac{2πt}{T}-\frac{2πx}{λ}+ϕ_0)\ (m)$$
 - ϕ0: reference phase
 
 `(1.18)`
-$$y(x,t)=A\ cos\ ϕ(x,t)\ (m)$$
+$$y(x,t)=A\cos\ ϕ(x,t)\ (m)$$
 where
 
 `(1.19)`
@@ -412,7 +412,7 @@ the angle -> phase of the wave
 First let's make it that ϕ0=0:
 
 `(1.20)`
-$$y(x,t)=A\ cos(\frac{2πt}{T}-\frac{2πx}{λ})\ (m)$$
+$$y(x,t)=A\cos(\frac{2πt}{T}-\frac{2πx}{λ})\ (m)$$
 
 We can analyze it from two perspectives:
 - stop the time and sweep through the wave's length -> y(x,0)
@@ -426,12 +426,12 @@ $$ϕ(x,t)=\frac{2πt}{T}-\frac{2πx}{λ}=2nπ,\ n∊N$$
 At the peaks of the wave pattern, the phase is equal to zero or multiples of 2π radians.
 
 `(1.22)`
-$$y(x,t)=y_0=A\ cos(\frac{2πt}{T}-\frac{2πx}{λ})$$
+$$y(x,t)=y_0=A\cos(\frac{2πt}{T}-\frac{2πx}{λ})$$
 
 or
 
 `(1.23)`
-$$\frac{2πt}{T}-\frac{2πx}{λ}=cos^{-1}(\frac{y_0}{A})=constant.$$
+$$\frac{2πt}{T}-\frac{2πx}{λ}=\cos^{-1}(\frac{y_0}{A})=constant.$$
 
 `(1.24)`
 
@@ -455,8 +455,11 @@ $$u_p=fλ (m/s)$$
 `(1.28)`
 
 rewriting (1.20) using (1.26)
-$$y(x,t)=A\ cos(2πft-\frac{2π}{λ}x)$$
-$$=A\ cos(ωt-βx)$$
+$$\begin{align*}  
+y(x,t)&=A\cos(2πft-\frac{2π}{λ}x)\\
+&=A\cos(ωt-βx)
+\end{align*}$$
+
 **wave moving along +x direction**
 
 `(1.29a)` `(1.29b)`
@@ -473,7 +476,7 @@ In terms of the two quantities in (1.29).
 $$u_p=fλ=\frac ωβ$$
 
 `(1.31)`
-$$y(x,t)=A\ cos(ωt+βx)$$
+$$y(x,t)=A\cos(ωt+βx)$$
 **wave moving along -x direction**
 
 ---
@@ -481,7 +484,7 @@ $$y(x,t)=A\ cos(ωt+βx)$$
 `(1.32)`
 
 when the phase reference ϕ0 is not zero, rewriting (1.28)
-$$y(x,t)=A\ cos(ωt-βx+ϕ_0)$$
+$$y(x,t)=A\cos(ωt-βx+ϕ_0)$$
 
 - phase lead:
   - wave with ϕ0=π/4 -> lead the wave with ϕ0=0 by a phase lead of π/4 
@@ -494,7 +497,7 @@ When a wave has negative phase reference -> takes longer to reach a given value 
 > wave traveling in a lossy medium -> its amplitude decreases as e^-αx
 
 `(1.33)`
-$$y(x,t)=Ae^{-αx}cos(ωt-βx+φ_0)$$
+$$y(x,t)=Ae^{-αx}\cos(ωt-βx+φ_0)$$
 
 - e^-αx: attenuation factor
 - α: attenuation constant (Np/m) (neper per meter)
@@ -517,8 +520,8 @@ The waves are named because of historical reasons, with the discovery of waves f
 Wave is specified in terms of its wavelength λ.
 
 International Telecommunication Union: designation of names in radio spectrum's bands
-- **microwave band**: cover hte full ranges of UHF, SHF, and EHF bands
-- EHF: aka **millimeter-wave band** (λ=1mm~1cm) (300GHz~30GHz)
+- **microwave band**: cover the full ranges of UHF, SHF, and EHF bands
+- EHF: aka **millimeter-wave band** (λ=1mm~1cm) (f=300GHz~30GHz)
 
 # 1-6 Review of Complex Numbers
 > You should know this by heart now. After all the electric circuits debacle.
@@ -546,21 +549,21 @@ $$z=|z|e^{jθ}=|z|\phase θ$$
 `(1.38)`
 
 Euler's identity:
-$$e^{jθ}=cosθ+sinθ$$
+$$e^{jθ}=\cosθ+j\sinθ$$
 
 We can convert z from polar form to rectangular form, using Euler's identity.
 > From now on is just converting and maths
 
 `(1.39)`
 
-$$z=|z|e^{jθ}=|z|cosθ+j|z|sinθ$$
+$$z=|z|e^{jθ}=|z|\cosθ+j|z|\sinθ$$
 
 And leads to the relations:
 `(1.40)`
-$$x=|z|cosθ,\, y=|z|sinθ$$
+$$x=|z|\cosθ,\, y=|z|\sinθ$$
 
 `(1.41)`
-$$|z|=\sqrt{x^2+y^2},\, θ=tan^{-1}(y/x)$$
+$$|z|=\sqrt{x^2+y^2},\, θ=\tan^{-1}(y/x)$$
 
 - θ: make sure it's in the **proper quadrant**!
 Because -y/-x = y/x, and but (-x,-y) should be in the third quadrant, and its angle should be arctan(y/x)+ π.
@@ -603,7 +606,7 @@ The magnitude |z| is equal to the positive square root of the product z and its 
 
 RC circuit contains a sinusoidally time-varying voltage source:
 
-$$v_s(t)=V_0\,sin(ωt+ϕ_0)$$
+$$v_s(t)=V_0\,\sin(ωt+ϕ_0)$$
 
 - V0: amplitude
 - ω: angular frequency
@@ -618,22 +621,33 @@ $$v_s(t)=V_0\,sin(ωt+ϕ_0)$$
 ```
 
 `(1.56)`
-
-loop equation:
-
-$$Ri(t)+\frac 1C\int{i(t)dt}=v_s(t)$$
+Applying Kirchhoff's voltage law gives the loop equation:
+$$R i(t)+\frac 1C\int{i(t)dt}=v_s(t)$$
 (time domain)
 
 ## 1-7.1 Solution Procedure
+> The objective here is to obtain an expression for i(t), doing it in the time domain is cumbersome because the forcing function is a sinusoid. So we use phasor domain to get the solution.
 
-Step 1: Adopt a cosine reference
+- Step 1: Adopt a cosine reference
 
-Step 2: Express time-dependent variable as phasors
+The properties used here:
+$\sin(x)=\cos(\frac π2-x)$, $\cos(-x)=\cos(x)$
 
-Step 3: Recast the differential/integral equation in phasor form
+`(1.57)`
+$$\begin{align*}
+v_s(t)&=V_0\sin(ωt+ϕ_0)\\
+&=V_0\cos(\frac π2 -ωt-ϕ_0)\\
+&=V_0\cos(ωt+ϕ_0-\frac π2),
+\end{align*}$$
 
-Step 4: Solve the phasor-domain equation
+- Step 2: Express time-dependent variable as phasors
 
-Step 5: Convert back to the time domain
+
+
+- Step 3: Recast the differential/integral equation in phasor form
+
+- Step 4: Solve the phasor-domain equation
+
+- Step 5: Convert back to the time domain
 
 ## 1-7.2 Traveling Waves in the Phasor Domain
