@@ -16,6 +16,13 @@
 - [1-4 Traveling Waves](#1-4-traveling-waves)
   - [1-4.1 Sinusoidal Waves in a Lossless Medium](#1-41-sinusoidal-waves-in-a-lossless-medium)
   - [1-4.2 Sinusoidal Waves in a Lossy Medium](#1-42-sinusoidal-waves-in-a-lossy-medium)
+- [1-5 The Electromagnetic Spectrum](#1-5-the-electromagnetic-spectrum)
+- [1-6 Review of Complex Numbers](#1-6-review-of-complex-numbers)
+  - [1-6s Complex conjugate of z:](#1-6s-complex-conjugate-of-z)
+  - [1-6s Properties of Complex algebra](#1-6s-properties-of-complex-algebra)
+- [1-7 Review of Phasors](#1-7-review-of-phasors)
+  - [1-7.1 Solution Procedure](#1-71-solution-procedure)
+  - [1-7.2 Traveling Waves in the Phasor Domain](#1-72-traveling-waves-in-the-phasor-domain)
 
 # Keys
 - 1-1 Historical Timeline
@@ -491,3 +498,142 @@ $$y(x,t)=Ae^{-αx}cos(ωt-βx+φ_0)$$
 
 - e^-αx: attenuation factor
 - α: attenuation constant (Np/m) (neper per meter)
+
+> Astelor: Do try to solve the practice problems in the textbook
+# 1-5 The Electromagnetic Spectrum
+
+The common fundamental properties:
+- **monochromatic** (single frequency) -> EM wave = electric and magnetic fields that oscillate at the same frequency.
+- phase velocity in a vacuum = velocity of light c, defined in Eq.(1.14).
+- in a vacuum, the wavelength is related to its oscillation frequency by 
+
+`(1.34)`
+$$λ=\frac cf$$
+
+> In short, single frequency, wave goes in light speed (c), and we can find its wavelength with the velocity.
+
+The waves are named because of historical reasons, with the discovery of waves for the specific wavelengths. 
+
+Wave is specified in terms of its wavelength λ.
+
+International Telecommunication Union: designation of names in radio spectrum's bands
+- **microwave band**: cover hte full ranges of UHF, SHF, and EHF bands
+- EHF: aka **millimeter-wave band** (λ=1mm~1cm) (300GHz~30GHz)
+
+# 1-6 Review of Complex Numbers
+> You should know this by heart now. After all the electric circuits debacle.
+
+Complex number z can be expressed in:
+
+`(1.35)`
+
+Rectangular form:
+$$z=x+jy$$
+
+- $j=\sqrt{-1}$
+- x=Re(z): real(Re) part of z `(1.36)`
+- y=Im(z): imaginary(Im) part of z. `(1.36)`
+
+`(1.37)`
+
+Polar form:
+$$z=|z|e^{jθ}=|z|\phase θ$$
+
+- |z|: magnitude of z ( ∑(xi^2) )^(1/2)
+- θ: phase angle
+- ∠θ: shorthand for e^(jθ)
+
+`(1.38)`
+
+Euler's identity:
+$$e^{jθ}=cosθ+sinθ$$
+
+We can convert z from polar form to rectangular form, using Euler's identity.
+> From now on is just converting and maths
+
+`(1.39)`
+
+$$z=|z|e^{jθ}=|z|cosθ+j|z|sinθ$$
+
+And leads to the relations:
+`(1.40)`
+$$x=|z|cosθ,\, y=|z|sinθ$$
+
+`(1.41)`
+$$|z|=\sqrt{x^2+y^2},\, θ=tan^{-1}(y/x)$$
+
+- θ: make sure it's in the **proper quadrant**!
+Because -y/-x = y/x, and but (-x,-y) should be in the third quadrant, and its angle should be arctan(y/x)+ π.
+
+---
+## 1-6s Complex conjugate of z:
+
+`(1.42)`
+$$z^*=(x+jy)^*=x-jy=|z|e^{-jθ}=|z|\phase -θ$$
+
+denoted with a star superscript, obtained by replacing j with -j
+
+`(1.43)`
+$$|z|=\sqrt{zz^*}$$
+
+The magnitude |z| is equal to the positive square root of the product z and its complex conjugate.
+
+---
+## 1-6s Properties of Complex algebra
+
+- Equality
+- Addition
+- Multiplication
+- Division
+- Powers
+- Useful Relations
+
+# 1-7 Review of Phasors
+> To simplify the calculation of sinusoidal functions, we move it from time domain to phasor domain, and to and fro.
+
+"converting linear integro-differential equation into a linear equation with no sinusoidal functions, thereby simplifying the method of solution."
+
+> If we were to find the result of multiplications of two sinusoidal functions, it's hard to find it in time domain, since it includes integral in the time domain. However, in phasor domain, it eliminates the difficulty.
+
+```
+[time domain] -> [phasor domain] -> [computation] -> [time domain]
+```
+
+`(1.55)`
+
+RC circuit contains a sinusoidally time-varying voltage source:
+
+$$v_s(t)=V_0\,sin(ωt+ϕ_0)$$
+
+- V0: amplitude
+- ω: angular frequency
+- ϕ0: reference phase
+
+```
+ +------[R]------+
+ | +             |
+(~) vs(t)       [C]
+ | -             |↓i
+ +---------------+
+```
+
+`(1.56)`
+
+loop equation:
+
+$$Ri(t)+\frac 1C\int{i(t)dt}=v_s(t)$$
+(time domain)
+
+## 1-7.1 Solution Procedure
+
+Step 1: Adopt a cosine reference
+
+Step 2: Express time-dependent variable as phasors
+
+Step 3: Recast the differential/integral equation in phasor form
+
+Step 4: Solve the phasor-domain equation
+
+Step 5: Convert back to the time domain
+
+## 1-7.2 Traveling Waves in the Phasor Domain
