@@ -5,6 +5,7 @@
 
 - [Chapter 5, MOSFET](#chapter-5-mosfet)
 - [Keys](#keys)
+- [Summary](#summary)
 - [5.1 Device Structure and Physical Operation](#51-device-structure-and-physical-operation)
   - [5.1.1 Device Structure](#511-device-structure)
   - [5.1.2 Operation with Zero Gate Voltage](#512-operation-with-zero-gate-voltage)
@@ -50,6 +51,14 @@ eh why not
   - 5.4.4 Temperature Effects
   - 5.4.5 Breakdown and Input Protection
   - 5.4.6 The Depletion-Type MOSFET
+
+# Summary
+> 5.1 SUMMARY:
+>
+> We now know how to activate a transistor (vGS ≥ Vt, vOV=vGS-Vt), how many charges are in the transistor's channel (|Q|=Cox(WL)vOV), and how fast the charges goes when applying voltage at the drain channel (iD=kn⋅vOV⋅vDS). 
+> 
+> With the drain voltage we analyzed how different magnitudes of vDS affects iD (vDS versus vOV), vDS creates a voltage drop across the drain and source terminals, subsequently affects the effective voltage (aka overdrive voltage, vOV) that give rise to the channel charge, and affects how we write the iD equation (iD=kn⋅(vOV-(0.5vDS))⋅vDS) (5.7).
+>
 
 # 5.1 Device Structure and Physical Operation
 > enhancement-type MOSFET is the most widely used FET
@@ -277,7 +286,6 @@ Resistance decreases as vGS is increased above Vt, thus enhancing the channel, h
 ## 5.1.5 Operation as vDS is Increased
 > But wait, vOV doesn't rule it all, there's another contender vDS, and the channel is getting askew. Applying vDS, and vDS ≤ vOV, average voltage is vOV - (1/2) vDS.
 > "Triode Region".
-
 > Astelor: lmao wtf am I writing
 
 ```
@@ -308,19 +316,19 @@ vOV remains constant -> vGS remains constant, the shallowest end at the drain ha
 
 `(5.14)`
 
-taking the "tapered channel" into consideration, while vDS < vOV
+Taking the "tapered channel" into consideration, while vDS < vOV
 $$i_D=k_n'(\frac WL)(v_{OV}-\frac{1}{2}v_{DS})v_{DS}$$
 
-> Since the average voltage that gives rise to channel charge (vOV) is affected by a voltage drop created by vDS, the average voltage became vOV-(1/2)vDS -> thus when vDS ≪ vOV, the "tapering effect" is negligible
+> Since the average voltage that gives rise to channel charge (vOV) is affected by a voltage drop created by vDS, the average voltage became vOV-(1/2)vDS -> thus when vDS ≪ vOV, the "tapering effect" is negligible.
 
 `(5.15)`
 
-writing (5.14) in an alternate form
+Writing (5.14) in an alternate form
 $$i_D=k_n'(\frac WL)(v_{OV}v_{DS}-\frac 12v_{DS}^2)$$
 
-`(5.16)` we can also replace vOV with "vGS - Vt" and rewrite (5.15)
+`(5.16)` We can also replace vOV with "vGS - Vt" and rewrite (5.15)
 
-current voltage characteristic:
+Current voltage characteristic:
 ![5.1.5-5.7](attachments/5.1.5-5.7.png)
 
 vOV is a constant here, the graph can be referred to equation (5.15)
@@ -366,14 +374,7 @@ The voltage vDS at which the saturation occurs is denoted vDSsat
 
 `(5.19)` we can also replace vOV with vGS - Vt and rewrite (5.17)
 
-> SECTION SUMMARY:
->
-> We now know how to activate a transistor (vGS ≥ Vt, vOV=vGS-Vt), how many charges are in the transistor's channel (|Q|=Cox(WL)vOV), and how fast the charges goes when applying voltage at the drain channel (iD=kn vOV vDS). 
-> 
-> With the drain voltage we analyzed how different magnitude of vDS affects the iD (vDS versus vOV), the vDS creates a voltage drop across the drain and source terminals, subsequently affects the effective voltage (aka overdrive voltage) that give rise to the channel charge, and affects how we write the iD equation (iD=kn (vOV-((1/2)vDS)) vDS) (5.7).
-
 > look at da graph!
-
 ---
 > Astelor: you might want a cheat sheet for the equations for quick reviewing.
 
@@ -484,42 +485,36 @@ G--||
 We can use the drain voltage to achieve triode and saturation region, we can also use the gate voltage to do the same thing -> it governs total charge in the channel.
 
 ### 5.2.2s Triode Region
-Continuous channel (not pinched-off):
-$$v_{GD}>V_{tn}$$
-or equivalently
-$$v_{DS} < v_{OV}$$
-then
-$$i_D=k_n' (\frac WL) (v_{OV}- \frac 12 v_{DS}) v_{DS}$$
-or equivalently
-$$i_D=k_n'(\frac WL)[(v_{GS}-V_{tn})v_{DS}-\frac 12v_{DS}^2]$$
+- Continuous channel (not pinched-off): $v_{GD}>V_{tn}$
+- or equivalently: $v_{DS} < v_{OV}$
+- then: $i_D=k_n' (\frac WL) (v_{OV}- \frac 12 v_{DS}) v_{DS}$
+- or equivalently: $i_D=k_n'(\frac WL)[(v_{GS}-V_{tn})v_{DS}-\frac 12v_{DS}^2]$
 
 ### 5.2.2s Saturation Region
-Pinched-off channel:
-$$v_{GD}≤V_{tn}$$
-or equivalently
-$$v_{DS}≥v_{OV}$$
-then
-$$i_D=\frac 12k_n'(\frac WL)v_{OV}^2$$
-or equivalently
-$$i_D=\frac 12k_n'(\frac WL)(v_{GS}-V_{tn})^2$$
+- Pinched-off channel: $v_{GD}≤V_{tn}$
+- or equivalently: $v_{DS}≥v_{OV}$
+- then: $i_D=\frac 12k_n'(\frac WL)v_{OV}^2$
+- or equivalently: $i_D=\frac 12k_n'(\frac WL)(v_{GS}-V_{tn})^2$
 
 ### 5.2.2s Graph
 
 ![5.2.2-5.13](attachments/5.2.2-5.13.png)
 
-vOV=vGS-Vtn, we use the overdrive voltage as a constant in each iteration of the functions. And the points where vDS=vOV (MOSFET enters saturation region) can be described by:
+vOV=vGS-Vtn, treating vOV as a constant in each iteration of the functions. And the points where vDS=vOV (MOSFET enters saturation region) can be described by:
 
 `(5.20)`
 
 $$i_D=\frac 12k_n'(\frac WL)v_{DS}^2$$
 when vDS=vOV (entering saturation region)
 
+> It describes the dotted exponential line, drawn by increasing vOV, observe iD-vDS when vOV is increased.
+
 ## 5.2.3 The iD-vGS Characteristic
-> Using MOSFET as an amplifier, its operation is in the saturation region (vDS ≥ vOV).
+> Using MOSFET as an amplifier, vGS as input, vDS as a constant, its operation is in the saturation region (vDS ≥ vOV).
 
-**In saturation**, the drain current is a constant determined by the gate voltage(vGS or vOV), and is independent of drain voltage vDS.
+**In saturation**, the drain current is a constant determined by the gate voltage (vGS=vOV+Vt), and is independent of drain voltage vDS.
 
--> MOSFET operates as a **voltage controlled current source**, in saturation region.
+MOSFET operates as a **voltage-controlled current source**
 
 `(5.21)`
 
@@ -572,8 +567,9 @@ S+-------------+------+D
 
 We account for this effect for iD by including a factor 1+λ(vDS-vOV) or **(1+λvDS)**
 
-$$i_D=\frac 12k_n'(\frac WL)(v_{GS}-V_{tn})^2(1+λvDS)$$
+$$i_D=\frac 12k_n'(\frac WL)(v_{GS}-V_{tn})^2(1+λv_{DS})$$
 
+> iD increases linearly after entering saturation region.
 - λ: device parameter 
   - unit: reciprocal volts (V^-1)
   - value: depends on both process technology and channel length L.
@@ -587,6 +583,8 @@ $$V_A=\frac 1λ$$
   - typically 5 V/μm ~ 50 V/μm
 
 > After taking channel-length modulation into account, the saturation value of iD depend on vDS. For a given vGS, "a change ∆vDS yields a corresponding change ∆iD in the drain current iD."
+
+![5.2.4-5.17](attachments/5.2.4-5.17.png)
 
 `(5.24)`
 $$r_o≡[\frac{∂i_D}{∂v_{DS}}]^{-1}_{v_{GS}\ constant}$$
@@ -627,8 +625,7 @@ G o--o    +--+--o D
 ```
 
 ## 5.2.5 Characteristics of the p-channel MOSFET
-> It's the opposite to NMOS. It you know how FET works, it's not hard to convert the concepts in NMOS to PMOS.
-
+> It's the opposite to NMOS. It you know how FET works, it shouldn't be hard to convert the concepts in NMOS to PMOS.
 
 # 5.4 Technology Scaling (Moore's Law) and Other Topics
 > Astelor: I'm not quite sure what I should do with this chapter

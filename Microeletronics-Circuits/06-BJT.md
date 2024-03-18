@@ -1,6 +1,7 @@
 # Chapter 6, Bipolar Junction Transistor
 > aka BJT
 > a dangling note waiting to be written.
+> well well well, isn't it the consequences to my actions
 
 # Keys
 - 6.1 Device Structure and Physical Operation

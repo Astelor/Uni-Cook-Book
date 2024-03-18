@@ -1,4 +1,10 @@
 # Chapter 7, Transistor Amplifiers
+> Using transistor as amplifier
+
+- [Chapter 7, Transistor Amplifiers](#chapter-7-transistor-amplifiers)
+- [Keys](#keys)
+- [Introduction](#introduction)
+- [7.1 Basic Principles](#71-basic-principles)
 
 # Keys
 ehhhhh
@@ -19,4 +25,28 @@ ehhhhh
 - 7.4 Biasing
 - 7.5 Discrete-Circuit Amplifiers
 
+# Introduction
+Two transistor applications:
+- switch: digital circuits
+- amplifier: analog circuits (a controlled source) 
+
+Basic principles for MOSFET and BJT as amplifiers are the same, so we study them together and make comparisons. 
+
 # 7.1 Basic Principles
+
+Voltage-controlled current source:
+- BJT in active mode
+- MOSFET in saturation region (vGS controls iD)
+
+> This chapter calls active mode (BJT) and saturation region (MOSFET) as active region.
+
+`(7.1)`
+
+NMOS, vGS controls iD in active region:
+$$i_D=\frac 12 k_n (v_{GS}-V_{tn})^2$$
+
+`(7.2)`
+
+npn BJT, vBE controls iC in active region:
+$$i_C=I_Se^{v_{BE}/V_T}$$
+
