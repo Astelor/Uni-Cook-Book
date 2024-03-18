@@ -23,6 +23,7 @@
   - [5.2.3 The iD-vGS Characteristic](#523-the-id-vgs-characteristic)
   - [5.2.4 Finite Output Resistance in Saturation](#524-finite-output-resistance-in-saturation)
   - [5.2.5 Characteristics of the p-channel MOSFET](#525-characteristics-of-the-p-channel-mosfet)
+- [5.4 Technology Scaling (Moore's Law) and Other Topics](#54-technology-scaling-moores-law-and-other-topics)
 
 # Keys
 eh why not
@@ -103,12 +104,12 @@ the path between D and S has a very high resistance (of the order of 10^12 Ω)
 > MOSFET activate! vGS ≥ Vt, specifically NMOS.
 
 Turning on the transistor:
-- Gate terminal positively charged: (and causes the following effect)
+- Gate terminal positively charged: (and caused the following effect)
   - push free holes in the substrate down -> uncovers bound negative charge (creates depletion region)
   - attracts electrons from n+ regions to the channel region (underneath the oxide plate, still in the substrate)
 - Sufficient electrons in the "channel" -> the channel connects S and D terminals.
 
-In short, Gate positive voltage -> attract electrons -> n-channel.
+> In short, Gate positive voltage -> attract electrons -> n-channel.
 
 The gate voltage(+) and channel(-) create an parallel-plate capacitor:
 ```
@@ -120,7 +121,10 @@ The gate voltage(+) and channel(-) create an parallel-plate capacitor:
 | n-channel (-)  |
 +----------------+
 ```
-with the oxide acting as the capacitor dielectric, and an electric field that controls the amount of charge in the channel (5.2) -> field-effect transistor (hence the name)
+- the oxide: capacitor dielectric
+- electric field: amount of charges in the channel
+
+> With the oxide acting as the capacitor dielectric, and electric field controlling the amount of charges in the channel (5.2) -> field-effect transistor (hence the name)
 
 `!(5.1)`
 $$v_{GS}-V_t≡v_{OV}$$
@@ -164,7 +168,12 @@ How to get Cox from the specifications:
 ## 5.1.4 Applying a Small vDS
 > Now the channel has electrons, let's make it flow! Applying vDS and vDS ≪ vOV. "Triode Region".
 
-The current is carried by free electrons going from S to D, hence the names, the source and drain for electrons.
+NMOS terminal names:
+- Source terminal: the source of free electrons
+- Drain terminal: the drain of free electrons
+- current: S->D, carried by free electrons
+
+> The current is carried by free electrons going from S to D, hence the names, the source and drain for electrons.
 ```
             (vGS>0)
 (ground)    [G]       (vDS>0)
@@ -181,20 +190,18 @@ iS=iD↑| =============  |↓ iD
             [B] (ground)         
 ```
 
-So how fast does the electrons go? (Ampere = Coulomb/second)
-
-> Texts above the equation is where or how it comes from, below is the definitions to it.
-> since the equations here are rather self explanatory, there isn't much description ok.
+So how fast does the electrons go?
+> The following section is the calculation of Ampere (Ampere = Coulomb/second)
 
 `(5.4)`
 $$\frac{|Q|}{L}=C_{ox}Wv_{ox}$$
 
-Charge per unit channel length (C/m), it's the amount of charge in a cross-sectional area.
+Charge per unit channel length (C/m) -> the amount of charge in a cross-sectional area.
 
 `(5.5)`
 $$|E|=\frac{v_{DS}}{L}$$
 
-Electric field established by vDS across the length of the channel (V/m). (tis the basic law ok)
+Electric field established by vDS across the length of the channel (V/m).
 
 `!(5.6)`
 $$Electron\ drift\ velocity=μ_n|E|=μ_n\frac{v_{DS}}{L}$$
@@ -210,7 +217,7 @@ $$i_D=[ (μ_nC_{ox})(\frac WL) ]v_{OV} v_{DS}$$
 
 `(5.8)`
 
-and we can substitute vOV with vGS - Vt (5.1)
+and we can substitute vOV with vGS - Vt Eq.(5.1)
 $$i_D=[ (μ_nC_{ox})(\frac WL) ](v_{GS} - V_t) v_{DS}$$
 
 `(5.9)`
@@ -220,7 +227,7 @@ $$g_{DS}=[ (μ_nC_{ox})(\frac WL) ]v_{OV}=\frac{i_D}{v_{DS}}$$
 
 - The conductance is determined by three factors
 
-`(5.10)` or (substitute vOV with vGS - Vt (5.1))
+`(5.10)` or (substitute vOV with vGS - Vt Eq.(5.1))
 
 ---
 > Now we have the math to describe how fast the electrons go, let's simplified the equation.
@@ -474,7 +481,7 @@ G--||
 
 > Table 5.1 covers NMOS triode region and saturation region.
 
-> We can use the drain voltage to achieve triode and saturation region, we can also use the gate voltage to do the same thing -> it governs total charge in the channel.
+We can use the drain voltage to achieve triode and saturation region, we can also use the gate voltage to do the same thing -> it governs total charge in the channel.
 
 ### 5.2.2s Triode Region
 Continuous channel (not pinched-off):
@@ -499,6 +506,7 @@ $$i_D=\frac 12k_n'(\frac WL)(v_{GS}-V_{tn})^2$$
 ### 5.2.2s Graph
 
 ![5.2.2-5.13](attachments/5.2.2-5.13.png)
+
 vOV=vGS-Vtn, we use the overdrive voltage as a constant in each iteration of the functions. And the points where vDS=vOV (MOSFET enters saturation region) can be described by:
 
 `(5.20)`
@@ -509,7 +517,9 @@ when vDS=vOV (entering saturation region)
 ## 5.2.3 The iD-vGS Characteristic
 > Using MOSFET as an amplifier, its operation is in the saturation region (vDS ≥ vOV).
 
-In saturation, the drain current is a constant determined by the gate voltage(vGS or vOV), and is independent of drain voltage (vDS) -> MOSFET operates as a voltage controlled current source.
+**In saturation**, the drain current is a constant determined by the gate voltage(vGS or vOV), and is independent of drain voltage vDS.
+
+-> MOSFET operates as a **voltage controlled current source**, in saturation region.
 
 `(5.21)`
 
@@ -519,9 +529,9 @@ $$i_D=\frac 12k_n'(\frac WL)(v_{GS}-V_{tn})^2$$
 
 $$i_D=\frac 12k_n'(\frac WL)v_{OV}^2$$
 
-This implies the current-voltage characteristics (iD-vGS) is nonlinear when MOSFET is operating as an amplifier(saturation region, and is controlled by the gate voltage). (MOSFET as amp -> chapter 7)
+This implies the current-voltage characteristics (iD-vGS) is **nonlinear** when MOSFET is operating as an amplifier (in saturation region, iD controlled by vGS).
 
-large-signal equivalent circuit:
+Large-signal equivalent circuit:
 ```
 iG=0→       ←iD
 G o--o    +----o D
@@ -532,16 +542,21 @@ G o--o    +----o D
      -    |    -
   o----+--+----o
        |
-       o S  vGS≥Vtn
-            vDS≥vOV
+       o S  vGS≥Vtn (not cutoff)
+            vDS≥vOV (saturation)
 ```
 
 ## 5.2.4 Finite Output Resistance in Saturation
+> The non ideal situation, channel-length modulation. rDS<∞, given vGS, vDS yields corresponding change in iD, in saturation region.
 
 - Ideally: 
-iD is independent of vDS -> iD remains the same with any change in vDS -> rDS is infinite. And this is base on the premise that vDS has no effect on the channel's shape once vDS≥vOV (pinched-off).
+
+In saturation, iD is independent of vDS, which means iD is a constant no matter the change in vDS, this also means rDS is infinite (vDS can be VERY big). 
+
+And this is base on the premise that vDS has no effect on the channel's shape once vDS≥vOV (pinched-off).
 
 - In practice:
+
 Pinch-off point moves slightly away from the drain when vDS≥vOV. And the phenomenon is known as channel-length modulation.
 
 **Channel-length modulation**:
@@ -555,13 +570,66 @@ S+-------------+------+D
 
 `(5.23)`
 
-We account for this effect for iD by including a factor 1+λ(vDS-vOV) or (1+λvDS)
+We account for this effect for iD by including a factor 1+λ(vDS-vOV) or **(1+λvDS)**
 
 $$i_D=\frac 12k_n'(\frac WL)(v_{GS}-V_{tn})^2(1+λvDS)$$
 
 - λ: device parameter 
-  - its unit are reciprocal volts (V^-1)
-  - its value depends on both process technology and channel length L.
+  - unit: reciprocal volts (V^-1)
+  - value: depends on both process technology and channel length L.
   - new technology -> shorter L -> more greatly impacted by channel-length modulation
 
+$$V_A=\frac 1λ$$
+- VA: device parameter (V)
+  - aka **Early voltage**.
+  - $V_A=V_A'L$, proportional to channel length L
+- VA': entirely process-technology dependent (V/μm)
+  - typically 5 V/μm ~ 50 V/μm
+
+> After taking channel-length modulation into account, the saturation value of iD depend on vDS. For a given vGS, "a change ∆vDS yields a corresponding change ∆iD in the drain current iD."
+
+`(5.24)`
+$$r_o≡[\frac{∂i_D}{∂v_{DS}}]^{-1}_{v_{GS}\ constant}$$
+
+`(5.25)`
+
+using Eq.(5.23):
+$$r_o=[λ\frac{k_n'}{2}\frac WL(v_{GS}-V_{tn})^2]^{-1}$$
+
+`(5.26)`
+
+which can be written as:
+$$r_o=\frac{1}{λi_D'}$$
+
+`(5.27)` 
+
+or, equivalently:
+$$r_o=\frac{V_A}{i_D'}$$
+
+`(5.27')`
+
+$$i_D'=\frac 12k_n'\frac WL(v_{GS}-V_{tn})^2$$
+- iD': drain current without channel-length modulation.
+
+Large-signal, equivalent-circuit:
+```
+iG=0→       ←iD
+G o--o    +--+--o D
+     +vGS |  |  +vDS
+          ▲  |
+          ↓ [ro]
+          ▼  |
+     -    |  |  -
+  o----+--+--+--o
+       |
+       o S  vGS≥Vtn (not cutoff)
+            vDS≥vOV (saturation)
+```
+
 ## 5.2.5 Characteristics of the p-channel MOSFET
+> It's the opposite to NMOS. It you know how FET works, it's not hard to convert the concepts in NMOS to PMOS.
+
+
+# 5.4 Technology Scaling (Moore's Law) and Other Topics
+> Astelor: I'm not quite sure what I should do with this chapter
+
