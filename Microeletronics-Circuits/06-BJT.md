@@ -20,3 +20,70 @@
   - 6.4.1 Transistor Breakdown
   - 6.4.2 Dependence of beta on iC and Temperature
 
+# 6.1 Device Structure and Physical Operation
+
+## 6.1.1 Simplified Structure and Modes of Operation
+> The basics...
+
+Simplified structure of npn transistor: (like NMOS)
+```     
+      +---------+--------+-----------+
+      | n-type  | p-type | n-type    |
+ o----+ Emitter | Base   | Collector +----o
+(E)   | region  | region | region    |   (C)
+      +---------+----+---+-----------+
+(emitter-base  EBJ   |  CBJ (collector-base
+ junction)           o       junction)
+                    (B)
+```
+
+Simplified structure of pnp transistor: (like PMOS)
+```     
+      +---------+--------+-----------+
+      | p-type  | n-type | p-type    |
+ o----+ Emitter | Base   | Collector +----o
+(E)   | region  | region | region    |   (C)
+      +---------+----+---+-----------+
+                     | 
+                     o      
+                    (B)
+```
+
+- Two pn junctions:
+  - emitter-base junction (EBJ)
+  - collector-base junction (CBJ)
+- Three terminals:
+  - emitter (E)
+  - base (B)
+  - collector (C)
+
+Biasing conditions at junctions give different modes of operations.
+> current flows from: n->p reverse bias, p->n forward bias. 
+> "negative" -> "positive", reverse. "positive" -> "negative", forward. :)
+
+BJT modes of operation:
+|Mode|EBJ|CBJ|
+|-|-|-|
+|Cutoff|Reverse|Reverse|
+|Active|Forward|Reverse|
+|Saturation|Forward|Forward|
+
+Charge carriers of both polarities participate in the current-conduction process in a bipolar transistor. (Contrasting with MOSFET where current is conducted by one type of carrier.)
+
+## 6.1.2 Operation of the npn Transistor in the Active Mode
+> go transistor go
+
+- EBJ: forward bias
+- CBJ: reverse bias
+
+```     
+      +---------+--------+-----------+
+      |    n    |    p   |     n     |
+ o----+         |        |           +----o
+(E)   |         |        |           |   (C)
+      +---------+----+---+-----------+
+               EBJ   |  CBJ
+                     o
+                    (B)
+```
+

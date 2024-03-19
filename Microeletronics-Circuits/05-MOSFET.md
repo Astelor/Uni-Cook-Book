@@ -53,12 +53,11 @@ eh why not
   - 5.4.6 The Depletion-Type MOSFET
 
 # Summary
-> 5.1 SUMMARY:
->
-> We now know how to activate a transistor (vGS ≥ Vt, vOV=vGS-Vt), how many charges are in the transistor's channel (|Q|=Cox(WL)vOV), and how fast the charges goes when applying voltage at the drain channel (iD=kn⋅vOV⋅vDS). 
-> 
-> With the drain voltage we analyzed how different magnitudes of vDS affects iD (vDS versus vOV), vDS creates a voltage drop across the drain and source terminals, subsequently affects the effective voltage (aka overdrive voltage, vOV) that give rise to the channel charge, and affects how we write the iD equation (iD=kn⋅(vOV-(0.5vDS))⋅vDS) (5.7).
->
+5.1 SUMMARY:
+
+We now know how to activate a transistor (vGS ≥ Vt, vOV=vGS-Vt), how many charges are in the transistor's channel (|Q|=Cox(WL)vOV), and how fast the charges goes when applying voltage at the drain channel (iD=kn⋅vOV⋅vDS). 
+ 
+With the drain voltage we analyzed how different magnitudes of vDS affects iD (vDS versus vOV), vDS creates a voltage drop across the drain and source terminals, subsequently affects the effective voltage (aka overdrive voltage, vOV) that give rise to the channel charge, and affects how we write the iD equation (iD=kn⋅(vOV-(0.5vDS))⋅vDS) (5.7).
 
 # 5.1 Device Structure and Physical Operation
 > enhancement-type MOSFET is the most widely used FET
