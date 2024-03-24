@@ -642,8 +642,6 @@ v_s(t)&=V_0\sin(ωt+ϕ_0)\\
 
 - Step 2: Express time-dependent variable as phasors
 
-
-
 - Step 3: Recast the differential/integral equation in phasor form
 
 - Step 4: Solve the phasor-domain equation
