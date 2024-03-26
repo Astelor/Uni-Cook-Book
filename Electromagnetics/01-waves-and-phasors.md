@@ -572,7 +572,7 @@ Because -y/-x = y/x, and but (-x,-y) should be in the third quadrant, and its an
 ## 1-6s Complex conjugate of z:
 
 `(1.42)`
-$$z^*=(x+jy)^*=x-jy=|z|e^{-jθ}=|z|\phase -θ$$
+$$z^*=(x+jy)^*=x-jy=|z|e^{-jθ}=|z|\phase{-θ}$$
 
 denoted with a star superscript, obtained by replacing j with -j
 
