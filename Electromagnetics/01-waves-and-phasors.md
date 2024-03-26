@@ -634,11 +634,11 @@ The properties used here:
 $\sin(x)=\cos(\frac π2-x)$, $\cos(-x)=\cos(x)$
 
 `(1.57)`
-$$\begin{align}
-v_s(t)&=V_0\sin(ωt+ϕ_0)\\
-&=V_0\cos(\frac π2 -ωt-ϕ_0)\\
-&=V_0\cos(ωt+ϕ_0-\frac π2),
-\end{align}$$
+$$\begin{align*}
+v_s(t) & =V_0\sin(ωt+ϕ_0) \\
+& =V_0\cos(\frac π2 -ωt-ϕ_0) \\
+& =V_0\cos(ωt+ϕ_0-\frac π2)
+\end{align*}$$
 
 - Step 2: Express time-dependent variable as phasors
 
