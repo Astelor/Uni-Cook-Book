@@ -13,6 +13,7 @@
     - [6.1.2s The Base Current](#612s-the-base-current)
     - [6.1.2s The Emitter Current](#612s-the-emitter-current)
     - [6.1.2s Minority-Carrier Distribution](#612s-minority-carrier-distribution)
+    - [6.1.2s Recapitulation and Equivalent-Circuit Models](#612s-recapitulation-and-equivalent-circuit-models)
 
 # Keys
 - 6.1 Device Structure and Physical Operation
@@ -142,7 +143,7 @@ How the electron component flow:
 ### 6.1.2s The Collector Current
 > Electrons that reached the collector region.
 
-`(6.1)`
+`!(6.1)`
 $$i_C=I_Se^{v_{BE}/V_T}$$
 
 - IS: saturation current (a transistor parameter)
@@ -186,7 +187,7 @@ Obtaining high common-emitter current gain:
 ### 6.1.2s The Emitter Current
 > All the current that leaves the transistor, sum of collector current and base current.
 
-`(6.4)`
+`!(6.4)`
 $$i_E=i_C+i_B$$
 
 `(6.5)`
@@ -204,7 +205,7 @@ $$i_E=\frac{β+1}{β}I_Se^{v_{BE}/V_T}$$
 We can express Eq.(6.5) in the form:
 $$i_C=αi_E$$
 
-`(6.8)`
+`!(6.8)`
 
 Where the constant α is related to β by:
 $$α=\frac{β}{β+1}$$
@@ -232,6 +233,8 @@ $$β=\frac{α}{1-α}$$
 
 ### 6.1.2s Minority-Carrier Distribution
 > Minority charge carriers in the base and the emitter. Better understand the physical operation of BJT. -> BJT required two types of carrier to operate.
+>
+> Astelor: I'm lost at the saturation current part
 
 - Doping concentration 
   - in the emitter (ND) > in the base (NA)
@@ -245,10 +248,50 @@ $$n_p(0)=n_{p0}\,e^{v_{BE}/V_T}$$
 - np0: thermal equilibrium value of the minority-carrier (electron) concentration in the base region.
 
 ![6.1.2-6.4](attachments/6.1.2-6.4.png)
-- base is very thin -> excess electrons decays almost linearly
+
+- Recombination process (its effect)
+  - base is very thin -> excess electrons decays almost linearly
+  - slope of concentration profile at EBJ slightly higher than that at CBJ 
 - reverse bias on CBJ -> concentration of excess electrons at the collector side of the base(the right-hand side of the base) to be zero
 
-
 `(6.12)`
-$$I_n=A_EqD_n\frac{dn_p(x)}{dx}$$
+$$\begin{align*}
+I_n&=A_EqD_n\frac{dn_p(x)}{dx} \\
+&=A_EqD_n(-\frac{n_p(0)}{W})
+\end{align*}$$
 
+- $I_n$: electron diffusion current (Ampere=Coulomb/second)
+  - proportional to $\frac{dn_p(x)}{dx}$ (the slope of the straight-line concentration profile)
+  - negative slope of minority-carrier concentration
+  - -> negative current (flows from right to left)
+  - is the **collector current**
+- $A_E$: cross-sectional area of the base-emitter junction
+- q: magnitude of the electron charge
+- $D_n$: electron diffusivity in the base
+- W: effective width of the base
+
+---
+> Astelor: I'm so confused by this part. what the heck are these???
+> Do I really have to review semiconductor for this?
+
+- we have $i_C=I_n$ and $i_C=I_S\,e^{v_{BE}/V_T}$
+- where saturation current is given by $I_S=A_E q D_n n_{p0}/W$
+
+`(6.13)`
+
+Substituting $n_{p0}=n_i^2/N_A$, we can express $I_S$ as:
+
+$$I_S=\frac{A_E q D_n n_i^2}{N_A W}$$
+
+- $n_i$: intrinsic carrier density
+- $N_A$: doping concentration in the base
+- $I_S$: saturation current
+  - aka **scale current** (proportional to junction area)
+  - typically 10^(-12)A ~10^(-18)A
+  - a strong function of temperature (because of ∝ $n_i^2$)
+
+### 6.1.2s Recapitulation and Equivalent-Circuit Models
+> Circuit models
+
+- $i_C=I_Se^{v{BE}/V_T}$
+- iC is independent of the collector voltage (vCB), but vCB should be positive
