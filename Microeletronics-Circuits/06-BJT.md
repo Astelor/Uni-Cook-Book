@@ -255,6 +255,7 @@ $$n_p(0)=n_{p0}\,e^{v_{BE}/V_T}$$
 - reverse bias on CBJ -> concentration of excess electrons at the collector side of the base(the right-hand side of the base) to be zero
 
 `(6.12)`
+
 $$\begin{align*}
 I_n&=A_EqD_n\frac{dn_p(x)}{dx} \\
 &=A_EqD_n(-\frac{n_p(0)}{W})
