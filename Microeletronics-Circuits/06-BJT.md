@@ -3,6 +3,17 @@
 > a dangling note waiting to be written.
 > well well well, isn't it the consequences to my actions
 
+- [Chapter 6, Bipolar Junction Transistor](#chapter-6-bipolar-junction-transistor)
+- [Keys](#keys)
+- [6.1 Device Structure and Physical Operation](#61-device-structure-and-physical-operation)
+  - [6.1.1 Simplified Structure and Modes of Operation](#611-simplified-structure-and-modes-of-operation)
+  - [6.1.2 Operation of the npn Transistor in the Active Mode](#612-operation-of-the-npn-transistor-in-the-active-mode)
+    - [6.1.2s Current Flow](#612s-current-flow)
+    - [6.1.2s The Collector Current](#612s-the-collector-current)
+    - [6.1.2s The Base Current](#612s-the-base-current)
+    - [6.1.2s The Emitter Current](#612s-the-emitter-current)
+    - [6.1.2s Minority-Carrier Distribution](#612s-minority-carrier-distribution)
+
 # Keys
 - 6.1 Device Structure and Physical Operation
   - 6.1.1 Simplified Structure and Modes of Operation
@@ -214,7 +225,9 @@ $$β=\frac{α}{1-α}$$
 
 > β: common-emitter -> relates collector and base current (fraction of iC)
 > α: common-base -> relates collector and emitter current (fraction of iC)
+> 
 > $i_B=\frac{i_C}{β}$, $i_E=\frac{i_C}{α}$
+> 
 > $i_E=\frac{i_C}{α}=\frac{β+1}{β}i_C$
 
 ### 6.1.2s Minority-Carrier Distribution
@@ -235,4 +248,7 @@ $$n_p(0)=n_{p0}\,e^{v_{BE}/V_T}$$
 - base is very thin -> excess electrons decays almost linearly
 - reverse bias on CBJ -> concentration of excess electrons at the collector side of the base(the right-hand side of the base) to be zero
 
- 
+
+`(6.12)`
+$$I_n=A_EqD_n\frac{dn_p(x)}{dx}$$
+

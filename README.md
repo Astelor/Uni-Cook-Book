@@ -85,3 +85,7 @@ nope
 - The image link shouldn't have any url-encoded symbol (e.g. a space)
 - The link to navigate by file and to section doesn't work on mobile.
 - The latex formula rendering doesn't work on mobile.
+
+$$\phase e$$
+If you can see the equation above properly, you're not using MathJax.
+And this sentence is on a single new line.
