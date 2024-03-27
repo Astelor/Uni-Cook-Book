@@ -1,4 +1,4 @@
-            AREA    HW1-1-UARTDEMO, CODE, READONLY
+            AREA    HW1_1_UARTDEMO, CODE, READONLY
 PINSEL0     EQU     0xE002C000      ; controls the function of pins
 U0START     EQU     0xE000C000      ; start of UART0 register
 LCR0        EQU     0xC             ; line control register for UART0
