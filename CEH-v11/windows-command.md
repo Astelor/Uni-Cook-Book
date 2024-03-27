@@ -1,6 +1,8 @@
 All the useful windows command
 
-CheckSum:
+- CheckSum:
+  - very useful when checking the validity of an executable file.
+  - if the hash was given by the provider
 ```
-certiutil -hashfile [file] [HashAlgorithm]
+certutil -hashfile [file] [HashAlgorithm]
 ```
