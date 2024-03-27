@@ -59,6 +59,8 @@ We now know how to activate a transistor (vGS ≥ Vt, vOV=vGS-Vt), how many char
  
 With the drain voltage we analyzed how different magnitudes of vDS affects iD (vDS versus vOV), vDS creates a voltage drop across the drain and source terminals, subsequently affects the effective voltage (aka overdrive voltage, vOV) that give rise to the channel charge, and affects how we write the iD equation (iD=kn⋅(vOV-(0.5vDS))⋅vDS) (5.7).
 
+> Astelor: no one's reading all that
+
 # 5.1 Device Structure and Physical Operation
 > enhancement-type MOSFET is the most widely used FET
 
@@ -86,8 +88,11 @@ Physical structure of n-channel enhancement-type MOSFET:
 - p-type substrate: single-crystal silicon wafer
 - oxide: electrical insulator
 
-aka NMOS transistor, aka n-channel MOSFET.
-MOSFET is symmetrical, interchanging S and D makes no difference.
+- Alias:
+  - aka NMOS transistor
+  - aka n-channel MOSFET.
+- (theoretically) MOSFET is symmetrical, interchanging S and D makes no difference.
+  - Physical structure in practice is not symmetrical
 
 Specifications (that matters):
 ```
@@ -166,7 +171,7 @@ Magnitude of the electron charge in the channel:
 `!(5.3)`
 $$C_{ox}=\frac{ϵ_{ox}}{t_{ox}}$$
 
-How to get Cox from the specifications:
+Getting Cox from the specifications:
 - ϵox: permittivity of the silicon dioxide
   - 3.9ϵ0 = 3.9 x 8.854 x 10^(-12) = 3.45 x 10^(-11) (F/m)
 - **tox**: the thickness of the oxide
@@ -174,7 +179,7 @@ How to get Cox from the specifications:
 > How many charges the channel can hold is decided by its capacitance, which is a fixed value decided by its physical properties (dielectric material, thickness, plate surface area)
 
 ## 5.1.4 Applying a Small vDS
-> Now the channel has electrons, let's make it flow! Applying vDS and vDS ≪ vOV. "Triode Region".
+> Applying voltage (vDS) to make the electrons in the channel move. (vDS ≪ vOV. in "Triode Region")
 
 NMOS terminal names:
 - Source terminal: the source of free electrons
@@ -199,7 +204,7 @@ iS=iD↑| =============  |↓ iD
 ```
 
 So how fast does the electrons go?
-> The following section is the calculation of Ampere (Ampere = Coulomb/second)
+> Calculation of Ampere here (Ampere = Coulomb/second)
 
 `(5.4)`
 $$\frac{|Q|}{L}=C_{ox}Wv_{ox}$$
@@ -283,9 +288,7 @@ Resistance decreases as vGS is increased above Vt, thus enhancing the channel, h
 > Astelor: I still don't understand what figure 5.4 is about
 
 ## 5.1.5 Operation as vDS is Increased
-> But wait, vOV doesn't rule it all, there's another contender vDS, and the channel is getting askew. Applying vDS, and vDS ≤ vOV, average voltage is vOV - (1/2) vDS.
-> "Triode Region".
-> Astelor: lmao wtf am I writing
+> Increase the applied voltage (vDS), vDS affects vOV, the current in the voltage sweep is not linear. (vDS ≤ vOV, average voltage: vOV - (1/2) vDS. "Triode Region".) 
 
 ```
             (vGS>0)
@@ -309,9 +312,12 @@ $$v_{GD}+v_{DS}=v_{GS}=V_t+v_{OV}$$
 
 $$v_{GD}=v_{GS}-v_{DS}=V_t+v_{OV}-v_{DS}$$
 
-The applied vDS is a voltage drop from the drain end to the source end (0V).
 
-vOV remains constant -> vGS remains constant, the shallowest end at the drain has the depth proportional to vOV - vDS
+- Effect on average voltage
+  - vGS remains constant
+  - -> vOV remains constant (vOV=vGS-Vt)
+  - The applied vDS is a voltage drop from the drain end to the source end (0V).
+  - -> the shallowest end at the drain has the depth proportional to vOV - vDS
 
 `(5.14)`
 
