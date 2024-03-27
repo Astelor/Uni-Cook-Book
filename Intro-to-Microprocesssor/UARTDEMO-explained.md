@@ -59,3 +59,6 @@ STR     r6, [r5]        ; r/modify/w back to register
 
 > Every pin has 2 bits of value to determine its function. So we clear out the "lower nibble", which is p0.0 and p0.1
 
+# MISC
+- Baud rate
+  - $Baud=\frac{UART Clock Frequency}{Divisor\times 16}$
