@@ -127,7 +127,7 @@ The following properties are LTI:
 - real numbers
 - complex numbers:
   - canonical form: $z=a+bj$
-  - polar form: $z=r⋅e^jθ$
+  - polar form: $z=r⋅e^{jθ}$
 
 $r=\sqrt{a^2+b^2}$, $θ=tan^{-1}(\frac ba)$
 
@@ -140,4 +140,4 @@ $$e^{jθ}=cos(θ)+j⋅sin(θ)$$
 $$e^{-jθ}=e^{j(-θ)}=cos(θ)-j⋅sin(θ)$$
 
 $$cos(θ)=\frac{e^{jθ}+e^{-jθ}}{2}$$
-$$sin(θ)=\frac{e^{jθ}-e^{-jθ}}{2}$$
+$$sin(θ)=\frac{e^{jθ}-e^{-jθ}}{2j}$$
