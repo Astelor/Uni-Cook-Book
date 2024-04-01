@@ -262,7 +262,7 @@ MAC addresses:
  BA : 00 : 4C : 78 : 57 : 00
 |            | |            |
 +------------+ +------------+
-vendor ID       unique address
+ vendor ID      unique address
 
 ```
 - 6 octets (a byte)
