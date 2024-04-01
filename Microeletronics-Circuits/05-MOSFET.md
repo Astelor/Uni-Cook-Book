@@ -88,6 +88,8 @@ Physical structure of n-channel enhancement-type MOSFET:
 - p-type substrate: single-crystal silicon wafer
 - oxide: electrical insulator
 
+---
+
 - Alias:
   - aka NMOS transistor
   - aka n-channel MOSFET.
@@ -110,8 +112,9 @@ Specifications (that matters):
 ```
 
 ## 5.1.2 Operation with Zero Gate Voltage
-> two back-to-back diodes in series when vGS=0
-the path between D and S has a very high resistance (of the order of 10^12 Ω)
+> Two back-to-back diodes in series when vGS=0,
+
+The path between D and S has a very high resistance (of the order of 10^12 Ω)
 
 ## 5.1.3 Creating a Channel for Current Flow
 > MOSFET activate! vGS ≥ Vt, specifically NMOS.
@@ -230,7 +233,7 @@ $$i_D=[ (μ_nC_{ox})(\frac WL) ]v_{OV} v_{DS}$$
 
 `(5.8)`
 
-and we can substitute vOV with vGS - Vt Eq.(5.1)
+and we can substitute vOV with (vGS - Vt) Eq.(5.1)
 $$i_D=[ (μ_nC_{ox})(\frac WL) ](v_{GS} - V_t) v_{DS}$$
 
 `(5.9)`
@@ -239,18 +242,21 @@ dividing the current by its voltage, we get the conductance as well!
 $$g_{DS}=[ (μ_nC_{ox})(\frac WL) ]v_{OV}=\frac{i_D}{v_{DS}}$$
 
 - The conductance is determined by three factors
+  - $μ_nC_{ox}$, process transconductance
+  - $\frac WL$, aspect ratio
+  - $v_{OV}$, overdrive voltage
 
 `(5.10)` or (substitute vOV with vGS - Vt Eq.(5.1))
 
 ---
-> Now we have the math to describe how fast the electrons go, let's simplified the equation.
+Explanation of the three factors from Eq. (5.9)
 
 `(5.11)` 
 
 factor 1 from (5.9)
 $$k_n'=μ_nC_{ox}$$
 
-the process transconductance **(A/V^2)**, where n denotes n channel.
+The process transconductance **(A/V^2)**, where n denotes n channel.
 
 `!(5.12)`
 
@@ -283,7 +289,10 @@ $$r_{DS}=∞,\ when\ vGS ≤ Vt$$
 
 > When the gate voltage is lower than the threshold voltage, it doesn't conduct (not enough charge, no channel, no current). When the gate voltage is larger, more charges will gather, it's a capacitor ok.
 
-Resistance decreases as vGS is increased above Vt, thus enhancing the channel, hence the names enhancement-mode operation and enhancement-type MOSFET.
+- Enhancement-mode operation & enhancement-type MOSFET
+  - resistance decreases as vGS is increased above Vt
+  - -> **enhancing** the channel
+  - thus the names
 
 > Astelor: I still don't understand what figure 5.4 is about
 
@@ -547,17 +556,17 @@ G o--o    +----o D
 ```
 
 ## 5.2.4 Finite Output Resistance in Saturation
-> The non ideal situation, channel-length modulation. rDS<∞, given vGS, vDS yields corresponding change in iD, in saturation region.
+> In not ideal situation, the drain current won't be a constant in saturation. rDS<∞, given vGS, vDS yields corresponding change in iD, in saturation region.
 
-- Ideally: 
+Ideally:  (in saturation) 
+- iD is independent of vDS
+  - -> iD is a constant no matter the change in vDS
+  - -> rDS is infinite (vDS can be VERY big). 
+- (vDS has no effect on the channel's shape once vDS≥vOV (pinched-off).)
 
-In saturation, iD is independent of vDS, which means iD is a constant no matter the change in vDS, this also means rDS is infinite (vDS can be VERY big). 
-
-And this is base on the premise that vDS has no effect on the channel's shape once vDS≥vOV (pinched-off).
-
-- In practice:
-
-Pinch-off point moves slightly away from the drain when vDS≥vOV. And the phenomenon is known as channel-length modulation.
+In practice: (in saturation, vDS≥vOV)
+- Pinch-off point moves slightly away from the drain
+- -> channel-length modulation.
 
 **Channel-length modulation**:
 ```

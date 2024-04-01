@@ -251,7 +251,26 @@ because of technical limitations of hardware (a 192 ports? no)
 # Physical Networking
 
 ## Addressing
- 
+> MAC addresses
+
+MAC addresses:
+- aka hardware/physical address
+- hard-coded into hardware
+- ethernet interface
+
+```
+ BA : 00 : 4C : 78 : 57 : 00
+|            | |            |
++------------+ +------------+
+vendor ID       unique address
+
+```
+- 6 octets (a byte)
+- Organizationally Unique Identifier (OUI)
+  - aka vendor ID
+  - is the first half of the MAC address 
+
+
 ## Switching
 
 # IPv4 (Internet Protocol)

@@ -13,13 +13,30 @@ You can find detailed information at https://www.gnu.org/software/ or the develo
 ```bash
 nmap -sC -sV -oA <directory>/<filename> <target IP address>
 ```
-you can specify ports or addresses to avoid probing unauthorized area.
+- -sC : (Script Scan)  
+  - equivalent to --script=default
+- -sV : (Service/Version Detection) 
+  - probe open ports to determine service/version info
+- -oA : (Output) 
+  - output in the three major formats at once 
+  - formats: gnmap, nmap, xml
+
+- you can specify ports or addresses to avoid probing unauthorized area.
 
 # Documentation
 
-## Man (Manual Pages)
+## Man (Manual Pager utils)
+> an interface to the system reference manuals
+
+```
+man <tool>
+```
 
 ## Info (GNU Info System)
+
+```
+info <tool>
+```
 
 # File Handling
 ## Touch
@@ -41,6 +58,7 @@ Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.
 ## Rm (remove)
 
 # Text Editing
+> Editing text in a terminal
 
 ## Nano
 very beginner friendly :>
@@ -56,7 +74,8 @@ vim <filename>
 - `:q` to quit `:q!` to quit without saving
 
 # Misc
-Write first, organize later, here.
+> Write first, organize later, here.
+
 ## Gcc (GNU project C and C++ compiler)
 
 ## WHOIS
@@ -85,3 +104,7 @@ now the file `test` will have
 this is a test message
 appended text
 ```
+
+## ifconfig
+> Configure a network interface
+

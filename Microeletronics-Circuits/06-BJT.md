@@ -295,4 +295,12 @@ $$I_S=\frac{A_E q D_n n_i^2}{N_A W}$$
 > Circuit models
 
 - $i_C=I_Se^{v{BE}/V_T}$
-- iC is independent of the collector voltage (vCB), but vCB should be positive
+  - at the collector terminal
+  - ideal constant-current source
+  - value determined by vBE
+- iC is independent of the collector voltage (vCB)
+  - as long as CBJ is reverse biased
+- iB is a fraction of iC
+  - iB is much smaller than iC
+  - iE ≃ iC
+
