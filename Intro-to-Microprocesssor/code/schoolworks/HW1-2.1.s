@@ -14,7 +14,7 @@ Loop
             CMP     r0, #0          ; null terminated?
             BLNE    Transmit        ; send character to UART
             BNE     Loop            ; continue if not a '0'
-            
+            LDR     r1, =0x40000A00
             MOV     r9, #20
 Loop1       
             BL      Receive

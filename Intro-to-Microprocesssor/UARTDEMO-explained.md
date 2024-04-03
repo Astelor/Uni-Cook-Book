@@ -15,6 +15,7 @@ RAMSTART    EQU     0x40000000      ; start of onboard RAM for 2104
 ```
 
 # UARTConfig
+
 > Configuration for UART
 
 ```arm-asm
@@ -35,6 +36,7 @@ LDMDB   sp!, {r5, r6, PC}
 ```
 
 ## PINSEL0 
+
 > Pin function select register 0 (page 63)
 
 ```arm-asm
@@ -60,5 +62,49 @@ STR     r6, [r5]        ; r/modify/w back to register
 > Every pin has 2 bits of value to determine its function. So we clear out the "lower nibble", which is p0.0 and p0.1
 
 # MISC
+
 - Baud rate
   - $Baud=\frac{UART Clock Frequency}{Divisor\times 16}$
+
+# Funny Term Bracket
+
+> comp-sci/engineering gatekeep at its finest
+
+- UART (Universal Asynchronous Receiver/Transmitter)
+- U0RBR (Receiver Buffer Register)
+- U0THR (Transmit Holding Register)
+- RX (receive/receiver)
+- TX (transmit/transmitter)
+- U0DLL (Divisor Latch LSB)
+- LSB (????)
+- U0TSR (UART0 TX Shift Register)
+- TXD0 (Transmitter output for UART 0)
+- THRE (LSR0, Tx Holding Register Empty)
+- TEMT (LSR0, Transmitter Empty)
+- FIFO (First-in, first-out)
+
+```
+[U0THR] -> [U0TSR]-> TXD0
+```
+
+> Consult the architecture page when questioning what goes where.
+> Wait we have a fractional divider register on UART0 for buadrate calculation?
+
+# LSR0 (Line Status Register, UART0)
+
+> Shows the status for RX and TX buffer registers, and the attributes to the data it holds.
+
+# Serial I/O
+
+About Keil serial window: https://www.keil.com/support/man/docs/uv4cl/uv4cl_db_dbg_serialwin.htm
+
+> "The Serial window accepts serial input and output data streams. The window displays serial output data received from a simulated CPU, while **characters typed into a serial window are input to the simulated CPU**"
+>
+> Astelor: there's no RXD0 or TXD0 'interface window' to be found, the serial window itself is the I/O interface
+> 
+> tl;dr, type in UART #1 for input
+
+```
++---------------+
+[U0THR]->[U0TSR]->|->
+```
