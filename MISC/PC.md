@@ -8,6 +8,8 @@
 # Funny term bracket
 bruh
 - TDP (Thermal Design Power)
+- PCIe (PCI Express, Peripheral Component Interconnect Express)
+- 
 
 # UHHH
 > aka wtf am I looking at
@@ -15,13 +17,22 @@ bruh
 ## TDP
 > Thermal Design Power, the amount of heat a component is expected to output when under load.
 
-
 ## Chipset
 > On motherboards, manages the flow of data between CPU, RAM, and peripherals.
 
 - Dictates **features** you can or cannot use with your CPU.
 
--
+## PCIe
+> PCI Express, Peripheral Component Interconnect Express
+
+- high-speed serial computer expansion bus
+- common motherboard interface for 
+  - graphics cards
+  - sound cards
+  - hard disk drive
+  - SSDs
+  - Wi-Fi and Ethernet hardware connection
+- **backward compatible**
 
 # Usage
 > What I usually use my desktop for.
@@ -64,4 +75,7 @@ I chose Intel because compatibility (I think), and all the items on the list has
 
 Because Chipset is what brings all (processor, memory, peripheral) together, it makes sense to put Chipset into the product's name.
 
-I think
+- PCIe
+- SATA
+- M.2
+- U.2
