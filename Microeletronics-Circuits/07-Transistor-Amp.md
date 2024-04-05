@@ -28,7 +28,8 @@ ehhhhh
 # Introduction
 Two transistor applications:
 - switch: digital circuits
-- amplifier: analog circuits (a controlled source) 
+- amplifier: analog circuits (a controlled source)
+- 
 
 Basic principles for MOSFET and BJT as amplifiers are the same, so we study them together and make comparisons. 
 
