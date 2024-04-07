@@ -14,6 +14,7 @@
     - [6.1.2s The Emitter Current](#612s-the-emitter-current)
     - [6.1.2s Minority-Carrier Distribution](#612s-minority-carrier-distribution)
     - [6.1.2s Recapitulation and Equivalent-Circuit Models](#612s-recapitulation-and-equivalent-circuit-models)
+  - [6.1.3 Structure of Actual Transistors](#613-structure-of-actual-transistors)
 
 # Keys
 - 6.1 Device Structure and Physical Operation
@@ -130,27 +131,29 @@ And they are achieved by (fabrication):
 > The emitter current is dominated by the electron component, because of device fabrication.
 
 Current of a pn junction:
-- both components (injected electrons and holes) of iE are proportional to $e^{v_{BE}/V_T}$
+- Both components (injected electrons and holes) of iE are proportional to $e^{v_{BE}/V_T}$
 - vBE: forward voltage across EBJ. VT: thermal voltage (≃25 mV).
 
 How the electron component flow:
 - Electrons injected from E(n-type) into B(p-type)
-  - diffuse through B toward C (only passing through) -> electrons combines with p-type holes in B (**recombination process**)
+  - From E, diffused through B toward C (only passing through) -> electrons combines with p-type holes in B (**recombination process**)
   - B is thin and lightly doped -> few electrons are lost
-  - diffusing electrons (in B region) reach the boundary of CBJ -> CBJ is reverse-biased -> electrons get swept across collector-base depletion region
-  - electrons get collected by C
+  - Diffusing electrons (in B region) reach the boundary of CBJ -> CBJ is reverse-biased -> electrons get swept across collector-base depletion region
+  - Electrons get collected by C (the collector)
 
 ### 6.1.2s The Collector Current
-> Electrons that reached the collector region.
+> The injected electrons that reached the collector region.
 
 `!(6.1)`
 $$i_C=I_Se^{v_{BE}/V_T}$$
 
 - IS: saturation current (a transistor parameter)
 
-iC is independent of the value of vCB. As long as vCB>0 (C is positive with respect to the base):
+**iC is independent of the value of vCB.** 
+
+As long as vCB>0 (the collector is positive with respect to the base):
 - CBJ remains reverse-biased
-- electrons get swept into C
+- Electrons get swept into C
 - BJT stays in active mode
 
 ### 6.1.2s The Base Current
@@ -292,7 +295,7 @@ $$I_S=\frac{A_E q D_n n_i^2}{N_A W}$$
   - a strong function of temperature (because of ∝ $n_i^2$)
 
 ### 6.1.2s Recapitulation and Equivalent-Circuit Models
-> Circuit models
+> Circuit models and basics revision
 
 - $i_C=I_Se^{v{BE}/V_T}$
   - at the collector terminal
@@ -304,3 +307,21 @@ $$I_S=\frac{A_E q D_n n_i^2}{N_A W}$$
   - iB is much smaller than iC
   - iE ≃ iC
 
+## 6.1.3 Structure of Actual Transistors
+> Transistor physical structure in practice is NOT symmetrical. 
+> 
+> tl;dr: No, you cannot swap the emitter and collector. 
+
+Cross section of an npn BJT:
+```
+          E   B   C
+          =   =   =
++---+---+---+---+---+
+| n | p | n |   |   |
+|   |   +---+   |   |
+|   +-----------+   |
++-------------------+
+```
+
+- Emitter (n) is surrounded by the collector (n)
+- -> injected 

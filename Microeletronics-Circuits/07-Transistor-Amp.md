@@ -5,6 +5,10 @@
 - [Keys](#keys)
 - [Introduction](#introduction)
 - [7.1 Basic Principles](#71-basic-principles)
+  - [7.1.1 The Basis for Amplifier Operation](#711-the-basis-for-amplifier-operation)
+  - [7.1.2 Obtaining a Voltage Amplifier](#712-obtaining-a-voltage-amplifier)
+  - [7.1.3 the Voltage-Transfer Characteristic (VTC)](#713-the-voltage-transfer-characteristic-vtc)
+  - [7.1.4 Obtaining Linear Amplification by Biasing the Transistor](#714-obtaining-linear-amplification-by-biasing-the-transistor)
 
 # Keys
 ehhhhh
@@ -29,25 +33,166 @@ ehhhhh
 Two transistor applications:
 - switch: digital circuits
 - amplifier: analog circuits (a controlled source)
-- 
 
-Basic principles for MOSFET and BJT as amplifiers are the same, so we study them together and make comparisons. 
+> Basic principles for MOSFET and BJT as amplifiers are the same, so we study them together and make comparisons. 
 
 # 7.1 Basic Principles
 
-Voltage-controlled current source:
+## 7.1.1 The Basis for Amplifier Operation
+
+> Input voltage versus output current equations, conditions for amplifier operation.
+
+Condition for transistors to be operating as **voltage-controlled current source**:
 - BJT in active mode
 - MOSFET in saturation region (vGS controls iD)
 
-> This chapter calls active mode (BJT) and saturation region (MOSFET) as active region.
+> This chapter calls both "active mode (BJT)" and "saturation region (MOSFET)" as **active region**, in the textbook.
+>
+> Astelor: imma keep using saturation region to avoid confusion.
+
+---
 
 `(7.1)`
 
-NMOS, vGS controls iD in active region:
+**NMOS**, vGS controls iD in saturation region:
+
 $$i_D=\frac 12 k_n (v_{GS}-V_{tn})^2$$
+
+- Drain current (iD) is independent of drain voltage (vDS)
+  - → channel pinched-off
+  - → neglecting Early effect
+- Operation condition: ([saturation region](05-MOSFET.md/#516-operation-for-vds-≥-vov-channel-pinch-off-and-current-saturation))
+  - vDS ≥ vOV, vOV = vGS - Vtn
+  - → vGD ≤ Vtn 
 
 `(7.2)`
 
-npn BJT, vBE controls iC in active region:
+**npn BJT**, vBE controls iC in active region:
+
 $$i_C=I_Se^{v_{BE}/V_T}$$
+
+- collector current (iC) is independent of collector voltage (vCE)
+  - → collector-base junction (CBJ) is reverse-biased
+  - → "isolating" the collector
+- Operation condition (active mode)
+  - CBJ reverse-bias (vCE ≥ 0.3V), vBE ≃ 0.7
+  - → vBC ≤ 0.4V
+
+## 7.1.2 Obtaining a Voltage Amplifier
+> Use load resistor to turn output current into voltage
+
+- Transconductance amplifier (from [7.1.1](#711-the-basis-for-amplifier-operation))
+  - input signal: voltage
+  - output signal: current
+
+- Voltage amplifier
+  - input signal: voltage
+  - output signal: voltage
+
+Making voltage amp from transconductance amp (the transistor)
+- RD (load resistance)
+- → convert the drain current into a voltage
+
+> current output + load resistance = voltage
+
+![7.1.2-7.2](attachments/7.1.2-7.2.png)
+
+For NMOS, the operation process:
+- VDD is a constant
+- The gate voltage (vGS) controls the drain current (iD)
+  - With load resistance (RD, resistor at drain).
+  - → Drain current (iD) controls the drain voltage (vDS)
+- Thus, vGS → iD → vDS.
+  - Now we have a voltage-controlled voltage source
+  - a voltage amplifier
+- Similar arrangement can be applied to NPN-BJT as well.
+
+`(7.3)`
+
+The output voltage (vDS):
+
+$$v_{DS}=V_{DD}-i_D R_D$$
+
+`(7.4)`
+
+The output voltage (vCE):
+
+$$v_{CE}=V_{CC}-i_C R_C$$
+
+## 7.1.3 the Voltage-Transfer Characteristic (VTC)
+
+> Explanation to the graph at [7.1.2](#712-obtaining-a-voltage-amplifier)
+>
+> Don't let combined expression for an equation scare you!
+
+- vGS < Vt → transistor cut-off
+  - iD = 0
+
+`(7.5)`
+
+(NMOS) Substituting iD in Eq.(7.3) by its active-region value from Eq.(7.1)
+
+$$v_{DS}=V_{DD}-\frac 12 k_n R_D (v_{GS}-V_t)^2$$
+
+Point B is the boundary between the saturation and triode region.
+- vDS < (vGS-Vtn) → condition for triode region
+- when vDS = vOV → point B on the vDS-vGS plot
+
+`(7.6)`
+
+Determine the coordinates of point B:
+
+By substituting in Eq.(7.5)
+
+$$V_{GS}|_B=V_t+ \frac {\sqrt{2k_n R_D V_{DD} +1}-1}{k_n R_D}$$
+
+- vGS = VGS|B
+- vDS = VDS|B = VGS|B - Vt
+
+`(7.7)`
+
+And point B can alternatively be characterized by the overdrive voltage
+
+$$V_{OV}|_B =V_{GS}|_B - \frac{\sqrt{2k_nR_D V_{DD}+1}-1}{k_n R_D}$$
+
+and
+
+`(7.8)`
+
+$$V_{DS}|_B=V_{OV}|_B$$
+
+`(7.9)`
+
+NPN-BJT, similar development applies:
+
+$$v_{CE}=V_{CC}-R_C I_S e^{v_{BE}/V_T}$$
+
+## 7.1.4 Obtaining Linear Amplification by Biasing the Transistor
+
+> v → V : theoretical → controllable, and use the "almost linear" slope at active region.
+
+- VGS: bias voltage selected for operation at point Q (sitting between A and B)
+- Point Q: bias point
+  - aka dc operating point
+  - At Q no signal component is present.
+  - → aka quiescent point (hence the symbol)
+
+`(7.10)`
+
+$$V_{DS}=V_{DD} - \frac 12 k_n R_D (V_{GS}-V_t)^2$$
+
+![7.1.3-7.3](attachments/7.1.3-7.3.png)
+
+$$v_{GS}(t)=V_{GS}+v_{gs}(t)$$
+
+- vgs: input signal
+- VGS: bias voltage
+- vGS: total instantaneous value
+
+> ◈ TLDR
+> 
+> Setting up:
+> - Set point Q (bias point/dc operation point) with VGS (bias voltage)
+> - Funnel signal voltage (vgs) in with bias voltage (VGS)
+> - Create total instantaneous value (vGS) 
 

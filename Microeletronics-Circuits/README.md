@@ -13,6 +13,11 @@
 - Apparently github supports MathJax, and it doesn't like phasors $\phase{e}$
 - chapter 3 is very unreadable, please find time to rewrite them if you can :)
 
+## TO-DO
+- make a "tl;dr" for every section
+  - give it a special symbol for quick access
+  - `◈` this thing?
+
 # RANT
 
 > Astelor: I'm infinitely annoyed that the professor doesn't elaborate much about "how" it works, just "it works like that and the equations look like this, memorize it and that's it" There's a reason I chose engineering over pretty much anything else, I cannot and hate memorizing shit. There's a phenomenon first then there's a math description.
@@ -20,3 +25,4 @@
 > Astelor: I'm signing as if there is a co-writer, there isn't.
 > 
 > And everyone can calculate stuff provided the adequate equations.
+

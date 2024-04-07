@@ -62,9 +62,11 @@ With the drain voltage we analyzed how different magnitudes of vDS affects iD (v
 > Astelor: no one's reading all that
 
 # 5.1 Device Structure and Physical Operation
-> enhancement-type MOSFET is the most widely used FET
+> Enhancement-type MOSFET is the most widely used FET
 
 ## 5.1.1 Device Structure
+> MOSFET's physical structure. (not practical structure)
+
 Physical structure of n-channel enhancement-type MOSFET:
 ```
         +-----------+
@@ -80,10 +82,10 @@ Physical structure of n-channel enhancement-type MOSFET:
           +------+
 ```
 - Terminals: a layer of metal, creating an electrode
-  - S: Source -> connecting the n+
-  - G: Gate -> insulated from body
-  - D: Drain -> connecting the n+
-  - B: Body -> connecting the substrate
+  - S: Source → connecting the n+
+  - G: Gate → insulated from body
+  - D: Drain → connecting the n+
+  - B: Body → connecting the substrate
 - n+: n-type semiconductor (source & drain region)
 - p-type substrate: single-crystal silicon wafer
 - oxide: electrical insulator
@@ -112,20 +114,20 @@ Specifications (that matters):
 ```
 
 ## 5.1.2 Operation with Zero Gate Voltage
-> Two back-to-back diodes in series when vGS=0,
+> Equivalent to two back-to-back diodes in series when vGS=0,
 
 The path between D and S has a very high resistance (of the order of 10^12 Ω)
 
 ## 5.1.3 Creating a Channel for Current Flow
-> MOSFET activate! vGS ≥ Vt, specifically NMOS.
+> Apply positive gate voltage to attract charges, creating a (large enough) canal. vGS ≥ Vtn.
 
-Turning on the transistor:
-- Gate terminal positively charged: (and caused the following effect)
-  - push free holes in the substrate down -> uncovers bound negative charge (creates depletion region)
+Creating the "channel" (a canal for current):
+- **Gate terminal positively charged**: (and caused the following effect)
+  - push free holes in the substrate down → uncovers bound negative charge (creates depletion region)
   - attracts electrons from n+ regions to the channel region (underneath the oxide plate, still in the substrate)
-- Sufficient electrons in the "channel" -> the channel connects S and D terminals.
+- Sufficient electrons in the "channel" → the channel connects S and D terminals.
 
-> In short, Gate positive voltage -> attract electrons -> n-channel.
+> In short, Gate positive voltage → attract electrons → n-channel.
 
 The gate voltage(+) and channel(-) create an parallel-plate capacitor:
 ```
@@ -138,22 +140,21 @@ The gate voltage(+) and channel(-) create an parallel-plate capacitor:
 +----------------+
 ```
 - the oxide: capacitor dielectric
-- electric field: amount of charges in the channel
-
-> With the oxide acting as the capacitor dielectric, and electric field controlling the amount of charges in the channel (5.2) -> field-effect transistor (hence the name)
+- electric field: controls the amount of charges in the channel
+  - → hence the name field-effect transistor
 
 `!(5.1)`
 $$v_{GS}-V_t≡v_{OV}$$
 
 Activation of the transistor:
 - Vt: threshold voltage
-  - the minimum voltage required between G and S to turn the transistor on.
-  - fixed value -> manufacture
-  - is positive for NMOS
-  - typically 0.3V~1.0V
+  - **The minimum voltage required between the Gate and the Source to turn the transistor on.**
+  - A fixed value
+  - Is positive for NMOS
+  - Typically 0.3V~1.0V
 - **vOV**: effective voltage or overdrive voltage
-  - the excess of vGS over Vt
-  - also the average voltage that gives rise to channel charge
+  - The excess of vGS over Vt
+  - Also the average voltage that gives rise to channel charge (when it's not affected by the drain voltage)
 - vGS: voltage applied to the gate
 
 > The gate voltage must exceed the threshold voltage to create an effective voltage between the parallel plate capacitor, so that it holds charges for the channel.
@@ -182,14 +183,13 @@ Getting Cox from the specifications:
 > How many charges the channel can hold is decided by its capacitance, which is a fixed value decided by its physical properties (dielectric material, thickness, plate surface area)
 
 ## 5.1.4 Applying a Small vDS
-> Applying voltage (vDS) to make the electrons in the channel move. (vDS ≪ vOV. in "Triode Region")
+> Applying positive drain voltage (vDS) to make the electrons in the channel move. (vDS ≪ vOV. in "Triode Region")
 
-NMOS terminal names:
-- Source terminal: the source of free electrons
+**NMOS** terminal names:
+- Source terminal: **the source of free electrons**
 - Drain terminal: the drain of free electrons
-- current: S->D, carried by free electrons
+- current: S→D, carried by free electrons
 
-> The current is carried by free electrons going from S to D, hence the names, the source and drain for electrons.
 ```
             (vGS>0)
 (ground)    [G]       (vDS>0)
@@ -212,7 +212,7 @@ So how fast does the electrons go?
 `(5.4)`
 $$\frac{|Q|}{L}=C_{ox}Wv_{ox}$$
 
-Charge per unit channel length (C/m) -> the amount of charge in a cross-sectional area.
+Charge per unit channel length (C/m) → the amount of charge in a cross-sectional area.
 
 `(5.5)`
 $$|E|=\frac{v_{DS}}{L}$$
@@ -265,7 +265,7 @@ $$k_n=k_n'(\frac WL)=(μ_nC_{ox})(\frac WL)$$
 
 the MOSFET transconductance parameter (A/V^2) 
 And we can see this parameter is a constant.
-- **(W/L)**: aspect ratio -> dimensionless
+- **(W/L)**: aspect ratio → dimensionless
   - The length has a minimum value, and is limited to our manufacture technology.
 
 > vOV, the one value that rules them all. It directly determines the magnitude of electron charge in the channel. And is in fact, determined by vGS, the gate voltage.
@@ -291,13 +291,13 @@ $$r_{DS}=∞,\ when\ vGS ≤ Vt$$
 
 - Enhancement-mode operation & enhancement-type MOSFET
   - resistance decreases as vGS is increased above Vt
-  - -> **enhancing** the channel
+  - → **enhancing** the channel
   - thus the names
 
 > Astelor: I still don't understand what figure 5.4 is about
 
 ## 5.1.5 Operation as vDS is Increased
-> Increase the applied voltage (vDS), vDS affects vOV, the current in the voltage sweep is not linear. (vDS ≤ vOV, average voltage: vOV - (1/2) vDS. "Triode Region".) 
+> Increase the applied drain voltage (vDS), vDS affects vOV, so the current change corresponding to the drain voltage change is NOT linear. (vDS ≤ vOV, average voltage: vOV - (1/2) vDS. "Triode Region".) 
 
 ```
             (vGS>0)
@@ -324,16 +324,20 @@ $$v_{GD}=v_{GS}-v_{DS}=V_t+v_{OV}-v_{DS}$$
 
 - Effect on average voltage
   - vGS remains constant
-  - -> vOV remains constant (vOV=vGS-Vt)
-  - The applied vDS is a voltage drop from the drain end to the source end (0V).
-  - -> the shallowest end at the drain has the depth proportional to vOV - vDS
+  - → vOV remains constant (vOV=vGS-Vt)
+  - The applied vDS is a voltage drop from the drain end to the source end (vS=0V).
+  - → the shallowest end at the drain has the depth proportional to vOV - vDS
 
-`(5.14)`
+`!(5.14)`
 
 Taking the "tapered channel" into consideration, while vDS < vOV
 $$i_D=k_n'(\frac WL)(v_{OV}-\frac{1}{2}v_{DS})v_{DS}$$
 
-> Since the average voltage that gives rise to channel charge (vOV) is affected by a voltage drop created by vDS, the average voltage became vOV-(1/2)vDS -> thus when vDS ≪ vOV, the "tapering effect" is negligible.
+Average voltage used (the one that affects channel charge):
+- vDS !≪ vOV (voltage drop created by vDS is NOT negligible)
+  - vOV - (1/2) vDS
+- vDS ≪ vOV (voltage drop is negligible)
+  - vOV
 
 `(5.15)`
 
@@ -352,6 +356,9 @@ vOV is a constant here, the graph can be referred to equation (5.15)
 > "Saturation Region".
 
 > Spoiler: the "tapering effect" stops at vDS = vOV, the channel depth at the drain(vOV - vDS = 0) is pinch-off. When vDS > vOV, (ideally) nothing happens, the drain current saturates at vDS = vOV, and iD remains the same. The excess voltage of vDS will be dropped like your internet packets at school.
+>
+> **Astelor: no one's reading this!**
+
 
 please refer to the graph at 5.1.5 for the simplified diagram :)
 
@@ -408,7 +415,7 @@ The voltage vDS at which the saturation occurs is denoted vDSsat
           | Body |
 ```
 
-Instead of npn, PMOS is pnp, gate voltage is negative, drain voltage is negative, the S -> the source of positive carriers, creating a p channel.
+Instead of npn, PMOS is pnp, gate voltage is negative, drain voltage is negative, the S → the source of positive carriers, creating a p channel.
 
 ```
             (vGS<0)
@@ -448,7 +455,7 @@ $$k_p=k_n'(W/L)$$
 > how and why CMOS though?
 
 # 5.2 Current-Voltage Characteristics
-> Static characteristics -> measured at dc or low frequencies
+> Static characteristics → measured at dc or low frequencies
 
 > The dynamic effects will be discussed in chapter 10.
 
@@ -496,7 +503,7 @@ G--||
 
 > Table 5.1 covers NMOS triode region and saturation region.
 
-We can use the drain voltage to achieve triode and saturation region, we can also use the gate voltage to do the same thing -> it governs total charge in the channel.
+We can use the drain voltage to achieve triode and saturation region, we can also use the gate voltage to do the same thing → it governs total charge in the channel.
 
 ### 5.2.2s Triode Region
 - Continuous channel (not pinched-off): $v_{GD}>V_{tn}$
@@ -560,13 +567,13 @@ G o--o    +----o D
 
 Ideally:  (in saturation) 
 - iD is independent of vDS
-  - -> iD is a constant no matter the change in vDS
-  - -> rDS is infinite (vDS can be VERY big). 
+  - → iD is a constant no matter the change in vDS
+  - → rDS is infinite (vDS can be VERY big). 
 - (vDS has no effect on the channel's shape once vDS≥vOV (pinched-off).)
 
 In practice: (in saturation, vDS≥vOV)
 - Pinch-off point moves slightly away from the drain
-- -> channel-length modulation.
+- → channel-length modulation.
 
 **Channel-length modulation**:
 ```
@@ -587,7 +594,7 @@ $$i_D=\frac 12k_n'(\frac WL)(v_{GS}-V_{tn})^2(1+λv_{DS})$$
 - λ: device parameter 
   - unit: reciprocal volts (V^-1)
   - value: depends on both process technology and channel length L.
-  - new technology -> shorter L -> more greatly impacted by channel-length modulation
+  - new technology → shorter L → more greatly impacted by channel-length modulation
 
 $$V_A=\frac 1λ$$
 - VA: device parameter (V)
