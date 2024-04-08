@@ -338,7 +338,7 @@ $$A_v = \frac{V_{DD}-V_{DS}}{V_{OV}/2}$$
 
 Maximum gain magnitude:
 
-$$|A_{v \max}| = \frac{V_{DD}-V_{DS}|_B}{V_{OV}|_B/2}$$
+$$|A_{v \max}| = \frac{V_{DD}-V_{DS}|_ B} {V_{OV}|_B/2}$$
 
 - The maximum slope of VTC (amp output)
   - → at point B
@@ -348,7 +348,7 @@ $$|A_{v \max}| = \frac{V_{DD}-V_{DS}|_B}{V_{OV}|_B/2}$$
 
 Since VDS|B=VOV|B ([more about point B](#713-the-voltage-transfer-characteristic-vtc))
 
-$$|A_{v\max}| = \frac {V_{DD}-V_{OV}|_B} {V_{OV}|_B /2}$$
+$$|A_{v\max}| = \frac {V_{DD}-V_{OV}|_ B} {V_{OV}|_B /2}$$
 
 - VOV|B is given by Eq.(7.7)
 
