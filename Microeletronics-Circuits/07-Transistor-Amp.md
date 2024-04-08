@@ -165,13 +165,13 @@ $$V_{GS}|_B=V_t+ \frac {\sqrt{2k_n R_D V_{DD} +1}-1}{k_n R_D}$$
 
 And point B can alternatively be characterized by the overdrive voltage
 
-$$V_{OV}|_B =V_{GS}|_B - \frac{\sqrt{2k_nR_D V_{DD}+1}-1}{k_n R_D}$$
+$$V_{OV}|_B =V_{GS}|_B - \frac{\sqrt{2k_n R_D V_{DD}+1}-1}{k_n R_D}$$
 
 and
 
 `(7.8)`
 
-$$V_{DS}|_B=V_{OV}|_B$$
+$$V_{DS}|_B = V_{OV}|_B$$
 
 > ◈ TL;DR
 >
@@ -265,6 +265,8 @@ Superimposing a small-signal (vbe) on dc bias voltage (VBE):
 $$v_{BE}(t)=V_{BE}+v_{be}(t)$$
 
 ## 7.1.5 The Small-Signal Voltage Gain
+
+> Signal but smol.
 
 ### 7.1.5s MOSFET case
 
