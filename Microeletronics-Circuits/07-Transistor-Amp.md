@@ -348,7 +348,7 @@ $$|A_{v \max}| = \frac{V_{DD}-V_{DS}|_B}{V_{OV}|_B/2}$$
 
 Since VDS|B=VOV|B ([more about point B](#713-the-voltage-transfer-characteristic-vtc))
 
-$$|A_{v\max}| = \frac {V_{DD}-V_{OV}|_B}{V_{OV}|_B /2}$$
+$$|A_{v\max}| = \frac {V_{DD}-V_{OV}|_B} {V_{OV}|_B /2}$$
 
 - VOV|B is given by Eq.(7.7)
 
@@ -363,7 +363,7 @@ $$|A_{v\max}| = \frac {V_{DD}-V_{OV}|_B}{V_{OV}|_B /2}$$
 
 `(7.19)`
 
-$$A_v = \frac {d\, v_{CE}}{d\, v_{BE}}|_{v_{BE}=V_{BE}}$$
+$$A_v = \frac {d\, v_{CE}}{d\, v_{BE}}|_ {v_{BE}=V_{BE}}$$
 
 `(7.20)`
 
