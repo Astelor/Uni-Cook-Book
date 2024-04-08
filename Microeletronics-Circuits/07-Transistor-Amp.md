@@ -155,7 +155,7 @@ Determine the coordinate of **point B**:
 
 By substituting in Eq.(7.5)
 
-$$V_{GS}|_B=V_t+ \frac {\sqrt{2k_n R_D V_{DD} +1}-1}{k_n R_D}$$
+$$V_{GS}|_B = V_t+ \frac {\sqrt{2k_n R_D V_{DD} +1}-1}{k_n R_D}$$
 
 - vGS = VGS|B
 - vDS = VDS|B = VGS|B - Vt
@@ -165,13 +165,13 @@ $$V_{GS}|_B=V_t+ \frac {\sqrt{2k_n R_D V_{DD} +1}-1}{k_n R_D}$$
 
 And point B can alternatively be characterized by the overdrive voltage
 
-$$V_{OV}|_B =V_{GS}|_B - \frac{\sqrt{2k_n R_D V_{DD}+1}-1}{k_n R_D}$$
+$$V_{OV}|_B = V_{GS} |_B - \frac{\sqrt{2 k_n R_D V_{DD}+1}-1}{k_n R_D}$$
 
 and
 
 `(7.8)`
 
-$$V_{DS}|_B = V_{OV}|_B$$
+$$V_{DS}|_B = V_{OV} |_B$$
 
 > ◈ TL;DR
 >
