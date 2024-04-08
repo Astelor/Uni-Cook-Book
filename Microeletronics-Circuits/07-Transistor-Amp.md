@@ -9,6 +9,9 @@
   - [7.1.2 Obtaining a Voltage Amplifier](#712-obtaining-a-voltage-amplifier)
   - [7.1.3 the Voltage-Transfer Characteristic (VTC)](#713-the-voltage-transfer-characteristic-vtc)
   - [7.1.4 Obtaining Linear Amplification by Biasing the Transistor](#714-obtaining-linear-amplification-by-biasing-the-transistor)
+  - [7.1.5 The Small-Signal Voltage Gain](#715-the-small-signal-voltage-gain)
+    - [7.1.5.1 MOSFET case](#7151-mosfet-case)
+    - [7.1.5.2 BJT case](#7152-bjt-case)
 
 # Keys
 ehhhhh
@@ -81,19 +84,19 @@ $$i_C=I_Se^{v_{BE}/V_T}$$
 ## 7.1.2 Obtaining a Voltage Amplifier
 > Use load resistor to turn output current into voltage
 
+What we have:
 - Transconductance amplifier (from [7.1.1](#711-the-basis-for-amplifier-operation))
   - input signal: voltage
-  - output signal: current
+  - output signal: **current**
 
+What we want:
 - Voltage amplifier
   - input signal: voltage
-  - output signal: voltage
+  - output signal: **voltage**
 
 Making voltage amp from transconductance amp (the transistor)
-- RD (load resistance)
+- connect **RD** (load resistance)
 - → convert the drain current into a voltage
-
-> current output + load resistance = voltage
 
 ![7.1.2-7.2](attachments/7.1.2-7.2.png)
 
@@ -104,8 +107,15 @@ For NMOS, the operation process:
   - → Drain current (iD) controls the drain voltage (vDS)
 - Thus, vGS → iD → vDS.
   - Now we have a voltage-controlled voltage source
-  - a voltage amplifier
-- Similar arrangement can be applied to NPN-BJT as well.
+  - → a voltage amplifier
+
+> ◈ TL;DR
+>
+> - Transistor is voltage→current amp
+> - So we connect a resistor to make the output current into a voltage
+> 
+
+Similar arrangement can be applied to **NPN-BJT** as well.
 
 `(7.3)`
 
@@ -121,26 +131,27 @@ $$v_{CE}=V_{CC}-i_C R_C$$
 
 ## 7.1.3 the Voltage-Transfer Characteristic (VTC)
 
-> Explanation to the graph at [7.1.2](#712-obtaining-a-voltage-amplifier)
+> This section is about explanation to the vGS-vDS graph at [7.1.2](#712-obtaining-a-voltage-amplifier)
 >
 > Don't let combined expression for an equation scare you!
 
-- vGS < Vt → transistor cut-off
-  - iD = 0
-
 `(7.5)`
 
-(NMOS) Substituting iD in Eq.(7.3) by its active-region value from Eq.(7.1)
+**NMOS**: Substituting iD in Eq.(7.3) by its active-region value from Eq.(7.1)
 
 $$v_{DS}=V_{DD}-\frac 12 k_n R_D (v_{GS}-V_t)^2$$
 
-Point B is the boundary between the saturation and triode region.
-- vDS < (vGS-Vtn) → condition for triode region
-- when vDS = vOV → point B on the vDS-vGS plot
+---
 
-`(7.6)`
+**Point B** is the boundary between the saturation and triode region.
+- vDS < (vGS-Vtn) 
+  - → condition for triode region
+- when vDS = vOV 
+  - → point B on the vDS-vGS plot
 
-Determine the coordinates of point B:
+`!(7.6)`
+
+Determine the coordinate of **point B**:
 
 By substituting in Eq.(7.5)
 
@@ -148,6 +159,7 @@ $$V_{GS}|_B=V_t+ \frac {\sqrt{2k_n R_D V_{DD} +1}-1}{k_n R_D}$$
 
 - vGS = VGS|B
 - vDS = VDS|B = VGS|B - Vt
+  - = VOV|B
 
 `(7.7)`
 
@@ -161,9 +173,17 @@ and
 
 $$V_{DS}|_B=V_{OV}|_B$$
 
-`(7.9)`
+> ◈ TL;DR
+>
+> - Find point B (on vGS)
+> - why? because point A is cutoff to active region voltage
+>   - It is the voltage required to turn the transistor on
+>   - Point A is **pre-defined**!
+> 
 
-NPN-BJT, similar development applies:
+**NPN-BJT**, similar development applies:
+
+`(7.9)`
 
 $$v_{CE}=V_{CC}-R_C I_S e^{v_{BE}/V_T}$$
 
@@ -171,17 +191,20 @@ $$v_{CE}=V_{CC}-R_C I_S e^{v_{BE}/V_T}$$
 
 > v → V : theoretical → controllable, and use the "almost linear" slope at active region.
 
-- VGS: bias voltage selected for operation at point Q (sitting between A and B)
+- VGS: bias voltage 
+  - selected for operation at point Q
 - Point Q: bias point
   - aka dc operating point
   - At Q no signal component is present.
   - → aka quiescent point (hence the symbol)
 
+**NMOS:**
+
 `(7.10)`
 
 $$V_{DS}=V_{DD} - \frac 12 k_n R_D (V_{GS}-V_t)^2$$
 
-![7.1.3-7.3](attachments/7.1.3-7.3.png)
+![7.1.4-7.3](attachments/7.1.4-7.3.png)
 
 $$v_{GS}(t)=V_{GS}+v_{gs}(t)$$
 
@@ -189,10 +212,152 @@ $$v_{GS}(t)=V_{GS}+v_{gs}(t)$$
 - VGS: bias voltage
 - vGS: total instantaneous value
 
-> ◈ TLDR
+> ◈ TL;DR
 > 
-> Setting up:
+> Setting up (bias):
 > - Set point Q (bias point/dc operation point) with VGS (bias voltage)
+>   - typically 1/2 VDD
+> 
+> Creating amplified signal:
 > - Funnel signal voltage (vgs) in with bias voltage (VGS)
-> - Create total instantaneous value (vGS) 
+> - Create total instantaneous value (vGS)
 
+![7.1.4-7.4a](attachments/7.1.4-7.4a.png)
+
+![7.1.4-7.4b](attachments/7.1.4-7.4b.png)
+
+Normal operation:
+- vgs is small enough to stay within point A and B.
+- The shorter the segment, the greater the linearity achieved.
+
+> ◈ TL;DR
+> 
+> Input signal sweep vs distortion:
+> - Good:
+>   - vgs small
+>   - no distortion
+> - Ehh:
+>   - vgs larger
+>   - a little distortion at the tip of waveform
+> - Bad:
+>   - vgs exceeds linear plot
+>   - peaks of waveform shaved off (badly distorted)
+>
+> Conclusion:
+> - The shorter the segment (vgs smaller), the greater the linearity (distortion lesser)
+
+Similarly applied to **NPN-BJT:**
+
+`(7.11)`
+
+Bias point Q:
+
+$$V_{CE}=V_{CC}-R_C I_S e^{V_{BE}/V_T}$$
+
+`(7.12)`
+
+DC current:
+
+$$I_C=I_S e^{V_{BE}/V_T}$$
+
+Superimposing a small-signal (vbe) on dc bias voltage (VBE):
+
+$$v_{BE}(t)=V_{BE}+v_{be}(t)$$
+
+## 7.1.5 The Small-Signal Voltage Gain
+
+### 7.1.5.1 MOSFET case
+
+- Input signal (vgs) **small**
+- Almost-linear segment of VTC
+- → output vds nearly proportional to vgs
+- → almost no distortion (output)
+
+> The VTC plot is still not a straight line, but close to one.
+
+`(7.13)`
+
+$$A_v= \frac {d\, v_{DS}}{d\, v_{GS}} |_{v_{GS} = V_{GS}}$$
+
+- vGS = VGS:
+  - Total instantaneous value = bias voltage
+  - → small signal = 0
+- Voltage gain:
+  - output voltage/ input voltage
+
+`(7.14)`
+
+Using Eq.(7.5)
+
+$$A_v= -k_n (V_{GS}-V_t) R_L$$
+
+`!(7.15)`
+
+Expressing in terms of the overdrive voltage (VOV):
+
+$$A_v = -k_n V_{OV}R_D$$
+
+1. The gain is negative
+   - → The amp is inverting
+   - 180° phase shift between input and output.
+2. The gain is proportional to the load resistance RD.
+   - to transistor transconductance parameter kn
+   - to overdrive voltage VOV
+
+> ◈ TL;DR
+> - Make input small
+> - Output is almost linear
+> - Voltage gain is negative
+> - Eq. (7.15) :)
+
+Dc current in the drain at the bias point:
+
+$$I_D=\frac 12 k_n V_{OV}^2$$
+
+- It's related to VOV
+
+`(7.16)`
+
+Combining the equation above with Eq.(7.15) to obtain:
+
+$$A_v=\frac {I_D R_D}{V_{OV}/2}$$
+
+- Ratio of dc voltage drop across load resistance (RD) to VOV/2
+  - This is just Eq.(7.15) conversion, VOV/2 is the result to it.
+
+`(7.17)`
+
+Alternative form:
+
+$$A_v = \frac{V_{DD}-V_{DS}}{V_{OV}/2}$$
+
+Maximum gain magnitude:
+
+$$|A_{v \max}| = \frac{V_{DD}-V_{DS}|_B}{V_{OV}|_B/2}$$
+
+- The maximum slope of VTC (amp output)
+  - → at point B
+- Obtained by biasing transistor at point B (VGS|B)
+
+`(7.18)`
+
+Since VDS|B=VOV|B ([more about point B](#713-the-voltage-transfer-characteristic-vtc))
+
+$$|A_{v\max}| = \frac {V_{DD}-V_{OV}|_B}{V_{OV}|_B /2}$$
+
+- VOV|B is given by Eq.(7.7)
+
+> ◈ TL;DR
+> - Getting max possible gain 
+> - → bias transistor at point B
+> - → no room for negative output signal swing
+
+### 7.1.5.2 BJT case
+
+> Similar development from the previous case
+
+`(7.19)`
+
+$$A_v = \frac {d\, v_{CE}}{d\, v_{BE}}|_{v_{BE}=V_{BE}}$$
+
+`(7.20)`

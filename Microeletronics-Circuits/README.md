@@ -17,6 +17,8 @@
 - make a "tl;dr" for every section
   - give it a special symbol for quick access
   - `◈` this thing?
+- > ◈ TL;DR
+  - template :)
 
 # RANT
 
