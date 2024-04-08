@@ -155,7 +155,7 @@ Determine the coordinate of **point B**:
 
 By substituting in Eq.(7.5)
 
-$$V_{GS}|_B = V_t+ \frac {\sqrt{2k_n R_D V_{DD} +1}-1}{k_n R_D}$$
+$$V_{GS}|_{B} = V_t + \frac{\sqrt{2 k_n R_D V_{DD} +1}-1}{k_n R_D}$$
 
 - vGS = VGS|B
 - vDS = VDS|B = VGS|B - Vt
