@@ -281,7 +281,7 @@ $$v_{BE}(t)=V_{BE}+v_{be}(t)$$
 
 Finding the slope of the **tangent** to VTC at point Q:
 
-$$A_v= \frac {d\, v_{DS}}{d\, v_{GS}} |_{v_{GS} = V_{GS}}$$
+$$A_v= \frac {d\, v_{DS}}{d\, v_{GS}} |_ {v_{GS} = V_{GS}}$$
 
 - vGS = VGS:
   - Total instantaneous value = bias voltage
