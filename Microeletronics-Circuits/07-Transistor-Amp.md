@@ -10,8 +10,8 @@
   - [7.1.3 the Voltage-Transfer Characteristic (VTC)](#713-the-voltage-transfer-characteristic-vtc)
   - [7.1.4 Obtaining Linear Amplification by Biasing the Transistor](#714-obtaining-linear-amplification-by-biasing-the-transistor)
   - [7.1.5 The Small-Signal Voltage Gain](#715-the-small-signal-voltage-gain)
-    - [7.1.5.1 MOSFET case](#7151-mosfet-case)
-    - [7.1.5.2 BJT case](#7152-bjt-case)
+    - [7.1.5s MOSFET case](#715s-mosfet-case)
+    - [7.1.5s BJT case](#715s-bjt-case)
 
 # Keys
 ehhhhh
@@ -189,7 +189,7 @@ $$v_{CE}=V_{CC}-R_C I_S e^{v_{BE}/V_T}$$
 
 ## 7.1.4 Obtaining Linear Amplification by Biasing the Transistor
 
-> v → V : theoretical → controllable, and use the "almost linear" slope at active region.
+> **v → V : theoretical → controllable**, and use the "almost linear" slope at active region.
 
 - VGS: bias voltage 
   - selected for operation at point Q
@@ -266,30 +266,34 @@ $$v_{BE}(t)=V_{BE}+v_{be}(t)$$
 
 ## 7.1.5 The Small-Signal Voltage Gain
 
-### 7.1.5.1 MOSFET case
+### 7.1.5s MOSFET case
 
 - Input signal (vgs) **small**
 - Almost-linear segment of VTC
 - → output vds nearly proportional to vgs
-- → almost no distortion (output)
+- → **slope** of the segment of VTC at point Q
+- → voltage gain of the amplifier (the slope's tangent)
+
 
 > The VTC plot is still not a straight line, but close to one.
 
 `(7.13)`
+
+Finding the slope of the **tangent** to VTC at point Q:
 
 $$A_v= \frac {d\, v_{DS}}{d\, v_{GS}} |_{v_{GS} = V_{GS}}$$
 
 - vGS = VGS:
   - Total instantaneous value = bias voltage
   - → small signal = 0
-- Voltage gain:
-  - output voltage/ input voltage
+- Tangent value → voltage gain:
+  - dy/dx → output voltage/ input voltage
 
 `(7.14)`
 
 Using Eq.(7.5)
 
-$$A_v= -k_n (V_{GS}-V_t) R_L$$
+$$A_v= -k_n (V_{GS}-V_t) R_D$$
 
 `!(7.15)`
 
@@ -307,6 +311,7 @@ $$A_v = -k_n V_{OV}R_D$$
 > ◈ TL;DR
 > - Make input small
 > - Output is almost linear
+> - Voltage gain is the VTC slope tangent
 > - Voltage gain is negative
 > - Eq. (7.15) :)
 
@@ -348,11 +353,11 @@ $$|A_{v\max}| = \frac {V_{DD}-V_{OV}|_B}{V_{OV}|_B /2}$$
 - VOV|B is given by Eq.(7.7)
 
 > ◈ TL;DR
-> - Getting max possible gain 
-> - → bias transistor at point B
+> - Getting max possible gain for NMOS
+> - → biasing transistor at point B
 > - → no room for negative output signal swing
 
-### 7.1.5.2 BJT case
+### 7.1.5s BJT case
 
 > Similar development from the previous case
 
@@ -361,3 +366,8 @@ $$|A_{v\max}| = \frac {V_{DD}-V_{OV}|_B}{V_{OV}|_B /2}$$
 $$A_v = \frac {d\, v_{CE}}{d\, v_{BE}}|_{v_{BE}=V_{BE}}$$
 
 `(7.20)`
+
+Using Eq.(7.9) with Eq.(7.12)
+
+$$A_v=-(\frac{I_C}{V_T})R_C$$
+
