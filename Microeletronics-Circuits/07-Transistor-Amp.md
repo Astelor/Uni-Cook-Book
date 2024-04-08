@@ -165,7 +165,7 @@ $$V_{GS} |_ B = V_t + \frac { \sqrt {2 k_n R_D V _{DD} +1} -1}{k_n R_D}$$
 
 And point B can alternatively be characterized by the overdrive voltage
 
-$$V_{OV}|_ B = V _{GS} |_ B - \frac{\sqrt{2 k_n R_D V _{DD}+1}-1}{k_n R_D}$$
+$$V_{OV}|_ B = V _ {GS} | _ B - \frac{\sqrt{2 k_n R_D V _{DD}+1}-1}{k_n R_D}$$
 
 and
 
