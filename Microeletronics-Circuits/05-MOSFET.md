@@ -503,7 +503,9 @@ G--||
 
 > Table 5.1 covers NMOS triode region and saturation region.
 
-We can use the drain voltage to achieve triode and saturation region, we can also use the gate voltage to do the same thing → it governs total charge in the channel.
+- Drain voltage can be used to achieve triode and saturation region
+- Gate voltage can be used to achieve the same thing.
+  -  → vGS governs the total charge in the channel.
 
 ### 5.2.2s Triode Region
 - Continuous channel (not pinched-off): $v_{GD}>V_{tn}$
@@ -519,23 +521,33 @@ We can use the drain voltage to achieve triode and saturation region, we can als
 
 ### 5.2.2s Graph
 
-![5.2.2-5.13](attachments/5.2.2-5.13.png)
 
-vOV=vGS-Vtn, treating vOV as a constant in each iteration of the functions. And the points where vDS=vOV (MOSFET enters saturation region) can be described by:
+- vOV=vGS-Vtn
+- → Treating vOV as a constant in each iteration of the functions. 
+- The "points" where MOSFET enters saturation region (vDS=vOV) can be described by Eq. (5.20)
+  - → The dotted line in the graph below.
+
+![5.2.2-5.13](attachments/5.2.2-5.13.png)
 
 `(5.20)`
 
 $$i_D=\frac 12k_n'(\frac WL)v_{DS}^2$$
 when vDS=vOV (entering saturation region)
 
-> It describes the dotted exponential line, drawn by increasing vOV, observe iD-vDS when vOV is increased.
+- For each vGS value (incremented by vOV)
+- → draw a corresponding iD-vDS plot
 
 ## 5.2.3 The iD-vGS Characteristic
-> Using MOSFET as an amplifier, vGS as input, vDS as a constant, its operation is in the saturation region (vDS ≥ vOV).
+> Using MOSFET as an amplifier.
+> 
+>  vGS as input, vDS as a constant, its operation is in the saturation region (vDS ≥ vOV).
 
-**In saturation**, the drain current is a constant determined by the gate voltage (vGS=vOV+Vt), and is independent of drain voltage vDS.
+Condition:
+- In **saturation** region.
+- The drain current (iD) is determined by the gate voltage (vGS=vOV+Vt) 
+- → Drain current is independent of drain voltage (vDS).
 
-MOSFET operates as a **voltage-controlled current source**
+- → MOSFET operates as a **voltage-controlled current source**
 
 `(5.21)`
 
@@ -545,7 +557,12 @@ $$i_D=\frac 12k_n'(\frac WL)(v_{GS}-V_{tn})^2$$
 
 $$i_D=\frac 12k_n'(\frac WL)v_{OV}^2$$
 
-This implies the current-voltage characteristics (iD-vGS) is **nonlinear** when MOSFET is operating as an amplifier (in saturation region, iD controlled by vGS).
+Observation:
+- MOSFET operates as an **amplifier**.
+  - → transconductance amplifier (voltage input, current output)
+- Current-voltage characteristic (iD-vGS) is **nonlinear**.
+  - → square-law 
+  - from (vGS-Vt)^2
 
 Large-signal equivalent circuit:
 ```
@@ -563,7 +580,9 @@ G o--o    +----o D
 ```
 
 ## 5.2.4 Finite Output Resistance in Saturation
-> In not ideal situation, the drain current won't be a constant in saturation. rDS<∞, given vGS, vDS yields corresponding change in iD, in saturation region.
+> In practice, the drain current won't be a constant in saturation. 
+> 
+> rDS<∞, given vGS, vDS yields corresponding change in iD, in saturation region.
 
 Ideally:  (in saturation) 
 - iD is independent of vDS
@@ -572,10 +591,10 @@ Ideally:  (in saturation)
 - (vDS has no effect on the channel's shape once vDS≥vOV (pinched-off).)
 
 In practice: (in saturation, vDS≥vOV)
-- Pinch-off point moves slightly away from the drain
-- → channel-length modulation.
+- Pinch-off point moves slightly **away** from the drain
+- → **channel-length modulation**.
 
-**Channel-length modulation**:
+Channel-length modulation:
 ```
 S+-------------+------+D
  |◤channel     |      |
@@ -592,18 +611,20 @@ $$i_D=\frac 12k_n'(\frac WL)(v_{GS}-V_{tn})^2(1+λv_{DS})$$
 
 > iD increases linearly after entering saturation region.
 - λ: device parameter 
-  - unit: reciprocal volts (V^-1)
-  - value: depends on both process technology and channel length L.
-  - new technology → shorter L → more greatly impacted by channel-length modulation
+  - Unit: reciprocal volts (V^-1)
+  - Value: depends on both process technology and channel length L.
+  - New technology → shorter L → more greatly impacted by channel-length modulation
 
 $$V_A=\frac 1λ$$
 - VA: device parameter (V)
   - aka **Early voltage**.
   - $V_A=V_A'L$, proportional to channel length L
 - VA': entirely process-technology dependent (V/μm)
-  - typically 5 V/μm ~ 50 V/μm
+  - Typically 5 V/μm ~ 50 V/μm
 
-> After taking channel-length modulation into account, the saturation value of iD depend on vDS. For a given vGS, "a change ∆vDS yields a corresponding change ∆iD in the drain current iD."
+> After taking channel-length modulation into account, the saturation value of iD depend on vDS. 
+> 
+> For a given vGS, "a change ∆vDS yields a corresponding change ∆iD in the drain current iD."
 
 ![5.2.4-5.17](attachments/5.2.4-5.17.png)
 
@@ -646,7 +667,7 @@ G o--o    +--+--o D
 ```
 
 ## 5.2.5 Characteristics of the p-channel MOSFET
-> It's the opposite to NMOS. It you know how FET works, it shouldn't be hard to convert the concepts in NMOS to PMOS.
+> It's the opposite to NMOS. If you know how FET works, it shouldn't be hard to convert the concepts in NMOS to PMOS.
 
 # 5.4 Technology Scaling (Moore's Law) and Other Topics
 > Astelor: I'm not quite sure what I should do with this chapter

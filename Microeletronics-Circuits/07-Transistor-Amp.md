@@ -12,6 +12,7 @@
   - [7.1.5 The Small-Signal Voltage Gain](#715-the-small-signal-voltage-gain)
     - [7.1.5s MOSFET case](#715s-mosfet-case)
     - [7.1.5s BJT case](#715s-bjt-case)
+  - [7.1.6 Determining the VTC by Graphical Analysis](#716-determining-the-vtc-by-graphical-analysis)
 
 # Keys
 ehhhhh
@@ -68,13 +69,15 @@ $$i_D=\frac 12 k_n (v_{GS}-V_{tn})^2$$
   - vDS ≥ vOV, vOV = vGS - Vtn
   - → vGD ≤ Vtn 
 
+---
+
 `(7.2)`
 
 **npn BJT**, vBE controls iC in active region:
 
 $$i_C=I_Se^{v_{BE}/V_T}$$
 
-- collector current (iC) is independent of collector voltage (vCE)
+- Collector current (iC) is independent of collector voltage (vCE)
   - → collector-base junction (CBJ) is reverse-biased
   - → "isolating" the collector
 - Operation condition (active mode)
@@ -115,6 +118,8 @@ For NMOS, the operation process:
 > - So we connect a resistor to make the output current into a voltage
 > 
 
+---
+
 Similar arrangement can be applied to **NPN-BJT** as well.
 
 `(7.3)`
@@ -135,13 +140,11 @@ $$v_{CE}=V_{CC}-i_C R_C$$
 >
 > Don't let combined expression for an equation scare you!
 
-`(7.5)`
+`!(7.5)`
 
 **NMOS**: Substituting iD in Eq.(7.3) by its active-region value from Eq.(7.1)
 
 $$v_{DS}=V_{DD}-\frac 12 k_n R_D (v_{GS}-V_t)^2$$
-
----
 
 **Point B** is the boundary between the saturation and triode region.
 - vDS < (vGS-Vtn) 
@@ -181,11 +184,13 @@ $$V_{DS}|_ B = V _{OV} |_B$$
 >   - Point A is **pre-defined**!
 > 
 
+---
+
 **NPN-BJT**, similar development applies:
 
 `(7.9)`
 
-$$v_{CE}=V_{CC}-R_C I_S e^{v_{BE}/V_T}$$
+$$v_{CE}=V_{CC}-R_C\, I_S e^{v_{BE}/V_T}$$
 
 ## 7.1.4 Obtaining Linear Amplification by Biasing the Transistor
 
@@ -270,14 +275,16 @@ $$v_{BE}(t)=V_{BE}+v_{be}(t)$$
 
 ### 7.1.5s MOSFET case
 
+Conditions:
 - Input signal (vgs) **small**
 - Almost-linear segment of VTC
 - → output vds nearly proportional to vgs
-- → **slope** of the segment of VTC at point Q
+- **Slope** of the segment of VTC at point Q
 - → voltage gain of the amplifier (the slope's tangent)
 
-
 > The VTC plot is still not a straight line, but close to one.
+>
+> The concept of "proportional" is related to the "slope", the linearity.
 
 `(7.13)`
 
@@ -287,13 +294,13 @@ $$A_v= \frac {d\, v_{DS}}{d\, v_{GS}} |_ {v_{GS} = V_{GS}}$$
 
 - vGS = VGS:
   - Total instantaneous value = bias voltage
-  - → small signal = 0
+  - → small signal value = 0 V
 - Tangent value → voltage gain:
   - dy/dx → output voltage/ input voltage
 
 `(7.14)`
 
-Using Eq.(7.5)
+Using Eq.(7.5) → the equation for vDS
 
 $$A_v= -k_n (V_{GS}-V_t) R_D$$
 
@@ -303,12 +310,14 @@ Expressing in terms of the overdrive voltage (VOV):
 
 $$A_v = -k_n V_{OV}R_D$$
 
+Observations to the voltage gain:
 1. The gain is negative
    - → The amp is inverting
    - 180° phase shift between input and output.
-2. The gain is proportional to the load resistance RD.
-   - to transistor transconductance parameter kn
-   - to overdrive voltage VOV
+2. The gain is proportional...
+   - to the load resistance (RD)
+   - to transistor transconductance parameter (kn)
+   - to overdrive voltage (VOV)
 
 > ◈ TL;DR
 > - Make input small
@@ -317,19 +326,20 @@ $$A_v = -k_n V_{OV}R_D$$
 > - Voltage gain is negative
 > - Eq. (7.15) :)
 
+
+> Additional insights by tweaking the equations:
+
 Dc current in the drain at the bias point:
 
 $$I_D=\frac 12 k_n V_{OV}^2$$
 
-- It's related to VOV
-
 `(7.16)`
 
-Combining the equation above with Eq.(7.15) to obtain:
+Combining the equation above with Eq. (7.15) to obtain:
 
 $$A_v=\frac {I_D R_D}{V_{OV}/2}$$
 
-- Ratio of dc voltage drop across load resistance (RD) to VOV/2
+- (Observation) Ratio of dc voltage drop across load resistance (RD) to VOV/2
   - This is just Eq.(7.15) conversion, VOV/2 is the result to it.
 
 `(7.17)`
@@ -344,6 +354,7 @@ $$|A_{v \max}| = \frac{V_{DD}-V_{DS}|_ B} {V_{OV}|_B/2}$$
 
 - The maximum slope of VTC (amp output)
   - → at point B
+  - the steepest slope
 - Obtained by biasing transistor at point B (VGS|B)
 
 `(7.18)`
@@ -355,9 +366,9 @@ $$|A_{v\max}| = \frac {V_{DD}-V_{OV}|_ B} {V_{OV}|_B /2}$$
 - VOV|B is given by Eq.(7.7)
 
 > ◈ TL;DR
-> - Getting max possible gain for NMOS
-> - → biasing transistor at point B
-> - → no room for negative output signal swing
+> - Getting max possible gain for NMOS.
+> - → biasing transistor at point B.
+> - → no room for negative output signal swing.
 
 ### 7.1.5s BJT case
 
@@ -372,4 +383,83 @@ $$A_v = \frac {d\, v_{CE}}{d\, v_{BE}}|_ {v_{BE}=V_{BE}}$$
 Using Eq.(7.9) with Eq.(7.12)
 
 $$A_v=-(\frac{I_C}{V_T})R_C$$
+
+Observations to the voltage gain:
+1. The gain is negative
+   - → the amplifier is inverting
+   - 180° phase shift between input and output
+2. The gain is proportional...
+   - to the collector current (IC)
+   - to the load resistance (RC)
+
+> Additional insight:
+
+`(7.21)`
+
+$$A_c = - \frac{I_C R_C} {V_T}$$
+
+- Ratio of the voltage drop across the load resistance (RC) to the thermal voltage (VT)
+  - VT ≃ 25mV at room temperature
+- Similar in form to that for the MOSFET (Eq. 7.16)
+  - VOV/2 → design parameter
+  - VT → physical constant
+- Typically VOV/2 > VT
+  - → Higher gain from BJT than MOSFET
+- **Exponential** relationship (iC-vBE) is much steeper than square-law relationship (iD-vGS).
+  - Higher gain!
+
+`(7.22)`
+
+Expressing Eq. (7.22) alternatively:
+
+$$A_v = -\frac {V_{CC}-V_{CE}}{V_T}$$
+
+- Lowest possible VCE (accounting negative signal swing)
+- → Maximum possible gain amplitude (|Av|)
+
+`(7.23)`
+
+Maximum gain → VCE = 0.3V
+
+$$|A_ {v\max}|= \frac{V_{CC}-0.3} {V _T }$$
+
+- Theoretical maximum.
+- → Biasing transistor at the edge of saturation mode. 
+- → Leaving no room for negative signal swing at the output.
+
+> Even if BJT has larger voltage gain, it doesn't make BJT preferred to the MOSFET in the design of modern integrated-circuit amplifier.
+>
+> MOSFET is better, even if its voltage gain is smaller.
+
+## 7.1.6 Determining the VTC by Graphical Analysis
+
+> Good for learning, bad (rarely used) for practicing.
+
+- Locating the bias point Q 
+
+`(7.24)`
+
+The **load line**:
+
+$$i _ D = \frac{V_ {DD}}{R _ D} - \frac{1}{R_D} v _{DS}$$
+
+Graphical Analysis:
+- For each value of vGS
+- → It has a plot of iD-vDS
+- Load line slope (-1/RD)
+
+![7.1.6-7.7](attachments/7.1.6-7.7.png)
+
+Intersection of load line: 
+- Point A → vGS = Vt
+- Point Q → amplifier operation
+- Point B → vGS = VGS|B
+- Point C → vGS = VDD
+
+> Astelor: Wait this considers channel-length modulation? ([iD-vDS characteristic](05-MOSFET.md/#522s-graph)), ([finite output resistance](05-MOSFET.md/#524-finite-output-resistance-in-saturation))
+
+
+![7.1.6-7.8](attachments/7.1.6-7.8.png)
+
+> Astelor: what is this
 

@@ -19,6 +19,7 @@
   - `◈` this thing?
 - > ◈ TL;DR
   - template :)
+- Please capitalize the first letter of the first word to make reading easier :)
 
 # RANT
 
@@ -28,3 +29,4 @@
 > 
 > And everyone can calculate stuff provided the adequate equations.
 
+Microelectronic circuit really is mostly about voltages and currents, it's a tad hard to think about it logically while all you see are equations and schematics.

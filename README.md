@@ -1,4 +1,5 @@
 # Uni-Cook-Book
+
 The cook book (notes) of my university (years) studies, outta ~~spite~~ love. (This is also a testament to my eloquence and file organizing abilities.)
 
 This repository includes but not limits to:
@@ -6,9 +7,22 @@ This repository includes but not limits to:
 2. My own learning and research.
 3. Anything worth cooking.
 
-> The index is organized in the order of the most relevant.
-> Alphabetical order can be found in the code section above.
+This repository is best suited for:
+1. Astelor
+2. Probably not you
+3. My classmates (yes I save my homeworks here)
 
+Quick access to the indexed "READMEs":
+- [Certified Ethical Hacker v11](CEH-v11/README.md)
+- [Electromagnetics](Electromagnetics/README.md)
+- [Microelectronic Circuits](Microeletronics-Circuits/README.md)
+
+> Astelor: I'm still figuring out how to best present this thing
+
+**All the resource copies and attachments saved in this repository are for educational purposes, and do not belong to me.**
+
+> The index is organized in the order of the most relevant.
+Table of contents:
 - [Uni-Cook-Book](#uni-cook-book)
 - [Ongoing](#ongoing)
   - [Certified Ethical Hacker](#certified-ethical-hacker)
@@ -23,8 +37,6 @@ This repository includes but not limits to:
   - [民主政治 (通識) discontinued](#民主政治-通識-discontinued)
 - [Note to self](#note-to-self)
 
-
-All the resources copies and attachments saved in this repository are for educational purposes, and do not belong to me.
 # Ongoing
 > What I'm actively working on.
 
