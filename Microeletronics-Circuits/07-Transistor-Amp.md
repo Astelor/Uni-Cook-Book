@@ -190,7 +190,7 @@ $$V_{DS}|_ B = V _{OV} |_B$$
 
 `(7.9)`
 
-$$v_{CE}=V_{CC}-R_C\, I_S e^{v_{BE}/V_T}$$
+$$v_{CE}=V_{CC}-R_C  I_S e^{v_{BE}/V_T}$$
 
 ## 7.1.4 Obtaining Linear Amplification by Biasing the Transistor
 
@@ -290,7 +290,7 @@ Conditions:
 
 Finding the slope of the **tangent** to VTC at point Q:
 
-$$A_v= \frac {d\, v_{DS}}{d\, v_{GS}} |_ {v_{GS} = V_{GS}}$$
+$$A_v= \frac {d  v_{DS}}{d  v_{GS}} |_ {v_{GS} = V_{GS}}$$
 
 - vGS = VGS:
   - Total instantaneous value = bias voltage
@@ -376,7 +376,7 @@ $$|A_{v\max}| = \frac {V_{DD}-V_{OV}|_ B} {V_{OV}|_B /2}$$
 
 `(7.19)`
 
-$$A_v = \frac {d\, v_{CE}}{d\, v_{BE}}|_ {v_{BE}=V_{BE}}$$
+$$A_v = \frac {d v_{CE}}{d v_{BE}}|_ {v_{BE}=V_{BE}}$$
 
 `(7.20)`
 
@@ -410,7 +410,7 @@ $$A_c = - \frac{I_C R_C} {V_T}$$
 
 `(7.22)`
 
-Expressing Eq. (7.22) alternatively:
+Expressing Eq. (7.21) alternatively:
 
 $$A_v = -\frac {V_{CC}-V_{CE}}{V_T}$$
 
