@@ -1,7 +1,10 @@
 # Chapter 6, Bipolar Junction Transistor
+
 > aka BJT
+> 
 > a dangling note waiting to be written.
-> well well well, isn't it the consequences to my actions
+> 
+> well well well, isn't it the consequences to my actions.
 
 - [Chapter 6, Bipolar Junction Transistor](#chapter-6-bipolar-junction-transistor)
 - [Keys](#keys)
@@ -36,6 +39,7 @@
 # 6.1 Device Structure and Physical Operation
 
 ## 6.1.1 Simplified Structure and Modes of Operation
+
 > The basics...
 
 Simplified structure of npn transistor: (like NMOS)
@@ -71,8 +75,12 @@ Simplified structure of pnp transistor: (like PMOS)
   - collector (C)
 
 Biasing conditions at junctions give different modes of operations.
-> current flows from: n->p reverse bias, p->n forward bias. 
-> "negative" -> "positive", reverse. "positive" -> "negative", forward. :)
+
+> - Current flows from: 
+>   - n->p reverse bias
+>   - p->n forward bias
+> - "negative" -> "positive", reverse. 
+> - "positive" -> "negative", forward.
 
 BJT modes of operation:
 |Mode|EBJ|CBJ|
@@ -84,6 +92,7 @@ BJT modes of operation:
 Charge carriers of both polarities participate in the current-conduction process in a bipolar transistor. (Contrasting with MOSFET where current is conducted by one type of carrier.)
 
 ## 6.1.2 Operation of the npn Transistor in the Active Mode
+
 > go transistor go
 
 - EBJ: forward bias
@@ -101,6 +110,7 @@ Charge carriers of both polarities participate in the current-conduction process
 ```
 
 ### 6.1.2s Current Flow
+
 > Injection of electrons and holes, starting from emitter-base junction and into the collector-base junction.
 
 ```      forward-biased        
@@ -142,6 +152,7 @@ How the electron component flow:
   - Electrons get collected by C (the collector)
 
 ### 6.1.2s The Collector Current
+
 > The injected electrons that reached the collector region.
 
 `!(6.1)`
@@ -157,6 +168,7 @@ As long as vCB>0 (the collector is positive with respect to the base):
 - BJT stays in active mode
 
 ### 6.1.2s The Base Current
+
 > Holes to replace those that are lost in recombination process in the base region, and injected holes from the base terminal into the emitter.
 
 Components of **base current iB**:
@@ -188,6 +200,7 @@ Obtaining high common-emitter current gain:
 - base lightly doped(NA), emitter heavily doped(ND) ($N_A/N_D$ small)
 
 ### 6.1.2s The Emitter Current
+
 > All the current that leaves the transistor, sum of collector current and base current.
 
 `!(6.4)`
@@ -235,6 +248,7 @@ $$β=\frac{α}{1-α}$$
 > $i_E=\frac{i_C}{α}=\frac{β+1}{β}i_C$
 
 ### 6.1.2s Minority-Carrier Distribution
+
 > Minority charge carriers in the base and the emitter. Better understand the physical operation of BJT. -> BJT required two types of carrier to operate.
 >
 > Astelor: I'm lost at the saturation current part
@@ -246,6 +260,7 @@ $$β=\frac{α}{1-α}$$
   - both are proportional to $e^{v_{BE}/V_T}$
 
 `(6.11)`
+
 $$n_p(0)=n_{p0}\,e^{v_{BE}/V_T}$$
 
 - np0: thermal equilibrium value of the minority-carrier (electron) concentration in the base region.
@@ -295,6 +310,7 @@ $$I_S=\frac{A_E q D_n n_i^2}{N_A W}$$
   - a strong function of temperature (because of ∝ $n_i^2$)
 
 ### 6.1.2s Recapitulation and Equivalent-Circuit Models
+
 > Circuit models and basics revision
 
 - $i_C=I_Se^{v{BE}/V_T}$
@@ -308,6 +324,7 @@ $$I_S=\frac{A_E q D_n n_i^2}{N_A W}$$
   - iE ≃ iC
 
 ## 6.1.3 Structure of Actual Transistors
+
 > Transistor physical structure in practice is NOT symmetrical. 
 > 
 > tl;dr: No, you cannot swap the emitter and collector. 
