@@ -89,7 +89,7 @@ BJT modes of operation:
 |Active|Forward|Reverse|
 |Saturation|Forward|Forward|
 
-Charge carriers of both polarities participate in the current-conduction process in a bipolar transistor. (Contrasting with MOSFET where current is conducted by one type of carrier.)
+Charge carriers of **both polarities** participate in the current-conduction process in a bipolar transistor. (Contrasting with MOSFET where current is conducted by one type of carrier.)
 
 ## 6.1.2 Operation of the npn Transistor in the Active Mode
 

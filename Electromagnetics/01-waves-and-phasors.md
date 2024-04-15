@@ -144,6 +144,7 @@ $$e=1.6×10^{-19}\ (C)$$
 Magnitude of electron, measured in coulomb.
 
 ### 1-3.2s Coulomb's law
+
 > Coulomb's conclusions on how charges behave.
 
 1. two like charges repel one another, whereas two charges of opposite polarity attract
@@ -171,6 +172,7 @@ The electric force Fe21 acting on q2 due to q1.
 - ε0: electrical permittivity of free space = 8.854×10^-12 (F/m)
 
 $$F_{e_{21}}=-F_{e_{12}}$$
+
 - Fe12 and Fe21 is **equal in magnitude** but opposite in direction
 
 `(1.8)`
@@ -178,21 +180,26 @@ $$F_{e_{21}}=-F_{e_{12}}$$
 extending the analogy in [1-3.1](#1-31-gravitational-force-a-useful-analogue) for existence of an **electric field intensity** E
 
 $$E=\hat R\frac{q}{4πε_0R^2}\ (V/m) $$
+
 (in free space)
 
 - R: radial unit vector pointing away from the charge
 
 ### 1-3.2s Two important properties of electric charge
-> what you should know before dealing with charges
+
+> What you should know before dealing with charges
 
 1. **law of conservation of electric charge** -> net charge can neither be created nor destroyed (it doesn't be "gone", unless radioactive things is involved)
 2. **principle of linear superposition** -> "the total vector electric field at a point in space due to a system of point charges is equal to the vector sum of the electric fields at that point due to the individual charges".
 
 > The first one makes our physical world (math) correct, the second one makes sense of our physical world (and make our math easier). (they both sort of do the same things though)
+
 ---
+
 Explanation and examples of the two properties:
 
 1. Law of conservation:
+
 > it's about the number of charges (no matter the polarity), and they do not just be "gone" and go "poof" when e+(-e).
 
 `(1.9)`
@@ -202,6 +209,7 @@ $$q=n_pe-n_ee=(n_p-n_e)e$$
 Net charge q of a volume that contains protons(+) and electrons(-), even if np=ne, q remains unchanged. Because "the protons inside the atom's nucleus and the electrons outside it do NOT allow them to combine"
 
 2. Principle of linear superposition:
+
 > The forces are linear functions, the fields are an area of forces, they combine.
 
 The field concept satisfy the additivity and homogeneity and is a "linear function".
@@ -212,8 +220,11 @@ O ↘
 O → O →
 O ↗
 ```
+
 ---
+
 ### 1-3.2s Polarization of dielectric material
+
 > What happens when the conceptional field is in a material?
 
 Polarization of the atoms of a dielectric material by a positive charge:
@@ -233,16 +244,19 @@ dielectric material
 `(1.10)`
 
 $$E=\hat R \frac{q}{4πεR^2}\ (V/m)$$
+
 (material with permittivity ε)
 
 `(1.11)`
 
 $$ε=ε_rε_0\ (F/m)$$
+
 - εr: relative permittivity, or dielectric constant
   - relative to ε0, is dimensionless (just a constant)
   - εr = 1 for vacuum, εr = 1.0006 for air near Earth's surface
 
 `(1.12)`
+
 $$D=εE\ (C/m^2)$$
 
 One of the two fundamental pairs of electromagnetic fields:
@@ -252,6 +266,7 @@ One of the two fundamental pairs of electromagnetic fields:
 > so wtf is flux? I'll be a bit upset if it's not elaborated in future chapters
 
 ## 1-3.3 Magnetic Fields
+
 > Electric charges can be isolated, but magnetic poles always exist in pairs.
 
 Pattern of magnetic field lines around a bar magnet:
@@ -301,10 +316,13 @@ Relating magnetic flux density B at a point in space to the current I in the con
 - magnetic field B -> Fm -> **only if the charge is in motion** and its velocity u is in a direction anti-parallel to B -> magnetic force.
 
 `(1.14)`
+
 $$c=\frac{1}{\sqrt{μ_0ε_0}}=3×10^8\ (m/s)$$
+
 - c: velocity of light in free space
 
 `(1.15)`
+
 $$μ=μ_rμ_0\ (H/m)$$
 
 Magnetic permeability, accounts for magnetization properties of a material.
@@ -313,7 +331,9 @@ Magnetic permeability, accounts for magnetization properties of a material.
 - nonmagnetic: its permeability = μ0. 
 
 `(1.16)`
+
 $$B=μH$$
+
 - H: magnetic field intensity
 - B: magnetic flux density
 
@@ -327,21 +347,29 @@ definition of time related adjectives:
 - Sinusoidal: aka ac, a quantity that varies sinusoidally with time.
 
 ### 1-3.4s The three branches of electromagnetics
+
 > The relationship between E (electric field) and B (magnetic flux density) depends on whether I is static or dynamic. 
 
 Branches: condition -> field quantities (units)
 - Electrostatics: stationary charges (∂q/∂t = 0)
 > electric field intensity E (V/m)
+>
 > electric flux density D (C/m^2)
+>
 > D=εE
 
 - Magnetostatics: steady currents (∂I/∂t = 0)
+
 > magnetic flux density B (T)
+>
 > magnetic field intensity H (A/m)
+>
 > B=μH
 
 - Dynamics (time-varying fields): time-varying currents (∂I/∂t ≠ 0)
+
 > E, D, B, and H
+>
 > (E,D) coupled to (B,H)
 
 ### 1-3.4s parameters mentioned 
@@ -359,6 +387,7 @@ misc:
 - if a medium is homogeneous -> its constitutive parameters are constant throughout the medium.
 
 # 1-4 Traveling Waves
+
 > Introduction to all the wonders about waves.
 
 **Common properties of waves**:
@@ -386,11 +415,13 @@ misc:
   - plane waves, cylindrical waves, and spherical waves.
 
 ## 1-4.1 Sinusoidal Waves in a Lossless Medium
-> lossless -> the medium does not attenuate the amplitude of the wave traveling within or on its surface.
+
+> Lossless -> the medium does not attenuate the amplitude of the wave traveling within or on its surface.
 
 A traveling wave can be described mathematically:
 
 `!(1.17)`
+
 $$y(x,t)=Acos(\frac{2πt}{T}-\frac{2πx}{λ}+ϕ_0)\ (m)$$
 
 - y: the height
@@ -401,17 +432,22 @@ $$y(x,t)=Acos(\frac{2πt}{T}-\frac{2πx}{λ}+ϕ_0)\ (m)$$
 - ϕ0: reference phase
 
 `(1.18)`
+
 $$y(x,t)=A\cos\ ϕ(x,t)\ (m)$$
+
 where
 
 `(1.19)`
+
 $$ϕ(x,t)=(\frac{2πt}{T}-\frac{2πx}{λ}+ϕ_0)\ (rad)$$
+
 the angle -> phase of the wave
 
 ---
 First let's make it that ϕ0=0:
 
 `(1.20)`
+
 $$y(x,t)=A\cos(\frac{2πt}{T}-\frac{2πx}{λ})\ (m)$$
 
 We can analyze it from two perspectives:
@@ -422,24 +458,31 @@ We can analyze it from two perspectives:
 And we can plot it accordingly
 
 `(1.21)`
+
 $$ϕ(x,t)=\frac{2πt}{T}-\frac{2πx}{λ}=2nπ,\ n∊N$$
+
 At the peaks of the wave pattern, the phase is equal to zero or multiples of 2π radians.
 
 `(1.22)`
+
 $$y(x,t)=y_0=A\cos(\frac{2πt}{T}-\frac{2πx}{λ})$$
 
 or
 
 `(1.23)`
+
 $$\frac{2πt}{T}-\frac{2πx}{λ}=\cos^{-1}(\frac{y_0}{A})=constant.$$
 
 `(1.24)`
 
 The apparent velocity of the fixed height is obtained by taking the time derivative of (1.23).
+
 $$\frac{2π}{T}-\frac{2π}{λ}\frac{dx}{dt}=0$$
 
 `(1.25)`
+
 $$u_p=\frac{dx}{dt}=\frac λT\ (m/s)$$
+
 Phase velocity up
 - up: aka propagation velocity, the velocity of the wave pattern.
 
@@ -447,9 +490,11 @@ Phase velocity up
 > A whole lotta rewriting to simplify the equation
 
 `(1.26)`
+
 $$f=\frac 1T\ (Hz)$$
 
 `(1.27)`
+
 $$u_p=fλ (m/s)$$
 
 `(1.28)`
@@ -473,10 +518,13 @@ $$β=\frac {2π}{λ}\ (rad/m)$$
 `(1.30)`
 
 In terms of the two quantities in (1.29).
+
 $$u_p=fλ=\frac ωβ$$
 
 `(1.31)`
+
 $$y(x,t)=A\cos(ωt+βx)$$
+
 **wave moving along -x direction**
 
 ---
@@ -484,6 +532,7 @@ $$y(x,t)=A\cos(ωt+βx)$$
 `(1.32)`
 
 when the phase reference ϕ0 is not zero, rewriting (1.28)
+
 $$y(x,t)=A\cos(ωt-βx+ϕ_0)$$
 
 - phase lead:
@@ -494,15 +543,18 @@ $$y(x,t)=A\cos(ωt-βx+ϕ_0)$$
 When a wave has negative phase reference -> takes longer to reach a given value of y(t).
 
 ## 1-4.2 Sinusoidal Waves in a Lossy Medium
+
 > wave traveling in a lossy medium -> its amplitude decreases as e^-αx
 
 `(1.33)`
+
 $$y(x,t)=Ae^{-αx}\cos(ωt-βx+φ_0)$$
 
 - e^-αx: attenuation factor
 - α: attenuation constant (Np/m) (neper per meter)
 
 > Astelor: Do try to solve the practice problems in the textbook
+
 # 1-5 The Electromagnetic Spectrum
 
 The common fundamental properties:
@@ -511,6 +563,7 @@ The common fundamental properties:
 - in a vacuum, the wavelength is related to its oscillation frequency by 
 
 `(1.34)`
+
 $$λ=\frac cf$$
 
 > In short, single frequency, wave goes in light speed (c), and we can find its wavelength with the velocity.
@@ -524,6 +577,7 @@ International Telecommunication Union: designation of names in radio spectrum's 
 - EHF: aka **millimeter-wave band** (λ=1mm~1cm) (f=300GHz~30GHz)
 
 # 1-6 Review of Complex Numbers
+
 > You should know this by heart now. After all the electric circuits debacle.
 
 Complex number z can be expressed in:
@@ -531,6 +585,7 @@ Complex number z can be expressed in:
 `(1.35)`
 
 Rectangular form:
+
 $$z=x+jy$$
 
 - $j=\sqrt{-1}$
@@ -540,6 +595,7 @@ $$z=x+jy$$
 `(1.37)`
 
 Polar form:
+
 $$z=|z|e^{jθ}=|z| \angle{θ}$$
 
 - |z|: magnitude of z ( ∑(xi^2) )^(1/2)
@@ -549,9 +605,11 @@ $$z=|z|e^{jθ}=|z| \angle{θ}$$
 `(1.38)`
 
 Euler's identity:
+
 $$e^{jθ}=\cosθ+j\sinθ$$
 
 We can convert z from polar form to rectangular form, using Euler's identity.
+
 > From now on is just converting and maths
 
 `(1.39)`
@@ -560,9 +618,11 @@ $$z=|z|e^{jθ}=|z|\cosθ+j|z|\sinθ$$
 
 And leads to the relations:
 `(1.40)`
+
 $$x=|z|\cosθ,\, y=|z|\sinθ$$
 
 `(1.41)`
+
 $$|z|=\sqrt{x^2+y^2},\, θ=\tan^{-1}(y/x)$$
 
 - θ: make sure it's in the **proper quadrant**!
@@ -593,6 +653,7 @@ The magnitude |z| is equal to the positive square root of the product z and its 
 - Useful Relations
 
 # 1-7 Review of Phasors
+
 > To simplify the calculation of sinusoidal functions, we move it from time domain to phasor domain, and to and fro.
 
 "converting linear integro-differential equation into a linear equation with no sinusoidal functions, thereby simplifying the method of solution."
@@ -627,6 +688,7 @@ $$R i(t)+\frac 1C\int{i(t)dt}=v_s(t)$$
 (time domain)
 
 ## 1-7.1 Solution Procedure
+
 > The objective here is to obtain an expression for i(t), doing it in the time domain is cumbersome because the forcing function is a sinusoid. So we use phasor domain to get the solution.
 
 - Step 1: Adopt a cosine reference
@@ -644,6 +706,16 @@ v_s(t) & =V_0\sin(ωt+ϕ_0) \\
 
 - Step 2: Express time-dependent variable as phasors
 
+`(1.60)`
+
+Time domain:
+
+$$v_s(t)=V_0 \cos(ωt+φ)$$
+
+Phasor domain:
+
+$$\tilde{V_s}=V_0 e^{jφ}$$
+
 - Step 3: Recast the differential/integral equation in phasor form
 
 - Step 4: Solve the phasor-domain equation
@@ -651,3 +723,4 @@ v_s(t) & =V_0\sin(ωt+ϕ_0) \\
 - Step 5: Convert back to the time domain
 
 ## 1-7.2 Traveling Waves in the Phasor Domain
+

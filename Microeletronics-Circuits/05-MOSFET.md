@@ -584,17 +584,21 @@ G o--o    +----o D
 > 
 > rDS<∞, given vGS, vDS yields corresponding change in iD, in saturation region.
 
-Ideally:  (in saturation) 
+Ideally:  (in saturation)
+
 - iD is independent of vDS
   - → iD is a constant no matter the change in vDS
   - → rDS is infinite (vDS can be VERY big). 
 - (vDS has no effect on the channel's shape once vDS≥vOV (pinched-off).)
 
 In practice: (in saturation, vDS≥vOV)
+
 - Pinch-off point moves slightly **away** from the drain
 - → **channel-length modulation**.
+- → iD **increases linearly** in the saturation region.
 
 Channel-length modulation:
+
 ```
 S+-------------+------+D
  |◤channel     |      |
@@ -609,13 +613,15 @@ We account for this effect for iD by including a factor 1+λ(vDS-vOV) or **(1+λ
 
 $$i_D=\frac 12k_n'(\frac WL)(v_{GS}-V_{tn})^2(1+λv_{DS})$$
 
-> iD increases linearly after entering saturation region.
 - λ: device parameter 
   - Unit: reciprocal volts (V^-1)
   - Value: depends on both process technology and channel length L.
-  - New technology → shorter L → more greatly impacted by channel-length modulation
+  - New technology:
+  - → shorter L 
+  - → more greatly impacted by channel-length modulation
 
 $$V_A=\frac 1λ$$
+
 - VA: device parameter (V)
   - aka **Early voltage**.
   - $V_A=V_A'L$, proportional to channel length L
@@ -629,29 +635,35 @@ $$V_A=\frac 1λ$$
 ![5.2.4-5.17](attachments/5.2.4-5.17.png)
 
 `(5.24)`
+
 $$r_o≡[\frac{∂i_D}{∂v_{DS}}]^{-1}_{v_{GS}\ constant}$$
 
 `(5.25)`
 
 using Eq.(5.23):
+
 $$r_o=[λ\frac{k_n'}{2}\frac WL(v_{GS}-V_{tn})^2]^{-1}$$
 
 `(5.26)`
 
 which can be written as:
+
 $$r_o=\frac{1}{λi_D'}$$
 
 `(5.27)` 
 
 or, equivalently:
+
 $$r_o=\frac{V_A}{i_D'}$$
 
 `(5.27')`
 
 $$i_D'=\frac 12k_n'\frac WL(v_{GS}-V_{tn})^2$$
+
 - iD': drain current without channel-length modulation.
 
 Large-signal, equivalent-circuit:
+
 ```
 iG=0→       ←iD
 G o--o    +--+--o D
@@ -666,9 +678,25 @@ G o--o    +--+--o D
             vDS≥vOV (saturation)
 ```
 
+- The voltage-controlled current source is shunted by a resistor, ro.
+
 ## 5.2.5 Characteristics of the p-channel MOSFET
+
 > It's the opposite to NMOS. If you know how FET works, it shouldn't be hard to convert the concepts in NMOS to PMOS.
 
+Terminal:
+
+- Drain: drain of **holes**, instead of electrons
+  - Negatively charged
+- Source: source of holes, instead of electrons
+- Gate: gate to attract holes, a positive channel
+  - Negatively charged.
+
+> Terminal polarities are completely reverse
+
+> All the equations are the same.
+
 # 5.4 Technology Scaling (Moore's Law) and Other Topics
+
 > Astelor: I'm not quite sure what I should do with this chapter
 

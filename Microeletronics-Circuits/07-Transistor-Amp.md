@@ -13,6 +13,7 @@
     - [7.1.5s MOSFET case](#715s-mosfet-case)
     - [7.1.5s BJT case](#715s-bjt-case)
   - [7.1.6 Determining the VTC by Graphical Analysis](#716-determining-the-vtc-by-graphical-analysis)
+  - [7.1.7 Deciding on a Location for the Bias Point Q](#717-deciding-on-a-location-for-the-bias-point-q)
 
 # Keys
 ehhhhh
@@ -271,7 +272,7 @@ $$v_{BE}(t)=V_{BE}+v_{be}(t)$$
 
 ## 7.1.5 The Small-Signal Voltage Gain
 
-> Signal but smol.
+> Gain of small signal.
 
 ### 7.1.5s MOSFET case
 
@@ -325,7 +326,6 @@ Observations to the voltage gain:
 > - Voltage gain is the VTC slope tangent
 > - Voltage gain is negative
 > - Eq. (7.15) :)
-
 
 > Additional insights by tweaking the equations:
 
@@ -447,19 +447,40 @@ Graphical Analysis:
 - For each value of vGS
 - → It has a plot of iD-vDS
 - Load line slope (-1/RD)
+- VDD is a constant, vDS is the output
+
+> For each change of vGS, the a new line of iD-vDS can be plotted. And the new iD-vDS line corresponds with the new vGS will intersect with the load line.
+>
+> Vt (threshold voltage) < VGS (bias voltage) < VDD
 
 ![7.1.6-7.7](attachments/7.1.6-7.7.png)
 
 Intersection of load line: 
 - Point A → vGS = Vt
+  - On saturation and cutoff boundary.
 - Point Q → amplifier operation
+  - In saturation region.
 - Point B → vGS = VGS|B
+  - On triode and saturation boundary.
 - Point C → vGS = VDD
+  - In triode region.
 
 > Astelor: Wait this considers channel-length modulation? ([iD-vDS characteristic](05-MOSFET.md/#522s-graph)), ([finite output resistance](05-MOSFET.md/#524-finite-output-resistance-in-saturation))
 
 
 ![7.1.6-7.8](attachments/7.1.6-7.8.png)
 
-> Astelor: what is this
+At point A:
+- Used as a open switch (give voltage = on)
+
+At point C:
+- Used as a close switch (give more voltage = off)
+- Transistor operates as a low-valued resistance rDS
+- Has a small voltage drop.
+- → The incremental resistance is the **closure resistance**.
+
+> Astelor: what is this.
+> Astelor: Do I need to calculate the voltage or current at triode region?
+
+## 7.1.7 Deciding on a Location for the Bias Point Q
 

@@ -30,3 +30,7 @@
 > And everyone can calculate stuff provided the adequate equations.
 
 Microelectronic circuit really is mostly about voltages and currents, it's a tad hard to think about it logically while all you see are equations and schematics.
+
+[NPNBJT](attachments/NPN_BJT_Basic_Operation_(Active)_jP.svg)
+
+By Jp314159 - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=78389923
