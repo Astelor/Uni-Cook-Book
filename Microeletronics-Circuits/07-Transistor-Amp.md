@@ -25,6 +25,8 @@
     - [7.2.2-1 Dc Bias Point](#722-1-dc-bias-point)
     - [7.2.2-2 Collector Current and the Transconductance](#722-2-collector-current-and-the-transconductance)
     - [7.2.2-3 The Base Current and the Input Resistance at the Base](#722-3-the-base-current-and-the-input-resistance-at-the-base)
+    - [7.2.2-4 The Emitter Current and the Input Resistance at the Emitter](#722-4-the-emitter-current-and-the-input-resistance-at-the-emitter)
+    - [7.2.2-5 The Voltage gain](#722-5-the-voltage-gain)
 
 # Keys
 ehhhhh
@@ -821,7 +823,7 @@ $$i_b=\frac {g_m}{\beta}v_{be}$$
 
 `(7.67)`
 
-The small-signal input resistance between base and emitter, looking into the base
+The small-signal **input resistance** between base and emitter, looking into the base
 
 $$r_{\pi} ≡ \frac {v_{be}}{i_b}$$
 
@@ -832,3 +834,75 @@ $$r_{\pi} = \frac{\beta}{g_m}$$
 `(7.69)`
 
 $$r_{\pi} = \frac {\beta V_T}{I_C} = \frac {V_T}{I_B}$$
+
+### 7.2.2-4 The Emitter Current and the Input Resistance at the Emitter
+
+$$i_E = \frac {i_C}{\alpha} = \frac {I_C}{\alpha}+\frac {i_c}{\alpha} = \frac {I_C}{\alpha} + \frac 1\alpha \frac {I_C}{V_T}v_{be}$$
+
+`(7.70)`
+
+$$i_E = I_E + i_e$$
+
+`(7.71)`
+
+$$i_e = \frac {I_C}{\alpha V_T}v_{be} = \frac {I_E}{V_T} v_{be}$$
+
+`(7.72)`
+
+small-signal resistance between base and emitter looking into the emitter:
+
+$$r_e ≡ \frac {v_{be}} {i_e} $$
+
+`(7.73)`
+
+**Emitter resistance**
+
+$$r_e = \frac {V_T}{I_E}$$
+
+`(7.74)`
+
+$$r_e = \frac {\alpha}{g_m} ≃ \frac {1}{g_m}$$
+
+
+$$v_{be} = r_{\pi} i_b = r_e i_e$$
+
+$$r_{\pi} = \frac {i_b}{i_e} r_e$$
+
+`(7.75)`
+
+$$r_{\pi} = (\beta + 1) r_e$$
+
+### 7.2.2-5 The Voltage gain
+
+The total collector voltage:
+
+`(7.76)`
+
+$$
+\begin{align*}
+v_{CE} &= V_{CC} - i_C R_C \\
+       &= V_{CC} - (I_C + i_c) R_C \\
+       &= (V_{CC} - I_C R_C) - i_c R_C \\
+       &= V_{CE} - i_c R_C
+\end{align*}
+$$
+
+`(7.77)`
+
+Signal voltage vbe
+
+$$
+\begin{align*}
+v_{ce} &= -i_c R_C = -g_mv_{be} R_C \\
+       &= -(g_m R_C) v_{be}
+\end{align*}
+$$
+
+`(7.78)`
+
+$$A_v ≡ \frac {v_{ce}}{v_{be}} = -g_m R_C$$
+
+`(7.79)`
+
+$$A_v = -\frac {I_C R_C } {V_T}$$
+
