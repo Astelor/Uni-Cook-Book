@@ -24,6 +24,7 @@
   - [7.2.2 The BJT Case](#722-the-bjt-case)
     - [7.2.2-1 Dc Bias Point](#722-1-dc-bias-point)
     - [7.2.2-2 Collector Current and the Transconductance](#722-2-collector-current-and-the-transconductance)
+    - [7.2.2-3 The Base Current and the Input Resistance at the Base](#722-3-the-base-current-and-the-input-resistance-at-the-base)
 
 # Keys
 ehhhhh
@@ -756,3 +757,78 @@ $$V_{CE} = V_{CC} - R_C I_C$$
 
 $$v_{BE} = V_{BE} + v_{be}$$
 
+The collector current becomes:
+
+$$
+\begin{align*}
+i_C &= I_S e^{v_{BE}/V_T} = I_S e^{V_{BE} + v_{be}/V_T} \\
+    &= I_S e^{V_{BE}/V_T}e^{v_{be}/V_T}
+\end{align*}
+$$
+
+`(7.56)`
+
+$$i_C = I_C e^{v_{be}/V_T}$$
+
+`(7.57)`
+
+If vbe ≪ VT, Eq. (7.56) can be approximated as:
+
+$$i_C ≃ I_C (1+ \frac {v_{be}} {V_T})$$
+
+`(7.58)`
+
+- **small-signal approximation**
+- → vbe ≪ VT
+
+`(7.59)`
+
+$$i_C = I_C + \frac{I_C}{V_T} v_{be}$$
+
+`(7.60)`
+
+$$i_c = \frac{I_C}{V_T} v_{be}$$
+
+`(7.61)`
+
+$$i_c = g_m v_{be}$$
+
+`!(7.62)`
+
+$$g_m = \frac {I_C}{V_T}$$
+
+`(7.63)`
+
+$$g_m = \frac{∂ i_c} {∂v_{BR}} | _ { i_c = I_C }$$
+
+### 7.2.2-3 The Base Current and the Input Resistance at the Base
+
+Total instantaneous base current:
+
+$$i_B = \frac {i_c}{\beta} = \frac{I_C}{\beta} + \frac 1\beta \frac {I_C}{V_T}v_{be}$$
+
+`(7.64)`
+
+$$i_B = I_B + i_b$$
+
+`(7.65)`
+
+$$I_B = \frac{I_C}{\beta}$$
+
+`(7.66)`
+
+$$i_b=\frac {g_m}{\beta}v_{be}$$
+
+`(7.67)`
+
+The small-signal input resistance between base and emitter, looking into the base
+
+$$r_{\pi} ≡ \frac {v_{be}}{i_b}$$
+
+`(7.68)`
+
+$$r_{\pi} = \frac{\beta}{g_m}$$
+
+`(7.69)`
+
+$$r_{\pi} = \frac {\beta V_T}{I_C} = \frac {V_T}{I_B}$$
