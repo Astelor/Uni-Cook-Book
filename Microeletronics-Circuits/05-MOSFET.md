@@ -434,17 +434,20 @@ iS=iD↓| =============  |↑ iD
 ```
 
 $$v_{GS}≤V_{tp}<0$$
+
 $$|v_{SG}|≥|V_{tp}|$$
 
 - Vtp: threshold voltage for PMOS by convention is **negative**
 
 $$k_p'=μ_pC_{ox}$$
+
 $$k_p=k_n'(W/L)$$
 
 - μp: mobility of the holes in the induced p-channel (μp=0.25μn ~ 0.5μn)
   - is process-technology dependent
 
 ## 5.1.8 Complementary MOS or CMOS
+
 > NMOS + PMOS = CMOS, most widely used of all the IC technologies in both analog and digital circuits
 
 ![5.1.8-5.10](attachments/5.1.8-5.10.png)
@@ -455,6 +458,7 @@ $$k_p=k_n'(W/L)$$
 > how and why CMOS though?
 
 # 5.2 Current-Voltage Characteristics
+
 > Static characteristics → measured at dc or low frequencies
 
 > The dynamic effects will be discussed in chapter 10.
@@ -522,7 +526,7 @@ G--||
 ### 5.2.2s Graph
 
 
-- vOV=vGS-Vtn
+- vOV = vGS - Vtn
 - → Treating vOV as a constant in each iteration of the functions. 
 - The "points" where MOSFET enters saturation region (vDS=vOV) can be described by Eq. (5.20)
   - → The dotted line in the graph below.

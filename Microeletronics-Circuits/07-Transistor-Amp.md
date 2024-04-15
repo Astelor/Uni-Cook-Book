@@ -14,6 +14,16 @@
     - [7.1.5s BJT case](#715s-bjt-case)
   - [7.1.6 Determining the VTC by Graphical Analysis](#716-determining-the-vtc-by-graphical-analysis)
   - [7.1.7 Deciding on a Location for the Bias Point Q](#717-deciding-on-a-location-for-the-bias-point-q)
+- [7.2 Small-Signal Operation and Models](#72-small-signal-operation-and-models)
+  - [7.2.1 The MOSFET Case](#721-the-mosfet-case)
+    - [7.2.1-1 DC Bias Point](#721-1-dc-bias-point)
+    - [7.2.1-2 Signal Current in the Drain Terminal](#721-2-signal-current-in-the-drain-terminal)
+    - [7.2.1-3 Voltage Gain](#721-3-voltage-gain)
+    - [7.2.1-4 Small-Signal Equivalent-Circuit Models](#721-4-small-signal-equivalent-circuit-models)
+    - [7.2.1-5 The Transconductance gm](#721-5-the-transconductance-gm)
+  - [7.2.2 The BJT Case](#722-the-bjt-case)
+    - [7.2.2-1 Dc Bias Point](#722-1-dc-bias-point)
+    - [7.2.2-2 Collector Current and the Transconductance](#722-2-collector-current-and-the-transconductance)
 
 # Keys
 ehhhhh
@@ -483,4 +493,266 @@ At point C:
 > Astelor: Do I need to calculate the voltage or current at triode region?
 
 ## 7.1.7 Deciding on a Location for the Bias Point Q
+
+Location for point Q:
+
+- Required gain
+- Desired signal swing
+
+MOSFET:
+
+- Cutoff → positive peak
+  - Not enough headroom
+- Triode region → negative peak
+  - Not enough legroom
+
+# 7.2 Small-Signal Operation and Models
+
+> Exploring the small-signal operation in greater detail
+
+## 7.2.1 The MOSFET Case
+
+Condition:
+
+- Apply bias voltage (VGS)
+- Superimpose input signal (vgs)
+  - → Total instantaneous voltage (VGS+vgs=vGS)
+- Output voltage → the drain voltage (vDS)
+
+### 7.2.1-1 DC Bias Point
+
+Condition:
+
+- Setting input signal (vgs) to zero
+- → Total instantaneous voltage (vGS) 
+  - = the bias voltage (VGS)
+- → Dc bias current (ID)
+- Neglecting channel-length modulation 
+  - → Assuming device parameter λ = 0
+
+Operation:
+
+- Overdrive voltage: $V_{OV} = V_{GS} - V_t$
+- Ensure saturation-region operation: $V_{DS} > V_{OV}$
+
+`(7.25)`
+
+Dc bias current (ID):
+
+$$I_D=\frac 12 k_n (V_{GS} - V_t)^2 = \frac 12 k_n V_{OV}^2$$
+
+`(7.26)`
+
+**Dc voltage** at the drain (VDS):
+
+$$V_{DS} = V_{DD} - I_D R_D$$
+
+### 7.2.1-2 Signal Current in the Drain Terminal
+
+Condition:
+
+- Apply input signal (vgs)
+- → Total instantaneous voltage (vGS) 
+  - = the bias voltage (VGS) + input signal (vgs)
+- → Total instantaneous drain current (iD)
+
+`(7.27)`
+
+Total instantaneous gate-to-source voltage:
+
+$$v_{GS} = V_{GS} + v_{gs}$$
+
+`(7.28)`
+
+Total instantaneous drain current:
+
+$$
+\begin{align*}
+i_D &= \frac 12 k_n ( V_{GS} + v_{gs} - V_t)^2 \\
+    &= \frac 12 k_n ( V_{GS} + V_t )^2 + k_n (V_{GS} - V_t)v_{gs} + \frac 12 k_n v_{gs}^2
+\end{align*}
+$$
+
+Observation to Eq. (7.28):
+
+- First term: Dc bias drain current (ID)
+- Second term: current component proportional to vgs
+  - recall kn → A/V^2
+- Third term: current component proportional to **vgs^2**
+  - Bad
+  - → Nonlinear distortion
+
+For the **nonlinear third term**:
+
+- To reduce nonlinear distortion
+  - → amplitude vgs small
+  - → third term ≪ second term
+- → The small-signal condition
+
+$$\frac 12 k_n v_{gs}^2 ≪ k_n (V_{GS} - V_t)v_{gs}$$
+
+
+`(7.29)`, Resulting in:
+
+$$v_{gs} ≪ 2 (V_{GS} - V_t)$$
+
+`(7.30)` Or equivalently: 
+
+$$v_{gs} ≪ 2 V_{OV}$$
+
+- If the **small-signal condition** is satisfied
+  - → The third term is negligible
+- → Expressing the the total instantaneous current (iD) as Eq. (7.31) 
+
+`(7.31)` 
+
+$$i_D ≃ I_D + i_d$$
+
+where
+
+$$i_d = k_n (V_{GS} - V_t ) v_{gs}$$
+
+
+`(7.32)`
+
+MOSFET transconductance gm:
+
+$$g_m ≡ \frac {i_d} {v_{gs}} = k_n (V_{GS} - V_t)$$
+
+`(7.33)`
+
+$$g_m = k_n V_{OV}$$
+
+`(7.34)`
+
+gm = slope of the iD-vGS characteristic at the bias point
+
+$$g_m ≡ \frac {∂ i_D}{∂ v_{gs}} |_ {v_{GS}=V_{GS}} $$
+
+
+### 7.2.1-3 Voltage Gain
+
+Expressing the total instantaneous drain voltage:
+
+$$v_{DS} = V_{DD} - R_D i_D$$
+
+$$v_{DS} = V_{DD} - R_D (I_D + i_d)$$
+
+$$v_{DS} = V_{DS} - R_D i_d$$
+
+`!(7.35)`
+
+Signal component of the drain voltage (vds):
+
+$$v_{ds} = -i_d R_D = -g_m v_{gs} R_D$$
+
+`(7.36)`
+
+Voltage gain is given by:
+
+$$A_v ≡ \frac {v_{ds}}{v_{gs}} = - g_m R_D$$
+
+- Output signal (vds) is 180° out of phase with input signal (vgs)
+
+### 7.2.1-4 Small-Signal Equivalent-Circuit Models
+
+- Voltage-controlled current source
+- Input resistance: ideally infinite
+- Output resistance: high (assume infinite)
+  - → The resistance looking into the drain
+
+
+`(7.37)`
+
+**[Finite resistance](05-MOSFET.md/#524-finite-output-resistance-in-saturation)** ro:
+
+$$r_o = \frac {|V_A|} {I_D}$$
+
+- VA: Early voltage = 1/λ
+  - → specified or measured
+  - → proportional to channel-length
+  - λ: device parameter used in channel-length modulation
+
+`(7.38)`
+
+Dc drain current (ID) without the channel-length modulation:
+
+$$I_D = \frac 12 k_n V_{OV}^2$$
+
+- ro : 10kΩ ~ 1000kΩ
+- Including ro in parallel with the controlled source
+  - → Accounting for the channel-length modulation
+
+![7.2.1-7.13](attachments/7.2.1-7.13.png)
+
+`(7.39)`
+
+Voltage gain from:
+- Replace the transistor with the small-signal model
+- Eliminating the dc sources
+
+$$A_v = \frac {v_{ds}} {v_{gs}} = -g_m (R_D || r_o)$$
+
+> Eq. (7.36) with channel-length modulation
+>
+> The voltage-controlled current source (gm * vgs) is shunted by the finite resistance (ro).
+
+![7.2.1-7.14](attachments/7.2.1-7.14.png)
+
+### 7.2.1-5 The Transconductance gm
+
+`!(7.40)`
+
+$$g_m = k_n' (W/L) ( V_{GS}-V_t ) = k_n' (W/L) V_{OV}$$
+
+gm is proportional to...
+
+- The process transconductance (kn')
+  - $k_n' = μ_n C_{ox}$ (A/V^2)
+- Aspect ratio (W/L)
+  - Large transconductance
+  - → W large L small (device short and wide)
+- Overdrive voltage (VOV)
+  - VOV = VGS - Vt
+
+`(7.41)`
+
+Substituting $\sqrt{2I_D / (k_n'(W/L))}$ from Eq.(7.25) for VOV in Eq.(7.40)
+
+$$g_m = \sqrt{2 k_n'} \sqrt{W/L} \sqrt{I_D}$$
+
+1. For a given MOSFET, gm is proportional to the square root of the dc bias current.
+2. At a given bias current,gm is proportional to $\sqrt{W/L}$
+
+`(7.42)`
+
+Substituting $k_n'(W/L)$ by $2 I_D / (V _{GS} - V_t)^2$
+
+$$g_m = \frac {2 I_D}{V_{GS} - V_t} = \frac {2 I_D}{V_{OV}} =  \frac{I_D}{V_{OV}/2}$$
+
+## 7.2.2 The BJT Case
+
+![7.2.2-7.21](attachments/7.2.2-7.21.png)
+
+### 7.2.2-1 Dc Bias Point
+
+`(7.52)`
+
+$$I_C = I_S e^{v_{BE}/V_T}$$
+
+`(7.53)`
+
+$$I_E = I_C/ \alpha$$
+
+`(7.54)`
+
+$$I_B = I_C/ \beta$$
+
+`(7.55)`
+
+$$V_{CE} = V_{CC} - R_C I_C$$
+
+### 7.2.2-2 Collector Current and the Transconductance
+
+$$v_{BE} = V_{BE} + v_{be}$$
 
