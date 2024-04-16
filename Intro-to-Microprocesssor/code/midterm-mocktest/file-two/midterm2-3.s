@@ -41,7 +41,7 @@ end_swap
 			; (2)-(b) transmit with tally
 			LDR		r1, =DATA1		; string starting address
 			ADD		r1, #6
-			MOV		r2, #10			; tally (11)
+			MOV		r2, #10			; tally (10)
 Loop2
 			LDRB	r10, [r1], #1	; transmit 10 characters
 			CMP		r2, #0
@@ -51,7 +51,7 @@ Loop2
 
 			; (2)-(c)
 			LDR		r1, =DATA2
-			MOV		r2, #15			; tally (20)
+			MOV		r2, #20			; tally (20)
 Loop4		
 			BL		Receive
 			STRB	r0, [r1], #1    ; output
