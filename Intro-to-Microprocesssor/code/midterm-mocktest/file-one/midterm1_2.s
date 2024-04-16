@@ -15,7 +15,7 @@ done 	B		done
 ; r6 - scratch
 
 Compute
-		STMDA	sp!, {r5, r6, LR}	; descending stack
+		STMDB	sp!, {r5, r6, LR}	; empty descending stack
 		; (a)
 		MOV		r5, r0 			; make a copy of r0
 		ROR		r5, #16			; rotate r5 by 4 bytes
@@ -34,6 +34,6 @@ Compute
 		LDR		r5, =0x8300
 		EOR		r0, r5			; change bits 8 9 15 of r0
 
-		LDMIB	sp!, {r5, r6 ,PC}
+		LDMIA	sp!, {r5, r6 ,PC}
 
 		END

@@ -32,16 +32,16 @@ ADD1	EQU 	0x40000060
 		; (e)
 		MOV		r2, r1			; make a copy of ADD1
 		ADD		r2, #0xC
-		STMDA	r2, {r4-r7}
+		STMDA	r2, {r4-r7}		; decrease "after"
 		
 		; (f)
 		MOV		r2, r1			; make a copy of ADD1
 		ADD		r2, #0x10
-		STMDB	r2, {r4-r7}
+		STMDB	r2, {r4-r7}		; decrease "before"
 		
 		; (g)
 		MOV		r2, r1			; make a copy of ADD1
-		STMIA	r2, {r4-r7}
+		STMIA	r2, {r4-r7}		; increase "after"
 		
 		; (h)
 		MOV		r2, r1			; make a copy of ADD1

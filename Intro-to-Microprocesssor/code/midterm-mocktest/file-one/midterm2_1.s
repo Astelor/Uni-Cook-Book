@@ -13,7 +13,7 @@ done        B       done
 
 ; Subroutine: UARTConfig
 UARTConfig
-            STMDA   sp, {r5, r6, r7, LR}	; empty descending stack
+            STMDB   sp!, {r5, r6, r7, LR}	; empty descending stack
 			; (a)
             LDR     r5, =PINSEL0    ; base address of register
 			LDR     r6, [r5]        ; get contents
@@ -29,6 +29,7 @@ UARTConfig
 			; (c)
 			MOV     r6, #208        ; 9600 baud @32 MHz VPB clock
             STRB    r6, [r5]        ; store control byte
+			; not closing the DLAB yet
 			; divisor = f/(16 x baud). f = divisor x 16 x actual baud
 
 			; (c) - frequency calculation
@@ -50,9 +51,11 @@ divide		SUBS	r5, r7			; frequency dividings
 			LDR     r5, =U0START
 			STRB    r6, [r5]        ; store control byte
 			
-			MOV     r6, #3          ; set DLAB=0, (close latch)
-            STRB    r6, [r5, #LCR0] ; Tx and Rx buffers set up
+			MOV     r6, #0x13       ; 0x93-0x80 set DLAB=0, (close latch)
+            STRB    r6, [r5, #LCR0] ; store control byte
             
-			LDMDA   sp, {r5, r6, r7, PC}
+			LDMIA   sp!, {r5, r6, r7, PC}
+			; empty -> stack pointer itself is empty
+			; full -> stack pointer is not empty
 
             END
