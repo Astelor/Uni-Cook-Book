@@ -1,5 +1,7 @@
 # Scrap 2, electro-boogaloo
 
+## Reverse
+
 ```assembly
 			; (1) reversely
 			LDR		r1, =DATA1		; address of copied data
@@ -50,6 +52,8 @@ Loop
 			BLNE 	Transmit
 			BNE 	Loop
 ```
+
+## STACK
 
 - full descending stack
 
