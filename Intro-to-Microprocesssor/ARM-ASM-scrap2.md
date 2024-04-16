@@ -1,9 +1,5 @@
 # Scrap 2, electro-boogaloo
 
-divisor = f / (16 x baud). 
-
-f = divisor x 16 x actual baud
-
 ## Reverse
 
 ```assembly
@@ -48,14 +44,42 @@ copyloop2	                        ; make a copy of CharData
 - Transmit
 - remember to change the Loop label
 
+
+```
+			LDR		r1, =StudentData; string starting address
+			MOV		r2, #11			; tally (11)
+Loop2
+			LDRB	r10, [r1], #1	; transmit 11 characters (411440117)
+			CMP		r2, #0
+			SUBNE	r2, #1
+			BLNE	Transmit
+			BNE		Loop2
+```
+
+- can be used for normal string too
 ```assembly
 			LDR		r1, =DATA1		; address of the reversed string
 Loop		
 			LDRB	r10, [r1], #1	; transmit the reversed string
-			CMP		r10, #0
+			CMP		r10, #0			; null terminated
 			BLNE 	Transmit
 			BNE 	Loop
 ```
+
+- Receive with tally
+
+```
+			; (4) receive 15 characters
+			LDR		r1, =DATA3		; starting address for storing
+			MOV		r2, #15			; tally (15)
+Loop4		
+			BL		Receive
+			STRB	r4, [r1], #1	; output r4
+			SUBS	r2, #1
+			BNE		Loop4
+```
+
+
 
 ## STACK
 
@@ -99,4 +123,20 @@ wait
             BEQ     wait            ; spin until buffer's empty
             STRB    r10, [r5]
             LDMDB   sp, {r5, r6, r7, PC}
+```
+
+```
+; Sunroutine : Receive
+; input: none
+; output: r0
+
+Receive     
+            STMIB   sp, {r5, r6, LR}
+            LDR     r5, =U0START
+wait1
+            LDRB    r6, [r5, #LSR0] ; get status of buffer
+            TST     r6, #1          ; data ready!
+            BEQ     wait1           ; wait until data ready
+            LDRB    r0, [r5]		; output register
+            LDMIB   sp, {r5, r6, PC}
 ```
