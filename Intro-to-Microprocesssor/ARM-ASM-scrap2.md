@@ -1,5 +1,9 @@
 # Scrap 2, electro-boogaloo
 
+divisor = f / (16 x baud). 
+
+f = divisor x 16 x actual baud
+
 ## Reverse
 
 ```assembly

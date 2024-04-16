@@ -41,7 +41,7 @@ divide		SUBS	r5, r7			;
 			
 			LDR     r5, =U0START
 			STRB    r6, [r5]        ; store divisor byte
-			MOV		r6, #0x2		; DLAB = 0
+			MOV		r6, #0x2		; 0x82-0x80 DLAB = 0
 			STR		r6, [r5, #LCR0]	; close DLAB
 			
 			; (b) - actual frequency
