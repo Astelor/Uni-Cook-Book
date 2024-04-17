@@ -20,3 +20,7 @@ By Euler's equation:
 
 $$x(t)=A\cos(2π\cdot f\cdot t+ϕ)+jA\sin(2π\cdot f\cdot t+ϕ)$$
 
+## Identities
+
+$$\cos(θ ± φ) = \cos (θ)\cos (φ) ∓ \sin (θ) \sin(φ)$$
+
