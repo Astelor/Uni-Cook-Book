@@ -12,9 +12,9 @@ My notes on a wargame called Bandit.
 
 bandit.labs.overthewire.org:2220
 
-# Bandit5
+> **TO ASTELOR: FORMER PASSWORDS SHOULD BE DELETED**, the only password present should be your where your progress is.
 
-> password: lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR
+# Bandit5
 
 ```
 Puzzle requirements:
@@ -94,8 +94,6 @@ And there you have it! NEXT LEVEL
 
 # Bandit6
 
-> password: P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU
-
 ```
 Requirements:
 	owned by user bandit7
@@ -126,13 +124,11 @@ Imma try pipelining it and do other stuff to clean it up.
 
 = Second try: =
 > Command crafting...
-> find / -type f -size 33c -user bandit7 -group bandit6 2>/dev/null | cat
+> find / -type f -size 33c -user bandit7 -group bandit6 2>/dev/null
 
 It now gives you the desired file directory. 
 
 # Bandit7
-
-> password: z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
 
 ```
 Requirements:
@@ -149,8 +145,6 @@ as simple as that!
 
 # Bandit8
 
-> password: TESKZC0XvTetK0S9xNwm25STk5iWrBvP
-
 ```
 Puzzle:
 "the only line of text that occurs only once"
@@ -161,6 +155,60 @@ I guess I can count the number of each entries?
 
 [Piping and Redirection](https://ryanstutorials.net/linuxtutorial/piping.php)
 
+I want a single command that does what I want maaaaaaaan.
 
+Is there a thing that tracks all occurences with a variable in linux bash like I can do in C++?
+
+Traversing each lines in the file. Upon each new lines, traverse the known texts file, if the "newline" is a new occurance, append it to the known text file.
+
+Wait you can sort lines of text??
+
+Alright there are commands in place to help me with stuffs, I don't have to write everything from scratch. POG
+
+## 8-Use sort
+
+sort lines of text files
+
+## 8-Use uniq
+
+report or omit repeated lines
+
+`-c, --count`
+
+prefix lines by the number of occurrences
+
+`-i, --ignore-case`
+
+ignore differences in case when comparing
+
+`-u, --unique`
+
+only print unique lines
+
+> The commands give the result using standard output, like the command echo.
+> So I should be able to pipleline them.
+
+= First try =
 > Command crafting...
-> 
+> uniq data.txt | sort
+
+Bruh I eyed the password out, doesn't count.
+
+= Second try =
+> Command crafting...
+> sort data.txt | uniq -c | sort
+
+- You need to sort the text file first for `uniq -c` to work properly.
+- The password is the one with a prefix of 1.
+
+# Bandit9
+
+> password: EN632PlfYiZbn3PhVK3XOGSlNInNE00t
+
+```
+Puzzle:
+- In the file data.txt
+- One of the human-readable strings
+- Preceded by several '=' characters
+```
+
