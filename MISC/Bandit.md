@@ -203,8 +203,6 @@ Bruh I eyed the password out, doesn't count.
 
 # Bandit9
 
-> password: EN632PlfYiZbn3PhVK3XOGSlNInNE00t
-
 ```
 Puzzle:
 - In the file data.txt
@@ -212,3 +210,56 @@ Puzzle:
 - Preceded by several '=' characters
 ```
 
+## 9-Use strings
+
+Print the sequences of printable characters in files.
+
+> Command crafting...
+> strings data.txt | grep '==='
+
+# Bandit10
+
+```
+Puzzle:
+- In the file data.txt
+- Which contains base64 encoded data
+```
+
+## 10- Use base64
+
+Base64 encode/decode data and print to standard output
+
+The command is 
+
+`-d, --decode`
+
+> Command crafting...
+> cat data.txt | base64 -d
+
+# Bandit11
+
+```
+Puzzle:
+- In the file data.txt
+- ROT13
+```
+
+## 11-Use tr
+
+Translate or delete characters
+
+> Command crafting...
+> cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+
+Map upper case A-Z to N-ZA-M and lower case a-z to n-za-m
+
+# Bandit12
+
+> password: JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
+
+```
+Puzzle:
+- In data.txt
+- Hexdump of a file
+  - Repeatedly compressed
+```
