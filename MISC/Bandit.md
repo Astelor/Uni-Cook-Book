@@ -255,11 +255,60 @@ Map upper case A-Z to N-ZA-M and lower case a-z to n-za-m
 
 # Bandit12
 
-> password: JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv
-
 ```
 Puzzle:
 - In data.txt
-- Hexdump of a file
-  - Repeatedly compressed
+"A hexdump of file that has been repeatedly compressed."
 ```
+
+## 12-Use xxd
+
+Make a hex dump or do the reverse.
+
+`-r, -revert`
+
+Reverse Operation: convert (or patch) hex dump into binary.
+
+## 12-Use gzip
+
+`-d, --decompress, --uncompress`
+
+- Magic number at the header can determine which compressing method a compressed hex used (?)
+- [List of file signatures](https://en.wikipedia.org/wiki/List_of_file_signatures)
+
+
+> Command crafting...
+
+I copied the hexdump to my local machine, since ssh is kinda laggy.
+
+- magic numbers:
+	- gzip: `1F 8B`
+	- bzip2: `42 5A 68`
+
+> xxd -r data.txt > bandit12.xd
+
+> gzip -dck bandit12.xd
+
+> dd if=right3 of=right3-extract bs=1 skip=1024 count=224
+
+
+Basically, it's just first `xxd -revert` the data.txt to binary file, which is the file that the machine can read.
+
+And uses pipeline, `| xxd` to read the human-readable hexdump when inspecting the magic numbers (file signature) which is a header.
+
+Decompressing the file with it's respective compress-tool (gzip or bzip2 in this case).
+
+In the last two case, the header is replaced by something funny. You need to use `dd` to extract the parts with gzip or bzip2 headers.
+
+(It's so annoying I don't wanna do it again. bandit12.txt should be on your local machine)
+
+# Bandit13
+
+> password: wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
+
+```
+Puzzle:
+The password for the next level is stored in /etc/bandit_pass/bandit14 and can only be read by user bandit14. For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level. Note: localhost is a hostname that refers to the machine you are working on
+```
+
+WHAT??
