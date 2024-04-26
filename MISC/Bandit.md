@@ -12,7 +12,10 @@ My notes on a wargame called Bandit.
 
 bandit.labs.overthewire.org:2220
 
-> **TO ASTELOR: FORMER PASSWORDS SHOULD BE DELETED**, the only password present should be your where your progress is.
+> so apparently git keeps all the history, huh.
+>
+> And apparently they change the password regularly, the password in there may not be valid after a year.
+> But still, please kindly frick off.
 
 # Bandit5
 
@@ -304,11 +307,224 @@ In the last two case, the header is replaced by something funny. You need to use
 
 # Bandit13
 
-> password: wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw
-
 ```
 Puzzle:
-The password for the next level is stored in /etc/bandit_pass/bandit14 and can only be read by user bandit14. For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level. Note: localhost is a hostname that refers to the machine you are working on
+The password for the next level is stored in /etc/bandit_pass/bandit14 and can only be read by user bandit14. 
+
+For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level.
+
+Note: localhost is a hostname that refers to the machine you are working on
 ```
 
 WHAT??
+Relavent readings: https://help.ubuntu.com/community/SSH/OpenSSH/Keys
+
+SSH keys:
+> Public and private key encryting technique is used in different applications. (i.e. TLS/SSL(Transport Layer Security/Secure Sockets Layer)) not just SSH.
+- Public keys
+- Private keys
+
+> I get a private key that can log into the level? howtf do I use a private key to log ssh?
+
+SSH can either use
+- RSA key: (Rivest-Shamir-Adleman)
+- DSA key: (Digital Signature Algorithm)
+
+## Key-based SSH logins
+
+- Most secure of several mode of authentication usable with OpenSSH
+
+> Can you ssh to another user on the same "machine" (bandit.labs.overthewire.org)?
+> -- YES, you can ssh to another user on the same machine.
+>
+> So I just use the ssh private key to log into bandit14, and get its password at `/etc/bandit_pass/bandit14` ?
+
+## 13-Use ssh
+
+`-i` identity_file
+
+Selects a file from which the identity (private key) for public key authetication is read.
+
+Okay it needs to be done **on the bandit13**, not on my client.
+
+> Command: (on bandit13@bandit)
+> ssh -i sshkey.private bandit14@bandit.labs.overthewire.org -p 2220
+
+But how exactly tf does ssh work?
+
+# Bandit14
+
+```
+Puzzle:
+The password for the next level can be retrieved by submitting the password of the current level to port 30000 on localhost.
+```
+
+heh?
+
+Submit with what?? is there a command that can let me send stuff?
+
+with netcat?
+
+## 14-Use netcat (nc)
+
+TCP/IP swiss army knife
+
+"'nc host port' creasts a TCP connection to the given port on the given target host. Your standard input is then sent to the host, and anything that comes back across the connection is sent to your standard output."
+
+So, as simple as that? 
+Ok how tf do I use it then?
+
+> Command crafting...
+> nc localhost 30000
+> (and send the password through standard input)
+> (it'll spit out the result through standard output)
+
+# Bandit15
+
+> password: jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
+
+```
+Puzzle:
+The password for the next level can be retrieved by submitting the password of the current level to port 30001 on localhost using SSL encryption.
+```
+
+what??
+
+Do I send it with netcat? or can ssl send stuff as well?
+
+I never ran nmap to see what port the machine has before. maybe I shoud.
+
+## 15-Use openssl
+
+`s_client`
+
+This implements a generic SSL/TLS client which can establish a transparent connect to a remote server speaking SSL/TLS. It's intended for testing purposes only and provides only rudmentary interface functionality but internally uses mostly all functionality of the OpenSSL `ssl` library.
+
+> Command: openssl s_client -connect localhost:30001
+
+It gives a lot of info dump too, what are those?
+
+You can see the full options of `s_client` with `openssl s_client --help`
+
+# Bandit16
+
+> password: JQttfApK4SeyHwDlI9SXGR50qclOAil1
+
+```
+Puzzle:
+The credentials for the next level can be retrieved by submitting the password of the current level to a port on localhost in the range 31000 to 32000. 
+
+First find out which of these ports have a server listening on them. Then find out which of those speak SSL and which don’t. There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.
+```
+
+nmap I guess? but how do I ping only the ports in range?
+
+## 16-Use nmap
+
+bruh there are so many stuffs and configs.
+
+`-p, port ranges`
+
+This option specifies which ports you want to scan and overrides the default. Individual port numbers are OK, as are ranges separated by a hypen (e.g. 1-1023)
+
+Scan port range 31000~32000
+
+> You just need a dash, as simple as that.
+
+and what else? ssl? server?
+
+Do I just use `openssl s_client -connect localhost:port`?
+
+= Commands here! =
+> Command crafting...
+> nmap -sV -sC -p 31000-32000 localhost
+
+```
+31518/tcp open  ssl/echo
+| ssl-cert: Subject: commonName=localhost
+| Subject Alternative Name: DNS:localhost
+| Not valid before: 2024-04-25T21:07:55
+|_Not valid after:  2024-04-25T21:08:55
+
+31790/tcp open  ssl/unknown
+| fingerprint-strings:
+|   FourOhFourRequest, GenericLines, GetRequest, HTTPOptions, Help, Kerberos, LDAPSearchReq, LPDString, RTSPRequest, SIPOptions, SSLSessionReq, TLSSessionReq, TerminalServerCookie:
+|_    Wrong! Please enter the correct current password
+| ssl-cert: Subject: commonName=localhost
+| Subject Alternative Name: DNS:localhost
+| Not valid before: 2024-04-25T21:07:55
+|_Not valid after:  2024-04-25T21:08:55
+```
+
+> openssl s_client -connect localhost:31790
+
+Send the current level's password through standard input, it gives you the credentials through standard output.
+
+Save it (`touch` + `nano`) and CHANGE ITS PERMISSION
+
+> chmod 600 bandit17.key
+
+This change the file permission to read-write to owner. (the box forbids connecting with a key that has readable by everyone permission)
+
+> ssh -i /tmp/HardToGuessName/bandit17.key bandit17@bandit.labs.overthewire -p 2220
+
+# Bandit17
+
+> password: VwOSWtCA7lRKkTfbr2IDh6awj9RNZM5e
+
+```
+Puzzle:
+There are 2 files in the homedirectory: passwords.old and passwords.new. The password for the next level is in passwords.new and is the only line that has been changed between passwords.old and passwords.new
+
+NOTE: if you have solved this level and see ‘Byebye!’ when trying to log into bandit18, this is related to the next level, bandit19
+```
+So I need to compare the new files and see what's different
+
+## 17-Use diff
+
+Compare files line by line
+
+`-y --side-by-side`
+
+output in two columns
+
+> diff passwords.new passwords.old
+
+```
+< change-in-passwords.new
+---
+> counterpart-in-passwords.old
+```
+
+# Bandit18
+
+> password: hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg
+
+```
+Puzzle:
+The password for the next level is stored in a file readme in the homedirectory. Unfortunately, someone has modified .bashrc to log you out when you log in with SSH.
+```
+
+okay dude, how tf do I login without using ssh? and the hint are ssh, ls, cat.
+
+Are they forcing me to use other methods, other than ssh
+
+Alright nmap time I guess, time to discover available services
+
+nope there's no other services to connect to.
+
+## 18-Use ssh
+
+So apparently you can append a command behind ssh
+
+> ssh bandit18@bandit.labs.overthewire.org -p 2220 'cat readme'
+
+It executes the command and logs you out.
+
+> This means an automatic "logs you out" script won't save you from keeping your contents from intruders.
+> It means you're "in and out" lmao.
+
+# Bandit19
+
+> password: awhqfNnAbc1naukrpqDYcF95h7HoMTrC
+
