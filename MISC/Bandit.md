@@ -1,6 +1,6 @@
 # Bandit
 
-My notes on a wargame called Bandit.
+My notes on a wargame called [Bandit](https://overthewire.org/wargames/bandit).
 
 > Spoilers! 
 > **If you somehow find this file, and you're not Astelor, please kindly frick off :)**
@@ -528,3 +528,429 @@ It executes the command and logs you out.
 
 > password: awhqfNnAbc1naukrpqDYcF95h7HoMTrC
 
+```
+Puzzle:
+To gain access to the next level, you should use the setuid binary in the homedirectory. 
+
+Execute it without arguments to find out how to use it. The password for this level can be found in the usual place (/etc/bandit_pass), after you have used the setuid binary.
+```
+
+what the heck is setuid?
+
+UID (User Identifier). It's a unique identifier assigned to each user in a system.
+
+```
+aster:x:1000:1000",,,"/home/aster:/bin/bash
+```
+- username: `aster`
+- password: `x`
+- UID: `1000`
+- GID: `1000`
+- user info: `,,,`
+- home directory: `/home/aster`
+- login shell: `/bin/bash`
+
+I think you can `setuid` with chmod?
+
+so uhhh, it gives me this 
+```
+bandit19@bandit:~$ file bandit20-do
+bandit20-do: setuid ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, BuildID[sha1]=037b97b430734c79085a8720c90070e346ca378e, for GNU/Linux 3.2.0, not stripped
+```
+
+do I just run it? 
+YES you just run it
+
+> ./bandit20-do whoami
+It give you `bandit20`, which means it IS running the command `whoami` as another user, which is bandit20. 
+So now I just have to cat the password at `/ect/bandit_pass/bandit20` out as bandit20 the user.
+
+> ./bandit20-do cat /etc/bandit_pass/bandit20
+
+# Bandit20
+
+> password: VxCazJaVykI6W36BkBU0mJTCM8rR95XT
+
+```
+Puzzle:
+There is a setuid binary in the homedirectory that does the following: it makes a connection to localhost on the port you specify as a commandline argument. 
+
+It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). If the password is correct, it will transmit the password for the next level (bandit21).
+```
+
+So this one requires you to have two terminals, login as bandit20 on another terminal. 
+Port numbers range from 0 to 65535
+
+> nc -l 12345
+
+Start up netcat to listen to inbound connection on port 12345.
+
+Now type this command on another terminal as bandit20@bandit
+> ./suconnect 12345
+
+It will connect to localhost:12345
+
+Now you can enter the current password on the terminal that's listening to inbound connection. Upon entering the password, it will give you the password to the next level.
+
+# 20-Use tmux
+
+Terminal multiplexer: it enables a number of terminals to be created, accessed, and controlled from a single screen. tmux may be detached from a screen and continue runnig in the background, then later reattached.
+
+> So that you don't NEED to connect to the same host at once!
+
+# Bandit21
+
+> password: NvEJF7oVjkddltPSrdKEFOllh9V1IBcq
+
+```
+Puzzle:
+A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.
+```
+
+so it looks like this
+
+```
+bandit21@bandit:~$ ls -la /etc/cron.d
+total 56
+drwxr-xr-x   2 root root  4096 Oct  5  2023 .
+drwxr-xr-x 106 root root 12288 Oct  5  2023 ..
+-rw-r--r--   1 root root    62 Oct  5  2023 cronjob_bandit15_root
+-rw-r--r--   1 root root    62 Oct  5  2023 cronjob_bandit17_root
+-rw-r--r--   1 root root   120 Oct  5  2023 cronjob_bandit22
+-rw-r--r--   1 root root   122 Oct  5  2023 cronjob_bandit23
+-rw-r--r--   1 root root   120 Oct  5  2023 cronjob_bandit24
+-rw-r--r--   1 root root    62 Oct  5  2023 cronjob_bandit25_root
+-rw-r--r--   1 root root   201 Jan  8  2022 e2scrub_all
+-rwx------   1 root root    52 Oct  5  2023 otw-tmp-dir
+-rw-r--r--   1 root root   102 Mar 23  2022 .placeholder
+-rw-r--r--   1 root root   396 Feb  2  2021 sysstat
+```
+
+Wait I think I have permission to read them? cool
+
+The cron configs that have read permission to everyone (and are probably relavent)
+```
+bandit21@bandit:~$ cat /etc/cron.d/sysstat
+# The first element of the path is a directory where the debian-sa1
+# script is located
+PATH=/usr/lib/sysstat:/usr/sbin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# Activity reports every 10 minutes everyday
+5-55/10 * * * * root command -v debian-sa1 > /dev/null && debian-sa1 1 1
+
+# Additional run at 23:59 to rotate the statistics file
+59 23 * * * root command -v debian-sa1 > /dev/null && debian-sa1 60 2
+```
+
+```
+bandit21@bandit:~$ cat /etc/cron.d/e2scrub_all
+30 3 * * 0 root test -e /run/systemd/system || SERVICE_MODE=1 /usr/lib/x86_64-linux-gnu/e2fsprogs/e2scrub_all_cron
+10 3 * * * root test -e /run/systemd/system || SERVICE_MODE=1 /sbin/e2scrub_all -A -r
+```
+
+```
+bandit21@bandit:~$ cat /etc/cron.d/.placeholder
+# DO NOT EDIT OR REMOVE
+# This file is a simple placeholder to keep dpkg from removing this directory
+```
+
+Do I just assume those with comments are the ones I seek?
+
+
+Why are cron config files so hard to read??
+```
+# m h dom mon dow usercommand
+```
+
+what the heck, I'm gonna throw commands at it irresponsibly until it works 
+
+## 21-Use cron
+
+daemon to execute scheduled commands
+
+> `daemon` is a type of background process in Unix-like operating systems that runs continuously, typically without any direct user interaction.
+
+alright time to understand what in the world cron is:
+```
+* * * * * command_to_run
+- - - - -
+| | | | |
+| | | | +----- Day of week (0 - 7) (Sunday is 0 or 7)
+| | | +------- Month (1 - 12)
+| | +--------- Day of month (1 - 31)
+| +----------- Hour (0 - 23)
++------------- Minute (0 - 59)
+```
+
+Each asterisk `*` is a wildcard, meaning "every"
+
+Let's look at `/etc/cron.d/sysstat` first:
+
+```
+bandit21@bandit:~$ cat /etc/cron.d/sysstat
+# The first element of the path is a directory where the debian-sa1
+# script is located
+PATH=/usr/lib/sysstat:/usr/sbin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# Activity reports every 10 minutes everyday
+5-55/10 * * * * root command -v debian-sa1 > /dev/null && debian-sa1 1 1
+
+# Additional run at 23:59 to rotate the statistics file
+59 23 * * * root command -v debian-sa1 > /dev/null && debian-sa1 60 2
+```
+
+so `5-55/10` in the minute field means
+- `5-55` specifies a range from the 5th minute to the 55th minute of the hour
+- `/10` indicates the command should run every 10 minutes with in that range
+
+## 21-Use command
+
+Execute a simple command or display information about commands.
+
+use `command --help` to see more information about this command :). 
+
+And it's used to check the exisitence on that command without executing it.
+
+> HUH so I don't have to spam `man` everytime I wanna check if I have a specific thing installed.
+
+```
+bandit21@bandit:~$ ls -la /usr/lib/sysstat
+total 108
+drwxr-xr-x  2 root root  4096 Oct  5  2023 .
+drwxr-xr-x 87 root root  4096 Oct  5  2023 ..
+-rwxr-xr-x  1 root root   446 Feb  2  2021 debian-sa1
+-rwxr-xr-x  1 root root  1746 Jun  6  2023 sa1
+-rwxr-xr-x  1 root root  1572 Jun  6  2023 sa2
+-rwxr-xr-x  1 root root 87296 Jun  6  2023 sadc
+```
+
+```
+bandit21@bandit:~$ cat /usr/lib/sysstat/debian-sa1
+#!/bin/sh
+# vim:ts=2:et
+# Debian sa1 helper which is run from cron.d job, not to needlessly
+# fill logs (see Bug#499461).
+
+set -e
+
+# Skip in favour of systemd timer
+[ ! -d /run/systemd/system ] || exit 0
+
+# Our configuration file
+DEFAULT=/etc/default/sysstat
+# Default setting, overridden in the above file
+ENABLED=false
+
+# Read defaults file
+[ ! -r "$DEFAULT" ] || . "$DEFAULT"
+
+[ "$ENABLED" = "true" ] || exit 0
+
+exec /usr/lib/sysstat/sa1 "$@"
+```
+AHHHHHHHHHH this means there must be a file somewhere that I'm able to write
+
+oh wait I have execute permisison, and the last line passes a parameter to `sa1`
+
+sa1
+```
+bandit21@bandit:~$ cat /usr/lib/sysstat/sa1
+#!/bin/sh
+# /usr/lib/sysstat/sa1
+# (C) 1999-2020 Sebastien Godard (sysstat <at> orange.fr)
+#
+#@(#) sysstat-12.5.2
+#@(#) sa1: Collect and store binary data in system activity data file.
+#
+
+# Set default value for some variables.
+# Used only if ${SYSCONFIG_DIR}/${SYSCONFIG_FILE} doesn't exist!
+HISTORY=0
+SADC_OPTIONS=""
+SA_DIR=/var/log/sysstat
+SYSCONFIG_DIR=/etc/sysstat
+SYSCONFIG_FILE=sysstat
+UMASK=0022
+LONG_NAME=n
+
+[ -r ${SYSCONFIG_DIR}/${SYSCONFIG_FILE} ] && . ${SYSCONFIG_DIR}/${SYSCONFIG_FILE}
+
+umask ${UMASK}
+
+# If the user-supplied value for SA_DIR in sysconfig file is not a directory
+# then fall back on default directory. Create this default directory if it doesn't exist.
+[ -d ${SA_DIR} ] || SA_DIR=/var/log/sysstat
+[ -d /var/log/sysstat ] || mkdir /var/log/sysstat
+
+if [ ${HISTORY} -gt 28 ]
+then
+        SADC_OPTIONS="${SADC_OPTIONS} -D"
+        LONG_NAME=y
+fi
+
+ENDIR=/usr/lib/sysstat
+cd ${ENDIR}
+[ "$1" = "--boot" ] && shift && BOOT=y || BOOT=n
+[ "$1" = "--sleep" ] && shift && SLEEP=y || SLEEP=n
+
+ROTATE=n
+[ "$1" = "--rotate" ] && shift && ROTATE=y && [ "$1" = "iso" ] && shift && LONG_NAME=y
+if [ "${ROTATE}" = "y" ]
+then
+        if [ "${LONG_NAME}" = "y" ]
+        then
+                DATE=`date --date=yesterday +%Y%m%d`
+        else
+                DATE=`date --date=yesterday +%d`
+        fi
+        SA_DIR=${SA_DIR}/sa${DATE}
+fi
+
+if [ "${SLEEP}" = "y" ]
+then
+        exec ${ENDIR}/sadc -F -L ${SADC_OPTIONS} -C "LINUX SLEEP MODE ($*)" ${SA_DIR}
+elif [ $# = 0 ] && [ "${BOOT}" = "n" ]
+then
+# Note: Stats are written at the end of previous file *and* at the
+# beginning of the new one (when there is a file rotation) only if
+# outfile has not been explicitly specified on the command line...
+        exec ${ENDIR}/sadc -F -L ${SADC_OPTIONS} 1 1 ${SA_DIR}
+else
+        exec ${ENDIR}/sadc -F -L ${SADC_OPTIONS} $* ${SA_DIR}
+fi
+```
+
+sa2
+```
+bandit21@bandit:~$ cat /usr/lib/sysstat/sa2
+#!/bin/sh
+# /usr/lib/sysstat/sa2
+# (C) 1999-2020 Sebastien Godard (sysstat <at> orange.fr)
+#
+#@(#) sysstat-12.5.2
+#@(#) sa2: Write a daily report
+#
+S_TIME_FORMAT=ISO ; export S_TIME_FORMAT
+prefix=/usr
+exec_prefix=${prefix}
+SA_DIR=/var/log/sysstat
+SYSCONFIG_DIR=/etc/sysstat
+SYSCONFIG_FILE=sysstat
+HISTORY=7
+COMPRESSAFTER=10
+ZIP="xz"
+UMASK=0022
+ENDIR=
+DELAY_RANGE=0
+
+# Read configuration file, overriding variables set above
+[ -r ${SYSCONFIG_DIR}/${SYSCONFIG_FILE} ] && . ${SYSCONFIG_DIR}/${SYSCONFIG_FILE}
+
+umask ${UMASK}
+
+# Wait for a random delay if requested
+if [ ${DELAY_RANGE} -gt 0 ]
+then
+        RANDOM=$$
+        DELAY=$((${RANDOM}%${DELAY_RANGE}))
+        sleep ${DELAY}
+fi
+
+[ -d ${SA_DIR} ] || SA_DIR=/var/log/sysstat
+
+# if YESTERDAY=no then today's summary is generated
+if [ x$YESTERDAY = xno ]
+then
+        DATE_OPTS=
+else
+        DATE_OPTS="--date=yesterday"
+fi
+
+if [ ${HISTORY} -gt 28 ]
+then
+        DATE=`date ${DATE_OPTS} +%Y%m%d`
+else
+        DATE=`date ${DATE_OPTS} +%d`
+fi
+CURRENTFILE=sa${DATE}
+CURRENTRPT=sar${DATE}
+
+RPT=${SA_DIR}/${CURRENTRPT}
+DFILE=${SA_DIR}/${CURRENTFILE}
+if [ -z "${ENDIR}" ];
+then
+       ENDIR=${exec_prefix}/bin
+fi
+
+[ -f "${DFILE}" ] || exit 0
+cd ${ENDIR}
+if [ x${REPORTS} != xfalse ]
+then
+        ${ENDIR}/sar.sysstat "$@" -f ${DFILE} > ${RPT}
+fi
+
+SAFILES_REGEX='/sar?[0-9]{2,8}(\.(Z|gz|bz2|xz|lz|lzo))?$'
+
+find "${SA_DIR}" -type f -mtime +${HISTORY} \
+        | egrep "${SAFILES_REGEX}" \
+        | xargs   rm -f
+
+UNCOMPRESSED_SAFILES_REGEX='/sar?[0-9]{2,8}$'
+
+find "${SA_DIR}" -type f -mtime +${COMPRESSAFTER} \
+        | egrep "${UNCOMPRESSED_SAFILES_REGEX}" \
+        | xargs -r "${ZIP}" > /dev/null
+
+exit 0
+```
+
+The config files here
+```
+bandit21@bandit:/usr/lib/sysstat$ cat /etc/sysstat/sysstat
+# sysstat configuration file. See sysstat(5) manual page.
+
+# How long to keep log files (in days).
+# Used by sa2(8) script
+# If value is greater than 28, then use sadc's option -D to prevent older
+# data files from being overwritten. See sadc(8) and sysstat(5) manual pages.
+HISTORY=7
+
+# Compress (using xz, gzip or bzip2) sa and sar files older than (in days):
+COMPRESSAFTER=10
+
+# Parameters for the system activity data collector (see sadc(8) manual page)
+# which are used for the generation of log files.
+# By default contains the `-S DISK' option responsible for generating disk
+# statisitcs. Use `-S XALL' to collect all available statistics.
+SADC_OPTIONS="-S DISK"
+
+# Directory where sa and sar files are saved. The directory must exist.
+SA_DIR=/var/log/sysstat
+
+# Compression program to use.
+ZIP="xz"
+
+# By default sa2 script generates yesterday's summary, since the cron job
+# usually runs right after midnight. If you want sa2 to generate the summary
+# of the same day (for example when cron job runs at 23:53) set this variable.
+#YESTERDAY=no
+
+# By default sa2 script generates reports files (the so called sarDD files).
+# Set this variable to false to disable reports generation.
+#REPORTS=false
+
+# Tell sa2 to wait for a random delay in the range 0 .. ${DELAY_RANGE} before
+# executing. This delay is expressed in seconds, and is aimed at preventing
+# a massive I/O burst at the same time on VM sharing the same storage area.
+# Set this variable to 0 to make sa2 generate reports files immediately.
+DELAY_RANGE=0
+
+# The sa1 and sa2 scripts generate system activity data and report files in
+# the /var/log/sysstat directory. By default the files are created with umask 0022
+# and are therefore readable for all users. Change this variable to restrict
+# the permissions on the files (e.g. use 0027 to adhere to more strict
+# security standards).
+UMASK=0022
+```
+
+wait, if I LEARN what these shell scripts are in order to solve the puzzle, I can gain some knowledge about shell script and write one of my own. pog
