@@ -629,6 +629,8 @@ drwxr-xr-x 106 root root 12288 Oct  5  2023 ..
 Wait I think I have permission to read them? cool
 
 The cron configs that have read permission to everyone (and are probably relavent)
+
+etc/cron.d/sysstat
 ```
 bandit21@bandit:~$ cat /etc/cron.d/sysstat
 # The first element of the path is a directory where the debian-sa1
@@ -642,6 +644,7 @@ PATH=/usr/lib/sysstat:/usr/sbin:/usr/sbin:/usr/bin:/sbin:/bin
 59 23 * * * root command -v debian-sa1 > /dev/null && debian-sa1 60 2
 ```
 
+e2scrub_all:
 ```
 bandit21@bandit:~$ cat /etc/cron.d/e2scrub_all
 30 3 * * 0 root test -e /run/systemd/system || SERVICE_MODE=1 /usr/lib/x86_64-linux-gnu/e2fsprogs/e2scrub_all_cron
@@ -724,6 +727,7 @@ drwxr-xr-x 87 root root  4096 Oct  5  2023 ..
 -rwxr-xr-x  1 root root 87296 Jun  6  2023 sadc
 ```
 
+debian-sa1
 ```
 bandit21@bandit:~$ cat /usr/lib/sysstat/debian-sa1
 #!/bin/sh
@@ -819,6 +823,23 @@ else
         exec ${ENDIR}/sadc -F -L ${SADC_OPTIONS} $* ${SA_DIR}
 fi
 ```
+
+## 12- Use sadc
+
+System activity data collector.
+
+`-F`
+
+The creattion of outfile will be forced. If the file already exists and has a format unknown to sadc then it will be truncated.
+
+`-L`
+
+sadc will try to get an exclusive lock on the outfile before writing to it or truncating it. Failure to get the lock is fatal, except in the case of trying to write a normal (i.e. not a dummy and not a header) record to an existing file, in ally, the only reason a lock would fail would be if another sadc process were also writing to the file.
+
+> wait I can execute sadc anyway, its perm is read-execute to everyone.
+>
+> wait no, sadc is the backend binary file, so is it a pipebomb? do I need to reverse shell it?
+
 
 sa2
 ```
@@ -954,3 +975,6 @@ UMASK=0022
 ```
 
 wait, if I LEARN what these shell scripts are in order to solve the puzzle, I can gain some knowledge about shell script and write one of my own. pog
+
+
+what the actual fuck are these?? if I can't pass commands into the sysstat executable, what the heck am I supposed to do with these?
