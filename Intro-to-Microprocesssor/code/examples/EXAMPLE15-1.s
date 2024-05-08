@@ -32,17 +32,17 @@ Reset_Handler
 			; base: 0xE000E000
 			; offset: 0xD14
 			; bit: 4
-			LDR		r6, =NVICBase
-			LDR		r7, =DivbyZ
-			LDR		r1, [r6, r7]
-			ORR		r1, #0x10		; enable bit 4
-			STR		r1, [r6, r7]
+			;LDR		r6, =NVICBase
+			;LDR		r7, =DivbyZ
+			;LDR		r1, [r6, r7]
+			;ORR		r1, #0x10		; enable bit 4
+			;STR		r1, [r6, r7]
 			
 			; now turn on the usage fault exception
-			LDR		r7, =SYSHNDCTRL	; p.163
-			LDR		r1, [r6, r7]
-			ORR		r1, #0x40000
-			STR		r1, [r6 ,r7]
+			;LDR		r7, =SYSHNDCTRL	; p.163
+			;LDR		r1, [r6, r7]
+			;ORR		r1, #0x40000
+			;STR		r1, [r6 ,r7]
 			
 			; try out a divide by 2 then a divide by 0!
 			MOV		r0, #0
