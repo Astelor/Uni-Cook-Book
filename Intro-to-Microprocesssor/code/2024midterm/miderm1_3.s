@@ -35,17 +35,17 @@ swap_loop
 			B 		swap_loop
 end_swap			
 
-			; (b) - transmit
-			LDR		r1, =DATA2		; string starting address
-			ADD		r1, #8			; 0x40000070 + 0x8
-			MOV		r2, #10			; tally (10)
-Loop2
-			LDRB	r10, [r1], #1	; transmit 10 characters
-			CMP		r2, #0
-			SUBNE	r2, #1
-			BLNE	Transmit
-			BNE		Loop2
-
+;			; (b) - transmit
+;			LDR		r1, =DATA2		; string starting address
+;			ADD		r1, #8			; 0x40000070 + 0x8
+;			MOV		r2, #10			; tally (10)
+;Loop2
+;			LDRB	r10, [r1], #1	; transmit 10 characters
+;			CMP		r2, #0
+;			SUBNE	r2, #1
+;			BLNE	Transmit
+;			BNE		Loop2
+;doneB		B		doneB
 			; (c) -  receive 20 characters
 			LDR		r1, =DATA3		; starting address for storing
 			MOV		r2, #20			; tally (20)
@@ -67,7 +67,7 @@ UARTConfig
             
 			; (a).1 - configuration
 			LDR     r5, =U0START	; bit 7 =0x80
-            MOV     r6, #0x94       ; 5 data bits, even parity, 2 stop bits, DLAB enable
+            MOV     r6, #0x9C       ; 5 data bits, even parity, 2 stop bits, DLAB enable
 			STRB    r6, [r5, #LCR0] ; write control byte to LCR
 			
 			; (a).2 - caculate the divisor with f=48MHz, baud=12800
@@ -83,7 +83,7 @@ divide		SUBS	r5, r7			; f / (16 x baud)
 			
 			LDR     r5, =U0START
 			STRB    r6, [r5]        ; store divisor byte
-			MOV		r6, #0x14		; 0x94-0x80, DLAB = 0
+			MOV		r6, #0x1C		; 0x94-0x80, DLAB = 0
 			STR		r6, [r5, #LCR0]	; close DLAB
 			
 			; (b) - calculate the LPC2104 frequency
@@ -92,7 +92,7 @@ divide		SUBS	r5, r7			; f / (16 x baud)
 
 			; (c).1 - configuration
 			LDR     r5, =U0START	
-            MOV     r6, #0x83       ; 8 data bits, odd parity, 1 stop bits, DLAB latch open
+            MOV     r6, #0x8B       ; 8 data bits, odd parity, 1 stop bits, DLAB latch open
 			STRB    r6, [r5, #LCR0] ; write control byte to LCR
 			
 			; (c).2 - calculate the divisor for 12800 baud
@@ -110,7 +110,7 @@ divide2		SUBS	r5, r7			; f / (16 x baud)
 			
 			LDR     r5, =U0START
 			STRB	r6, [r5] 		; write divisor
-            MOV		r6, #0x3		; DLAB = 0
+            MOV		r6, #0xB		; DLAB = 0
 			STR		r6, [r5, #LCR0]	; close DLAB
 			
 			LDMIA   sp!, {r5, r6, r7, PC}

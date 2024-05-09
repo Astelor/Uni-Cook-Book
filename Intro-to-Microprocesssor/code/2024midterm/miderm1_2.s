@@ -35,34 +35,36 @@ swap_loop
 			B 		swap_loop
 end_swap
 			; (a).2 - print the string reversely
-			LDR 	r1, =DATA1		; address of reversed string
-Loop		
-			LDRB	r10, [r1], #1	; transmit the reversed string
-			CMP		r10, #0			; null terminated
-			BLNE 	Transmit
-			BNE 	Loop
-			
-			; (a).3 - print the string continuously
-			LDR 	r1, =StudentData; address of the string
-Loop2		
-			LDRB	r10, [r1], #1	; transmit the string
-			CMP		r10, #0			; null terminated
-			BLNE 	Transmit
-			BNE 	Loop2
-
-			; (b) - reversely in multiple of 3
-			LDR 	r1, =DATA1		; address of reversed string
-Loop3		
-			LDRB	r10, [r1], #3	; transmit the reversed string
-			CMP		r10, #0			; null terminated
-			BLNE 	Transmit
-			BNE 	Loop3
-			
+;			LDR 	r1, =DATA1		; address of reversed string
+;Loop		
+;			LDRB	r10, [r1], #1	; transmit the reversed string
+;			CMP		r10, #0			; null terminated
+;			BLNE 	Transmit
+;			BNE 	Loop
+;			
+;			; (a).3 - print the string continuously
+;			LDR 	r1, =StudentData; address of the string
+;Loop2		
+;			LDRB	r10, [r1], #1	; transmit the string
+;			CMP		r10, #0			; null terminated
+;			BLNE 	Transmit
+;			BNE 	Loop2
+;doneA		B		doneA
+;
+;			; (b) - reversely in multiple of 3
+;			LDR 	r1, =DATA1		; address of reversed string
+;Loop3		
+;			LDRB	r10, [r1], #3	; transmit the reversed string
+;			CMP		r10, #0			; null terminated
+;			BLNE 	Transmit
+;			BNE 	Loop3
+;doneB		B		doneB
+;			
 			; (c) - display reverse the string words
 			LDR		r1, =DATA1		; string starting address
 			LDRB	r10, [r1]		; transmit 1 character (!)
 			BL		Transmit
-			
+
 			ADD		r1, #4
 			MOV		r2, #4			; tally
 Loop4
@@ -176,7 +178,7 @@ UARTConfig
             
 			; (a).1 - configuration
 			LDR     r5, =U0START	; bit 7 =0x80
-            MOV     r6, #0x94       ; 5 data bits, even parity, 2 stop bits, DLAB enable
+            MOV     r6, #0x9C       ; 5 data bits, even parity, 2 stop bits, DLAB enable
 			STRB    r6, [r5, #LCR0] ; write control byte to LCR
 			
 			; (a).2 - caculate the divisor with f=48MHz, baud=12800
@@ -192,7 +194,7 @@ divide		SUBS	r5, r7			; f / (16 x baud)
 			
 			LDR     r5, =U0START
 			STRB    r6, [r5]        ; store divisor byte
-			MOV		r6, #0x14		; 0x94-0x80, DLAB = 0
+			MOV		r6, #0x1C		; 0x9C-0x80, DLAB = 0
 			STR		r6, [r5, #LCR0]	; close DLAB
 			
 			; (b) - calculate the LPC2104 frequency
@@ -201,7 +203,7 @@ divide		SUBS	r5, r7			; f / (16 x baud)
 
 			; (c).1 - configuration
 			LDR     r5, =U0START	
-            MOV     r6, #0x83       ; 8 data bits, odd parity, 1 stop bits, DLAB latch open
+            MOV     r6, #0x8B       ; 8 data bits, odd parity, 1 stop bits, DLAB latch open
 			STRB    r6, [r5, #LCR0] ; write control byte to LCR
 			
 			; (c).2 - calculate the divisor for 12800 baud
@@ -219,7 +221,7 @@ divide2		SUBS	r5, r7			; f / (16 x baud)
 			
 			LDR     r5, =U0START
 			STRB	r6, [r5] 		; write divisor
-            MOV		r6, #0x3		; DLAB = 0
+            MOV		r6, #0xB		; DLAB = 0
 			STR		r6, [r5, #LCR0]	; close DLAB
 			
 			LDMIA   sp!, {r5, r6, r7, PC}
