@@ -83,31 +83,20 @@ Loop4
 
 ## STACK
 
-- full descending stack
-
-```
-STMDA	sp, {r5-r7, LR}
-LDMDA	sp, {r5-r7, PC}
-```
-
-- empty descending stack
-
-```
-STMDB	sp, {r5-r7, LR}
-LDMDB	sp, {r5-r7, PC}
-```
-
-- full ascending stack
-```
-STMIA	sp, {r5-r7, LR}
-LDMIA	sp, {r5-r7, PC}
-```
-
 - empty ascending stack
 ```
-STMIB	sp, {r5-r7, LR}
-LDMIB	sp, {r5-r7, PC}
+STMIA   sp!, {r5, r6, LR}; empty ascending stack
+LDMDB   sp!, {r5, r6, PC}
 ```
+
+|Stack Type|PUSH|POP|
+|--|--|--|
+|Full descending |STMFD (STMDB) |LDMFD (LDMIA)|
+|Full ascending |STMFA (STMIB) |LDMFA (LDMDA)|
+|Empty descending |STMED (STMDA) |LDMED (LDMIB)|
+|Empty ascending |STMEA (STMIA) |LDMEA (LDMDB)|
+
+> Apparently it's in the textbook
 
 ```
 ; Subroutine: Transmit

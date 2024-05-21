@@ -1,9 +1,8 @@
 # Bandit
 
-My notes on a wargame called [Bandit](https://overthewire.org/wargames/bandit).
+My notes on a wargame called [Bandit](https://overthewire.org/wargames/bandit), on OverTheWire.
 
 > Spoilers! 
-> **If you somehow find this file, and you're not Astelor, please kindly frick off :)**
 >
 > Astelor: This file is intended to be my own writeup. I'm just learning linux terminal. 
 > Astelor: I don't intend this file to be github-markdown friendly, but it's written with markdown stylers. 
@@ -15,7 +14,6 @@ bandit.labs.overthewire.org:2220
 > so apparently git keeps all the history, huh.
 >
 > And apparently they change the password regularly, the password in there may not be valid after a year.
-> But still, please kindly frick off.
 
 # Bandit5
 
@@ -716,115 +714,13 @@ And it's used to check the exisitence on that command without executing it.
 
 > HUH so I don't have to spam `man` everytime I wanna check if I have a specific thing installed.
 
-```
-bandit21@bandit:~$ ls -la /usr/lib/sysstat
-total 108
-drwxr-xr-x  2 root root  4096 Oct  5  2023 .
-drwxr-xr-x 87 root root  4096 Oct  5  2023 ..
--rwxr-xr-x  1 root root   446 Feb  2  2021 debian-sa1
--rwxr-xr-x  1 root root  1746 Jun  6  2023 sa1
--rwxr-xr-x  1 root root  1572 Jun  6  2023 sa2
--rwxr-xr-x  1 root root 87296 Jun  6  2023 sadc
-```
 
-debian-sa1
-```
-bandit21@bandit:~$ cat /usr/lib/sysstat/debian-sa1
-#!/bin/sh
-# vim:ts=2:et
-# Debian sa1 helper which is run from cron.d job, not to needlessly
-# fill logs (see Bug#499461).
-
-set -e
-
-# Skip in favour of systemd timer
-[ ! -d /run/systemd/system ] || exit 0
-
-# Our configuration file
-DEFAULT=/etc/default/sysstat
-# Default setting, overridden in the above file
-ENABLED=false
-
-# Read defaults file
-[ ! -r "$DEFAULT" ] || . "$DEFAULT"
-
-[ "$ENABLED" = "true" ] || exit 0
-
-exec /usr/lib/sysstat/sa1 "$@"
-```
 AHHHHHHHHHH this means there must be a file somewhere that I'm able to write
 
 oh wait I have execute permisison, and the last line passes a parameter to `sa1`
 
-sa1
-```
-bandit21@bandit:~$ cat /usr/lib/sysstat/sa1
-#!/bin/sh
-# /usr/lib/sysstat/sa1
-# (C) 1999-2020 Sebastien Godard (sysstat <at> orange.fr)
-#
-#@(#) sysstat-12.5.2
-#@(#) sa1: Collect and store binary data in system activity data file.
-#
 
-# Set default value for some variables.
-# Used only if ${SYSCONFIG_DIR}/${SYSCONFIG_FILE} doesn't exist!
-HISTORY=0
-SADC_OPTIONS=""
-SA_DIR=/var/log/sysstat
-SYSCONFIG_DIR=/etc/sysstat
-SYSCONFIG_FILE=sysstat
-UMASK=0022
-LONG_NAME=n
-
-[ -r ${SYSCONFIG_DIR}/${SYSCONFIG_FILE} ] && . ${SYSCONFIG_DIR}/${SYSCONFIG_FILE}
-
-umask ${UMASK}
-
-# If the user-supplied value for SA_DIR in sysconfig file is not a directory
-# then fall back on default directory. Create this default directory if it doesn't exist.
-[ -d ${SA_DIR} ] || SA_DIR=/var/log/sysstat
-[ -d /var/log/sysstat ] || mkdir /var/log/sysstat
-
-if [ ${HISTORY} -gt 28 ]
-then
-        SADC_OPTIONS="${SADC_OPTIONS} -D"
-        LONG_NAME=y
-fi
-
-ENDIR=/usr/lib/sysstat
-cd ${ENDIR}
-[ "$1" = "--boot" ] && shift && BOOT=y || BOOT=n
-[ "$1" = "--sleep" ] && shift && SLEEP=y || SLEEP=n
-
-ROTATE=n
-[ "$1" = "--rotate" ] && shift && ROTATE=y && [ "$1" = "iso" ] && shift && LONG_NAME=y
-if [ "${ROTATE}" = "y" ]
-then
-        if [ "${LONG_NAME}" = "y" ]
-        then
-                DATE=`date --date=yesterday +%Y%m%d`
-        else
-                DATE=`date --date=yesterday +%d`
-        fi
-        SA_DIR=${SA_DIR}/sa${DATE}
-fi
-
-if [ "${SLEEP}" = "y" ]
-then
-        exec ${ENDIR}/sadc -F -L ${SADC_OPTIONS} -C "LINUX SLEEP MODE ($*)" ${SA_DIR}
-elif [ $# = 0 ] && [ "${BOOT}" = "n" ]
-then
-# Note: Stats are written at the end of previous file *and* at the
-# beginning of the new one (when there is a file rotation) only if
-# outfile has not been explicitly specified on the command line...
-        exec ${ENDIR}/sadc -F -L ${SADC_OPTIONS} 1 1 ${SA_DIR}
-else
-        exec ${ENDIR}/sadc -F -L ${SADC_OPTIONS} $* ${SA_DIR}
-fi
-```
-
-## 12- Use sadc
+## 21- Use sadc
 
 System activity data collector.
 
@@ -841,140 +737,408 @@ sadc will try to get an exclusive lock on the outfile before writing to it or tr
 > wait no, sadc is the backend binary file, so is it a pipebomb? do I need to reverse shell it?
 
 
-sa2
+wait, if I LEARN what these shell scripts are in order to solve the puzzle, I can gain some knowledge about shell script and write one of my own. pog
+
+what the actual fuck are these?? if I can't pass commands into the sysstat executable, what the heck am I supposed to do with these?
+
+---
+
+UM, I went the exact opposite direction, sysstat is not the clue. The clue is
+
 ```
-bandit21@bandit:~$ cat /usr/lib/sysstat/sa2
+-rw-r--r--   1 root root   120 Oct  5  2023 cronjob_bandit22
+```
+
+Where we have read permission
+```
+bandit21@bandit:/etc/cron.d$ cat cronjob_bandit22
+@reboot bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+* * * * * bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+```
+
+And here we can see it runs a bash file every minute, and we have read permission to the `/usr/bin` directory
+
+```
+bandit21@bandit:$ cat /usr/bin/cronjob_bandit22.sh
+#!/bin/bash
+chmod 644 /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+```
+
+and it literally modifies the permission to `rw-r--r--` to this file, and cat the passkey to the next level to said file.
+
+AND THAT'S IT.
+
+# Bandit22
+
+welp
+
+> password: WdDozAdTM2z9DiFEQ2mGlwngMfj4EZff
+
+```
+Puzzle:
+A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.
+```
+
+Same thing, the clue is in `/etc/cron.d/cronjob_bandit23`
+
+```
+bandit22@bandit:~$ cat /etc/cron.d/cronjob_bandit23
+@reboot bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+* * * * * bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+```
+
+## 22-Use stat
+
+I'm just tired of using `ls -la <directory> | grep <name>` to check permissions
+
+```
+bandit22@bandit:~$ stat /usr/bin/cronjob_bandit23.sh
+  File: /usr/bin/cronjob_bandit23.sh
+  Size: 211             Blocks: 8          IO Block: 4096   regular file
+Device: 10301h/66305d   Inode: 77149       Links: 1
+Access: (0750/-rwxr-x---)  Uid: (11023/bandit23)   Gid: (11022/bandit22)
+Access: 2024-05-17 06:53:01.138587458 +0000
+Modify: 2023-10-05 06:19:35.003293863 +0000
+Change: 2023-10-05 06:19:35.007293872 +0000
+ Birth: 2023-10-05 06:19:35.003293863 +0000
+```
+
+And we have read and execute permission to this file.
+```
+bandit22@bandit:~$ cat /usr/bin/cronjob_bandit23.sh
+#!/bin/bash
+
+myname=$(whoami)
+mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+
+echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
+
+cat /etc/bandit_pass/$myname > /tmp/$mytarget
+```
+
+Let's try executing it
+```
+bandit22@bandit:~$ /usr/bin/cronjob_bandit23.sh
+Copying passwordfile /etc/bandit_pass/bandit22 to /tmp/8169b67bd894ddbb4412f91573b38db3
+```
+wait if it's executing it in cron as bandit23, this means `/usr/bin/cronjob_bandit23.sh` has already been executed as user bandit23, and the password is in the file with this name: /tmp/`echo I am user $myname | md5sum | cut -d ' ' -f 1` 
+
+sooooo
+```
+bandit22@bandit:~$ echo I am user bandit23 | md5sum | cut -d ' ' -f 1
+8ca319486bfbbc3663ea0fbe81326349
+```
+
+```
+bandit22@bandit:~$ cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+QYw0Y2aiA672PsMmh9puTQuhoz8SyR2G
+```
+
+# Bandit23
+
+pog!
+
+> password: QYw0Y2aiA672PsMmh9puTQuhoz8SyR2G
+
+cron again
+```
+Puzzle:
+A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.
+
+NOTE: This level requires you to create your own first shell-script. This is a very big step and you should be proud of yourself when you beat this level!
+
+NOTE 2: Keep in mind that your shell script is removed once executed, so you may want to keep a copy around…
+```
+
+omg omg omg omg omg
+
+```
+bandit23@bandit:~$ cat /etc/cron.d/cronjob_bandit24
+@reboot bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+* * * * * bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+```
+
+Checking the perms
+```
+bandit23@bandit:~$ stat /usr/bin/cronjob_bandit24.sh
+  File: /usr/bin/cronjob_bandit24.sh
+  Size: 384             Blocks: 8          IO Block: 4096   regular file
+Device: 10301h/66305d   Inode: 77152       Links: 1
+Access: (0750/-rwxr-x---)  Uid: (11024/bandit24)   Gid: (11023/bandit23)
+Access: 2024-05-17 06:56:01.382583766 +0000
+Modify: 2023-10-05 06:19:36.111296412 +0000
+Change: 2023-10-05 06:19:36.111296412 +0000
+ Birth: 2023-10-05 06:19:36.111296412 +0000
+```
+
+```
+bandit23@bandit:~$ cat /usr/bin/cronjob_bandit24.sh
+#!/bin/bash
+
+myname=$(whoami)
+
+cd /var/spool/$myname/foo
+echo "Executing and deleting all scripts in /var/spool/$myname/foo:"
+for i in * .*;
+do
+    if [ "$i" != "." -a "$i" != ".." ];
+    then
+        echo "Handling $i"
+        owner="$(stat --format "%U" ./$i)"
+        if [ "${owner}" = "bandit23" ]; then
+            timeout -s 9 60 ./$i
+        fi
+        rm -f ./$i
+    fi
+done
+```
+A loop. i is the variable for filenames, so I need to write a script to cat out the password in `/etc/bandit_pass/$myname`, and let `/etc/cron.d/cronjob_bandit24` the handle the job, since it'll be executed as bandit24.
+
+Script crafting...
+```
+#!/bin/bash
+
+cat /etc/bandit_pass/bandit24 > /tmp/astelor123
+```
+
+Checking the perms
+```
+bandit23@bandit:~$ stat /var/spool/bandit24/foo/
+  File: /var/spool/bandit24/foo/
+  Size: 249856          Blocks: 496        IO Block: 4096   directory
+Device: 10301h/66305d   Inode: 517739      Links: 20
+Access: (0773/drwxrwx-wx)  Uid: (    0/    root)   Gid: (11024/bandit24)
+Access: 2024-05-17 20:33:01.407320761 +0000
+Modify: 2024-05-17 20:35:11.279318102 +0000
+Change: 2024-05-17 20:35:11.279318102 +0000
+ Birth: 2023-10-05 06:19:36.099296385 +0000
+```
+
+we have write permission to this directory
+
+So let's make a temporary directory first...
+```
+bandit23@bandit:~$ mktemp -d
+/tmp/tmp.3TQWDB7Fhs
+```
+
+Create a file and write the script innit
+```
+bandit23@bandit:/tmp/tmp.3TQWDB7Fhs$ nano this.sh
+```
+
+**AND MOST IMPORTANTLY, MAKE IT EXECUTABLE TO ALL USERS**
+
+```
+bandit23@bandit:/tmp/tmp.3TQWDB7Fhs$ chmod 777 this.sh
+bandit23@bandit:/tmp/tmp.3TQWDB7Fhs$ ls -la
+total 10292
+drwx------   2 bandit23 bandit23     4096 May 17 20:58 .
+drwxrwx-wt 330 root     root     10526720 May 17 20:59 ..
+-rwxrwxrwx   1 bandit23 bandit23       61 May 17 20:58 this.sh
+```
+
+Then move it to the desired directory
+```
+bandit23@bandit:/tmp/tmp.3TQWDB7Fhs$ mv this.sh /var/spool/bandit24/foo/
+```
+
+Wait for a few minutes
+```
+bandit23@bandit:/tmp/tmp.3TQWDB7Fhs$ cat /tmp/astelor123
+```
+It should give you the passkey.
+
+Using `echo` in the script doesn't do much, since all standard outputs will go to `/dev/null` (linux dumpster fire) once `cronjob_bandit24.sh` is executed by cron. This is specified in `/etc/cron.d/cronjob_bandit24`.
+
+# Bandit24
+
+YES
+
+> password: VAfGXJ1PBSsPSnvsjI8p759leLZ9GGar
+
+
+```
+Puzzle:
+A daemon is listening on port 30002 and will give you the password for bandit25 if given the password for bandit24 and a secret numeric 4-digit pincode. There is no way to retrieve the pincode except by going through all of the 10000 combinations, called brute-forcing.
+You do not need to create new connections each time
+```
+
+oooooooooooo, brute forcing
+
+time to write a script that uses for loop heheheh
+
+## 24-Shell script, for loop
+
+```
+for variable in list
+do
+  commands
+done
+
+```
+
+testing...
+```
+#!/bin/bash
+
+exec 3<>/dev/tcp/localhost/30002
+
+read response <&3
+echo "$response"
+
+exec 3>&-
+```
+
+```
+#!/bin/bash
+
+exec 3<>/dev/tcp/localhost/30002
+
+p="VAfGXJ1PBSsPSnvsjI8p759leLZ9GGar"
+
+read res<&3
+
+for a in {0..9}
+do
+        for b in {0..9}
+        do
+                for c in {0..9}
+                do
+                        for d in {0..9}
+                        do
+                                pin=$a$b$c$d
+                                r="$p $pin"
+
+                                echo "$r" >&3
+                                read res <&3
+                                echo $res >> /tmp/astelorrr123
+                                echo "$pin $res"
+                        done
+                done
+        done
+done
+
+exec 3>&-
+```
+
+
+result:
+```
+...
+9012 Wrong! Please enter the correct pincode. Try again.
+9013 Wrong! Please enter the correct pincode. Try again.
+9014 Wrong! Please enter the correct pincode. Try again.
+9015 Correct!
+9016 The password of user bandit25 is p7TaowMYrmu23Ol8hiZh9UvD0O9hpx8d
+9017
+9018 Exiting.
+9019
+9020
+```
+
+The iteration took 30 minutes...
+
+# Bandit25
+
+> password: p7TaowMYrmu23Ol8hiZh9UvD0O9hpx8d
+
+```
+Puzzle:
+Logging in to bandit26 from bandit25 should be fairly easy… The shell for user bandit26 is not /bin/bash, but something else. Find out what it is, how it works and how to break out of it.
+```
+
+In the home directory we have this:
+```
+-r--------  1 bandit25 bandit25 1679 Oct  5  2023 bandit26.sshkey
+```
+
+the CLUE
+
+I already forgot how to use a RSA key to ssh
+
+## 25-What login shell does it use?
+
+by examining the user's entry in the `/etc/passwd` file
+
+
+```
+bandit25@bandit:~$ cat /etc/passwd | grep bandit26
+bandit26:x:11026:11026:bandit level 26:/home/bandit26:/usr/bin/showtext
+```
+while all the others use `/bin/bash`. Bandit26 uses `/usr/bin/showtext`
+
+```
+bandit25@bandit:~$ ls -la /usr/bin | grep showtext
+-rwxr-xr-x  1 root     root           58 Oct  5  2023 showtext
+```
+
+And wtf is it??
+
+```
+bandit25@bandit:~$ cat /usr/bin/showtext
 #!/bin/sh
-# /usr/lib/sysstat/sa2
-# (C) 1999-2020 Sebastien Godard (sysstat <at> orange.fr)
-#
-#@(#) sysstat-12.5.2
-#@(#) sa2: Write a daily report
-#
-S_TIME_FORMAT=ISO ; export S_TIME_FORMAT
-prefix=/usr
-exec_prefix=${prefix}
-SA_DIR=/var/log/sysstat
-SYSCONFIG_DIR=/etc/sysstat
-SYSCONFIG_FILE=sysstat
-HISTORY=7
-COMPRESSAFTER=10
-ZIP="xz"
-UMASK=0022
-ENDIR=
-DELAY_RANGE=0
 
-# Read configuration file, overriding variables set above
-[ -r ${SYSCONFIG_DIR}/${SYSCONFIG_FILE} ] && . ${SYSCONFIG_DIR}/${SYSCONFIG_FILE}
+export TERM=linux
 
-umask ${UMASK}
-
-# Wait for a random delay if requested
-if [ ${DELAY_RANGE} -gt 0 ]
-then
-        RANDOM=$$
-        DELAY=$((${RANDOM}%${DELAY_RANGE}))
-        sleep ${DELAY}
-fi
-
-[ -d ${SA_DIR} ] || SA_DIR=/var/log/sysstat
-
-# if YESTERDAY=no then today's summary is generated
-if [ x$YESTERDAY = xno ]
-then
-        DATE_OPTS=
-else
-        DATE_OPTS="--date=yesterday"
-fi
-
-if [ ${HISTORY} -gt 28 ]
-then
-        DATE=`date ${DATE_OPTS} +%Y%m%d`
-else
-        DATE=`date ${DATE_OPTS} +%d`
-fi
-CURRENTFILE=sa${DATE}
-CURRENTRPT=sar${DATE}
-
-RPT=${SA_DIR}/${CURRENTRPT}
-DFILE=${SA_DIR}/${CURRENTFILE}
-if [ -z "${ENDIR}" ];
-then
-       ENDIR=${exec_prefix}/bin
-fi
-
-[ -f "${DFILE}" ] || exit 0
-cd ${ENDIR}
-if [ x${REPORTS} != xfalse ]
-then
-        ${ENDIR}/sar.sysstat "$@" -f ${DFILE} > ${RPT}
-fi
-
-SAFILES_REGEX='/sar?[0-9]{2,8}(\.(Z|gz|bz2|xz|lz|lzo))?$'
-
-find "${SA_DIR}" -type f -mtime +${HISTORY} \
-        | egrep "${SAFILES_REGEX}" \
-        | xargs   rm -f
-
-UNCOMPRESSED_SAFILES_REGEX='/sar?[0-9]{2,8}$'
-
-find "${SA_DIR}" -type f -mtime +${COMPRESSAFTER} \
-        | egrep "${UNCOMPRESSED_SAFILES_REGEX}" \
-        | xargs -r "${ZIP}" > /dev/null
-
+exec more ~/text.txt
 exit 0
 ```
 
-The config files here
+it uses `/bin/sh` that reads the file `text.txt` in the home directory?
+
 ```
-bandit21@bandit:/usr/lib/sysstat$ cat /etc/sysstat/sysstat
-# sysstat configuration file. See sysstat(5) manual page.
-
-# How long to keep log files (in days).
-# Used by sa2(8) script
-# If value is greater than 28, then use sadc's option -D to prevent older
-# data files from being overwritten. See sadc(8) and sysstat(5) manual pages.
-HISTORY=7
-
-# Compress (using xz, gzip or bzip2) sa and sar files older than (in days):
-COMPRESSAFTER=10
-
-# Parameters for the system activity data collector (see sadc(8) manual page)
-# which are used for the generation of log files.
-# By default contains the `-S DISK' option responsible for generating disk
-# statisitcs. Use `-S XALL' to collect all available statistics.
-SADC_OPTIONS="-S DISK"
-
-# Directory where sa and sar files are saved. The directory must exist.
-SA_DIR=/var/log/sysstat
-
-# Compression program to use.
-ZIP="xz"
-
-# By default sa2 script generates yesterday's summary, since the cron job
-# usually runs right after midnight. If you want sa2 to generate the summary
-# of the same day (for example when cron job runs at 23:53) set this variable.
-#YESTERDAY=no
-
-# By default sa2 script generates reports files (the so called sarDD files).
-# Set this variable to false to disable reports generation.
-#REPORTS=false
-
-# Tell sa2 to wait for a random delay in the range 0 .. ${DELAY_RANGE} before
-# executing. This delay is expressed in seconds, and is aimed at preventing
-# a massive I/O burst at the same time on VM sharing the same storage area.
-# Set this variable to 0 to make sa2 generate reports files immediately.
-DELAY_RANGE=0
-
-# The sa1 and sa2 scripts generate system activity data and report files in
-# the /var/log/sysstat directory. By default the files are created with umask 0022
-# and are therefore readable for all users. Change this variable to restrict
-# the permissions on the files (e.g. use 0027 to adhere to more strict
-# security standards).
-UMASK=0022
+bandit25@bandit:~$ stat /bin/sh
+  File: /bin/sh -> dash
+  Size: 4          Blocks: 0          IO Block: 4096   symbolic link
+Device: 10301h/66305d Inode: 1582        Links: 1
+Access: (0777/lrwxrwxrwx)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2024-05-18 06:12:39.770608520 +0000
+Modify: 2023-09-19 02:19:06.808836743 +0000
+Change: 2023-09-19 02:22:57.101013755 +0000
+ Birth: 2023-09-19 02:22:57.101013755 +0000
 ```
 
-wait, if I LEARN what these shell scripts are in order to solve the puzzle, I can gain some knowledge about shell script and write one of my own. pog
+> wait wait wait, wdym I have write permission to /bin/sh ?????
+> and wtf is a symbolic link?
+> it's just a link, damnnit. but what can I do with it? point it to another file?
 
+And we can see `/bin/sh` points to `/bin/dash`, which means they're the same thing
 
-what the actual fuck are these?? if I can't pass commands into the sysstat executable, what the heck am I supposed to do with these?
+but what in the world does it have to do with a login shell?
+
+```
+ssh -i ~/bandit26.sshkey bandit26@localhost -p 2220 -o StrictHostKeyChecking=no
+```
+
+And it gives me this
+```
+...
+
+  _                     _ _ _   ___   __
+ | |                   | (_) | |__ \ / /
+ | |__   __ _ _ __   __| |_| |_   ) / /_
+ | '_ \ / _` | '_ \ / _` | | __| / / '_ \
+ | |_) | (_| | | | | (_| | | |_ / /| (_) |
+ |_.__/ \__,_|_| |_|\__,_|_|\__|____\___/
+Connection to localhost closed.
+```
+
+Does this mean `/usr/bin/showtext` was successfully executed?
+
+but sending things along with `ssh` doesn't work, since it's not exactly interactive
+
+```
+ssh -i ~/bandit26.sshkey bandit26@localhost -p 2220 -o StrictHostKeyChecking=no -t '/bin/sh -c "whoami"'
+```
+
+it doesn't wooorrrrrrrrrrrrrrrrrrrrrrrk
+
+wdym breaking out of the non-interactive shell man? send it into a loop?
+
+EHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+
+So when I have the `/etc/motd` message, that means I have successfully logged into the session. But it jumps straight into the login shell. wtf can I do with it? modify the login shell? pwn the machine? reverse shell it? I don't have the shell to work with first.
+
+If `/etc/motd` is executed, does that mean "some" bash must be present to do it, but how do I mess with a ssh session to gain a shell?
