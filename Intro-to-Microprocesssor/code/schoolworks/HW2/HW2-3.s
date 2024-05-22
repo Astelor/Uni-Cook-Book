@@ -63,6 +63,7 @@ Question2
 ; Subroutine: Question 3
 ; input: r8, r9, r10
 ; output: r1, r2
+; silver bullet (sort of)
 Question3
 			STMDA	sp!, {r5, r6, r7, LR} ; empty descending stack
 			
@@ -77,12 +78,11 @@ Question3
 			; r9 - IRQ
 			; r10- priority group number (determines the split point)
 
-			; silver bullet (sort of)
 			MOV		r6, #8
 			SUB		r5, r6, r8	; width of the un-implemented lower part
 			
 			LSR		r7, r9, r5	; clear the un-implemented lower part
-			
+								; r7 is set here to preserve the values of r5 and r6 below
 			MOV		r5, #8
 			SUB		r6, r5, r8
 			SUB		r5, r10, r6	; width of sub-priority bits
@@ -95,7 +95,7 @@ loop
 			ORRGE	r6, #1
 			BGE		loop
 			
-			AND		r2, r7, r6
+			AND		r2, r7, r6	; use the mask on sub-priority group
 			MVN		r5, r6		; invert the mask for group priority
 			AND		r7, r5
 			
