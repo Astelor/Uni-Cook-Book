@@ -12,6 +12,21 @@
 Resetting will return to Privileged Thread mode.
 
 
+
+# Quick list for the tm4c1233h6pm manual 
+
+> The NVIC registers
+
+- Configuration and Control (CFGCTRL), 0xD14, p.162
+
+- System Handler Priority 1, 0xD18 ,p.163
+
+- System Handler Control and State (SYSHNDCTRL), 0xD24,p.166
+
+> "If a system handler is disabled and the corresponding fault occurs, the processor treats the fault as a **hard fault**."
+
+# Code for settings
+
 ```asm
 ; enable the divide-by-zero trap
 ; located in the NVIC
@@ -25,7 +40,7 @@ ORR		r1, #0x10		; enable bit 4
 STR		r1, [r6, r7]
 ```
 
-## Code (mode transition)
+# Code (mode transition)
 
 > Will take effect when after exiting exception
 
@@ -105,8 +120,3 @@ IntDefaultHandler
 	
 	BX 		LR
 ```
-
-## Hard Fault 
-
-Page 166 on the `tm4c1233h6pm-annotated.pdf`
-
