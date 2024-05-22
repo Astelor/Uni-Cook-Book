@@ -27,6 +27,7 @@ Resetting will return to Privileged Thread mode.
 
 > "If a system handler is disabled and the corresponding fault occurs, the processor treats the fault as a **hard fault**."
 
+
 # Priority
 
 Example:
@@ -34,6 +35,8 @@ Example:
 - Priority group x
 - Group (Pre-emption) Priority Field: bit[7:x+1]
 - Sub-priority Field: bit[x:0]
+
+http://www.ocfreaks.com/interrupt-priority-grouping-arm-cortex-m-nvic/
 
 # Code for settings
 
@@ -109,8 +112,7 @@ IntDefaultHandler
 
 ```
 
-
-PT to UT to PH to PT
+- PT to UT to PH to PT
 ```asm
 Reset_Handler
 

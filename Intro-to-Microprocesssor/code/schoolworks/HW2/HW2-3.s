@@ -12,11 +12,11 @@ Start
 			LDR		sp, =SPoint
 			
 			; priority group number should be a 3 bit number
-			LDR		r8, =0x1F		; sub-priority bits mask (5)
-			LDR		r9, =0x4B		; IRQ 0100 1011
-			LDR		r10, =0x4		; priority group number
-			BL		Question1
-			BL		Question2
+			LDR		r8, =0x5		; 4 implemented bits
+			LDR		r9, =0xBA		; IRQ 1011 1010
+			LDR		r10, =0x5		; priority grouping number
+			;BL		Question1
+			;BL		Question2
 			BL		Question3
 			
 done		B		done
@@ -62,22 +62,50 @@ Question2
 
 ; Subroutine: Question 3
 ; input: r8, r9, r10
-; output: none
+; output: r1, r2
 Question3
 			STMDA	sp!, {r5, r6, r7, LR} ; empty descending stack
 			
-			; r5 - pre-emption priority [7:(r10)+1]
-			; r6 - sub-priority group [r10:0]
+			; r1 - pre-emption priority [7:(r10)+1]
+			; r2 - sub-priority group [r10:0]
+			;
+			; r5 - scrap
+			; r6 - scrap
 			; r7 - scrap
-			
-			; r8 - sub-priority bit mask
+			;
+			; r8 - 4 implemented bits
 			; r9 - IRQ
-			; r10- priority group number
+			; r10- priority group number (determines the split point)
+
+			; silver bullet (sort of)
+			MOV		r6, #8
+			SUB		r5, r6, r8	; width of the un-implemented lower part
 			
-			MVN		r7, r8
-			AND		r5, r9, r7
+			LSR		r7, r9, r5	; clear the un-implemented lower part
 			
-			AND		r6, r9, r8
+			MOV		r5, #8
+			SUB		r6, r5, r8
+			SUB		r5, r10, r6	; width of sub-priority bits
+			MOV		r6, #0
+			; generate mask for subpriority bits 
+loop		
+			CMP		r5, #0
+			LSLGE	r6, r6, #1
+			SUBGE	r5, #1
+			ORRGE	r6, #1
+			BGE		loop
+			
+			AND		r2, r7, r6
+			MVN		r5, r6		; invert the mask for group priority
+			AND		r7, r5
+			
+			MOV		r5, #8
+			SUB		r6, r5, r8
+			CMP		r10, r6
+			SUBGE	r5, r10, r6
+			ADDGE	r5, #1
+			LSRGE	r1, r7, r5
+			; surely it works
 			
 			LDMIB	sp!, {r5, r6, r7, PC}
 			END
