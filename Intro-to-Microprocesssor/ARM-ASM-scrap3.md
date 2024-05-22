@@ -17,6 +17,8 @@ Resetting will return to Privileged Thread mode.
 
 > The NVIC registers
 
+- Exception types p.95
+
 - Configuration and Control (CFGCTRL), 0xD14, p.162
 
 - System Handler Priority 1, 0xD18 ,p.163
@@ -24,6 +26,14 @@ Resetting will return to Privileged Thread mode.
 - System Handler Control and State (SYSHNDCTRL), 0xD24,p.166
 
 > "If a system handler is disabled and the corresponding fault occurs, the processor treats the fault as a **hard fault**."
+
+# Priority
+
+Example:
+- Priority group number = x
+- Priority group x
+- Group (Pre-emption) Priority Field: bit[7:x+1]
+- Sub-priority Field: bit[x:0]
 
 # Code for settings
 

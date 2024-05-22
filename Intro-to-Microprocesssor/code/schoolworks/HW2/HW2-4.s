@@ -1,0 +1,7 @@
+			AREA HW2_4, CODE, READONLY
+RAMSTART	EQU	
+		
+		ENTRY
+		
+		
+		END
