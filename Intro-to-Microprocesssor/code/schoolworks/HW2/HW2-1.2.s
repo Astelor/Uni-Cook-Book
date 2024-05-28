@@ -1,9 +1,9 @@
+; Ex. 15-1 + 15-2
 Stack		EQU		0x00000100
 DivbyZ		EQU		0xD14
 SYSHNDCTRL	EQU		0xD24
 Usagefault	EQU		0xD2A
 NVICBase	EQU		0xE000E000
-SPointer 	EQU		0x20000100
 		; TM4C1233H6PM
 		AREA	STACK, NOINIT, READWRITE, ALIGN=3
 StackMem
@@ -45,60 +45,40 @@ Reset_Handler
 			ORR		r1, #0x40000
 			STR		r1, [r6 ,r7]
 			
-			LDR		sp, =SPointer
+			; try out a divide by 2 then a divide by 0!
 			MOV		r0, #0
 			MOV		r1, #0x11111111
 			MOV		r2, #0x22222222
 			MOV		r3, #0x33333333
 			
-			; (a) - PT to UT
-			;MRS		r8, CONTROL
-			;ORR		r8, r8, #1
-			;MSR		CONTROL, r8
-			
-			; (b) (c) (d) - PT to PH
-			UDIV	r5, r3, r0	; divide by zero
+			; this divide works just fine
+			UDIV	r4, r2, r1
+			; this divide takes an exception
+			UDIV	r5, r3, r0
 			
 Exit 		B		Exit
+
 NmiISR		B		NmiISR
-FaultISR
-			; you can see hard fault in xPSR-ISR register
-			LDR		r10, =0x77777777
+FaultISR	B		FaultISR
+IntDefaultHandler
+
+			; let's read the Usage Fault Status Register
 			
-			; disable the divide-by-zero trap
-			LDR		r6, =NVICBase
-			LDR		r7, =DivbyZ
-			LDR		r1, [r6, r7]
-			BIC		r1, #0x10		; disable bit 4
-			STR		r1, [r6, r7]
+			LDR		r7, =Usagefault
+			LDRH	r1, [r6, r7]
+			TST		r1, #0x200
+			IT		NE
+			LDRNE	r9, =0xDEADDEAD
 			
-			; (c) - PH to PT
-			;BX	LR
+			; r1 should have bit 9 set indicating
+			; a divide-by-zero has taken place
 			
-			; (d) - PH to UT
+			; switch to user Thread mode
 			MRS		r8, CONTROL
 			ORR		r8, r8, #1
 			MSR		CONTROL, r8
-			BX		LR
-
-IntDefaultHandler
-			; Do another exception to create a hard fault
-			LDR		r10, =0x55555555
-			UDIV	r5, r3, r0	; divide by zero
-			; DivByZero trap was disabled in FaultISR.
-			; So when FaultISR jumps back here, it doesn't trigger
+			BX 		LR
 			
-			; enable the divide-by-zero trap
-			LDR		r6, =NVICBase
-			LDR		r7, =DivbyZ
-			LDR		r1, [r6, r7]
-			ORR		r1, #0x10		; enable bit 4
-			STR		r1, [r6, r7]
-			; and we enables it again, why not
-			
-			BX	LR
-			
-done		B 		done
 			ALIGN
-			
+
 			END

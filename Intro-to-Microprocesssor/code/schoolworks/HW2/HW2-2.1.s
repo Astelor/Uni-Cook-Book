@@ -5,7 +5,7 @@ Usagefault	EQU		0xD2A
 NVICBase	EQU		0xE000E000
 ADD1		EQU		0x20000130
 ADD2		EQU		0x20000120
-stackPointer EQU	0x20000000
+stackPointer EQU	0x200000A0
 		; TM4C1233H6PM
 		AREA	midterm2_1, NOINIT, READWRITE, ALIGN=3
 StackMem
@@ -42,6 +42,7 @@ Reset_Handler
 			ORR		r1, #0x10		; enable bit 4
 			STR		r1, [r6, r7]
 			
+			; now turn on the usage fault exception
 			LDR		r7, =SYSHNDCTRL	; p.163
 			LDR		r1, [r6, r7]
 			ORR		r1, #0x40000
@@ -65,9 +66,11 @@ NmiISR		B		NmiISR
 FaultISR	B		FaultISR
 
 IntDefaultHandler
-			BL	qOne
-done		B		done
-
+			MOV r12, LR	; move the original LR to r12 (0xFFFFFFF9)
+			BL	qOne	; BL generates another LR
+			MOV LR, r12 ; recover LR from r12
+			BX	LR		; branch back to the main program
+done		B	done
 ; subroutine qone
 
 qOne

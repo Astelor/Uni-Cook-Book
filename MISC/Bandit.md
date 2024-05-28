@@ -1142,3 +1142,4 @@ EHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 So when I have the `/etc/motd` message, that means I have successfully logged into the session. But it jumps straight into the login shell. wtf can I do with it? modify the login shell? pwn the machine? reverse shell it? I don't have the shell to work with first.
 
 If `/etc/motd` is executed, does that mean "some" bash must be present to do it, but how do I mess with a ssh session to gain a shell?
+

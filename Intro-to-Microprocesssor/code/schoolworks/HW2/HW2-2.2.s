@@ -53,33 +53,28 @@ Reset_Handler
 			MOV		r3, #0x33333333
 			
 			; (a) - PT to UT
-			MRS		r8, CONTROL
-			ORR		r8, r8, #1
-			MSR		CONTROL, r8
+			;MRS		r8, CONTROL
+			;ORR		r8, r8, #1
+			;MSR		CONTROL, r8
 			
 			; (b) - PT to PH
+			; (c) - PH to PT
+			; (d) - PH to UT
 			UDIV	r5, r3, r0	; divide by zero
 			
-			; (c) - PH to PT
-			;UDIV	r5, r3, r0	; divide by zero
-			
-			; (d) - PH to UT
-			;UDIV	r5, r3, r0	; divide by zero
-			
-
 Exit 		B		Exit
 
 NmiISR		B		NmiISR
 FaultISR	B		FaultISR
 IntDefaultHandler
 			; (c) - PH to PT
-			BX		LR
+			;BX		LR
 			
 			; (d) - PH to UT
-			;MRS		r8, CONTROL
-			;ORR		r8, r8, #1
-			;MSR		CONTROL, r8
-			;BX 		LR
+			MRS		r8, CONTROL
+			ORR		r8, r8, #1
+			MSR		CONTROL, r8
+			BX 		LR
 		
 done		B 		done
 			ALIGN
