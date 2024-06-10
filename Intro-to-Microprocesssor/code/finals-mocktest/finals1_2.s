@@ -1,4 +1,5 @@
  ; Am I thinking too hard on a hypothetical problem?
+ ; not solved at ALL
 Stack		EQU		0x00000100
 		; TM4C1233H6PM
 		AREA	STACK, NOINIT, READWRITE, ALIGN=3
