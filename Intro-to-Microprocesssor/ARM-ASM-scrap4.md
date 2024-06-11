@@ -45,6 +45,8 @@ alias = alias base + (byte offset x 32) + (bit number x 4)
 In this case:
 alias = 0x42000000 + (byte offset x 32) + (bit number x 4)
 
+> see the subroutine in finals2.s for the program 
+
 ```
 if the alias is 0x43070010
 0x0107.0010 -> 0x0107.0000 + 0x10
