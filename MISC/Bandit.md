@@ -11,10 +11,6 @@ My notes on a wargame called [Bandit](https://overthewire.org/wargames/bandit), 
 
 bandit.labs.overthewire.org:2220
 
-> so apparently git keeps all the history, huh.
->
-> And apparently they change the password regularly, the password in there may not be valid after a year.
-
 # Bandit5
 
 ```
@@ -379,8 +375,6 @@ Ok how tf do I use it then?
 
 # Bandit15
 
-> password: jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt
-
 ```
 Puzzle:
 The password for the next level can be retrieved by submitting the password of the current level to port 30001 on localhost using SSL encryption.
@@ -405,8 +399,6 @@ It gives a lot of info dump too, what are those?
 You can see the full options of `s_client` with `openssl s_client --help`
 
 # Bandit16
-
-> password: JQttfApK4SeyHwDlI9SXGR50qclOAil1
 
 ```
 Puzzle:
@@ -453,7 +445,6 @@ Do I just use `openssl s_client -connect localhost:port`?
 | Not valid before: 2024-04-25T21:07:55
 |_Not valid after:  2024-04-25T21:08:55
 ```
-
 > openssl s_client -connect localhost:31790
 
 Send the current level's password through standard input, it gives you the credentials through standard output.
@@ -466,9 +457,50 @@ This change the file permission to read-write to owner. (the box forbids connect
 
 > ssh -i /tmp/HardToGuessName/bandit17.key bandit17@bandit.labs.overthewire -p 2220
 
-# Bandit17
+===============================
+10:28 PM Tuesday, June 25, 2024
+===============================
 
-> password: VwOSWtCA7lRKkTfbr2IDh6awj9RNZM5e
+Update:
+
+After using the command `openssl s_client -connect localhost:31790` and giving the system your password. It stubbornly returns you:
+
+```
+(info from the server)
+---
+read R Block
+(Your password)
+KEYUPDATE
+```
+
+I thought it was a bug at first, or there's something wrong with the box. But when further reading the maunal using `man openssl s_client`.
+
+It tells me this:
+```
+CONNECTED COMMANDS
+       If  a  connection  is  established with an SSL server then any data received from the server is displayed and any key presses will be sent to the
+       server. If end of file is reached then the connection will be closed down. When used interactively (which means neither -quiet nor -ign_eof  have
+       been  given),  then  certain  commands are also recognized which perform special operations. These commands are a letter which must appear at the
+       start of a line. They are listed below.
+
+       Q   End the current SSL connection and exit.
+
+       R   Renegotiate the SSL session (TLSv1.2 and below only).
+
+       k   Send a key update message to the server (TLSv1.3 only)
+
+       K   Send a key update message to the server and request one back (TLSv1.3 only)
+```
+
+I didn't know this until banging my head at the wall trying different arguments. And this one works.
+
+> openssl s_client -connect localhost:31790 -nocommands
+
+It's just the server is interpreting the password as a command because it starts with a **k**.
+
+Okay let's move on.
+
+# Bandit17
 
 ```
 Puzzle:
@@ -496,8 +528,6 @@ output in two columns
 
 # Bandit18
 
-> password: hga5tuuCLF6fFzUpnagiMN8ssu9LFrdg
-
 ```
 Puzzle:
 The password for the next level is stored in a file readme in the homedirectory. Unfortunately, someone has modified .bashrc to log you out when you log in with SSH.
@@ -523,8 +553,6 @@ It executes the command and logs you out.
 > It means you're "in and out" lmao.
 
 # Bandit19
-
-> password: awhqfNnAbc1naukrpqDYcF95h7HoMTrC
 
 ```
 Puzzle:
@@ -566,8 +594,6 @@ So now I just have to cat the password at `/ect/bandit_pass/bandit20` out as ban
 > ./bandit20-do cat /etc/bandit_pass/bandit20
 
 # Bandit20
-
-> password: VxCazJaVykI6W36BkBU0mJTCM8rR95XT
 
 ```
 Puzzle:
@@ -773,8 +799,6 @@ AND THAT'S IT.
 
 welp
 
-> password: WdDozAdTM2z9DiFEQ2mGlwngMfj4EZff
-
 ```
 Puzzle:
 A program is running automatically at regular intervals from cron, the time-based job scheduler. Look in /etc/cron.d/ for the configuration and see what command is being executed.
@@ -838,8 +862,6 @@ QYw0Y2aiA672PsMmh9puTQuhoz8SyR2G
 # Bandit23
 
 pog!
-
-> password: QYw0Y2aiA672PsMmh9puTQuhoz8SyR2G
 
 cron again
 ```
@@ -956,9 +978,6 @@ Using `echo` in the script doesn't do much, since all standard outputs will go t
 
 YES
 
-> password: VAfGXJ1PBSsPSnvsjI8p759leLZ9GGar
-
-
 ```
 Puzzle:
 A daemon is listening on port 30002 and will give you the password for bandit25 if given the password for bandit24 and a secret numeric 4-digit pincode. There is no way to retrieve the pincode except by going through all of the 10000 combinations, called brute-forcing.
@@ -1040,9 +1059,15 @@ result:
 
 The iteration took 30 minutes...
 
-# Bandit25
+===============================
+11:10 PM Tuesday, June 25, 2024
+===============================
 
-> password: p7TaowMYrmu23Ol8hiZh9UvD0O9hpx8d
+Update:
+
+Thanks for making the iteration faster!
+
+# Bandit25
 
 ```
 Puzzle:
@@ -1142,4 +1167,23 @@ EHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 So when I have the `/etc/motd` message, that means I have successfully logged into the session. But it jumps straight into the login shell. wtf can I do with it? modify the login shell? pwn the machine? reverse shell it? I don't have the shell to work with first.
 
 If `/etc/motd` is executed, does that mean "some" bash must be present to do it, but how do I mess with a ssh session to gain a shell?
+
+>  ssh -i ~/bandit26.sshkey bandit26@localhost -p 2220 -o StrictHostKeyChecking=no -vvv -f /bin/bash
+
+> echo "echo "$-"; whoami" | ssh -i ~/bandit26.sshkey bandit26@localhost -p 2220 -o StrictHostKeyChecking=no -vvv
+
+
+> echo "whoami" | ssh -i ~/bandit26.sshkey bandit26@localhost -p 2220 -o StrictHostKeyChecking=no -vvv
+
+> ./script.sh | ssh -i ~/bandit26.sshkey bandit26@localhost -p 2220 -o StrictHostKeyChecking=no -vvv '!whoami'
+
+| ssh -i ~/bandit26.sshkey bandit26@localhost -p 2220 -o StrictHostKeyChecking=no
+
+`SET SHELL=/bin/bash` in vi editing for `more`
+
+================================
+7:24 AM Wednesday, June 26, 2024
+================================
+
+Update: Just beat bandit, the rest are just git log scavenging.
 
