@@ -457,9 +457,9 @@ This change the file permission to read-write to owner. (the box forbids connect
 
 > ssh -i /tmp/HardToGuessName/bandit17.key bandit17@bandit.labs.overthewire -p 2220
 
-===============================
+---
+
 10:28 PM Tuesday, June 25, 2024
-===============================
 
 Update:
 
@@ -1059,9 +1059,9 @@ result:
 
 The iteration took 30 minutes...
 
-===============================
+---
+
 11:10 PM Tuesday, June 25, 2024
-===============================
 
 Update:
 
@@ -1181,9 +1181,10 @@ If `/etc/motd` is executed, does that mean "some" bash must be present to do it,
 
 `SET SHELL=/bin/bash` in vi editing for `more`
 
-================================
+---
+
 7:24 AM Wednesday, June 26, 2024
-================================
+
 
 Update: Just beat bandit, the rest are just git log scavenging.
 
