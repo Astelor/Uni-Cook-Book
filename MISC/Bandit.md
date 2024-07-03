@@ -5,7 +5,9 @@ My notes on a wargame called [Bandit](https://overthewire.org/wargames/bandit), 
 > Spoilers! 
 >
 > Astelor: This file is intended to be my own writeup. I'm just learning linux terminal. 
-> Astelor: I don't intend this file to be github-markdown friendly, but it's written with markdown stylers. 
+> I don't intend this file to be github-markdown friendly, but it's written with markdown stylers. 
+>
+> Note: if you're looking at my git log for passwords, it no longer works.
 
 0~5's passwords are easliy found with simple linux file discovery commands. 
 
@@ -299,6 +301,12 @@ In the last two case, the header is replaced by something funny. You need to use
 
 (It's so annoying I don't wanna do it again. bandit12.txt should be on your local machine)
 
+---
+
+5:18 PM Friday, June 28, 2024
+
+I could make a one line solution command for this with like 10 pipelines, but no. I'm too lazy for this.
+
 # Bandit13
 
 ```
@@ -457,9 +465,9 @@ This change the file permission to read-write to owner. (the box forbids connect
 
 > ssh -i /tmp/HardToGuessName/bandit17.key bandit17@bandit.labs.overthewire -p 2220
 
-===============================
+---
+
 10:28 PM Tuesday, June 25, 2024
-===============================
 
 Update:
 
@@ -623,8 +631,6 @@ Terminal multiplexer: it enables a number of terminals to be created, accessed, 
 > So that you don't NEED to connect to the same host at once!
 
 # Bandit21
-
-> password: NvEJF7oVjkddltPSrdKEFOllh9V1IBcq
 
 ```
 Puzzle:
@@ -1059,9 +1065,9 @@ result:
 
 The iteration took 30 minutes...
 
-===============================
+---
+
 11:10 PM Tuesday, June 25, 2024
-===============================
 
 Update:
 
@@ -1177,15 +1183,21 @@ If `/etc/motd` is executed, does that mean "some" bash must be present to do it,
 
 > ./script.sh | ssh -i ~/bandit26.sshkey bandit26@localhost -p 2220 -o StrictHostKeyChecking=no -vvv '!whoami'
 
+---
+**The solution:**
+
+Resize your terminal until it give you the `more N%` option.
+
 > ssh -i ~/bandit26.sshkey bandit26@localhost -p 2220 -o StrictHostKeyChecking=no
 
 Okay this one's silly...
 
-`SET SHELL=/bin/bash` in vi editing for `more`
+`:set shell=/bin/bash` in vi editing for `more`
 
-================================
+Type the command `:sh` in the vim editor, and there you go, a working shell.
+
+# The End?
+
 7:24 AM Wednesday, June 26, 2024
-================================
 
 Update: Just beat bandit, the rest are just git log scavenging.
-
