@@ -1177,7 +1177,9 @@ If `/etc/motd` is executed, does that mean "some" bash must be present to do it,
 
 > ./script.sh | ssh -i ~/bandit26.sshkey bandit26@localhost -p 2220 -o StrictHostKeyChecking=no -vvv '!whoami'
 
-| ssh -i ~/bandit26.sshkey bandit26@localhost -p 2220 -o StrictHostKeyChecking=no
+> ssh -i ~/bandit26.sshkey bandit26@localhost -p 2220 -o StrictHostKeyChecking=no
+
+Okay this one's silly...
 
 `SET SHELL=/bin/bash` in vi editing for `more`
 
