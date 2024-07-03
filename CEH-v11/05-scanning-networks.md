@@ -1,7 +1,8 @@
 # Chapter 5, Scanning Networks
-> Using the data gathered from footprinting and recon, get permission, establish the scope and scale of the engagement, and don't move beyond what was agreed to with your target.
 
-> MUST get permission before touching the system, it's possible for a simple scan to knock over a system (e.g. fragile systems, older embedded devices) -> permission from client and they have an understanding of what may happen.
+> Using the data gathered from footprinting and recon, get permission from the client, establish the scope and scale of the engagement, and don't move beyond what was agreed to with your client.
+
+> MUST get permission before touching the system, it's possible for a simple scan to knock over a system (e.g. fragile systems, older embedded devices) -> obtaining permission from client and they have an understanding of what may happen.
 
 - [Chapter 5, Scanning Networks](#chapter-5-scanning-networks)
 - [Keys](#keys)
@@ -34,6 +35,7 @@
 # Funny term bracket
 
 # Ping Sweeps
+
 > Identify systems that are alive with ICMP echo request.
 
 - ICMP echo request
@@ -42,6 +44,7 @@
   - firewall rules may block ICMP messages from outside the network
 
 ## Tool: fping
+
 > send ICMP ECHO_REQUEST packets to network hosts.
 
 ```
@@ -67,4 +70,4 @@ fping -aeg 192.168.86.0/24
   - using TCP or UDP
 
 ## Tool: nmap
->
+> 
