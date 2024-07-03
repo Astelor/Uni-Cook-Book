@@ -1,8 +1,10 @@
 # Chapter 5, Scanning Networks
 
-> Using the data gathered from footprinting and recon, get permission from the client, establish the scope and scale of the engagement, and don't move beyond what was agreed to with your client.
+> Using the data gathered from footprinting and recon, **get permission** from the client, establish the scope and scale of the engagement, and don't move beyond what was agreed to with your client.
 
-> MUST get permission before touching the system, it's possible for a simple scan to knock over a system (e.g. fragile systems, older embedded devices) -> obtaining permission from client and they have an understanding of what may happen.
+> It's possible for a **simple scan to knock over a system** (e.g. fragile systems, older embedded devices) -> obtaining permission from client, and inform what may happen.
+>
+> Astelor: YES it happened, fragile embedded system cannot stand rigorous scanning.
 
 - [Chapter 5, Scanning Networks](#chapter-5-scanning-networks)
 - [Keys](#keys)
@@ -11,6 +13,8 @@
   - [Tool: fping](#tool-fping)
 - [Port Scanning](#port-scanning)
   - [Tool: nmap](#tool-nmap)
+    - [SYN Scan](#syn-scan)
+    - [Full Connect Scan](#full-connect-scan)
 
 # Keys
 - Ping Sweeps
@@ -39,7 +43,7 @@
 > Identify systems that are alive with ICMP echo request.
 
 - ICMP echo request
-  - common message to be sent
+  - **common message** to be sent
   - hard to notice when you're not sending unusual number or size of them
   - firewall rules may block ICMP messages from outside the network
 
@@ -70,4 +74,37 @@ fping -aeg 192.168.86.0/24
   - using TCP or UDP
 
 ## Tool: nmap
-> 
+
+> Astelor: what I normally use...
+```bash
+$ nmap -sC -sV [IP] -oA ~/nmap/[name]
+```
+
+TCP Scanning:
+
+- **2 bytes for port number** in the transport protocol (layer 4) header
+  - 65536 possible ports (0~65535, 0x0000 ~ 0xFFFF)
+
+### SYN Scan
+
+> Sometimes called a *half-open scan*, connections are left half open.
+>
+> A "knocks on the doors and goes *sike* and leaves" scan.
+
+Nmap process:
+1. Nmap sends a SYN message.
+2. If the port is open, it'll respond with SYN+ACK.
+3. Nmap responds with a **RST**, ending the connection.
+
+- If the port is closed, the target system will respond with its own RST message.
+
+```bash
+$ nmap -sS 192.168.86.32
+```
+
+### Full Connect Scan
+
+```bash
+$ nmap -sT -p 80,443 192.168.86.0/24
+```
+- scan the subnet (192.168.86.0-254)

@@ -365,14 +365,11 @@ reference:
 +---+                +---+
 (you)               (server)
 ```
-```
-+---+           seq=0,ack=0     +---+
-|   |-----[SYN]----->|   |
-| A |<---[SYN+ACK]---| B |
-|   |-----[ACK]----->|   |
-+---+                +---+
-(you)               (server)
-```
+
+- **Prevent spoofing**:
+  - if either were attempting to spoof a conversation, they wouldn't receive the message, and wouldn't responds correctly. 
+- **Sequence number** maintains the number of bytes that have been sent.
+- 
 
 TCP Header:
 ```
