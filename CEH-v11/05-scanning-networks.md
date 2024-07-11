@@ -68,17 +68,11 @@ fping -aeg 192.168.86.0/24
   - reserves the port 
   - registers the application to get messages that come in on that port
 
-- Application listening on a port
-  - -> the port is open
+- Application listening on a port -> the port is open
 - Port -> transport layer
   - using TCP or UDP
 
 ## Tool: nmap
-
-> Astelor: what I normally use...
-```bash
-$ nmap -sC -sV [IP] -oA ~/nmap/[name]
-```
 
 TCP Scanning:
 
@@ -108,3 +102,4 @@ $ nmap -sS 192.168.86.32
 $ nmap -sT -p 80,443 192.168.86.0/24
 ```
 - scan the subnet (192.168.86.0-254)
+- scan port 80 and 443
