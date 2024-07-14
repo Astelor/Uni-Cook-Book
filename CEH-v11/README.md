@@ -1,6 +1,8 @@
 # Certified Ethical Hacker v11
 > Astelor: This is just a scribble of notes from my self study, the resources don't belong to me. All contents are for education purposes only.
 
+**Book**: CEH v11 Certified Ethical Hacker Study Guide (Ric Messier)
+
 - [Chapter 1, Ethical Hacking](01-Ethical-Hacking.md)
 - [Chapter 2, Networking Foundations](02-Networking-Foundations.md)
 - [Chapter 3, Security Foundations](03-Security-Foundations.md)
