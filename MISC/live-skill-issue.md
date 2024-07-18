@@ -44,3 +44,4 @@ Used where the traditional file permission concept does not suffice.
 References: https://www.redhat.com/sysadmin/linux-access-control-lists
 
 
+The fuck is partition and the commands
