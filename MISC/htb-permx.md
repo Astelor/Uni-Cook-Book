@@ -217,7 +217,7 @@ $ less -r linpeas.result
 
 After some digging, we found an interesting value that named `db_password`
 
-![linpeas](attachments\htb-permx\htb-permx-linpeas.png)
+![l](attachments\htb-permx\htb-permx-linpeas.png)
 
 ```bash
 /var/www/chamilo/app/config/configuration.php:$_configuration['db_password'] = '03F6lY3uXAP2bkW8';
