@@ -19,6 +19,13 @@
 - [1.3. computer-system architecture](#13-computer-system-architecture)
   - [1.3.1. single-processor systems](#131-single-processor-systems)
   - [1.3.2. multiprocessor systems](#132-multiprocessor-systems)
+    - [1.3.2.a. symmetric multiprocessing (SMP)](#132a-symmetric-multiprocessing-smp)
+    - [1.3.2.b. non-uniform memory access (NUMA) SMP](#132b-non-uniform-memory-access-numa-smp)
+    - [1.3.2.c. blade servers](#132c-blade-servers)
+  - [1.3.3. clustered systems](#133-clustered-systems)
+    - [1.3.3.a. asymmetric clustering](#133a-asymmetric-clustering)
+    - [1.3.3.b. symmetric clustering](#133b-symmetric-clustering)
+  - [1.4. operating-system operations](#14-operating-system-operations)
 - [glossary](#glossary)
 
 # 1.1. what operating systems do
@@ -123,7 +130,7 @@ OS summary:
 
 # 1.2. computer-system organization
 
-modern general-purpose computer systems
+modern general-purpose computer systems:
 - with one or more CPUs
 - and a number of `device controllers`
 - *all* connect through a common **`bus`**
@@ -365,9 +372,116 @@ some high-end systems use `switch` rather than bus architecture:
 ## 1.3.1. single-processor systems
 
 - one CPU with a single processing `core`
-`core` is the component that executes instructions and registers for storing data locally (in the CPU)
+- `core` is the component that executes instructions and registers for storing data locally (local as in the CPU)
+- there are *`general-purpose`* and *`special-purpose`* processors
+  - devices with `special-purpose` processors e.g. disk, keyboard
+  - in the form of `device controllers`
+- very few contemporary `general-purpose` computer systems are single-processor systems
 
 ## 1.3.2. multiprocessor systems
+
+- two or more ***single-core** CPUs*
+  - share the computer bus, sometimes the clock
+- the speed-up ratio with *N* processors is *less* than *N*
+  - `overhead` occur in keeping all the parts working correctly
+
+### 1.3.2.a. symmetric multiprocessing (SMP)
+
+- each peer CPU performs *all task*
+  - including operating-system functions and user processes
+- all processors share physical memory over the system bus
+
+the pro:
+- many processes can run simultaneously
+  - *N* processes can run if there are *N* CPUs
+- allow processes and resources to be shared dynamically
+- lower the workload variance among processors
+
+the con:
+- a CPU may be sitting idle while another is overloaded
+  - can be avoided if CPUs share certain data structures
+
+![figure 1.8](attachments/F-1.8.png)
+
+the future:
+- `multicore` systems:
+  - is one chip with multiple cores
+  - more efficient than multiple *single core* chips
+  - *on-chip* communication is faster than *between-chip* communication 
+  - uses significantly less power
+
+![figure 1.9](attachments/F-1.9.png)
+
+### 1.3.2.b. non-uniform memory access (NUMA) SMP
+
+> it's still `SMP`, but slightly improved when it comes to scaling
+
+- *contention for the system bus* becomes a bottleneck when too many CPUs are added
+- CPUs are provided with *its own local memory* that is accessed via fast local bus
+  - *no contention* over the `system interconnect`
+- CPUs are connected by a **shared `system interconnect`**
+- `NUMA` can scale in CPU number more effectively
+
+- increased latency when a CPU must access *remote memory* across the `system interconnect`
+  - OS can minimize it by CPU scheduling and memory management
+
+### 1.3.2.c. blade servers
+
+- systems in which multiple processor boards, I/O boards, and networking boards are *placed in the same chassis*
+- each processors board boots independently and runs its own OS
+
+![figure 1.10](attachments/F-1.10.png)
+
+## 1.3.3. clustered systems
+
+- composed of two or more individual systems or `nodes`
+  - such system is considered `loosely coupled`
+  - generally accepted definition: clustered computers *share storage* and are closely **linked via a `LAN`** or a interconnect
+  - the definition of *clustered* is *not concrete*
+- to provide `high-availability service`
+  - redundancy by clustering
+  - also increase reliability
+- cluster software runs on the cluster nodes
+  - can monitor each other (one or multiple)
+  - the monitored machine can be restarted by the monitoring machine by taking over failed machine's storage
+
+---
+
+- `graceful degradation`: the ability to *continue providing service* proportional to the *level of surviving hardware*
+
+- `fault tolerant`: the ability to suffer a failure of any single component and still continue operation
+  - requires a mechanism for failure *detection*, *diagnostic*, and (if possible) *correction*
+
+---
+
+- cluster can be used to provide `high-performance computing`
+  - can run an application concurrently on all computers in the cluster
+  - greater computational power than `SMP` systems
+  - the application must be written specifically to take advantage of the cluster → `parallelization`
+
+- `parallelization`: divides a program into separate components to run on individual cores or computers
+- `distributed lock manager` (DLM): access control and locking to ensure that no conflicting operations occur.
+  - included in cluster technology
+
+- `storage-area networks` (SANs): allow many systems to attach to a pool of storage
+
+### 1.3.3.a. asymmetric clustering
+
+- one machine in `hot-standby mode`
+  - it *does nothing but monitor* the other machines (the server)
+- the other machines run the applications
+
+### 1.3.3.b. symmetric clustering
+
+- two or more hosts are running applications and are *monitoring each other*
+- more efficient, as it uses *all* of the available hardware
+
+## 1.4. operating-system operations
+
+- provides environment within which programs are executed
+
+- `bootstrap program`: 
+
 
 # glossary
 - OS: operating system
@@ -381,3 +495,8 @@ some high-end systems use `switch` rather than bus architecture:
 - NVM: nonvolatile memory
 - NVS: nonvolatile storage
 - DMA: direct memory access
+- SMP: symmetric multiprocessing
+- NUMA: non-uniform memory access
+- LAN: local-area network
+- DLM: distributed lock mechanism
+- SAN: storage-area network
