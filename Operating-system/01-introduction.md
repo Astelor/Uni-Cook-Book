@@ -380,12 +380,15 @@ some high-end systems use `switch` rather than bus architecture:
 
 ## 1.3.2. multiprocessor systems
 
+- **`parallel`** systems, **`tightly-coupled`** systems
 - two or more ***single-core** CPUs*
   - share the computer bus, sometimes the clock
 - the speed-up ratio with *N* processors is *less* than *N*
   - `overhead` occur in keeping all the parts working correctly
 
 ### 1.3.2.a. symmetric multiprocessing (SMP)
+
+> uniform memory access (UMA), with one shared memory connected with CPUs
 
 - each peer CPU performs *all task*
   - including operating-system functions and user processes
@@ -435,7 +438,7 @@ the future:
 ## 1.3.3. clustered systems
 
 - composed of two or more individual systems or `nodes`
-  - such system is considered `loosely coupled`
+  - such system is considered **`loosely coupled`**
   - generally accepted definition: clustered computers *share storage* and are closely **linked via a `LAN`** or a interconnect
   - the definition of *clustered* is *not concrete*
 - to provide `high-availability service`
@@ -484,6 +487,7 @@ the future:
 
 
 # glossary
+
 - OS: operating system
 - CPU: central processing unit
 - USB: universal serial bus
@@ -496,7 +500,9 @@ the future:
 - NVS: nonvolatile storage
 - DMA: direct memory access
 - SMP: symmetric multiprocessing
+- UMA: uniform memory access
 - NUMA: non-uniform memory access
 - LAN: local-area network
+- HPC: high performance computing
 - DLM: distributed lock mechanism
 - SAN: storage-area network
