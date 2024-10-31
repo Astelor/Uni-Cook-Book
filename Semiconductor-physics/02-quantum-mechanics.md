@@ -2,7 +2,7 @@
 
 # 2.1 principles of quantum mechanics
 
-three principles:
+**three principles**:
 1. the principle of energy quanta
 2. the wave-particle duality principle
 3. the uncertainty principle
@@ -13,19 +13,29 @@ three principles:
 >
 > in other words, if the incident light frequency is not above the limiting frequency *v_0*, no photoelectron is produced.
 
-- **`quanta`**:
+**definitions**:
+- `quanta`:
   - > Planck: thermal radiation is emitted from a heated surface in *`discrete` packets of energy* called `quanta`
-- **`photon`**:
+- `photon`:
   - > Einstein: interpreted the photoelectric effect by suggesting the energy in a light wave is also contained in discrete packets, and called the *discrete packet of energy* a `photon`
   - a `photon` with *sufficient energy* can knock an electron from the surface of the material
     - which is the *photoelectric effect*: `photon` hit the material, the material spits out an `photoelectron`
   - any *excess `photon` energy* goes into the *kinetic energy* of the `photoelectron`
-- **`work function`** (of the material):
+- `work function` (of the material):
   - minimum energy required to remove an electron
-
 
 > Planck and Einstein are describing the same thing, but from different experiments.
 
-- energy of `quanta`/`photon`: *E* = *hv*
-  - *v*: frequency of the radiation
+**equations**:
+- energy of `quanta`/`photon`
+  - $E=h\nu$
+  - *ν*: frequency of the radiation
+    - ν is pronounced "nu", is a greek alphabet
   - *h*: Planck's constant *h* = 6.625 × 10^-34 J-s
+- **maximum kinetic energy** of the `photoelectron` 
+  - $T=\frac{1}{2}m\nu^2=hv-\Phi=h\nu$
+
+---
+> I probably need a equation area here
+> EHHHHHHH
+---
