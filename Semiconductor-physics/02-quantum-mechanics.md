@@ -178,7 +178,7 @@
 > getting probability density function from the wave function
 
 - total `wave function`:
-  - $\Psi(x,t)=\psi(x)\phi(t) = \psi(x) e^{-j(E/\bar{h})t} = \psi(x) e^{-j\omega t} $
+  - $\Psi(x,t)=\psi(x)\phi(t) = \psi(x) e^{-j(E/\bar{h})t} = \psi(x) e^{-j\omega t}$
   - a complex function → cannot by itself represent a real physical quantity 
 - *probability of finding the particle* between x and x+dx at a given time
   - $|\Psi(x,t)|^2 dx$
