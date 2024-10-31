@@ -1,0 +1,199 @@
+{
+  "main": {
+    "id": "ff7a8a15d995af02",
+    "type": "split",
+    "children": [
+      {
+        "id": "23437cb0cea3d1d1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cbfa57fe86c28b29",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f740cb740e5fb27c",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "c040237433fe9a22",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical"
+          },
+          "icon": "lucide-folder-closed",
+          "title": "Files"
+        }
+      },
+      {
+        "id": "31cd2b7e7f4617f6",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          },
+          "icon": "lucide-search",
+          "title": "Search"
+        }
+      },
+      {
+        "id": "2bf1f15bd8e5e671",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true
+          },
+          "icon": "lucide-tags",
+          "title": "Tags"
+        }
+      },
+      {
+        "id": "fd1e0e96e16db87d",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {},
+          "icon": "lucide-bookmark",
+          "title": "Bookmarks"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "d1aaed1c16d97496",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "47b8c8fb1c2c97ca",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "README.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-coming-in",
+          "title": "Backlinks"
+        }
+      },
+      {
+        "id": "c3f204f807ae670e",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "file": "README.md",
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          },
+          "icon": "links-going-out",
+          "title": "Outgoing links"
+        }
+      },
+      {
+        "id": "806d3255fce5bbd4",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "README.md"
+          },
+          "icon": "lucide-list",
+          "title": "Outline"
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "cbfa57fe86c28b29",
+  "lastOpenFiles": [
+    "Signals-and-Systems/SsSs-scrap.md",
+    "Signals-and-Systems",
+    "民主政治",
+    "Signals-and-Systems/02-Impulse.md",
+    "Signals-and-Systems/03-Frequency-response.md",
+    "Signals-and-Systems/ss-waveforms.md",
+    "民主政治/material/民主(democracy).pdf",
+    "民主政治/material/human rights 1209.pdf",
+    "民主政治/material",
+    "Signals-and-Systems/README.md",
+    "Semiconductor-physics/README.md",
+    "The-dotio-project/README.md",
+    "The-dotio-project",
+    "民主政治/essay/1984：觀察與被觀察的選擇權.pdf",
+    "民主政治/essay/1984-essay2.md",
+    "民主政治/essay/1984-essay.md",
+    "民主政治/essay/1984：觀察與被觀察的選擇權.docx",
+    "民主政治/essay",
+    "Signals-and-Systems/01-Introduction-ss.md",
+    "民主政治/01-Origins-and-Evolvement.md",
+    "MISC/live-skill-issue.md",
+    "MISC/htb-headless.md",
+    "Operating-system/attachments/F-1.7.png",
+    "Operating-system/attachments",
+    "MISC/htb-greenhorn.md",
+    "MISC/htb-permx.md",
+    "MISC/linux-toolbox.md",
+    "Operating-system/attachments/F-1.6.png",
+    "Operating-system/attachments/F-1.9.png",
+    "README.md",
+    "Operating-system/01-introduction.md",
+    "Operating-system/attachments/F-1.10.png",
+    "Operating-system/attachments/F-1.5.png",
+    "MISC/Natas.md",
+    "MISC/README.md",
+    "MISC/Krypton.md",
+    "Operating-system/attachments/F-1.8.png",
+    "Semiconductor-physics/02-quantum-mechanics.md",
+    "MISC/PC.md",
+    "MISC/thm-publisher.md",
+    "Operating-system/attachments/F-1.4.png",
+    "Operating-system/README.md",
+    "Microeletronics-Circuits/map.md",
+    "Microeletronics-Circuits/attachments/7.2.1-7.14.png",
+    "Microeletronics-Circuits/attachments/NPN_BJT_Basic_Operation_(Active)_jP.svg",
+    "Microeletronics-Circuits/attachments/7.2.1-7.13.png"
+  ]
+}
