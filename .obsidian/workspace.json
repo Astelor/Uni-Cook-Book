@@ -92,7 +92,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "be2f75d2e74e12e7",
@@ -178,9 +179,9 @@
   },
   "active": "133ab56979902b55",
   "lastOpenFiles": [
-    "README.md",
     "Semiconductor-physics/02-quantum-mechanics.md",
     "Operating-system/01-introduction.md",
+    "README.md",
     "Microeletronics-Circuits/03-semiconductor.md",
     "Microeletronics-Circuits/05-MOSFET.md",
     "Microeletronics-Circuits/06-BJT.md",
