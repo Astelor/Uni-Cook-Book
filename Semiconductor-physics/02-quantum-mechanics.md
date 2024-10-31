@@ -19,6 +19,8 @@
   - [2.2.2 physical meaning of the wave function](#222-physical-meaning-of-the-wave-function)
   - [2.2.3 boundary conditions](#223-boundary-conditions)
 - [2.3 applications of Schrodinger's wave equation](#23-applications-of-schrodingers-wave-equation)
+  - [2.3.1 electron in free space](#231-electron-in-free-space)
+    - [boundary condition](#boundary-condition)
 
 # 2.1 principles of quantum mechanics
 
@@ -205,11 +207,39 @@
      - the second derivative is finite
      - the first derivative is finite and continuous 
 
-> astelor: the remaining here are confusing to me ehh
+> astelor: the remaining text here are confusing to me ehh
 
 # 2.3 applications of Schrodinger's wave equation
 
+- the following sections in short:
+  1. free electron
+  2. bound electron
+  3. electron hitting a wall
+  4. electron goes through the wall
 
+## 2.3.1 electron in free space
+
+- no force acting on the particle
+- potential function *V(x)* will be constant
+- **E > V(x)**
+
+- time-independent wave equation
+  - $\frac{\partial^2\psi(x)}{\partial x^2}+\frac{2mE}{\bar h^2}\psi(x)=0$
+  - assuming $V(x) = 0, \forall x$
+- solution
+  - $\psi(x) = A\exp(jkx) + B\exp(-jkx)$
+  - $k = \sqrt{\frac{2mE}{\bar h^2}}$: wave number
+- **total `wave function` solution**
+  - $\Psi(x,t) = A\exp(j(kx-\omega t) + B\exp(-j(kx+\omega t))$
+    - recall that $\phi(t) = \exp(-j\omega t)$
+  - particle moving in free space is represented by a **traveling wave**
+  - first term: wave traveling in +x direction
+  - second term: wave traveling in -x direction
+
+### boundary condition
+
+- determining the value of coefficient A and B
+- 
 
 ---
 > I probably need a equation area here
