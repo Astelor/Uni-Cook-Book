@@ -4,9 +4,9 @@
   "autoSaveInterval": 0,
   "autoPushInterval": 0,
   "autoPullInterval": 0,
-  "autoPullOnBoot": false,
-  "disablePush": false,
-  "pullBeforePush": true,
+  "autoPullOnBoot": true,
+  "disablePush": true,
+  "pullBeforePush": false,
   "disablePopups": false,
   "disablePopupsForNoChanges": false,
   "listChangedFilesInMessageBody": false,
@@ -50,7 +50,9 @@
     },
     "textColorCss": "var(--text-muted)",
     "ignoreWhitespace": false,
-    "gutterSpacingFallbackLength": 5
+    "gutterSpacingFallbackLength": 5,
+    "lastShownAuthorDisplay": "initials",
+    "lastShownDateTimeFormatOptions": "date"
   },
   "autoCommitMessage": "vault backup: {{date}}"
 }
