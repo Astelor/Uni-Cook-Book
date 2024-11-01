@@ -4,5 +4,6 @@
   "cssTheme": "GitHub Theme",
   "textFontFamily": "",
   "interfaceFontFamily": "",
-  "showViewHeader": true
+  "showViewHeader": true,
+  "monospaceFontFamily": "Consolas"
 }
