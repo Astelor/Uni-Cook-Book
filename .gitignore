@@ -55,4 +55,7 @@ dkms.conf
 plans/
 NOTETOSELF.md
 Coffee-Map.md
-#.obsidian/
+
+# files to keep locally
+.obsidian/workspace-mobile.json
+.obsidian/workspace.json
