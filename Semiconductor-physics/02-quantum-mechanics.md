@@ -138,23 +138,25 @@
   - *m*: mass of the particle
   - *j*: imaginary constant
 
-- `wave function`, for using the technique of *separation of variables*
+- `wave function`
   - $\Psi(x,t) = \psi(x)\phi(t)$
   - *ψ(x)*: function of x only
   - *φ(t)*: function of t only
 
 ### math process...
 
-- substitute the `wave function` back into teh Schrodinger's wave equation
+> using separation of variables (separating *x* and *t*) with the `wave function`
+
+- substitute the `wave function` back into the Schrodinger's wave equation
   - $\frac{-\bar{h}}{2m} \cdot \phi(t) \cdot \frac{\partial^2 \psi(x)}{\partial x^2} + V(x)\psi(x)\phi(t) = j\bar{h} \psi(x)\frac{\partial^2 \phi(t)}{\partial t}$
 - divide by the `wave function`
   - $\frac{-\bar{h}}{2m} \cdot \frac{1}{\psi(x)} \cdot \frac{\partial^2 \psi(x)}{\partial x^2} + V(x) = j\bar{h}\cdot\frac{1}{\phi(t)}\cdot\frac{\partial^2 \phi(t)}{\partial t} = \eta$
-  - left side is a function of *x* only
-  - right side is a function of *t* only
+  - *left side* is a function of *x* only
+  - *right side* is a function of *t* only
   - *η* (eta): separation constant = the total energy of the particle *E*
 
 ---
-- time-dependent portion
+- time-dependent portion (right side)
   - $j\bar{h}\cdot\frac{1}{\phi(t)}\cdot\frac{\partial^2 \phi(t)}{\partial t} = \eta$
 - **solution of the time-dependent portion**
   - $\phi(t) = e^{-j(\eta/\bar{h})t} = e^{-j(E/\bar{h})t} = e^{-j\omega t}$
@@ -166,7 +168,7 @@
       - radian/ angular frequency of the sinusoidal wave
 ---
 
-- position-dependent portion
+- position-dependent portion (left side)
   - $\frac{-\bar{h}}{2m} \cdot \frac{1}{\psi(x)} \cdot \frac{\partial^2 \psi(x)}{\partial x^2} + V(x) = E$
 - **time-independent Schrodinger's wave equation**
   - $\frac{\partial^2 \psi(x)}{\partial x^2} + \frac{2m}{\bar{h}^2}(E-V(x))\cdot \psi(x) = 0$
