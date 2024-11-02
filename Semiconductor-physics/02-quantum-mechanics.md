@@ -55,8 +55,7 @@
 
 - energy of `quanta`/`photon`
   - $E=h\nu$
-  - *ν*: frequency of the radiation
-    - ν is pronounced "nu", is a greek alphabet
+  - *ν* (nu): frequency of the radiation
   - *h*: **Planck's constant** *h* = 6.625 × 10^-34 J-s
   - > energy of the photon is directly related to frequency of the light
 
@@ -116,8 +115,8 @@
 
 ### explanation
 
-- the uncertainty principle implies that these simultaneous measurements are in error to a certain extent
-- $\bar{h}$ is very small, so it's only significant to subatomic particles
+- the simultaneous measurements are in error to a certain extent
+- $\bar{h}$ is very small, so the error only significant to subatomic particles
 - **probability** function of describe the position and energy
 
 # 2.2 Schrodinger's wave equation
