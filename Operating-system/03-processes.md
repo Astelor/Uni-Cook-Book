@@ -17,6 +17,8 @@
   - [3.6.3 buffering](#363-buffering)
 - [3.7 examples of IPC systems](#37-examples-of-ipc-systems)
   - [3.7.1 POSIX shared memory](#371-posix-shared-memory)
+  - [3.7.2 Mach message passing](#372-mach-message-passing)
+  - [3.7.3 windows](#373-windows)
 - [glossary](#glossary)
 
 # 3.4 interprocess communication
@@ -210,9 +212,34 @@
 
 ## 3.7.1 POSIX shared memory
 
+> this is just API introduction
 
+
+## 3.7.2 Mach message passing
+
+- indirect in addressing
+- finite-sized queue for ports
+
+---
+- ports
+  - port rights
+  - task self port
+  - (task's) notify port
+- bootstrap port
+  - bootstrap server
+
+## 3.7.3 windows
+
+- advanced local procedural call (APLC)
+  - public connection port provided from the server
+  - client request connect through the connection port
+  - the port passes the handle to server
+  - server creates a private channel
+    - client communication port
+    - server communication port
 
 # glossary
 
 - IPC: interprocess communication
 - POSIX: portable operating system interface
+- APLC: advanced local procedural call

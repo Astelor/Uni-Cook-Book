@@ -234,24 +234,28 @@
 
 ### math process...
 
+> time-independent wave equation, and the *total wave function* that has *t* innit
+
 - **time-independent wave equation**
   - $\frac{\partial^2\psi(x)}{\partial x^2}+\frac{2mE}{\bar h^2}\psi(x)=0$
 - **solution** for the *time-independent wave equation*
   - $\psi(x) = A\exp(jkx) + B\exp(-jkx)$
-  - $k = \sqrt{\frac{2mE}{\bar h^2}}$: `wave number`
+  - `wave number`: $k = \sqrt{\frac{2mE}{\bar h^2}}$
 - **total wave function solution**
   - $\Psi(x,t) = A\exp(j(kx-\omega t) + B\exp(-j(kx+\omega t))$
     - recall that $\phi(t) = \exp(-j\omega t)$
-  - free particle is represented by a **traveling wave**
-  - first term: wave traveling in +x direction
-  - second term: wave traveling in -x direction
-- the value of coefficient A and B is determined by the *boundary condition* (BC)
+  - **free particle** is represented by a **traveling wave**
+  - *first term*: wave traveling in +x direction
+  - *second term*: wave traveling in -x direction
+  - the value of coefficient A and B is determined by the *boundary condition* (BC)
 
 ### boundary condition
 
-> still the math process, the results here are *PDF* and *wave solution*
+> solving for the total wave function solution *Ψ(x)*
+> 
+> the results here are *PDF* and *wave solution*
 
-- assuming the particle is traveling in +x direction
+- assuming the particle is *traveling in +x direction*
   - coefficient *B = 0* 
 - **traveling-wave solution**
   - $\Psi(x,t)=A\exp(j(kx-\omega t))$
@@ -263,8 +267,8 @@
 - a free particle with a *well-defined energy* will also have a *well-defined wavelength* and *momentum*
 - **probability density function**
   - $\Psi(x,t)\Psi^*(x,t)=AA^*$
-  - is a constant and independent of position (equal probability anywhere)
-  - > a free particle with a *well-defined momentum* can be found anywhere with equal probability (*AA^\**)
+  - is a **constant** and **independent of position** (equal probability anywhere)
+    - > a free particle with a *well-defined momentum* can be found anywhere with equal probability (*AA^\**)
 
 > astelor: what the heck is a well-defined stuff??
 
@@ -277,7 +281,9 @@
 - the particle is assumed to exist in *region II*
   - between x=0 & x=a
 
-### math process...
+### math process... 
+
+> getting time-independent wave functions in *region I & III* and *region II*
 
 - **time-independent wave function** in *region I & III*
   - $\frac{\partial^2\psi(x)}{\partial x^2}+\frac{2m}{\bar{h}^2}(E-V(x))\psi(x)=0$
@@ -286,12 +292,14 @@
     - probability of finding the particle here is zero
 - **time-independent wave function** in *region II*
   - $\frac{\partial^2\psi(x)}{\partial x^2}+\frac{2mE}{\bar{h}^2}\psi(x)=0$
-  - solution: $\psi(x)=A_1\cos(kx)+A_2\sin(kx)$
-  - wave number: $k=\sqrt{\frac{2mE}{\bar{h}^2}}$
+  - *particular solution*: $\psi(x)=A_1\cos(kx)+A_2\sin(kx)$
+  - `wave number`: $k=\sqrt{\frac{2mE}{\bar{h}^2}}$
 
 ### boundary conditions
 
-> use the *ψ(x)* solution you got above for the coefficient A_1 and A_2
+> solving for *ψ(x)* in *region II* for the *coefficient A_1 and A_2* with boundary conditions.
+>
+> the result here is the *quantized total energy* 
 
 - *ψ(x)* must be continuous:
   - $\psi(x=0)=\psi(x=a)=0$
@@ -306,14 +314,14 @@
   - $A_2=\sqrt{\frac{2}{a}}$
 - **time-independent wave solution**
   - $\psi(x)=\sqrt{\frac{2}{a}}\sin(\frac{n\pi x}{a})$
-  - bound particle is represented by a **standing wave**
+  - **bound particle** is represented by a **standing wave**
   - $\psi(x)=\sqrt{\frac{2}{a}}\sin(k_n x)$
 
 ---
 - expressions for *k*
   - $k^2\to k_n^2=\frac{2mE_n}{\bar{h}^2}=\frac{n^2\pi^2}{a^2}$
 - **total energy**
-  - $E=E_n=\frac{\bar{h}^2n^2\pi^2}{2ma^2}, n\in\natnums$
+  - $E=E_n=\frac{\bar{h}^2n^2\pi^2}{2ma^2}, n\in\mathbb{N}$
   - **energy of the particle is quantized**
   - > as the energy increases, the probability of finding the particle become more uniform
 

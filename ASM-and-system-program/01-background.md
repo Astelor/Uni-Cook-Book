@@ -10,14 +10,23 @@
   - [data formats](#data-formats)
   - [addressing mode](#addressing-mode)
   - [instruction set](#instruction-set)
-    - [ADD](#add)
-    - [COMP](#comp)
-    - [JSUB](#jsub)
+    - [arithmetic](#arithmetic)
+      - [ADD](#add)
+      - [COMP](#comp)
+    - [jump](#jump)
+      - [J](#j)
+      - [JSUB](#jsub)
+      - [RSUB](#rsub)
+    - [load](#load)
+    - [store](#store)
 - [glossary](#glossary)
 - [basics](#basics)
   - [flags](#flags)
+  - [comparison](#comparison)
 
 # 1.3.1. SIC machine architecture
+
+> *placeholder*
 
 ## memory
 - `8-bit byte` for a unit in memory
@@ -35,13 +44,13 @@
 |PC|8|program counter|
 |SW|9|status word|
 
-- A: `accumulator`; used for arithmetic operations
-- X: `index register`; used for addressing 
+- **A**: `accumulator`; used for arithmetic operations
+- **X**: `index register`; used for addressing 
   - setting `x-bit` in the machine code for indexed addressing 
-- L: `linkage register`; the Jump to Subroutine (`JSUB`) instruction stores the *return address* in this register
+- **L**: `linkage register`; the Jump to Subroutine (`JSUB`) instruction stores the *return address* in this register
   - > so the program knows where to go back once the subroutine is done
-- PC: `program counter`; contains the *address of the next instruction* to be fetched for execution
-- SW: `status word`; contains a variety of information, including a Condition Code (CC)
+- **PC**: `program counter`; contains the *address of the next instruction* to be fetched for execution
+- **SW**: `status word`; contains a variety of information, including a Condition Code (CC)
   - > **what's this??**
 
 ## data formats
@@ -78,25 +87,74 @@
   - C: Condition code (`CC`) set to indicate the result of operation (<, =, or >) 
 
 ---
+### arithmetic
 
-### ADD
+#### ADD
 
 - instruction: `ADD m`
 - notes: (none)
 - effect: A ← (A) + (m...m+2)
-  - `contents of memory locations {m, m+1, m+2}` are added with with the `contents of register A`
+  - **contents of memory locations {m, m+1, m+2}** are added with with the `contents of register A`
   - and then store the arithmetic result to `register A`
 - > `register A` is a special register, if someone were to do *m_1* + *m_2*, *m_1* must be loaded into `register A` first, and then do `ADD m_2`
 
----
-
-### COMP
+#### COMP
 
 - instruction: `COMP m`
 - effect: (A) : (m...m+2)
 - notes: C
+  - > updates the conditional code (the 4 flags)
 
-### JSUB
+---
+
+### jump
+
+#### J
+
+- instruction: `J m`
+- effect: PC ← m
+
+#### JSUB
+
+> sub: subroutine, J: jump
+- instruction: `JSUB m`
+- effect: L ← (PC); PC ← m
+  - > store the *contents of PC* to L, then load the address m to PC
+    > 
+    > PC points to the next instruction (the one under `JSUB`) 
+
+#### RSUB
+
+> sub: subroutine, R: return
+- instruction: `RSUB`
+- effect: PC ← (L)
+  - > load the *contents of L* to PC
+
+### load
+
+- `LDA m`
+  - A ← (m..m+2)
+- `LDCH m`
+  - A[*least significant byte*] ← (m)
+- `LDX m`
+  - X ← (m..m+2)
+- `LDL m`
+  - L ← (m..m+2)
+
+### store
+
+- `STA m`
+  - (m..m+2) ← A
+  - > store A, accumulator
+- `STCH m`
+  - (m) ← A[*least significant byte*]
+  - > store character, a character is 1 byte
+- `STX m`
+  - (m..m+2) ← X
+  - > store X, index register
+- `STL m`
+  - (m..m+2) ← L
+  - > store L, linkage register
 
 # glossary
 
@@ -115,10 +173,35 @@ c_23 c_22 c_21 ... c_1 c_0 0
      z_23 z_22 ... z_2 z_1 z_0
 ```
 
-- `carry` flag: c_23
-- `overflow` flag: c_23 XOR c_22
-  - overflow flag is set when c_23 or c_22 is set
-  - c_23
-- `sign` (negative) flag: z_23
+- **carry** flag (`CF`): *c_23*
+- **overflow** flag (`OF`): *c_23* XOR *c_22*
+  - overflow flag is set when *c_23* or *c_22* is set
+  - *c_23*
+- **sign** (negative) flag (`SF`): *z_23*
   - in 2's complement, signed negative integer's most significant bit is 1
-- `zero` flag: z_23 OR z_22 OR z_21 OR ... OR z_0
+- **zero** flag (`ZF`): *z_23* OR *z_22* OR *z_21* OR ... OR *z_0*
+
+## comparison
+
+> `cmp x`; do (A) - x
+>
+> the comparison operation itself is doing a subtraction and update flags
+
+- **signed** integer comparison
+  - **GT** (greater than)
+    - `OF` = `SF` AND `ZF` = 0
+  - **GE** (greater than or equal to)
+    - `OF` = `SF` OR `ZF` = 0
+  - **LT** (less than)
+    - `OF` != `SF` AND `ZF` = 0
+  - **LE** (less than or equal to)
+    - `OF` != `SF` OR `ZF` = 1
+- **unsigned** integer comparison
+  - **GT** (greater than)
+    - `CF` = 0 AND `ZF` = 0
+  - **GE** (greater than or equal to)
+    - `CF` = 0 OR `ZF` = 0
+  - **LT** (less than)
+    - `CF` = 1 AND `ZF` = 0
+  - **LE** (less than or equal to)
+    - `CF` = 1 OR `ZF` = 1
