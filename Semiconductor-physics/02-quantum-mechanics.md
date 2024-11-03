@@ -20,7 +20,13 @@
   - [2.2.3 boundary conditions](#223-boundary-conditions)
 - [2.3 applications of Schrodinger's wave equation](#23-applications-of-schrodingers-wave-equation)
   - [2.3.1 electron in free space](#231-electron-in-free-space)
+    - [math process...](#math-process-1)
     - [boundary condition](#boundary-condition)
+  - [2.3.2 the infinite potential well](#232-the-infinite-potential-well)
+    - [math process...](#math-process-2)
+    - [boundary conditions](#boundary-conditions)
+  - [2.3.3 the step potential function](#233-the-step-potential-function)
+- [glossary](#glossary)
 
 # 2.1 principles of quantum mechanics
 
@@ -145,7 +151,7 @@
 
 ### math process...
 
-> using separation of variables (separating *x* and *t*) with the `wave function`
+> using *separation of variables* (separating *x* and *t*) with the `wave function`
 
 - substitute the `wave function` back into the Schrodinger's wave equation
   - $\frac{-\bar{h}}{2m} \cdot \phi(t) \cdot \frac{\partial^2 \psi(x)}{\partial x^2} + V(x)\psi(x)\phi(t) = j\bar{h} \psi(x)\frac{\partial^2 \phi(t)}{\partial t}$
@@ -178,14 +184,14 @@
 
 ## 2.2.2 physical meaning of the wave function
 
-> getting probability density function from the wave function
+> getting `probability density function` from the `wave function`
 
 - total `wave function`:
   - $\Psi(x,t)=\psi(x)\phi(t) = \psi(x) e^{-j(E/\bar{h})t} = \psi(x) e^{-j\omega t}$
   - a complex function → cannot by itself represent a real physical quantity 
 - *probability of finding the particle* between x and x+dx at a given time
   - $|\Psi(x,t)|^2 dx$
-- **`probability density function`** (PDF)
+- **probability density function** (PDF)
   - $|\Psi(x,t)|^2 = \Psi(x,t) \cdot \Psi^*(x,t)$
   - > it's just the definition of probability density function
   - math process...
@@ -196,17 +202,17 @@
 
 ##  2.2.3 boundary conditions
 
-1. the probability of finding the particle is certain
+- the probability of finding the particle somewhere is certain
    - $\int^{\infty}_{-\infty}{|\psi(x)|^2 dx} = 1$
-
+   - allow us to normalize the `wave function`
 - the total energy *E* and the potential *V(x)* are finite everywhere
   1. *ψ(x)* must be finite, single-valued, and continuous
      - if the probability density become *infinite* at some point in space, the probability of finding the particle at this position would be *certain* = `uncertainty principle` violated
   2. *∂ψ(x)/∂x* must be finite, single-valued, and continuous
-     - from time-independent Schrodinger's wave equation
-     - $\frac{\partial^2\psi(x)}{\partial x^2}+\frac{2m}{\bar{h}^2}(E-V(x))\psi(x) = 0$
-     - the second derivative is finite
-     - the first derivative is finite and continuous 
+     - from **time-independent Schrodinger's wave equation**
+       - $\frac{\partial^2\psi(x)}{\partial x^2}+\frac{2m}{\bar{h}^2}(E-V(x))\psi(x) = 0$
+       - the *second derivative is finite*
+     - the *first derivative* is finite and continuous 
 
 > astelor: the remaining text here are confusing to me ehh
 
@@ -220,27 +226,105 @@
 
 ## 2.3.1 electron in free space
 
-- no force acting on the particle
-- potential function *V(x)* will be constant
-- **E > V(x)**
+- **free particle**
+- *no force* acting on the particle
+  - potential function *V(x)* will be constant
+  - **E > V(x)**
+- assuming $V(x) = 0, \forall x$
 
-- time-independent wave equation
+### math process...
+
+- **time-independent wave equation**
   - $\frac{\partial^2\psi(x)}{\partial x^2}+\frac{2mE}{\bar h^2}\psi(x)=0$
-  - assuming $V(x) = 0, \forall x$
-- solution
+- **solution** for the *time-independent wave equation*
   - $\psi(x) = A\exp(jkx) + B\exp(-jkx)$
-  - $k = \sqrt{\frac{2mE}{\bar h^2}}$: wave number
-- **total `wave function` solution**
+  - $k = \sqrt{\frac{2mE}{\bar h^2}}$: `wave number`
+- **total wave function solution**
   - $\Psi(x,t) = A\exp(j(kx-\omega t) + B\exp(-j(kx+\omega t))$
     - recall that $\phi(t) = \exp(-j\omega t)$
-  - particle moving in free space is represented by a **traveling wave**
+  - free particle is represented by a **traveling wave**
   - first term: wave traveling in +x direction
   - second term: wave traveling in -x direction
+- the value of coefficient A and B is determined by the *boundary condition* (BC)
 
 ### boundary condition
 
-- determining the value of coefficient A and B
-- 
+> still the math process, the results here are *PDF* and *wave solution*
+
+- assuming the particle is traveling in +x direction
+  - coefficient *B = 0* 
+- **traveling-wave solution**
+  - $\Psi(x,t)=A\exp(j(kx-\omega t))$
+  - `wave number`: $k=\sqrt{\frac{2mE}{\bar{h}^2}}=\sqrt{\frac{p^2}{\bar{h}^2}}=\frac{p}{\bar{h}}$
+- `wavelength` written in terms of the `wave number`
+  - $\lambda = \frac{2\pi}{k}$
+  - or $k=\frac{2\pi}{\lambda}$
+  - recall: de Broglie wavelength: $\lambda = \frac{h}{p} = \frac{2\pi \bar{h}}{p}$
+- a free particle with a *well-defined energy* will also have a *well-defined wavelength* and *momentum*
+- **probability density function**
+  - $\Psi(x,t)\Psi^*(x,t)=AA^*$
+  - is a constant and independent of position (equal probability anywhere)
+  - > a free particle with a *well-defined momentum* can be found anywhere with equal probability (*AA^\**)
+
+> astelor: what the heck is a well-defined stuff??
+
+## 2.3.2 the infinite potential well
+
+- **bound particle**
+- potential *V(x)*:
+  - infinite in *region I & III*
+  - zero in *region II*
+- the particle is assumed to exist in *region II*
+  - between x=0 & x=a
+
+### math process...
+
+- **time-independent wave function** in *region I & III*
+  - $\frac{\partial^2\psi(x)}{\partial x^2}+\frac{2m}{\bar{h}^2}(E-V(x))\psi(x)=0$
+  - if *E* is finite, *ψ(x)=0* in both *region I & III*
+    - the particle cannot penetrate infinite potential barriers
+    - probability of finding the particle here is zero
+- **time-independent wave function** in *region II*
+  - $\frac{\partial^2\psi(x)}{\partial x^2}+\frac{2mE}{\bar{h}^2}\psi(x)=0$
+  - solution: $\psi(x)=A_1\cos(kx)+A_2\sin(kx)$
+  - wave number: $k=\sqrt{\frac{2mE}{\bar{h}^2}}$
+
+### boundary conditions
+
+> use the *ψ(x)* solution you got above for the coefficient A_1 and A_2
+
+- *ψ(x)* must be continuous:
+  - $\psi(x=0)=\psi(x=a)=0$
+    - $A_1=0$ when *x=0*
+    - > from the wave function result in *region I & III*, you got *ψ(x)=0*, continuous at the boundary means *ψ(0)=0* & *ψ(a)=0*. okay?
+  - $\psi(x=a)=0=A_2\sin ka$
+    - equation is *valid* if **$ka=n\pi$**
+      - *n*: a positive integer
+    - > $A_2$ is found using the normalization boundary condition
+- normalization boundary condition
+  - $\int^{a}_{0}A^2_2\sin^2kx\,dx=1$
+  - $A_2=\sqrt{\frac{2}{a}}$
+- **time-independent wave solution**
+  - $\psi(x)=\sqrt{\frac{2}{a}}\sin(\frac{n\pi x}{a})$
+  - bound particle is represented by a **standing wave**
+  - $\psi(x)=\sqrt{\frac{2}{a}}\sin(k_n x)$
+
+---
+- expressions for *k*
+  - $k^2\to k_n^2=\frac{2mE_n}{\bar{h}^2}=\frac{n^2\pi^2}{a^2}$
+- **total energy**
+  - $E=E_n=\frac{\bar{h}^2n^2\pi^2}{2ma^2}, n\in\natnums$
+  - **energy of the particle is quantized**
+  - > as the energy increases, the probability of finding the particle become more uniform
+
+## 2.3.3 the step potential function
+
+
+
+# glossary
+
+- PDF: probability density function
+- BC: boundary condition
 
 ---
 > I probably need a equation area here
