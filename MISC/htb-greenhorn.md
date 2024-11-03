@@ -72,7 +72,7 @@ Directory fuzzing:
 - nothing interesting
 
 ```bash
-$ffuf -w /usr/share/wordlists/dirb/big.txt -u http://greenhorn.htb/FUZZ -fl 1
+$ ffuf -w /usr/share/wordlists/dirb/big.txt -u http://greenhorn.htb/FUZZ -fl 1
 
         /'___\  /'___\           /'___\       
        /\ \__/ /\ \__/  __  __  /\ \__/       
@@ -105,6 +105,9 @@ robots.txt              [Status: 200, Size: 47, Words: 4, Lines: 3, Duration: 64
 
 Domain fuzzing gave nothing
 
+> `robots.txt` is a request to bots to not scrape this website
+> Scraping takes away resources and increases server power consumption, thus increase maintainance cost
+
 ## Service Hosted
 
 http://greenhorn.htb/login.php
@@ -118,3 +121,10 @@ Apparently this service version is vulnerable to RCE
 https://nvd.nist.gov/vuln/detail/CVE-2023-50564
 
 https://www.exploit-db.com/exploits/51592
+
+---
+
+
+## Gitea
+
+- On port 3000 hosts `Gitea` on version `1.21.11` which appears to be vulnerable
