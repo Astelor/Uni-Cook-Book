@@ -13,4 +13,6 @@ operating system may sound irrelevant to electrical engineering, but it's crucia
 
 part 1 overview
 - [chapter 1, introduction](01-introduction.md)
-- [chapter 2, operating-system structures]()
+- [chapter 2, operating-system structures](02-operating-system-structures.md)
+- [chapter 3, processes](03-processes.md)
+- [chapter 4, threads and concurrency](04-threads-and-concurrency.md)

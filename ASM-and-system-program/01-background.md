@@ -191,7 +191,7 @@ c_23 c_22 c_21 ... c_1 c_0 0
   - **GT** (greater than)
     - `OF` = `SF` AND `ZF` = 0
   - **GE** (greater than or equal to)
-    - `OF` = `SF` OR `ZF` = 0
+    - `OF` = `SF` OR `ZF` = 1
   - **LT** (less than)
     - `OF` != `SF` AND `ZF` = 0
   - **LE** (less than or equal to)
@@ -200,7 +200,7 @@ c_23 c_22 c_21 ... c_1 c_0 0
   - **GT** (greater than)
     - `CF` = 0 AND `ZF` = 0
   - **GE** (greater than or equal to)
-    - `CF` = 0 OR `ZF` = 0
+    - `CF` = 0 OR `ZF` = 1
   - **LT** (less than)
     - `CF` = 1 AND `ZF` = 0
   - **LE** (less than or equal to)
