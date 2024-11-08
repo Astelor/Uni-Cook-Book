@@ -240,7 +240,7 @@
   - $\frac{\partial^2\psi(x)}{\partial x^2}+\frac{2mE}{\bar h^2}\psi(x)=0$
 - **solution** for the *time-independent wave equation*
   - $\psi(x) = A\exp(jkx) + B\exp(-jkx)$
-  - `wave number`: $k = \sqrt{\frac{2mE}{\bar h^2}}$
+  - *wave number*: $k = \sqrt{\frac{2mE}{\bar h^2}}$
 - **total wave function solution**
   - $\Psi(x,t) = A\exp(j(kx-\omega t) + B\exp(-j(kx+\omega t))$
     - recall that $\phi(t) = \exp(-j\omega t)$
@@ -259,7 +259,7 @@
   - coefficient *B = 0* 
 - **traveling-wave solution**
   - $\Psi(x,t)=A\exp(j(kx-\omega t))$
-  - `wave number`: $k=\sqrt{\frac{2mE}{\bar{h}^2}}=\sqrt{\frac{p^2}{\bar{h}^2}}=\frac{p}{\bar{h}}$
+  - *wave number*: $k=\sqrt{\frac{2mE}{\bar{h}^2}}=\sqrt{\frac{p^2}{\bar{h}^2}}=\frac{p}{\bar{h}}$
 - `wavelength` written in terms of the `wave number`
   - $\lambda = \frac{2\pi}{k}$
   - or $k=\frac{2\pi}{\lambda}$
@@ -293,7 +293,7 @@
 - **time-independent wave function** in *region II*
   - $\frac{\partial^2\psi(x)}{\partial x^2}+\frac{2mE}{\bar{h}^2}\psi(x)=0$
   - *particular solution*: $\psi(x)=A_1\cos(kx)+A_2\sin(kx)$
-  - `wave number`: $k=\sqrt{\frac{2mE}{\bar{h}^2}}$
+  - *wave number*: $k=\sqrt{\frac{2mE}{\bar{h}^2}}$
 
 ### boundary conditions
 
@@ -326,7 +326,6 @@
   - > as the energy increases, the probability of finding the particle become more uniform
 
 ## 2.3.3 the step potential function
-
 
 
 # glossary
