@@ -259,7 +259,7 @@
   - coefficient *B = 0* 
 - **traveling-wave solution**
   - $\Psi(x,t)=A\exp(j(kx-\omega t))$
-  - *wave number*: $k=\sqrt{\frac{2mE}{\bar{h}^2}}=\sqrt{\frac{p^2}{\bar{h}^2}}=\frac{p}{\bar{h}}$
+  - *wave number*: **$k=\sqrt{\frac{2mE}{\bar{h}^2}}=\sqrt{\frac{p^2}{\bar{h}^2}}=\frac{p}{\bar{h}}$**
 - `wavelength` written in terms of the `wave number`
   - $\lambda = \frac{2\pi}{k}$
   - or $k=\frac{2\pi}{\lambda}$

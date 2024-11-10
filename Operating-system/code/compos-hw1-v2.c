@@ -41,6 +41,7 @@ void tty_disable(){
 
 // debug mode that make it somewhat more verbose
 int debug_on = 0;
+// todo: ideally you should check the length instead of newline
 // name input with buffer overflow prevention
 void input_val(char *input, const char *message){
     // runs until getting a valid input
