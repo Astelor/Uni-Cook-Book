@@ -1,6 +1,8 @@
 # week 11
 
 
+> (from the professor)
+> 
 > For you to practice the CLA Method, this week I'm asking everyone to look up a news article from the last 7 days. This article needs to be from your country. I want you to deconstruct the article(topic) with Causal Layered Analysis. 
 >
 > Remember the examples I gave today - sometimes you can find some of the layers in the article (mostly second layer) and sometimes you don't. If the article doesn't provide you with any information for the layers, you have to think critically about the article(topic).
@@ -8,6 +10,8 @@
 > Please submit the results in form of a table. This reflection paper accounts for 4% of your total score (so 2% more than our usual reflection papers). No AI/ChatGpT/Grammar Program is allowed and will be punished with 0 points.
 > 
 > Any questions? Feel free to ask. 
+
+---
 
 https://www.techbang.com/posts/119558-the-us-governments-call-for-the-deprecation-of-c-c-will-usher
 
@@ -41,10 +45,10 @@ https://www.techbang.com/posts/119558-the-us-governments-call-for-the-deprecatio
 ---
 **murmuring section**
 
-Choose one symbol to overuse: ()
-
 Honestly, most of the articles in Taiwan concerning global issues are translated, or even worse, machine translated articles from foreign newspapers. I know there's a "war" happening in Taiwan about revising the law to literally make constitution judges powerless, but the US government declaring C and C++ "illegal" is funnier to me, not that the constitution doesn't matter.
 
 To be fair, it feels like cheating since a friend of mine sent me this article this week, asking what I think about it. 
 
 Wow, why are most of the news about who died or who murdered who. Can't they created a section specifically for it, because I feel number and number scrolling through the violence news searching for something else worth my time.
+
+do i submit it as this bullet point or make it into a word table? it's the same thing ehh
