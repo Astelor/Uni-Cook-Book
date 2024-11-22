@@ -6,7 +6,7 @@
  *  is linux exclusive, any attempt to run this code
  *  without using gcc or linux will be unsuccessful.
  * 
- *  please include this section of comment if you copy my code.
+ *  please include this section of comment if you copy my spaghetti code.
  */
 
 #include <stdio.h>
