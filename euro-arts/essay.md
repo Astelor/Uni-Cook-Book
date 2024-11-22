@@ -1,4 +1,6 @@
-# Ashmolean Museum of Art and Archaeology
+# topic
+
+- **Ashmolean Museum of Art and Archaeology**
 
 I read *Babel: Or the Necessity of Violence: An Arcane History of the Oxford Translators' Revolution* and was quite fascinated by Oxford itself. Since I have no other choice of building, I picked this one where the main characters visited in the story.
 
@@ -11,7 +13,7 @@ I read *Babel: Or the Necessity of Violence: An Arcane History of the Oxford Tra
 
 > how tf do i structure it?
 
-outline, not necessarily in the order:
+# outline, not necessarily in the order:
 1. history
    - can outline the culture then in 17th century and 19th century
      - such as why they built a new one and why someone built a museum to house their items in a university
@@ -24,9 +26,13 @@ outline, not necessarily in the order:
 3. items (since it's a museum)
    - anything interesting and major
      - like it's special and piece of its time
-   - 
-4. arts
-   - > i guess this is included in the items since paintings and sculptures are
-5. thoughts
+   - arts, sculpture, items of significance
+4. thoughts
    - > 心得(?)
    - > I know the existence of this museum because of the book. So I guess this book is successful in various ways?
+   - > Babel heheh oxford
+5. references
+
+# reading materials
+- https://en.wikipedia.org/wiki/Ashmolean_Museum
+- https://www.ashmolean.org/
