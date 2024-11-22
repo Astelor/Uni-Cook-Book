@@ -4,7 +4,7 @@
  * Comment:
  *  please note that the termios.h library
  *  is linux exclusive, any attempt to run this code
- *  without using gcc or linux will be unsucessful.
+ *  without using gcc or linux will be unsuccessful.
  * 
  *  please include this section of comment if you copy my code.
  */
