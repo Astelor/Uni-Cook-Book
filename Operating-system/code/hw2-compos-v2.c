@@ -37,7 +37,7 @@ int str[5][FILE_SIZE];
 int str_length[5];
 
 struct termios tty;
-// enable canonical mode and echo
+// 1->enable canonical mode and echo, 0->disable canonical mode and echo
 void tty_enable(int param);
 
 int main(void)
@@ -74,7 +74,7 @@ int main(void)
     }
     FILE* fp;
     fp = fopen(file_source, "r");
-    if(fp == NULL)
+    if(fp == NULL) 
     {
         perror("fopen() error");
         return 0;
@@ -107,18 +107,13 @@ int main(void)
     // threading here
     int thr_cnt=4;
     struct thread_info *tinfo;
-    tinfo = calloc(thr_cnt+1, sizeof(*tinfo));
+    tinfo = calloc(thr_cnt + 1, sizeof(*tinfo));
     for(i = 0 ; i < thr_cnt ; i++)
     {
         tinfo[i].thread_num = i;
         pthread_create(&tinfo[i].thread_id, NULL, runner, &tinfo[i]);
     }
-    for(i = 0 ; i < thr_cnt ; i++) pthread_join(tinfo[i].thread_id, NULL);
-    
-    // fifth thread
-    pthread_create(&tinfo[4].thread_id, NULL, runner4, NULL);
-    pthread_join(tinfo[4].thread_id, NULL);
-    
+
     char file_des[BUF_SIZE];
     while(flag&1)
     {
@@ -153,10 +148,12 @@ int main(void)
         }
         else break; // file name does not exist, create a new one.
     }
+    
     // write to file here
     FILE* fp2 = fopen(file_des, "wb");
-    for(int k = 0 ; k < thr_cnt ; k++) // threads
+    for(int k = 0 ; k < thr_cnt ; k++)// threads
     {
+        pthread_join(tinfo[k].thread_id, NULL);
         fprintf(fp2,"Thread %d: ", k+1);
         for(i = 0 ; i < str_length[k] - 1 ; i++)
         {
@@ -165,8 +162,11 @@ int main(void)
         fprintf(fp2, "%d\nsum %d: %d\n", str[k][str_length[k]-1], k+1, sum_global[k]);
     }
     fprintf(fp2, "=================================================\n");
-    for(i = 0 ; i < num_length - 1 ; i++) // all
-        fprintf(fp2, "%d,", str[4][i]);
+    
+    // fifth thread
+    pthread_create(&tinfo[4].thread_id, NULL, runner4, NULL);
+    pthread_join(tinfo[4].thread_id, NULL);
+    for(i = 0 ; i < num_length - 1 ; i++) fprintf(fp2, "%d,", str[4][i]); // all
     fprintf(fp2, "%d\n", str[4][num_length-1]);
     fclose(fp2);
     return 0;
