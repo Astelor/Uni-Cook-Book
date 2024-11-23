@@ -29,3 +29,7 @@ C – **Backcasting** (25%)
 2. law concerning the freedom in technology
    - WHAT kind of law?
    - is google getting sued for building a monopoly included?
+
+# murmur
+
+you're not good at defining the boundary of your topic, and you do better when there's a clear bound of questions and scope. 
