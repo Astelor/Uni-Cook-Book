@@ -41,9 +41,9 @@
 
 > note that this is explicitly YOUR own output, not copy-pasting
 
-I read *Babel: Or the Necessity of Violence: An Arcane History of the Oxford Translators' Revolution* and was quite fascinated by Oxford itself. Since I have no other choice of building in mind, I picked this one that the main characters visited in the story.
+I read *Babel: Or the Necessity of Violence: An Arcane History of the Oxford Translators' Revolution* and was quite fascinated by Oxford itself. Since I have no other selection of buildings in mind, I picked this one that the main characters visited in the story.
 
-The novel discussed the inequality in races using the main characters' interactions with the early 19th Oxford, England. The museum itself is a "stealing" from other cultures, just like how the young translators in the book was plucked from remote countries, only to use their mother language for the empire's prosperity. I'd imagine the author used this parallelism to show how out of place they are, just like the exhibits in the museum.
+The novel discussed the inequality in races using the main characters' interactions with the early 19th Oxford, England. The museum itself is a "stealing" from other cultures, just like how the young translators in the book was plucked from remote countries, only to use their mother language for the empire's prosperity. I'd imagine the author used this parallelism to show how out of place they are, just like the often exotic exhibits in the museum.
 
 # history
 
