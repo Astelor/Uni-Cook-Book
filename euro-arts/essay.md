@@ -147,7 +147,10 @@ Acknowledged as one of the greatest landscape artists of all time, Turner (1775�
 The painting is one of the most fully documented of all Turner’s works because Wyatt kept his correspondence with the artist which was included in his posthumous sale. The original purpose of the commission was to have the design engraved. Wyatt settled on an oil painting, instead of a watercolour, half the size of Turner’s normal canvases, at a cost of 100 guineas (a gold coin minted in Great Britain between 1663 and 1814, contained approximately one-quarter of an ounce of gold). The artist worked on the painting over the winter of 1809–10, consulting Wyatt on the details of the architecture included in the view. The final stage involved the introduction of figures, members of the University and clergy, and some women ‘for the sake of colour’. The painting was exhibited at the Royal Academy in 1812. When, in the 1830s, Turner was choosing views of Oxford for his greatest series of watercolours, he rejected the High Street. He felt that in this painting he had achieved an unparalleled view of technical mastery that he could not repeat.
 [[cite]](https://www.ashmolean.org/turners-high-street)
 
-On a personal touch, the high street was so prominent in the book *Babel*, it'll be a shame not to include this painting the essay.
+On a personal touch, the high street was so prominent in the book *Babel*, it'll be a shame not to include this painting the essay. The High Street is the main artery of Oxford, connecting the major academic buildings and the commerce throughout the city. The characters experienced their daily lives and adventures  on this street, the painting is a helping hand for readers to imagine how Oxford looked like in the 19th century.
+
+# old ashmolean
+
 
 # mumbling
 
