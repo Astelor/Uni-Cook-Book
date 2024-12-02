@@ -33,7 +33,9 @@ Surprisingly, the most memorable thing I learned from this class is the biblical
 
 ![alt text](image.png)
 
-After looking at all these wonderful artworks from hundreds of years ago, it makes me wonder; wouldn't the sculptures and paintings about religious topics a form of fanart? The Bible being the original source of written work, and the arts being a recreation of the original written work. Different artists from different cultures have different art styles, but with the same passion, for art only or religion, they came together to create great arts to honor the religion (fandom?). In addition, people can commission their favorite artist to create art pieces. Even though I'm not an artist or a member of the community, but I think the 
+After looking at all these wonderful artworks from hundreds of years ago, it makes me wonder; wouldn't the sculptures and paintings about religious topics a form of fanart? The Bible being the original source of written work, and the arts being a recreation of the original written work. Different artists from different cultures have different art styles, but with the same passion, for art only or religion, they came together to create great arts to honor the religion (fandom?). 
+
+~~In addition, people can commission their favorite artist to create art pieces. Even though I'm not an artist or a member of the community, but I think the~~
 > form of art??? business of art? has been the same way all this time, you can have big studio taking projects, and you can also have smaller artists doing what they like (?)
 > 
 > dude what?
@@ -44,7 +46,7 @@ My favorite part of the art history is how the artists use perspective technique
 >
 > dude what's your point?
 
-My another favorite part of the art or religion history is how they sees math as a force of universe, thus a force of god. Math could explain everything in the form of an equation, and the artistic result is typically satisfying. 
+My another favorite part of the art or religion history is how they sees math as a force of universe, thus a force of god. Math could explain everything in the form of an equation, and the artistic result is typically satisfying. In addition, the fact that some wealthy family commission artists and architects to build churches for redemption, such act seem familiar nowadays where conglomerates makes donations and charitable acts to remedy the irreversible evil they've done.
 
 > There's always a saying along the lines of "The ultimate boundary of science is metaphysics"
 >
@@ -52,4 +54,5 @@ My another favorite part of the art or religion history is how they sees math as
 
 Every time I see the videos of a town in Italy, it always reminds me of the Assassin's Creed II video game and how I scale the buildings as the in-game character. It's quite frankly my first acquaintance with the Renaissance Italy, the bulky red buildings for the functions or the white towering churches for the religion.
 
-They let you climb the Cathedral of Saint Mary of the Flower in the video game, 
+~~They let you climb the Cathedral of Saint Mary of the Flower in the video game~~
+
