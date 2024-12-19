@@ -14,7 +14,6 @@ int full() { return(TotalinQueue == BUFFER_SIZE); }
 
 // insert an item into the buffer
 int insert_item(buffer_item item){
-    // note: the buffer_item is int, "item" is int
     if(full()) return -1; // return error if buffer is full
     // put the item into queue
     buffer[rear] = item;
@@ -24,7 +23,6 @@ int insert_item(buffer_item item){
 }
 
 int remove_item(buffer_item *item){
-    // note: "*item" is a pointer, this things gives us an address
     if(empty()) return -1; // return error if buffer is empty
     // get the item from queue 
     *item = buffer[front];
