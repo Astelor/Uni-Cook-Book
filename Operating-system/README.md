@@ -15,5 +15,6 @@ part 1 overview
 - [chapter 2, operating-system structures](02-operating-system-structures.md)
 - [chapter 3, processes](03-processes.md)
 - [chapter 4, threads and concurrency](04-threads-and-concurrency.md)
+- [chapter 5, cpu scheduling](05-cpu-scheduling.md)
 
 I write spaghetti code in [here](code/)
