@@ -352,9 +352,9 @@ while (true) {
 ```
 - operation:
   - when `lock == 1`
-    - `compare_and_swap(&lock, 0, 1)` returns `1`, and keep spinning in the while-loop
+    - `compare_and_swap(&lock, 0, 1)` returns 1, and keep spinning in the while-loop
   - when `lock == 0`
-    - `compare_and_swap(&lock, 0, 1)` returns `0`, sets `lock = 1`, and leaves the while-loop
+    - `compare_and_swap(&lock, 0, 1)` returns 0, sets `lock = 1`, and leaves the while-loop
 - does not meet the **bounded-waiting** requirement
   - does not hand over to a particular waiting process
   - a same set of process can camp CPU forever 
@@ -499,6 +499,23 @@ signal (S) {
   - initialized to the number of resources available
   - `wait()` decrements the semaphore
   - `signal()` increments the semaphore
+
+**process 1**
+```
+S1;
+signal(synch);
+```
+
+**process 2**
+```
+wait(synch);
+S2;
+```
+
+- `synch` is initialized to 0
+- P2 will execute `S2` when P1 invokes `signal(synch)`
+
+## 6.6.2 semaphore implementation
 
 
 
