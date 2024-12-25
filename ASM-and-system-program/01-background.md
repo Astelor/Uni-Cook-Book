@@ -64,6 +64,8 @@
 
 ## addressing mode
 
+**format 2, SIC**
+
 ```
    8      1    15
 [opcode] [x] [addr]
@@ -74,6 +76,26 @@
   - x = 0: direct addressing, `target address` (TA) = addr
   - x = 1: indexed addressing, `target address` (TA) = addr + (X)
     - (X) → content of register `X`
+
+**format 3, SIC/XE**
+
+```
+   6      1   1   1   1   1   1    12
+[opcode] [n] [i] [x] [b] [p] [e] [addr]
+----  ---------- --------------- -- -- --
+  H      H           H            H  H  H
+```
+
+**format 4, SIC/XE**
+
+```
+   6      1   1   1   1   1   1    20
+[opcode] [n] [i] [x] [b] [p] [e] [addr]
+----  ---------- --------------- -- -- -- -- --
+  H      H           H            H  H  H  H  H
+```
+
+![addressing mode control bit table](attachments/addressing-mode.png)
 
 ## instruction set
 

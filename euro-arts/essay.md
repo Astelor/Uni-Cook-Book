@@ -82,17 +82,17 @@ The antiquities department expanded as a result of archaeological excavations ac
 The standard of artworks also improved during this period thanks to gifts of paintings and drawings. An important collection of early Pre-Raphaelite works were donated in 1893 by Martha Combe, the widow of Thomas Combe who had been an early patron of the Brotherhood.
 
 
-~~**The 20th Century**
+**The 20th Century**
 
-~~The 20th century’s most significant acquisitions included the collections of the Indian Institute. Part museum, part training ground for prospective civil servants, the institute became redundant after Indian independence. Its collection formed the core of a new Eastern Art department. Up until then, all art had been part of the Fine Art department, which had prioritised Western traditions.~~
+The 20th century’s most significant acquisitions included the collections of the Indian Institute. Part museum, part training ground for prospective civil servants, the institute became redundant after Indian independence. Its collection formed the core of a new Eastern Art department. Up until then, all art had been part of the Fine Art department, which had prioritised Western traditions.
 
-~~The newly independent Eastern department incorporated the Islamic world, the Indian subcontinent, South East Asia, Tibet, China, Korea and Japan, and gave these fields the prominence and scholarship that in turn encouraged further important donations. The Ashmolean today has the largest collection of Chinese greenware outside China and one of the finest collections of modern Chinese art in Europe.~~
+The newly independent Eastern department incorporated the Islamic world, the Indian subcontinent, South East Asia, Tibet, China, Korea and Japan, and gave these fields the prominence and scholarship that in turn encouraged further important donations. The Ashmolean today has the largest collection of Chinese greenware outside China and one of the finest collections of modern Chinese art in Europe.
 
-~~In 1959 the collection of classical casts established itself as a separate department from antiquities. The departments as they currently stand – Western Art, Eastern Art, Antiquities, Cast Gallery and the Coin Room – inevitably reflect the areas of study prioritised in the past, but are now supplemented with collaborative projects with our university and community partners.~~
+In 1959 the collection of classical casts established itself as a separate department from antiquities. The departments as they currently stand – Western Art, Eastern Art, Antiquities, Cast Gallery and the Coin Room – inevitably reflect the areas of study prioritised in the past, but are now supplemented with collaborative projects with our university and community partners.
 
-~~**Refurbishment and the Future**~~
+**Refurbishment and the Future**
 
-~~The Ashmolean was refurbished in 2009, and opened to multiple-award-winning acclaim. The Ashmolean Director is Xa Sturgis.~~
+The Ashmolean was refurbished in 2009, and opened to multiple-award-winning acclaim. The Ashmolean Director is Xa Sturgis.
 
 [[cite]](https://www.ashmolean.org/history-ashmolean)
 
