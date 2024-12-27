@@ -54,6 +54,8 @@
 
 # 4.2 dopant atoms and energy levels
 
+## 4.2.1 qualitative description
+
 - doped semiconductor -> **extrinsic** material
   - adding controlled amounts of *dopant atoms*
 
@@ -77,6 +79,21 @@
       - the electron's energy here far smaller than conduction band energy
   - *generates holes* in the valence band *without generating electrons* in the conduction band
 
+## 4.2.2 ionization energy
+
+> AST 2024-12-27 23:36:53: I'm skipping this for now 
+
+- **ionization energy**
+  - the approximate energy required to elevate the donor electron into the conduction band
+- **calculation settings**:
+  - using *Bohr model* of the atom for these calculations
+    - most probable distance of an electron from the nucleus in a hydrogen atom, determined from quantum mechanics, is the same as the *Bohr radius*
+  - using *permittivity of the semiconductor material*
+    - rather than the permittivity of free space
+  - using the *effective mass of the electron*
+---
+
+# 4.3 the extrinsic semiconductor
 
 # hack
 
