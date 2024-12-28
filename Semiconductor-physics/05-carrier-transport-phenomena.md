@@ -45,29 +45,77 @@
 
 - **scattering events** aka collisions
   - charged particle collides with an atom
-  - ---> lost most or all of its energy
-  - ---> particle gaining an *average drift velocity*
-    - is directly proportional to electric field for *low electric fields*
+    - lost most or all of its energy
+  - particle gaining an *average drift velocity*
+      - is directly proportional to electric field for *low electric fields*
 
 ## 5.1.2 mobility effects
 
-- 
 - $F = m_{cp}^*\frac{dv}{dt} = e\text{E}$
 - $v$: velocity of the particle due to the electric field
-  - does not include the random thermal velocity
+  - does not include the *random thermal velocity*
 - $\int{dv} = \frac{e\text{E}}{m_{cp}^*}\int{dt}$
 - $v = \frac{e\text{E}t}{m_{cp}^*}$
   - assuming the initial drift velocity is zero
 - $\tau_{cp}$: mean time between collisions
+---
+- when a small **electric field** is applied (E-field)
+  - net drift of the hole in the direction of the E-field
+  - net *drift velocity* will be a small perturbation on the *random thermal velocity*
+    - so the time between collisions will not be altered appreciably 
+---
+- **mean peak velocity** just prior to a collision or scattering event
+  - $v_{d|peak}=(\frac{e\tau_{cp}}{m_{cp}^*})\text{E}$
+- **average drift velocity**
+  - $\langle v_d\rangle = \frac 12(\frac{e\tau_{cp}}{m_{cp}^*})\text{E}$
+  - is one half of the peak value
+  - > the collision process is *not as simple* as this model, but is *statistical in nature*.
+  - > in a *more accurate model* including the *effect of a statistical distribution*, the factor 1/2 does not appear
+- **hole/electron mobility**
+  - $\mu_p = \frac{v_{dp}}{\text E} = \frac{e\tau_{cp}}{m_{cp}^*}$
+  - $\mu_n = \frac{v_{dn}}{\text E} = \frac{e\tau_{cn}}{m_{cn}^*}$
 
-### photon or lattice scattering
+### phonon or lattice scattering
 
-- thermal energy at temperature above absolute zero
-- lattice atoms randomly vibrate about
-- ---> disruption in the perfect periodic potential function
-- ---> interaction between the electrons or holes and the vibrating lattice atoms
-- $\mu_L$: mobility observed if only lattice scattering existed
+> not photon, **phonon**
+>
+> in short, the atoms in the crystal lattice above 0K vibrates and collides with the passing carriers
+
+- **thermal energy** at temperature above absolute zero
+- lattice atoms **randomly vibrate** about
+  - disruption in the perfect periodic potential function
+  -  interaction between the electrons or holes and the vibrating lattice atoms
+- **$\mu_L$**: **mobility** that would be observed if *only lattice scattering existed*
   - $\mu_L \propto T^{-3/2}$
-  - mobility increase as the temperature decrease
+  - **mobility increase as the temperature decrease**
 
 ### ionized impurity scattering
+
+> the ionized impurities (doped semiconductor) above 0K 
+
+- impurities are **ionized at room temperature**
+- **coulomb interaction** exist between the electron/holes and the *ionized impurities*
+  - produces scattering or collisions
+  - **alters the velocity characteristics** of the *charge carrier*
+- **$\mu_l$**: **mobility** that would be observed if *only ionized impurity scattering existed*
+  - $\mu_l \propto \frac{T^{+3/2}}{N_l}$
+  - $N_l = N_d^++N_a^-$: **total ionized impurity concentration** of the semiconductor
+- **temperature increases** 
+  - -> *random thermal velocity* of a carrier *increases*
+  - -> *reducing the time* the carrier spends in the *vicinity* of the *ionized impurity centers*
+  - -> **expected value of $\mu_l$ increase**, the scattering effect decrease
+- **impurity concentration ($N_l$) increases**
+  - number of *ionized impurity center* increases
+    - -> probability of a *carrier* encountering an *ionized impurity center* increases
+      - **smaller $\mu_l$**
+
+### total probability of a scattering event
+
+- $\tau_L$: mean time between collisions due to lattice scattering
+  - $dt/d\tau_L$: probability of a lattice scattering event occurring in a differential time $dt$
+- $\tau_l$: mean time between collisions due to ionized impurity scattering
+  - $dt/d\tau_l$: probability of a ionized impurity scattering event occurring in a differential time $dt$
+- **total probability of a scattering event**
+  - $\frac{dt}{d\tau} =\frac{dt}{d\tau_L} + \frac{dt}{d\tau_l}$ 
+  - if the two scattering processes are independent
+  - $\tau$: mean time between any scattering event

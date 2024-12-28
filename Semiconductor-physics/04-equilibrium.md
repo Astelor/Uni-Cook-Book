@@ -30,11 +30,11 @@
 
 ## 4.1.3 the intrinsic carrier concentration
 
-- $n_i = p_i$: **intrinsic electron/hole concentration** 
+- **$n_i = p_i$**: **intrinsic electron/hole concentration** 
   - electron/hole concentration in the intrinsic semiconductor
 - $E_F = E_{F_i}$: **intrinsic Fermi energy**
   - Fermi energy level for the intrinsic semiconductor
-- $n_i$: **intrinsic carrier concentration**
+- **$n_i$**: **intrinsic carrier concentration**
   - $n_0 = n_i = N_c\,\exp[\frac{-(E_c-E_{F_i})}{kT}]$
   - $p_0 = p_i = n_i = N_v\,\exp[\frac{-(E_{F_i}-E_v)}{kT}]$
   - $n_i^2 = N_c N_v\,\exp[\frac{-(E_c-E_v)}{kT}] = N_cN_v\,\exp[\frac{-E_g}{kT}]$
@@ -44,8 +44,9 @@
 ## 4.1.4 the intrinsic Fermi-level position
 
 - electron and hole concentrations are equal
-- ---> able to calculate intrinsic Fermi-level position
+  - able to calculate intrinsic Fermi-level position
 - **math**
+  - $n_i=p_i$
   - $N_c\,\exp[\frac{-(E_c-E_{F_i})}{kT}] = N_v\,\exp[\frac{-(E_{F_i}-E_v)}{kT}]$
   - $E_{F_i} = \frac{1}{2}(E_c+E_v)+\frac{1}{2}kT\ln(\frac{N_v}{N_c})$
   - $E_{F_i} = \frac{1}{2}(E_c+E_v)+\frac{3}{4}kT\ln(\frac{m_p^*}{m_n^*})$
@@ -59,25 +60,34 @@
 - doped semiconductor -> **extrinsic** material
   - adding controlled amounts of *dopant atoms*
 
-- **donor** impurity atom
-  - **n-type** semiconductor
-  - group V element (P, phosphorus)
-  - 5 valence electrons
-    - 4 -> covalent bonding
-    - 1 -> loosely bound to the P atom
-      - the **donor electron**
-      - require less energy to elevate into *conduction* band
-  - *adding electrons* to the conduction band *without creating holes* in the valence band
+### donor impurity atom
 
-- **acceptor** impurity atom
-  - **p-type** semiconductor
-  - group III element (B, boron)
-  - 3 valence electrons
-    - 3 -> covalent bonding
-    - (1) -> **acceptor atom's hole**
-      - pulls an electron from Si atom
-      - the electron's energy here far smaller than conduction band energy
-  - *generates holes* in the valence band *without generating electrons* in the conduction band
+- **n-type** semiconductor
+- group V element (P, phosphorus) $N_d$
+  - without the donor electron is positively charged $N_d^+$
+- 5 valence electrons
+  - 4: covalent bonding
+  - 1: loosely bound to the P atom
+    - the **donor electron** $n_d$
+    - require less energy to elevate into *conduction* band
+      - > once elevated into conduction band, it has become ionized and leave a positive state behind
+- **adding electrons** to the conduction band *without creating holes* in the valence band
+
+![figure 4.5](attachments/F-4.5.png)
+
+### acceptor impurity atom 
+
+- **p-type** semiconductor
+- group III element (B, boron) $N_a$
+  - without the *acceptor hole* is negatively charged $N_a^-$
+- 3 valence electrons
+  - 3: covalent bonding
+  - 1: **acceptor atom's hole** $p_a$
+    - pulls an electron from Si atom
+    - the electron's energy here ($E_a$) far smaller than conduction band energy ($E_c$)
+- **generates holes** in the valence band *without generating electrons* in the conduction band
+
+![figure 4.6](attachments/F-4.6.png)
 
 ## 4.2.2 ionization energy
 
