@@ -1,5 +1,7 @@
 # chapter 5, carrier transport phenomena
 
+# 5.1 carrier drift
+
 - **electric field** applied to a semiconductor
   - force on electrons & holes
   - net acceleration & net movement
@@ -51,26 +53,27 @@
 
 ## 5.1.2 mobility effects
 
-- $F = m_{cp}^*\frac{dv}{dt} = e\text{E}$
-- $v$: velocity of the particle due to the electric field
-  - does not include the *random thermal velocity*
-- $\int{dv} = \frac{e\text{E}}{m_{cp}^*}\int{dt}$
-- $v = \frac{e\text{E}t}{m_{cp}^*}$
-  - assuming the initial drift velocity is zero
-- $\tau_{cp}$: mean time between collisions
----
+- **math**, deriving from the motion equation:
+  - $F = m_{cp}^*\frac{dv}{dt} = e\text{E}$
+  - $v$: velocity of the particle due to the electric field
+    - does not include the *random thermal velocity*
+  - $\int{dv} = \frac{e\text{E}}{m_{cp}^*}\int{dt}$
+  - $v = \frac{e\text{E}t}{m_{cp}^*}$
+    - assuming the initial drift velocity is zero
+  - $\tau_{cp}$: mean time between collisions
+
 - when a small **electric field** is applied (E-field)
   - net drift of the hole in the direction of the E-field
   - net *drift velocity* will be a small perturbation on the *random thermal velocity*
-    - so the time between collisions will not be altered appreciably 
----
+    - so the time between collisions will not be altered appreciably
+
 - **mean peak velocity** just prior to a collision or scattering event
   - $v_{d|peak}=(\frac{e\tau_{cp}}{m_{cp}^*})\text{E}$
-- **average drift velocity**
+- **average drift velocity** is one half of the peak value
   - $\langle v_d\rangle = \frac 12(\frac{e\tau_{cp}}{m_{cp}^*})\text{E}$
-  - is one half of the peak value
-  - > the collision process is *not as simple* as this model, but is *statistical in nature*.
-  - > in a *more accurate model* including the *effect of a statistical distribution*, the factor 1/2 does not appear
+  - > the collision process is *not as simple* as this model, but is *statistical in nature*. 
+    > 
+    > in a *more accurate model* including the *effect of a statistical distribution*, the factor 1/2 does not appear
 - **hole/electron mobility**
   - $\mu_p = \frac{v_{dp}}{\text E} = \frac{e\tau_{cp}}{m_{cp}^*}$
   - $\mu_n = \frac{v_{dn}}{\text E} = \frac{e\tau_{cn}}{m_{cn}^*}$
@@ -116,6 +119,8 @@
 - $\tau_l$: mean time between collisions due to ionized impurity scattering
   - $dt/d\tau_l$: probability of a ionized impurity scattering event occurring in a differential time $dt$
 - **total probability of a scattering event**
-  - $\frac{dt}{d\tau} =\frac{dt}{d\tau_L} + \frac{dt}{d\tau_l}$ 
+  - $\frac{dt}{\tau} =\frac{dt}{\tau_L} + \frac{dt}{\tau_l}$ 
   - if the two scattering processes are independent
   - $\tau$: mean time between any scattering event
+  - $\frac{1}{\mu} = \frac{1}{\mu_L} + \frac{1}{\mu_l}$
+  - $\mu$: net mobility
