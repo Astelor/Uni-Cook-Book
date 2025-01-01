@@ -133,6 +133,7 @@
   - an unsafe state may lead to deadlocks
 
 **a safe state**: with 12 resources
+
 |threads|maximum|required|currently allocated|
 |---|---|---|---|
 |T0|10|5|5|
@@ -140,6 +141,7 @@
 |T2|9|7|2|
 
 **elaboration**
+
 |time|thread|allocated|free resources|requested|
 |---|---|---|---|---|
 |0|T1|2|3|2|
@@ -152,6 +154,7 @@
   - by granting request from a thread (e.g. T2) for more resource (1 in allocated)
 
 **safe turned unsafe state**: with 12 resources in total
+
 |time|thread|allocated|free resources|requested|
 |---|---|---|---|---|
 |0|T1|2|3|2|
@@ -179,3 +182,35 @@
 - request can be granted only if *converting the request edge to an assignment edge* does not result in the *formation of a cycle*
 
 ## 8.6.3 banker's algorithm
+
+
+# 8.8 recovery from deadlock
+
+- inform the operator about the occurrence of deadlock, and let the operator deal with deadlock manually
+- let the system recover from the deadlock automatically
+
+## 8.8.1 process and thread termination
+
+- eliminate deadlocks by aborting a process or thread
+  - abort all deadlocked processes
+    - discarding partial computations
+  - abort one process at a time until the deadlocked cycle is eliminated
+    - considerable overhead, deadlock-detection algorithm must be invoked after each process is aborted to determine the system state
+- select a victim with minimum cost
+- **cost factors**
+  1. priority of the process
+  2. how long the process has computed, how much longer to completion
+  3. resources the process has used
+  4. resources process needs to complete
+  5. how many processes will need to be terminated
+  6. is process interactive or batch?
+
+## 8.8.2 resource preemption
+
+1. selecting a victim
+   - determine the order of preemption to minimize cost
+2. rollback
+   - ensuring resource will not always be preempted from the same process
+3. starvation
+   - ensuring a finite number of times a process can be picked as victim
+   - include the number of rollbacks in the cost factor
