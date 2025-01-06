@@ -64,6 +64,8 @@
 
 ## addressing mode
 
+> very important
+
 **format 2, SIC**
 
 ```
@@ -202,6 +204,8 @@ c_23 c_22 c_21 ... c_1 c_0 0
 - **sign** (negative) flag (`SF`): *z_23*
   - in 2's complement, signed negative integer's most significant bit is 1
 - **zero** flag (`ZF`): *z_23* OR *z_22* OR *z_21* OR ... OR *z_0*
+  - zero flag = 0 -> it's zero
+  - zero flag = 1 -> it's not zero
 
 ## comparison
 
