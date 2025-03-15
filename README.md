@@ -15,6 +15,12 @@ This repository is best suited for:
 
 **All the resource copies and attachments saved in this repository are for educational purposes, and do not belong to me.**
 
+# Why cook-book?
+
+It's more topic focused instead of random notes I jotted down, so there's a notebook and a public notebook. 
+
+> welp you can tell me if you wanna look at the date-based notebook repo, most of the random stuff happens there.
+
 # Navigation?
 
 I've made up my mind to make this repository a labyrinth. :]
