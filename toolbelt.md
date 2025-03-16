@@ -21,5 +21,6 @@
 
 - http://overthewire.org/
   - learn linux commands (bandit) or other stuff with cool war games
+  - there's a messy writeup for [bandit](MISC/Bandit.md) by me, which includes the process of my struggling
 - https://cryptohack.org/
   - learn cryptography with steps and games
