@@ -173,24 +173,47 @@
   - $\frac{\partial p}{\partial t} = -\frac{\partial F_p^+}{\partial x}+g_p-\frac{p}{\tau_{pt}}$
 - one-dimensional **continuity equation** for **electrons**
   - $\frac{\partial n}{\partial t} = -\frac{\partial F_n^-}{\partial x}+g_n-\frac{n}{\tau_{nt}}$
-    - $F_n^-$: electron-particle flux/flow
+    - **$F_n^-$**: **electron-particle flux/flow**
       - units: number of electrons/cm^2-s
 
 ## 6.2.2 time-dependent diffusion equations
 
-- hole and electron **current densities** (given in one-dimension)
+### 6.2.2.a math derivation
+
+- **current densities** of hole and electron (given in one-dimension, [chapter 5](05-carrier-transport-phenomena.md))
   - $J_p = e\mu_p p\text{E} - e D_p\frac{\partial p}{\partial x}$
   - $J_n = e\mu_n n\text{E} + e D_n\frac{\partial n}{\partial x}$
     - 1st term: drift current density
-    - 2nd term: diffusion current density ([chapter 5](05-carrier-transport-phenomena.md))
-- divide the current density by e, obtaining **particle flux** $F_p^+$, $F_n^-$
-  - $\frac{J_p}{+e} = F_p^+ = \mu_p p\text{E} - D_p\frac{\partial p}{\partial x}$
-  - $\frac{J_n}{-e} = F_n^- = -\mu_n n\text{E} - D_n\frac{\partial n}{\partial x}$
-- take *divergence* of the **particle flux**
-  - $\frac{\partial F_p^+}{\partial x} = \mu_p\frac{\partial (p\text{E})}{\partial x}-D_p\frac{\partial^2p}{\partial^2x}$
-  - $\frac{\partial F_n^-}{\partial x} = -\mu_n\frac{\partial (n\text{E})}{\partial x} - D_n\frac{\partial^2 n}{\partial^2 x}$
-- substitute back to the **continuity equation**
+    - 2nd term: diffusion current density
+- **particle flux** ($F_p^+$, $F_n^-$) obtained by dividing the *current density* by e
+  - +e for *hole*, -e for *electron*
+    - $\frac{J_p}{+e} = F_p^+ = +\mu_p p\text{E} - D_p\frac{\partial p}{\partial x}$
+    - $\frac{J_n}{-e} = F_n^- = -\mu_n n\text{E} - D_n\frac{\partial n}{\partial x}$
+  - take **divergence** of the *particle flux*
+    - $\frac{\partial F_p^+}{\partial x} = +\mu_p\frac{\partial (p\text{E})}{\partial x}-D_p\frac{\partial^2p}{\partial^2x}$
+    - $\frac{\partial F_n^-}{\partial x} = -\mu_n\frac{\partial (n\text{E})}{\partial x} - D_n\frac{\partial^2 n}{\partial^2 x}$
+- substitute the *divergence* back to the **continuity equation**
   - $\frac{\partial p}{\partial t} = -\mu_p\frac{\partial (p\text{E})}{\partial x} + D_p\frac{\partial^2p}{\partial^2x} + g_p - \frac{p}{\tau_{pt}}$
   - $\frac{\partial n}{\partial t} = +\mu_n\frac{\partial (n\text{E})}{\partial x} + D_n\frac{\partial^2n}{\partial^2x} + g_n - \frac{n}{\tau_{nt}}$
 - expand the derivative of the product as
   - $\frac{\partial (p\text{E})}{\partial x} = \text{E}\frac{\partial p}{\partial x} + p\frac{\partial \text{E}}{\partial x}$
+  - > - because we are limiting ourselves to one-dimensional analysis
+    > - in a more general three-dimensional analysis
+
+### 6.2.2.b result (time-dependent diffusion equations)
+
+- **time-dependent diffusion equations** for holes and electrons
+  - describes **space and time behavior** of the **excess carriers**
+  - $D_p\frac{\partial^2p}{\partial^2t}-\mu_p(\text{E}\frac{\partial p}{\partial x}+p\frac{\partial\text{E}}{\partial x})+g_p-\frac{p}{\tau_{pt}} = \frac{\partial p}{\partial t}$
+  - $D_n\frac{\partial^2n}{\partial^2t}+\mu_n(\text{E}\frac{\partial n}{\partial x}+n\frac{\partial\text{E}}{\partial x})+g_n-\frac{n}{\tau_{nt}} = \frac{\partial n}{\partial t}$
+- for **homogeneous** semiconductor
+  - **$n_0$, $p_0$** are **independent** of the **space coordinates**
+    - total concentration(x,t) = *thermal equilibrium concentration* + excess concentration(x,t)
+      - $n(x,t) = n_0 + \delta n(x,t)$
+      - $p(x,t) = p_0 + \delta p(x,t)$
+  - $D_p\frac{\partial^2 (\delta p)}{\partial^2t}-\mu_p(\text{E}\frac{\partial (\delta p)}{\partial x}+p\frac{\partial\text{E}}{\partial x})+g_p-\frac{p}{\tau_{pt}} = \frac{\partial (\delta p)}{\partial t}$
+  - $D_n\frac{\partial^2 (\delta n)}{\partial^2t}+\mu_n(\text{E}\frac{\partial (\delta n)}{\partial x}+n\frac{\partial\text{E}}{\partial x})+g_n-\frac{n}{\tau_{nt}} = \frac{\partial (\delta n)}{\partial t}$
+
+
+# 6.3 ambipolar transport
+
