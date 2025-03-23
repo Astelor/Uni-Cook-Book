@@ -151,28 +151,30 @@
 
 ### 6.2.1.a math derivation of continuity equation
 
+> tl;dr. 2 equations, one from particle flux in the differential volume, one from combining the factors accounting the generation/annihilation of holes. both are given
+
 - the **net increase** in the *number of holes per unit time* within the *differential volume element* **due to the *x-component of hole flux*** (given)
-  - $\frac{\partial p}{\partial t} dx\,dy\,dz = [F_{px}^+ (x) - F_{px}^+ (x+dx)]dy\,dz = -\frac{\partial F_{px}^+}{\partial x}dx\,dy\,dz$
+  - **$\frac{\partial p}{\partial t} dx\,dy\,dz = [F_{px}^+ (x) - F_{px}^+ (x+dx)]dy\,dz = -\frac{\partial F_{px}^+}{\partial x}dx\,dy\,dz$**
   - if $F_{px}^+ > F_{px}^+ (x+dx)$
-    - there wil be a net increase in the number of holes in the differential volume element with time
+    - there wil be a *net increase* in the number of holes in the *differential volume element* *with time*
   - > - if we generalize to a *three-dimensional hole flux*, the right side of the equation may be written as $\nabla\cdot F_{px}^+ dx\,dy\,dz$
-    >   - $\nabla\cdot F_{p}^+$: divergence of flux vector
-    >   - we will limit ourselves to one-dimensional analysis
+    > - $\nabla\cdot F_{p}^+$: divergence of flux vector
+    > - we will limit ourselves to one-dimensional analysis
 - the *generation rate* & *recombination rate of holes* will also affect the *hole concentration* in the *differential volume*
 - the **net increase** in the *number of holes per unit time* in the *differential volume element* (given)
-  - $\frac{\partial p}{\partial t} dx\,dy\,dz = -\frac{\partial F_p^+}{\partial x} dx\,dy\,dz + g_p dx\,dy\,dz - \frac{p}{\tau_{pt}}dx\,dy\,dz$
+  - **$\frac{\partial p}{\partial t} dx\,dy\,dz = -\frac{\partial F_p^+}{\partial x} dx\,dy\,dz + g_p dx\,dy\,dz - \frac{p}{\tau_{pt}}dx\,dy\,dz$**
     - $p$: number of holes
     - $\frac{p}{\tau_{pt}}$: recombination rate for holes. ([regen rate and recom rate](#612a-math-derivation-of-carrier-regeneration-rate))
     - **$\tau_{pt}$**: **thermal-equilibrium carrier lifetime + excess carrier lifetime**
-    - 1st term: *increase* in the *number of holes* per unit time **due to the *hole flux***
-    - 2nd term: *increase* in the *number of holes* per unit time **due to the *generation of holes*** 
-    - 3rd term: *decrease* in the *number of holes* per unit time **due to the *recombination of holes***
+    - **1st term**: *increase* in the *number of holes* per unit time *due to the* **hole flux**
+    - **2nd term**: *increase* in the *number of holes* per unit time *due to the* **generation of holes** 
+    - **3rd term**: *decrease* in the *number of holes* per unit time *due to the* **recombination of holes**
 - divide both sides of the equation by the *differential volume* $dx\,dy\,dz$
 - the **net increase** in the *hole concentration per unit time*
   - aka **continuity equation** for **holes**
-  - $\frac{\partial p}{\partial t} = -\frac{\partial F_p^+}{\partial x}+g_p-\frac{p}{\tau_{pt}}$
+  - **$\frac{\partial p}{\partial t} = -\frac{\partial F_p^+}{\partial x}+g_p-\frac{p}{\tau_{pt}}$**
 - one-dimensional **continuity equation** for **electrons**
-  - $\frac{\partial n}{\partial t} = -\frac{\partial F_n^-}{\partial x}+g_n-\frac{n}{\tau_{nt}}$
+  - **$\frac{\partial n}{\partial t} = -\frac{\partial F_n^-}{\partial x}+g_n-\frac{n}{\tau_{nt}}$**
     - **$F_n^-$**: **electron-particle flux/flow**
       - units: number of electrons/cm^2-s
 
