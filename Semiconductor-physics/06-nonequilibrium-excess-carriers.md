@@ -178,17 +178,19 @@
 
 ## 6.2.2 time-dependent diffusion equations
 
+> 
+
 ### 6.2.2.a math derivation
 
 - **current densities** of hole and electron (given in one-dimension, [chapter 5](05-carrier-transport-phenomena.md))
   - $J_p = e\mu_p p\text{E} - e D_p\frac{\partial p}{\partial x}$
   - $J_n = e\mu_n n\text{E} + e D_n\frac{\partial n}{\partial x}$
-    - 1st term: drift current density
-    - 2nd term: diffusion current density
-- **particle flux** ($F_p^+$, $F_n^-$) obtained by dividing the *current density* by e
+    - 1st term: *drift* current density
+    - 2nd term: *diffusion* current density
+- **particle flux** obtained by dividing the *current density* by e
   - +e for *hole*, -e for *electron*
-    - $\frac{J_p}{+e} = F_p^+ = +\mu_p p\text{E} - D_p\frac{\partial p}{\partial x}$
-    - $\frac{J_n}{-e} = F_n^- = -\mu_n n\text{E} - D_n\frac{\partial n}{\partial x}$
+    - $F_p^+ = \frac{J_p}{+e} = +\mu_p p\text{E} - D_p\frac{\partial p}{\partial x}$
+    - $F_n^- =\frac{J_n}{-e} = -\mu_n n\text{E} - D_n\frac{\partial n}{\partial x}$
   - take **divergence** of the *particle flux*
     - $\frac{\partial F_p^+}{\partial x} = +\mu_p\frac{\partial (p\text{E})}{\partial x}-D_p\frac{\partial^2p}{\partial^2x}$
     - $\frac{\partial F_n^-}{\partial x} = -\mu_n\frac{\partial (n\text{E})}{\partial x} - D_n\frac{\partial^2 n}{\partial^2 x}$
@@ -198,7 +200,7 @@
 - expand the derivative of the product as
   - $\frac{\partial (p\text{E})}{\partial x} = \text{E}\frac{\partial p}{\partial x} + p\frac{\partial \text{E}}{\partial x}$
   - > - because we are limiting ourselves to one-dimensional analysis
-    > - in a more general three-dimensional analysis
+    > - in a more general three-dimensional analysis, this will be replaced by a vector identity
 
 ### 6.2.2.b result (time-dependent diffusion equations)
 
@@ -214,6 +216,12 @@
   - $D_p\frac{\partial^2 (\delta p)}{\partial^2t}-\mu_p(\text{E}\frac{\partial (\delta p)}{\partial x}+p\frac{\partial\text{E}}{\partial x})+g_p-\frac{p}{\tau_{pt}} = \frac{\partial (\delta p)}{\partial t}$
   - $D_n\frac{\partial^2 (\delta n)}{\partial^2t}+\mu_n(\text{E}\frac{\partial (\delta n)}{\partial x}+n\frac{\partial\text{E}}{\partial x})+g_n-\frac{n}{\tau_{nt}} = \frac{\partial (\delta n)}{\partial t}$
 
-
 # 6.3 ambipolar transport
 
+- **assumption**
+  - excess holes and electrons *will tend* to drift in opposite directions
+- **fact**
+  - holes and electrons are charged particle
+  - → *separation* induces an *internal electric field* between the *two sets of particles*
+  - → this *electric field* will create a force *attracting* the electrons and holes *back towards each other*
+- the electric field term in the time-dependent diffusion equations
