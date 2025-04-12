@@ -265,11 +265,12 @@
   - combine [time-dependent diffusion equations](#622b-result-time-dependent-diffusion-equations) to eliminate the $\nabla\cdot\text{E}_{\text{int}} = \frac{\partial \text{E}}{\partial x}$ term
   - deriving the *ambipolar transport equation*
 - preliminary: **charge neutrality** → **$\delta n \approx \delta p$**
-- define: *generation rate of carriers*
+- **define**: *generation rate of carriers*
   - $g_n = g_p \equiv g$
-- define: *recombination rate of carriers*
+- **define**: *recombination rate of carriers*
   - $R_n = \frac{n}{\tau_{nt}} = R_p = \frac{p}{\tau_{pt}} \equiv R$
-  - $\tau_{nt}$, $\tau_{pt}$: thermal-equilibrium lifetime + excess carrier lifetime
+  - $\tau_{nt}$, $\tau_{pt}$: thermal-equilibrium lifetime + excess carrier lifetime = mean carrier lifetime
+
 - *denote* $\delta n$ as excess carrier concentrations
   - $D_p\frac{\partial^2(\delta n)}{\partial x^2}-\mu_p(\text{E}\frac{\partial(\delta n)}{\partial x}+p\frac{\partial\text{E}}{\partial x})+g-R = \frac{\partial (\delta n)}{\partial t}$
   - $D_n\frac{\partial^2(\delta n)}{\partial x^2}+\mu_n(\text{E}\frac{\partial(\delta n)}{\partial x}+n\frac{\partial\text{E}}{\partial x})+g-R = \frac{\partial (\delta n)}{\partial t}$
@@ -282,10 +283,10 @@
   - nonlinear differential equation
 - **ambipolar diffusion coefficient**
   - $D' = \frac{\mu_n n D_p + \mu_p p D_n}{\mu_n n + \mu_p p}=D'(n,p)$
-  - $D' = \frac{D_nD_p(n+p)}{D_n n+D_p p}$
+  - **$D' = \frac{D_nD_p(n+p)}{D_n n+D_p p}$**
   - > Einstein relation: $\frac{\mu_n}{D_n}=\frac{\mu_p}{D_p}=\frac{e}{kT}$
 - **ambipolar mobility**
-  - $\mu' = \frac{\mu_n \mu_p(p-n)}{\mu_n n +\mu_p p} = \mu'(n,p)$
+  - **$\mu' = \frac{\mu_n \mu_p(p-n)}{\mu_n n +\mu_p p} = \mu'(n,p)$**
 
 ## 6.3.2 limits of extrinsic doping and low injection
 
@@ -293,16 +294,35 @@
   - considering an *extrinsic semiconductor*
   - considering *low-level injection*
 - $D' = \frac{D_n D_p[(n_0 + \delta n) + (p_0 + \delta n)]}{D_n (n_0 + \delta n) + D_p(p_0+\delta n)}$
+- $\mu' = \frac{\mu_n\mu_p(p_0 - n_0)}{\mu_n n_0 + \mu_p p_0 + (\mu_n+\mu_p) \delta n}$
   - $n = n_0 + \delta n$
-  - $p = p_0 + \delta p$
+  - $p = p_0 + \delta n$
+
+---
+- $1/\tau_{nt}$: **probability per unit time** that *an electron will encounter a hole and recombine*
+  - $\tau_{nt}$, $\tau_{pt}$: mean electron and hole lifetimes (recall)
+
 
 ### 6.3.2.a p-type semiconductor
 
 - low injection
   - $\delta n \ll p_0$
 - p-type semiconductor
-  - $n_0\ll p_0$
+  - $n_0 \ll p_0$
 - **ambipolar diffusion coefficient**
   - $D' = D_n$
 - **ambipolar mobility**
-  - $\mu'=\mu_n$
+  - $\mu' = \mu_n$
+
+
+### 6.3.2.b n-type semiconductor
+
+- low injection
+  - $\delta n \ll n_0$
+- n-type semiconductor
+  - $p_0 \ll n_0$
+- **ambipolar diffusion coefficient**
+  - $D' = D_p$
+- **ambipolar mobility**
+  - $\mu' = -\mu_p$
+  - > the term is associated with carrier drift, therefore the sign of drift depends on the charge of the particle
