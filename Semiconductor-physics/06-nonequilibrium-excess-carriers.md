@@ -326,3 +326,5 @@
 - **ambipolar mobility**
   - $\mu' = -\mu_p$
   - > the term is associated with carrier drift, therefore the sign of drift depends on the charge of the particle
+
+test
