@@ -48,8 +48,7 @@
     - perturbing the equilibrium condition
     - → semiconductor no longer in thermal equilibrium
     - **steady-state generation** of excess carriers will *not* cause a *continual buildup of the carrier concentrations*
-      - electrons recombine with holes in pairs
-        - electrons fall down to valence band and combine with holes 
+      - electrons recombine with holes in pairs → electrons "fall" down to valence band and combine with holes 
 - **generation rate** of **excess** electrons and holes
   - $g_n'$, $g_p'$
     - units: $\#/cm^3-s$
@@ -88,9 +87,9 @@
       - $n_0, \delta n(t)$ terms are negligible, according to the limitations
 - → solving the simplified equation
   - $\delta n(t) = \delta n(0)e^{-\alpha p_0 t} = \delta n(0)e^{-t/\tau_{n0}}$
-    - *exponential decay* from the initial excess concentration
+    - **exponential decay** from the initial excess concentration
     - **$\tau_{n0} = (\alpha_r p_0)^{-1}$**: a constant for the low-level injection
-      - aka **excess minority carrier lifetime**
+      - aka *excess minority carrier lifetime*
       - > it's essentially a time constant
 - → **recombination rate** of *excess minority carrier* of **electrons**
   - $R_n' = \frac{-d(\delta n(t))}{dt} =+ \alpha_r p_0 \delta n(t) = \frac{\delta n(t)}{\tau_{n0}}$
@@ -301,7 +300,9 @@
 ---
 - $1/\tau_{nt}$: **probability per unit time** that *an electron will encounter a hole and recombine*
   - $\tau_{nt}$, $\tau_{pt}$: mean electron and hole lifetimes (recall)
-
+- for an *extrinsic semiconductor* under *low injection*
+  - the *majority* carrier concentration is (essentially) *constant*
+  - → the *probability per unit time* of a *minority* carrier encountering a majority carrier will be (essentially) *constant*
 
 ### 6.3.2.a p-type semiconductor
 
@@ -314,6 +315,14 @@
 - **ambipolar mobility**
   - $\mu' = \mu_n$
 
+- **minority carrier electron lifetime**
+  - $\tau_{nt} \equiv \tau_{n}$
+  - > rationale is mentioned above
+
+- **ambipolar transport equation** under low injection
+  - $D_n\frac{\partial^2 (\delta n)}{\partial x^2} + \mu_n\text{E}\frac{\partial(\delta n)}{\partial x}+g'-\frac{\delta n}{\tau_{n0}} = \frac{\partial(\delta n)}{\partial t}$
+    - $\delta n$: excess minority carrier electron concentration
+    - $\tau_{n0}$: minority carrier electron lifetime under low injection
 
 ### 6.3.2.b n-type semiconductor
 
@@ -327,4 +336,36 @@
   - $\mu' = -\mu_p$
   - > the term is associated with carrier drift, therefore the sign of drift depends on the charge of the particle
 
-test
+- **minority carrier hole lifetime**
+  - $\tau_{pt} \equiv \tau_{p}$
+  - > - even under the condition of low injection, the *minority* carrier hole concentration may increase by several orders of magnitude 
+    > - → probability per unit time of a *majority* carrier electron encountering a hole may change drastically 
+    > - → *majority* carrier lifetime may change drastically when excess carriers are present
+
+- **ambipolar transport equation** under low level injection
+  - $D_p \frac{\partial^2 (\delta p)}{\partial x^2} -\mu_p\text{E}\frac{\partial(\delta n)}{\partial x} + g' - \frac{\delta p}{\tau_{p0}} = \frac{\partial(\delta p)}{\partial t}$
+    - $\delta p$: excess minority carrier hole concentration
+    - $\tau_{p0}$: minority carrier hole lifetime under low injection
+
+### 6.3.2.c regeneration and recombination terms in the ambipolar transport equation
+
+- **electrons** regeneration and recombination terms (p-type)
+  - $g - R = g_n - R_n = (G_{n0} + g_n') - (R_{n0} + R_n')$
+    - $G_{n0}$: thermal-equilibrium electron generation rate
+    - $g_n'$: excess (non-equilibrium) electron generation rate
+    - $R_{n0}$: thermal-equilibrium electron recombination rate
+    - $R_n'$: excess (non-equilibrium) electron recombination rate
+  - $G_{n0} = R_{n0}$ for thermal-equilibrium
+  - $g - R = g_n' - R_n' = g_n' - \frac{\delta n}{\tau_n}$
+    - $\tau_n$: excess minority carrier electron lifetime
+- **holes** regeneration and recombination terms (n-type)
+  - $g - R = g_p - R_p = (G_{p0} + g_p') - (R_{p0} + R_p')$
+  - $G_{p0} = R_{p0}$: for thermal-equilibrium
+  - $g - R = g_p' - R_p' = g_n' - \frac{\delta p}{\tau_p}$
+    - $\tau_p$: excess minority carrier hole lifetime
+
+- **generation rate** for *excess electrons* = generation rate for *excess holes* 
+  - $g_n' = g_p' \equiv g'$: define generation rate for **excess carriers**
+
+## 6.3.3 applications of the ambipolar transport equation
+
