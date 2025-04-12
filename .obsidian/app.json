@@ -2,5 +2,7 @@
   "defaultViewMode": "preview",
   "livePreview": true,
   "promptDelete": false,
-  "showInlineTitle": true
+  "showInlineTitle": true,
+  "strictLineBreaks": false,
+  "showLineNumber": true
 }
