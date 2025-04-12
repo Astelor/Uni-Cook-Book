@@ -57,6 +57,7 @@ NOTETOSELF.md
 Coffee-Map.md
 
 # files to keep locally, it breaks too often syncing these files
+.obsidian/
 .obsidian/workspace-mobile.json
 .obsidian/workspace.json
 .obsidian/plugins/
