@@ -1,9 +1,8 @@
 # chapter 6, non-equilibrium excess carriers in semiconductors
 
-> oh well I need to remind myself every now and then there's actual stuff to study, not just the damn cryptography stuff. 
-> at least the textbook I can understand, the papers on the other hand looks like literal ciphertexts to me
+> ambipolar transport phenomenon is extremely important in semiconductor physics, and is the basics for describing the behavior of semiconductor devices.
 
-- excess carriers
+- **excess carriers**
   - occurs when an *external excitation* is applied to the semiconductor
 - [**ambipolar transport**](#63-ambipolar-transport)
   - the excess electrons and holes do not move independently of each other
@@ -46,10 +45,10 @@
 
 - the **excess carriers** are *generated* by an **external force** *at a particular rate*
     - perturbing the equilibrium condition
-    - → semiconductor no longer in thermal equilibrium
-    - **steady-state generation** of excess carriers will *not* cause a *continual buildup of the carrier concentrations*
+	    - → semiconductor no longer in thermal equilibrium
+    - **steady-state generation** of *excess carriers* will *not* cause a *continual buildup of the carrier concentrations*
       - electrons recombine with holes in pairs → electrons "fall" down to valence band and combine with holes 
-- **generation rate** of **excess** electrons and holes
+- **generation rate** of *excess* electrons and holes
   - $g_n'$, $g_p'$
     - units: $\#/cm^3-s$
   - $g_n'=g_p'$ for *direct band-to-band*
@@ -82,15 +81,15 @@
     - can be solved under *low-level injection*
 - considering **p-type** material, impose **low-level injection**
   - $\frac{d(\delta n(t))}{dt} = -\alpha_r p_0 \delta n(t)$
-    - $p_0 \gg n_0$: *p-type* material 
-    - $p_0 \gg \delta n(t)$: under *low-level injection*
-      - $n_0, \delta n(t)$ terms are negligible, according to the limitations
+    > - $p_0 \gg n_0$: *p-type* material 
+    > - $p_0 \gg \delta n(t)$: under *low-level injection*
+    > - $n_0, \delta n(t)$ terms are negligible, according to the limitations
 - → solving the simplified equation
   - $\delta n(t) = \delta n(0)e^{-\alpha p_0 t} = \delta n(0)e^{-t/\tau_{n0}}$
     - **exponential decay** from the initial excess concentration
     - **$\tau_{n0} = (\alpha_r p_0)^{-1}$**: a constant for the low-level injection
       - aka *excess minority carrier lifetime*
-      - > it's essentially a time constant
+        > it's essentially a time constant
 - → **recombination rate** of *excess minority carrier* of **electrons**
   - $R_n' = \frac{-d(\delta n(t))}{dt} =+ \alpha_r p_0 \delta n(t) = \frac{\delta n(t)}{\tau_{n0}}$
     - is defined as a positive quantity
@@ -125,7 +124,7 @@
     - $p_0 \gg \delta n(t)$
 - **high-level injection**
   - occurs when the *excess carrier concentration* becomes *comparable* to or greater than the *thermal-equilibrium majority carrier concentrations*
-  - > not common to occur
+	> not common to occur
 
 
 # 6.2 characteristics of excess carriers
@@ -157,10 +156,10 @@
 
 > tl;dr. 2 equations, one from particle flux in the differential volume, one from combining the factors accounting the generation/annihilation of holes. both are given
 
-- the **net increase** in the *number of holes per unit time* within the *differential volume element* **due to the *x-component of hole flux*** (given)
+- the **net increase** in the *number of holes per unit time* within the *differential volume element* due to the *x-component of hole flux* (given)
   - **$\frac{\partial p}{\partial t} dx\,dy\,dz = [F_{px}^+ (x) - F_{px}^+ (x+dx)]dy\,dz = -\frac{\partial F_{px}^+}{\partial x}dx\,dy\,dz$**
   - if $F_{px}^+ > F_{px}^+ (x+dx)$
-    - there wil be a *net increase* in the number of holes in the *differential volume element* *with time*
+    - a *net increase* in the number of holes in the *differential volume element* *with time*
   - > - if we generalize to a *three-dimensional hole flux*, the right side of the equation may be written as $\nabla\cdot F_{px}^+ dx\,dy\,dz$
     > - $\nabla\cdot F_{p}^+$: divergence of flux vector
     > - we will limit ourselves to one-dimensional analysis
@@ -175,16 +174,16 @@
     - 3rd term: *decrease* in the *number of holes* per unit time *due to the* **recombination of holes**
 - divide both sides of the equation by the *differential volume* $dx\,dy\,dz$
 - the **net increase** in the *hole concentration per unit time*
-  - aka **continuity equation** for **holes**
+  - aka **continuity equation** for *holes*
   - **$\frac{\partial p}{\partial t} = -\frac{\partial F_p^+}{\partial x}+g_p-\frac{p}{\tau_{pt}}$**
-- one-dimensional **continuity equation** for **electrons**
+- one-dimensional **continuity equation** for *electrons*
   - **$\frac{\partial n}{\partial t} = -\frac{\partial F_n^-}{\partial x}+g_n-\frac{n}{\tau_{nt}}$**
-    - **$F_n^-$**: **electron-particle flux/flow**
+    - **$F_n^-$**: *electron-particle flux/flow*
       - units: number of electrons/cm^2-s
 
 ## 6.2.2 time-dependent diffusion equations
 
-### 6.2.2.a math process
+### 6.2.2.a math process 1: continuity equation
 
 - **current densities** of hole and electron (given in one-dimension, [chapter 5](05-carrier-transport-phenomena.md))
   - $J_p = e\mu_p p\text{E} - e D_p\frac{\partial p}{\partial x}$
@@ -195,7 +194,7 @@
   - +e for *hole*, -e for *electron*
     - $F_p^+ = \frac{J_p}{+e} = +\mu_p p\text{E} - D_p\frac{\partial p}{\partial x}$
     - $F_n^- =\frac{J_n}{-e} = -\mu_n n\text{E} - D_n\frac{\partial n}{\partial x}$
-  - take **divergence** of the *particle flux*
+  - take *divergence* of the *particle flux*
     - $\frac{\partial F_p^+}{\partial x} = +\mu_p\frac{\partial (p\text{E})}{\partial x}-D_p\frac{\partial^2p}{\partial^2x}$
     - $\frac{\partial F_n^-}{\partial x} = -\mu_n\frac{\partial (n\text{E})}{\partial x} - D_n\frac{\partial^2 n}{\partial^2 x}$
 - **continuity equation** substituted by the *divergence* 
@@ -205,15 +204,15 @@
   - $\frac{\partial (p\text{E})}{\partial x} = \text{E}\frac{\partial p}{\partial x} + p\frac{\partial \text{E}}{\partial x}$
   - > - because we are limiting ourselves to one-dimensional analysis
     > - in a more general three-dimensional analysis, this will be replaced by a vector identity
-
-### 6.2.2.b result (time-dependent diffusion equations)
+- next rewriting the continuity equation with the expanded term...
+### 6.2.2.b math process 2: time-dependent diffusion equations (result)
 
 - **time-dependent diffusion equations** for holes and electrons
-  - describes **space and time behavior** of the **excess carriers**
+  - describes *space and time behavior* of the **excess carriers**
   - $D_p\frac{\partial^2p}{\partial^2t}-\mu_p(\text{E}\frac{\partial p}{\partial x}+p\frac{\partial\text{E}}{\partial x})+g_p-\frac{p}{\tau_{pt}} = \frac{\partial p}{\partial t}$
   - $D_n\frac{\partial^2n}{\partial^2t}+\mu_n(\text{E}\frac{\partial n}{\partial x}+n\frac{\partial\text{E}}{\partial x})+g_n-\frac{n}{\tau_{nt}} = \frac{\partial n}{\partial t}$
 - for **homogeneous** semiconductor
-  - **$n_0$, $p_0$** are **independent** of the **space coordinates**
+  - **$n_0$, $p_0$** are *independent* of the *space coordinates*
     - *total concentration(x,t)* = **thermal equilibrium concentration** + *excess concentration(x,t)*:
       - $n(x,t) = n_0 + \delta n(x,t)$
       - $p(x,t) = p_0 + \delta p(x,t)$
@@ -243,10 +242,10 @@
   - $\nabla\cdot\text{E}_{\text{int}}=\frac{e(\delta p-\delta n)}{\epsilon_s} = \frac{\partial\text{E}_{\text{int}}}{\partial x}$
     - $\epsilon_s$: permittivity of the semiconductor material
 
-### 6.3.1.a math process 1
+### 6.3.1.a math process 1: approximation preliminaries
 
 - **goal**
-  - making the *[time-dependent diffusion equation](#622b-result-time-dependent-diffusion-equations)* and *Poisson's equation* more *tractable*
+  - making the *time-dependent diffusion equation* ([6.2.2.b](#622b-result-time-dependent-diffusion-equations)) and *Poisson's equation* more *tractable*
   - → make approximations
 - $|\text{E}_{\text{int}}|\ll |\text{E}_{\text{app}}|$
   - **relatively small** *internal electric field* is sufficient to keep the excess carriers *drifting and diffusing together*
@@ -258,15 +257,16 @@
       - e.g. 1% difference in $\delta p$ and $\delta n$
       - → non-negligible values of the $\nabla\cdot\text{E}=\nabla\cdot\text{E}_{\text{int}}$
 
-### 6.3.1.b math process 2
+### 6.3.1.b math process 2: ambipolar transport equations (result)
 
 - **goal**
   - combine [time-dependent diffusion equations](#622b-result-time-dependent-diffusion-equations) to eliminate the $\nabla\cdot\text{E}_{\text{int}} = \frac{\partial \text{E}}{\partial x}$ term
   - deriving the *ambipolar transport equation*
-- preliminary: **charge neutrality** → **$\delta n \approx \delta p$**
-- **define**: *generation rate of carriers*
+- preliminary: **charge neutrality** → **$\delta n \approx \delta p$** (afore mentioned)
+	- the generation and recombination rates of both carriers will be (essentially) the same
+- → **define**: *generation rate of carriers*
   - $g_n = g_p \equiv g$
-- **define**: *recombination rate of carriers*
+- → **define**: *recombination rate of carriers*
   - $R_n = \frac{n}{\tau_{nt}} = R_p = \frac{p}{\tau_{pt}} \equiv R$
   - $\tau_{nt}$, $\tau_{pt}$: thermal-equilibrium lifetime + excess carrier lifetime = mean carrier lifetime
 
@@ -277,13 +277,13 @@
   - $(\mu_n n D_p+\mu_p p D_p)\frac{\partial (\delta n)}{\partial x^2}+(\mu_n\mu_p)(p-n)\text{E}\frac{\partial(\delta n)}{\partial x}+(\mu_n n+\mu_p p)(g-R)=(\mu_n n+\mu_p p)\frac{\partial (\delta n)}{\partial t}$
   - divide the equation by $(\mu_n n +\mu_p p)$ next we get...
 - **ambipolar transport equation**:
-  - **$D'\frac{\partial(\delta n)}{\partial x^2} + \mu'\text{E}\frac{\partial(\delta n)}{\partial x} + g - R = \frac{\partial (\delta n)}{\partial t}$**
+  - **$D'\frac{\partial^2(\delta n)}{\partial x^2} + \mu'\text{E}\frac{\partial(\delta n)}{\partial x} + g - R = \frac{\partial (\delta n)}{\partial t}$**
   - describes the *behavior of the excess electrons and holes* in *time and space*
   - nonlinear differential equation
 - **ambipolar diffusion coefficient**
   - $D' = \frac{\mu_n n D_p + \mu_p p D_n}{\mu_n n + \mu_p p}=D'(n,p)$
   - **$D' = \frac{D_nD_p(n+p)}{D_n n+D_p p}$**
-  - > Einstein relation: $\frac{\mu_n}{D_n}=\frac{\mu_p}{D_p}=\frac{e}{kT}$
+	  - derived using *Einstein relation*: $\frac{\mu_n}{D_n}=\frac{\mu_p}{D_p}=\frac{e}{kT}$
 - **ambipolar mobility**
   - **$\mu' = \frac{\mu_n \mu_p(p-n)}{\mu_n n +\mu_p p} = \mu'(n,p)$**
 
@@ -320,7 +320,7 @@
   - > rationale is mentioned above
 
 - **ambipolar transport equation** under low injection
-  - $D_n\frac{\partial^2 (\delta n)}{\partial x^2} + \mu_n\text{E}\frac{\partial(\delta n)}{\partial x}+g'-\frac{\delta n}{\tau_{n0}} = \frac{\partial(\delta n)}{\partial t}$
+  - **$D_n\frac{\partial^2 (\delta n)}{\partial x^2} + \mu_n\text{E}\frac{\partial(\delta n)}{\partial x}+g'-\frac{\delta n}{\tau_{n0}} = \frac{\partial(\delta n)}{\partial t}$**
     - $\delta n$: excess minority carrier electron concentration
     - $\tau_{n0}$: minority carrier electron lifetime under low injection
 
@@ -343,7 +343,7 @@
     > - → *majority* carrier lifetime may change drastically when excess carriers are present
 
 - **ambipolar transport equation** under low level injection
-  - $D_p \frac{\partial^2 (\delta p)}{\partial x^2} -\mu_p\text{E}\frac{\partial(\delta n)}{\partial x} + g' - \frac{\delta p}{\tau_{p0}} = \frac{\partial(\delta p)}{\partial t}$
+  - **$D_p \frac{\partial^2 (\delta p)}{\partial x^2} -\mu_p\text{E}\frac{\partial(\delta p)}{\partial x} + g' - \frac{\delta p}{\tau_{p0}} = \frac{\partial(\delta p)}{\partial t}$**
     - $\delta p$: excess minority carrier hole concentration
     - $\tau_{p0}$: minority carrier hole lifetime under low injection
 
@@ -356,16 +356,16 @@
     - $R_{n0}$: thermal-equilibrium electron recombination rate
     - $R_n'$: excess (non-equilibrium) electron recombination rate
   - $G_{n0} = R_{n0}$ for thermal-equilibrium
-  - $g - R = g_n' - R_n' = g_n' - \frac{\delta n}{\tau_n}$
+  - **$g - R = g_n' - R_n' = g_n' - \frac{\delta n}{\tau_n}$**
     - $\tau_n$: excess minority carrier electron lifetime
 - **holes** regeneration and recombination terms (n-type)
   - $g - R = g_p - R_p = (G_{p0} + g_p') - (R_{p0} + R_p')$
-  - $G_{p0} = R_{p0}$: for thermal-equilibrium
-  - $g - R = g_p' - R_p' = g_n' - \frac{\delta p}{\tau_p}$
+  - $G_{p0} = R_{p0}$ for thermal-equilibrium
+  - **$g - R = g_p' - R_p' = g_n' - \frac{\delta p}{\tau_p}$**
     - $\tau_p$: excess minority carrier hole lifetime
 
 - **generation rate** for *excess electrons* = generation rate for *excess holes* 
-  - $g_n' = g_p' \equiv g'$: define generation rate for **excess carriers**
+  - **$g_n' = g_p' \equiv g'$**: define generation rate for **excess carriers**
 
 ## 6.3.3 applications of the ambipolar transport equation
 
